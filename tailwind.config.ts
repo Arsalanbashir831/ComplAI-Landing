@@ -56,6 +56,7 @@ export default {
         },
         black: {
           light: 'hsl(var(--black-light))',
+          '100': 'hsl(var(--black-100))',
         },
         gray: {
           dark: 'hsl(var(--gray-dark))',
