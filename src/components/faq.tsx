@@ -12,7 +12,7 @@ export default function FAQSection() {
   const { faq } = siteConfig;
 
   return (
-    <section className="w-full py-12 md:py-24 lg:py-32">
+    <section className="w-full py-12 md:py-24">
       <div className="container flex flex-col items-center justify-center space-y-4 text-center mx-auto">
         <div className="inline-flex items-center justify-center px-2 py-1.5 mb-4 text-sm font-medium rounded-lg bg-[#F1F2F6] space-x-1">
           <div className="bg-[#D5EAFF] rounded-lg px-3 py-1 text-primary">

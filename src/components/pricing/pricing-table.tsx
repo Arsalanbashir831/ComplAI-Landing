@@ -1,204 +1,452 @@
-import { Check } from 'lucide-react';
+import { Check, Star } from 'lucide-react';
 
-import { Card } from '@/components/ui/card';
+import { Button } from '@/components/ui/button';
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from '@/components/ui/table';
 
-export function PricingTable() {
+const PricingTable = () => {
   return (
-    <div className="w-full max-w-7xl mx-auto px-4 py-8">
-      <div className="mb-8">
-        <h2 className="text-2xl font-semibold mb-2">
-          Find Your Compliance Plan
-        </h2>
-        <p className="text-gray-600">
-          Flexible, scalable, and tailored solutions to keep your firm compliant
-          and confident.
-        </p>
-      </div>
+    <div className="w-full max-w-6xl mx-auto p-6 bg-white rounded-2xl shadow-2xl">
+      <Table>
+        <TableHeader>
+          <TableRow className="border-none">
+            <TableHead className="w-1/4">
+              <div className="mb-8 text-[#000]">
+                <h2 className="text-3xl font-semibold">
+                  Find Your Compliance Plan
+                </h2>
+                <p>
+                  Flexible, scorable, and tailored solutions to keep your firm
+                  compliant and confident.
+                </p>
+              </div>
+            </TableHead>
+            <TableHead className="w-1/4">
+              <div className="space-y-2 text-center border border-b-0 rounded-xl rounded-b-none h-full pt-8">
+                <div className="space-y-2">
+                  <div className="font-semibold text-xl text-[#000]">
+                    Pay As You Use
+                  </div>
+                  <div className="text-primary text-lg font-semibold">
+                    Top-up Anytime
+                  </div>
+                  <p className="text-xs text-[#1F1F1F] w-44 mx-auto">
+                    From seeking assistance to compliance support without
+                    long-term commitments
+                  </p>
+                </div>
+                <div className="space-y-2">
+                  <Button className="w-44 mx-auto mt-6">Try for Free</Button>
+                  <div className="text-xs text-center text-[#000]">
+                    or <span className="text-primary">top-up now</span>
+                  </div>
+                </div>
+              </div>
+            </TableHead>
+            <TableHead className="w-1/4">
+              <div className="space-y-8 text-center relative border border-b-0 rounded-xl rounded-b-none h-full">
+                <div className="absolute -top-0 right-0 bg-primary text-white text-xs px-2 py-1 rounded-xl rounded-ss-none rounded-ee-none flex items-center gap-1">
+                  <Star className="h-3 w-3 inline-block" />
+                  <span>Most Popular</span>
+                </div>
+                <div className="space-y-2">
+                  <div className="font-semibold text-xl text-[#000]">
+                    Professional
+                  </div>
+                  <div className="text-primary text-lg font-semibold">
+                    £49 <span className="text-sm text-[#7C7C7C]">/month</span>
+                  </div>
+                  <p className="text-xs text-[#1F1F1F] w-44 mx-auto">
+                    Firms aiming to stay ahead of compliance requirements and
+                    maintain quality accreditations
+                  </p>
+                </div>
+                <Button className="w-44 mx-auto mt-6">Get Professional</Button>
+              </div>
+            </TableHead>
+            <TableHead className="w-1/4">
+              <div className="space-y-8 text-center border border-b-0 rounded-xl rounded-b-none h-full pt-8">
+                <div className="space-y-2">
+                  <div className="font-semibold text-xl text-[#000]">
+                    Enterprise
+                  </div>
+                  <div className="text-primary text-lg font-semibold">
+                    Custom Quote
+                  </div>
+                  <p className="text-xs text-[#1F1F1F] w-44 mx-auto">
+                    From managing high-risk firms, multiple legal service or
+                    future flagman
+                  </p>
+                </div>
+                <Button className="w-44 mx-auto mt-6">Contact Sales</Button>
+              </div>
+            </TableHead>
+          </TableRow>
+        </TableHeader>
 
-      <div className="grid grid-cols-4 gap-6">
-        {/* Column Headers */}
-        <div className="space-y-8">
-          <div className="h-32">
-            {' '}
-            {/* Spacer to align with other columns */}
-          </div>
-          <div className="font-medium">Core</div>
-          <div className="space-y-4 text-sm text-gray-600">
-            <div>Minimum Commitment</div>
-            <div>User License</div>
-            <div>Accessibility</div>
-            <div>Key Benefit</div>
-          </div>
-          <div className="font-medium mt-8">Features</div>
-          <div className="space-y-4 text-sm text-gray-600">
-            <div>Interactive Demo Assistance</div>
-            <div>Create & Manage Documents</div>
-            <div>Account & Data Security</div>
-            <div>Step-By-Step Guidance</div>
-            <div>Automated Policy Review</div>
-            <div>Document upload</div>
-            <div>File Review & Analysis</div>
-            <div>Voice Assistance</div>
-            <div>Upload Custom Compliance Manual</div>
-          </div>
-        </div>
+        <TableBody>
+          <TableRow className="border-none">
+            <TableCell className="font-medium">Core</TableCell>
+            <TableCell className="!py-0">
+              <div className="border border-y-0 p-2 h-10"></div>
+            </TableCell>
+            <TableCell className="!py-0">
+              <div className="border border-y-0 p-2 h-10"></div>
+            </TableCell>
+            <TableCell className="!py-0">
+              <div className="border border-y-0 p-2 h-10"></div>
+            </TableCell>
+          </TableRow>
+          <TableRow className="border-none space-x-10">
+            <TableCell className="!py-0">
+              <p className="border-b mr-4">Minimum Commitment</p>
+            </TableCell>
+            <TableCell className="!py-0">
+              <div className="border border-y-0 p-2">
+                <p className="border-b text-center w-44 mx-auto">No Contract</p>
+              </div>
+            </TableCell>
+            <TableCell className="!py-0">
+              <div className="border border-y-0 p-2">
+                <p className="border-b text-center w-44 mx-auto">12 Months</p>
+              </div>
+            </TableCell>
+            <TableCell className="!py-0">
+              <div className="border border-y-0 p-2">
+                <p className="border-b text-center w-44 mx-auto">24 Months</p>
+              </div>
+            </TableCell>
+          </TableRow>
+          <TableRow className="border-none">
+            <TableCell className="!py-0">
+              <p className="border-b mr-4">User Licenses</p>
+            </TableCell>
+            <TableCell className="!py-0">
+              <div className="border border-y-0 p-2">
+                <p className="border-b text-center w-44 mx-auto">Single User</p>
+              </div>
+            </TableCell>
+            <TableCell className="!py-0">
+              <div className="border border-y-0 p-2">
+                <p className="border-b text-center w-44 mx-auto">Single User</p>
+              </div>
+            </TableCell>
+            <TableCell className="!py-0">
+              <div className="border border-y-0 p-2">
+                <p className="border-b text-center w-44 mx-auto">
+                  Multiple Users
+                </p>
+              </div>
+            </TableCell>
+          </TableRow>
+          <TableRow className="border-none">
+            <TableCell className="!py-0">
+              <p className="border-b mr-4">Accessibility</p>
+            </TableCell>
+            <TableCell className="!py-0">
+              <div className="border border-y-0 p-2">
+                <p className="border-b text-center w-44 mx-auto">
+                  Desktop Only
+                </p>
+              </div>
+            </TableCell>
+            <TableCell className="!py-0">
+              <div className="border border-y-0 p-2">
+                <p className="border-b text-center w-44 mx-auto">
+                  Desktop Only
+                </p>
+              </div>
+            </TableCell>
+            <TableCell className="!py-0">
+              <div className="border border-y-0 p-2">
+                <p className="border-b text-center w-44 mx-auto">
+                  Desktop & Mobile
+                </p>
+              </div>
+            </TableCell>
+          </TableRow>
+          <TableRow className="border-none">
+            <TableCell className="!py-0">
+              <p className="border-b mr-4">Key Benefits</p>
+            </TableCell>
+            <TableCell className="!py-0">
+              <div className="border border-y-0 p-2">
+                <p className="border-b text-center w-44 mx-auto">Flexibility</p>
+              </div>
+            </TableCell>
+            <TableCell className="!py-0">
+              <div className="border border-y-0 p-2">
+                <p className="border-b text-center w-44 mx-auto">
+                  Comprehensive Support
+                </p>
+              </div>
+            </TableCell>
+            <TableCell className="!py-0">
+              <div className="border border-y-0 p-2">
+                <p className="border-b text-center w-44 mx-auto">
+                  Scalable Solutions
+                </p>
+              </div>
+            </TableCell>
+          </TableRow>
 
-        {/* Pay As You Use */}
-        <Card className="p-6 rounded-lg border border-gray-200">
-          <div className="h-32">
-            <div className="text-sm font-medium text-blue-600">
-              Pay As You Use
-            </div>
-            <div className="text-sm text-blue-600">Top-up Anytime</div>
-            <p className="text-sm text-gray-600 mt-2">
-              Firms seeking immediate compliance support with flexible,
-              long-term commitments
-            </p>
-            <button className="mt-4 w-full bg-blue-600 text-white rounded-md py-2 text-sm">
-              Try for Free
-            </button>
-            <div className="text-xs text-gray-500 mt-1 text-center">
-              w/ top-up now
-            </div>
-          </div>
-          <div className="space-y-8">
-            <div></div>
-            <div className="space-y-4 text-sm">
-              <div>No Contract</div>
-              <div>Single User</div>
-              <div>Desktop Only</div>
-              <div>Flexibility</div>
-            </div>
-            <div className="space-y-4 mt-8">
-              <div>
-                <Check className="w-4 h-4 text-blue-600" />
+          <TableRow className="border-none">
+            <TableCell className="font-medium">Features</TableCell>
+            <TableCell className="!py-0">
+              <div className="border border-y-0 p-2 h-10"></div>
+            </TableCell>
+            <TableCell className="!py-0">
+              <div className="border border-y-0 p-2 h-10"></div>
+            </TableCell>
+            <TableCell className="!py-0">
+              <div className="border border-y-0 p-2 h-10"></div>
+            </TableCell>
+          </TableRow>
+          <TableRow className="border-none">
+            <TableCell className="!py-0">
+              <p className="border-b mr-4">Interactive Data Assistance</p>
+            </TableCell>
+            <TableCell className="!py-0">
+              <div className="border border-y-0 p-2">
+                <p className="border-b w-44 mx-auto flex items-center justify-center">
+                  <Check className="h-4 w-4 text-center" />
+                </p>
               </div>
-              <div>
-                <Check className="w-4 h-4 text-blue-600" />
+            </TableCell>
+            <TableCell className="!py-0">
+              <div className="border border-y-0 p-2">
+                <p className="border-b w-44 mx-auto flex items-center justify-center">
+                  <Check className="h-4 w-4" />
+                </p>
               </div>
-              <div>
-                <Check className="w-4 h-4 text-blue-600" />
+            </TableCell>
+            <TableCell className="!py-0">
+              <div className="border border-y-0 p-2">
+                <p className="border-b w-44 mx-auto flex items-center justify-center">
+                  <Check className="h-4 w-4" />
+                </p>
               </div>
-              <div>
-                <Check className="w-4 h-4 text-blue-600" />
+            </TableCell>
+          </TableRow>
+          <TableRow className="border-none">
+            <TableCell className="!py-0">
+              <p className="border-b mr-4">Create & Manage Uncertainty</p>
+            </TableCell>
+            <TableCell className="!py-0">
+              <div className="border border-y-0 p-2">
+                <p className="border-b w-44 mx-auto flex items-center justify-center">
+                  <Check className="h-4 w-4" />
+                </p>
               </div>
-              <div>-</div>
-              <div>-</div>
-              <div>-</div>
-              <div>-</div>
-              <div>-</div>
-            </div>
-          </div>
-        </Card>
+            </TableCell>
+            <TableCell className="!py-0">
+              <div className="border border-y-0 p-2">
+                <p className="border-b w-44 mx-auto flex items-center justify-center">
+                  <Check className="h-4 w-4" />
+                </p>
+              </div>
+            </TableCell>
+            <TableCell className="!py-0">
+              <div className="border border-y-0 p-2">
+                <p className="border-b w-44 mx-auto flex items-center justify-center">
+                  <Check className="h-4 w-4" />
+                </p>
+              </div>
+            </TableCell>
+          </TableRow>
+          <TableRow className="border-none">
+            <TableCell className="!py-0">
+              <p className="border-b mr-4">Account & Data Security</p>
+            </TableCell>
+            <TableCell className="!py-0">
+              <div className="border border-y-0 p-2">
+                <p className="border-b w-44 mx-auto flex items-center justify-center">
+                  <Check className="h-4 w-4" />
+                </p>
+              </div>
+            </TableCell>
+            <TableCell className="!py-0">
+              <div className="border border-y-0 p-2">
+                <p className="border-b w-44 mx-auto flex items-center justify-center">
+                  <Check className="h-4 w-4" />
+                </p>
+              </div>
+            </TableCell>
+            <TableCell className="!py-0">
+              <div className="border border-y-0 p-2">
+                <p className="border-b w-44 mx-auto flex items-center justify-center">
+                  <Check className="h-4 w-4" />
+                </p>
+              </div>
+            </TableCell>
+          </TableRow>
+          <TableRow className="border-none">
+            <TableCell className="!py-0">
+              <p className="border-b mr-4">Step-by-Step Guidance</p>
+            </TableCell>
+            <TableCell className="!py-0">
+              <div className="border border-y-0 p-2">
+                <p className="border-b w-44 mx-auto flex items-center justify-center">
+                  <Check className="h-4 w-4" />
+                </p>
+              </div>
+            </TableCell>
+            <TableCell className="!py-0">
+              <div className="border border-y-0 p-2">
+                <p className="border-b w-44 mx-auto flex items-center justify-center">
+                  <Check className="h-4 w-4" />
+                </p>
+              </div>
+            </TableCell>
+            <TableCell className="!py-0">
+              <div className="border border-y-0 p-2">
+                <p className="border-b w-44 mx-auto flex items-center justify-center">
+                  <Check className="h-4 w-4" />
+                </p>
+              </div>
+            </TableCell>
+          </TableRow>
+          <TableRow className="border-none">
+            <TableCell className="!py-0">
+              <p className="border-b mr-4">Automated Policy Review</p>
+            </TableCell>
+            <TableCell className="!py-0">
+              <div className="border border-y-0 p-2">
+                <p className="border-b w-44 mx-auto flex items-center justify-center">
+                  <Check className="h-4 w-4" />
+                </p>
+              </div>
+            </TableCell>
+            <TableCell className="!py-0">
+              <div className="border border-y-0 p-2">
+                <p className="border-b w-44 mx-auto flex items-center justify-center">
+                  <Check className="h-4 w-4" />
+                </p>
+              </div>
+            </TableCell>
+            <TableCell className="!py-0">
+              <div className="border border-y-0 p-2">
+                <p className="border-b w-44 mx-auto flex items-center justify-center">
+                  <Check className="h-4 w-4" />
+                </p>
+              </div>
+            </TableCell>
+          </TableRow>
+          <TableRow className="border-none">
+            <TableCell className="!py-0">
+              <p className="border-b mr-4">Document Upload</p>
+            </TableCell>
+            <TableCell className="!py-0">
+              <div className="border border-y-0 p-2">
+                <p className="border-b text-center w-44 mx-auto">-</p>
+              </div>
+            </TableCell>
+            <TableCell className="!py-0">
+              <div className="border border-y-0 p-2">
+                <p className="border-b text-center w-44 mx-auto">Up to 15 MB</p>
+              </div>
+            </TableCell>
+            <TableCell className="!py-0">
+              <div className="border border-y-0 p-2">
+                <p className="border-b text-center w-44 mx-auto">
+                  Up to 100 MB
+                </p>
+              </div>
+            </TableCell>
+          </TableRow>
+          <TableRow className="border-none">
+            <TableCell className="!py-0">
+              <p className="border-b mr-4">File Review & Analysis</p>
+            </TableCell>
+            <TableCell className="!py-0">
+              <div className="border border-y-0 p-2">
+                <p className="border-b text-center w-44 mx-auto">-</p>
+              </div>
+            </TableCell>
+            <TableCell className="!py-0">
+              <div className="border border-y-0 p-2">
+                <p className="border-b text-center w-44 mx-auto">-</p>
+              </div>
+            </TableCell>
+            <TableCell className="!py-0">
+              <div className="border border-y-0 p-2">
+                <p className="border-b w-44 mx-auto flex items-center justify-center">
+                  <Check className="h-4 w-4" />
+                </p>
+              </div>
+            </TableCell>
+          </TableRow>
+          <TableRow className="border-none">
+            <TableCell className="!py-0">
+              <p className="border-b mr-4">Voice Assistant</p>
+            </TableCell>
+            <TableCell className="!py-0">
+              <div className="border border-y-0 p-2">
+                <p className="border-b text-center w-44 mx-auto">-</p>
+              </div>
+            </TableCell>
+            <TableCell className="!py-0">
+              <div className="border border-y-0 p-2">
+                <p className="border-b text-center w-44 mx-auto">-</p>
+              </div>
+            </TableCell>
+            <TableCell className="!py-0">
+              <div className="border border-y-0 p-2">
+                <p className="border-b w-44 mx-auto flex items-center justify-center">
+                  <Check className="h-4 w-4" />
+                </p>
+              </div>
+            </TableCell>
+          </TableRow>
+          <TableRow className="border-none">
+            <TableCell className="!py-0">
+              <p className="border-b mr-4">Upload Custom Compliance Manual</p>
+            </TableCell>
+            <TableCell className="!py-0">
+              <div className="border border-y-0 p-2">
+                <p className="border-b text-center w-44 mx-auto">-</p>
+              </div>
+            </TableCell>
+            <TableCell className="!py-0">
+              <div className="border border-y-0 p-2">
+                <p className="border-b text-center w-44 mx-auto">-</p>
+              </div>
+            </TableCell>
+            <TableCell className="!py-0">
+              <div className="border border-y-0 p-2">
+                <p className="border-b w-44 mx-auto flex items-center justify-center">
+                  <Check className="h-4 w-4" />
+                </p>
+              </div>
+            </TableCell>
+          </TableRow>
+          <TableRow className="border-none">
+            <TableCell className="!py-0"></TableCell>
+            <TableCell className="!py-0">
+              <div className="border border-t-0 rounded-b-xl p-2 h-10"></div>
+            </TableCell>
+            <TableCell className="!py-0">
+              <div className="border border-t-0 rounded-b-xl p-2 h-10"></div>
+            </TableCell>
+            <TableCell className="!py-0">
+              <div className="border border-t-0 rounded-b-xl p-2 h-10"></div>
+            </TableCell>
+          </TableRow>
+        </TableBody>
+      </Table>
 
-        {/* Professional */}
-        <Card className="p-6 rounded-lg border-2 border-blue-600 relative">
-          <div className="absolute -top-3 left-1/2 transform -translate-x-1/2">
-            <span className="bg-blue-600 text-white px-3 py-1 rounded-full text-xs">
-              Most Popular
-            </span>
-          </div>
-          <div className="h-32">
-            <div className="text-sm font-medium">Professional</div>
-            <div className="text-lg font-medium">
-              £49 <span className="text-sm text-gray-600">/ month</span>
-            </div>
-            <p className="text-sm text-gray-600 mt-2">
-              Firms willing to stay ahead of compliance requirements and
-              maintain quality consultations
-            </p>
-            <button className="mt-4 w-full bg-blue-600 text-white rounded-md py-2 text-sm">
-              Get Professional
-            </button>
-          </div>
-          <div className="space-y-8">
-            <div></div>
-            <div className="space-y-4 text-sm">
-              <div>12 Months</div>
-              <div>Single User</div>
-              <div>Desktop Only</div>
-              <div>Comprehensive Support</div>
-            </div>
-            <div className="space-y-4 mt-8">
-              <div>
-                <Check className="w-4 h-4 text-blue-600" />
-              </div>
-              <div>
-                <Check className="w-4 h-4 text-blue-600" />
-              </div>
-              <div>
-                <Check className="w-4 h-4 text-blue-600" />
-              </div>
-              <div>
-                <Check className="w-4 h-4 text-blue-600" />
-              </div>
-              <div>
-                <Check className="w-4 h-4 text-blue-600" />
-              </div>
-              <div>Up to 5MB</div>
-              <div>-</div>
-              <div>-</div>
-              <div>-</div>
-            </div>
-          </div>
-        </Card>
-
-        {/* Enterprise */}
-        <Card className="p-6 rounded-lg border border-gray-200">
-          <div className="h-32">
-            <div className="text-sm font-medium text-blue-600">Enterprise</div>
-            <div className="text-sm text-blue-600">Custom Quote</div>
-            <p className="text-sm text-gray-600 mt-2">
-              Firms managing high-risk, regulated activities or multiple
-              entities, or secure litigation
-            </p>
-            <button className="mt-4 w-full bg-blue-600 text-white rounded-md py-2 text-sm">
-              Contact Sales
-            </button>
-          </div>
-          <div className="space-y-8">
-            <div></div>
-            <div className="space-y-4 text-sm">
-              <div>24 Months</div>
-              <div>Multiple Users</div>
-              <div>Desktop & Mobile</div>
-              <div>Scalable Solutions</div>
-            </div>
-            <div className="space-y-4 mt-8">
-              <div>
-                <Check className="w-4 h-4 text-blue-600" />
-              </div>
-              <div>
-                <Check className="w-4 h-4 text-blue-600" />
-              </div>
-              <div>
-                <Check className="w-4 h-4 text-blue-600" />
-              </div>
-              <div>
-                <Check className="w-4 h-4 text-blue-600" />
-              </div>
-              <div>
-                <Check className="w-4 h-4 text-blue-600" />
-              </div>
-              <div>Up to 50 MB</div>
-              <div>
-                <Check className="w-4 h-4 text-blue-600" />
-              </div>
-              <div>
-                <Check className="w-4 h-4 text-blue-600" />
-              </div>
-              <div>
-                <Check className="w-4 h-4 text-blue-600" />
-              </div>
-            </div>
-          </div>
-        </Card>
-      </div>
-
-      <div className="mt-6 text-sm text-gray-500 text-center">
+      <p className="text-sm text-gray-500 mt-6 text-center">
         Mobile functionality on Pay As You Use and Professional plans is limited
         but still usable, with full optimization exclusive to Enterprise
-      </div>
+      </p>
     </div>
   );
-}
+};
+
+export default PricingTable;

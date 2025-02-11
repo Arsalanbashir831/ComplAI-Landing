@@ -6,7 +6,7 @@ import { CTAButton } from '../cta-button';
 
 export function PricingBanner() {
   return (
-    <section className="container mx-auto flex justify-center py-12">
+    <section className="container mx-auto flex justify-center py-24">
       <Card className="bg-blue-lightest border-0 overflow-hidden w-full md:w-[90%] rounded-[40px]">
         <CardContent className="flex items-center justify-between gap-6 p-0 h-full">
           <div className="space-y-4 py-12 px-16 basis-9/12">

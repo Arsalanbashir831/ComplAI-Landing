@@ -1,7 +1,7 @@
 import CTASection from '@/components/cta-section';
 import FAQSection from '@/components/faq';
 import { PricingBanner } from '@/components/pricing/pricing-banner';
-import { PricingTable } from '@/components/pricing/pricing-table';
+import PricingTable from '@/components/pricing/pricing-table';
 import TeamsSlider from '@/components/teams-slider';
 
 export default function Contact() {
@@ -20,7 +20,21 @@ export default function Contact() {
   return (
     <>
       <main>
-        <PricingTable />
+        <div className="relative text-center space-y-2 my-20 bg-gradient-to-b from-[#edf8ff00] to-[#70a2ff85] h-screen">
+          <h2 className="text-6xl font-bold">
+            Smart Compliance, <br />
+            Priced for Your Success
+          </h2>
+          <p className="font-normal text-xl">
+            Streamline Your Law Firm&rsquo;s Compliance with Artificial
+            Intelligence
+          </p>
+
+          <div className="absolute top-1/3 left-1/2 transform -translate-x-1/2 text-start w-full">
+            <PricingTable />
+          </div>
+        </div>
+        <div className="h-96 mt-32" />
         <PricingBanner />
         <TeamsSlider />
         <FAQSection />
