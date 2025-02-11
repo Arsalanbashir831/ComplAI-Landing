@@ -3,6 +3,7 @@
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
 
+import { cn } from '@/lib/utils';
 import { Button } from '@/components/ui/button';
 
 import { Logo } from './logo';
@@ -21,11 +22,18 @@ export function Header() {
   }, []);
 
   return (
-    <header className="sticky top-0 z-50 w-full bg-white/95 backdrop-blur supports-[backdrop-filter]:bg-white/60">
+    <header
+      className={cn(
+        'sticky top-0 z-50 w-full bg-transparent',
+        hasScrolled &&
+          'bg-white/95  backdrop-blur supports-[backdrop-filter]:bg-white/60'
+      )}
+    >
       <div
-        className={`container flex h-16 items-center justify-between mx-auto  mt-4 rounded-[20px] transition-all ${
+        className={cn(
+          'container flex h-16 items-center justify-between mx-auto mt-4 rounded-[20px] transition-all',
           hasScrolled ? 'border-none' : 'border px-4'
-        }`}
+        )}
       >
         <Logo />
 

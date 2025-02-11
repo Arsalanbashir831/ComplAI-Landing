@@ -22,6 +22,10 @@ export const siteConfig = {
       href: ROUTES.ABOUT,
     },
     {
+      title: 'News',
+      href: ROUTES.NEWS,
+    },
+    {
       title: 'Contact',
       href: ROUTES.CONTACT,
     },

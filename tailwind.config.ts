@@ -59,6 +59,7 @@ export default {
           '100': 'hsl(var(--black-100))',
         },
         gray: {
+          light: 'hsl(var(--gray-light))',
           dark: 'hsl(var(--gray-dark))',
         },
       },

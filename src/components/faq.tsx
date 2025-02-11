@@ -1,3 +1,5 @@
+import { Star } from 'lucide-react';
+
 import { siteConfig } from '@/config/site';
 import {
   Accordion,
@@ -12,8 +14,11 @@ export default function FAQSection() {
   return (
     <section className="w-full py-12 md:py-24 lg:py-32">
       <div className="container flex flex-col items-center justify-center space-y-4 text-center mx-auto">
-        <div className="inline-flex items-center rounded-full bg-muted px-3 py-1 text-sm">
-          FAQ
+        <div className="inline-flex items-center justify-center px-2 py-1.5 mb-4 text-sm font-medium rounded-lg bg-[#F1F2F6] space-x-1">
+          <div className="bg-[#D5EAFF] rounded-lg px-3 py-1 text-primary">
+            <Star size={12} />
+          </div>
+          <span>FAQ</span>
         </div>
         <h2 className="text-3xl font-bold sm:text-4xl md:text-6xl">
           {faq.title}

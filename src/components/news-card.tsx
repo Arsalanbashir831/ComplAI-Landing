@@ -1,9 +1,11 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import { ChevronRight } from 'lucide-react';
+import { Calendar, ChevronRight, Dot } from 'lucide-react';
 
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardFooter } from '@/components/ui/card';
+
+import { Avatar, AvatarFallback, AvatarImage } from './ui/avatar';
 
 interface NewsCardProps {
   date: string;
@@ -11,6 +13,11 @@ interface NewsCardProps {
   description: string;
   imageUrl: string;
   href: string;
+  readingTime?: string;
+  avatar?: {
+    name: string;
+    image: string;
+  };
 }
 
 export function NewsCard({
@@ -19,9 +26,11 @@ export function NewsCard({
   description,
   imageUrl,
   href,
+  readingTime,
+  avatar,
 }: NewsCardProps) {
   return (
-    <Card className="overflow-hidden border-2 bg-primary rounded-2xl text-white">
+    <Card className="overflow-hidden border-2 bg-blue-lightest rounded-2xl">
       <CardContent className="p-4 space-y-1">
         <div className="relative h-48 mb-4">
           <Image
@@ -31,13 +40,40 @@ export function NewsCard({
             className="object-cover"
           />
         </div>
-        <time className="text-sm">{date}</time>
+
+        {(avatar || readingTime) && (
+          <div className="flex items-center justify-between gap-2 text-sm text-gray-dark">
+            {avatar && (
+              <div className="flex items-center gap-2 text-sm text-gray-dark">
+                <Avatar>
+                  <AvatarImage src={avatar.image} />
+                  <AvatarFallback>{avatar.name}</AvatarFallback>
+                </Avatar>
+                <span>{avatar.name}</span>
+              </div>
+            )}
+            {readingTime && (
+              <div className="flex items-center justify-self-end text-sm text-gray-dark">
+                <Dot size={36} className="-mr-2" />
+                <time className="text-sm">{readingTime}</time>
+              </div>
+            )}
+          </div>
+        )}
+
         <h3 className="text-2xl font-semibold ">{title}</h3>
-        <p className="line-clamp-2">{description}</p>
+        <p className="line-clamp-2 text-gray-dark">{description}</p>
       </CardContent>
       <CardFooter className="p-6 pt-0">
+        <div className="flex items-center gap-2 text-sm text-gray-dark">
+          <Calendar size={16} />
+          <time className="text-sm">{date}</time>
+        </div>
         <Link href={href} className="ml-auto">
-          <Button variant="outline" className="hover:bg-blue-50 text-[#000]">
+          <Button
+            variant="outline"
+            className="hover:bg-blue-50 text-[#000] font-medium text-sm"
+          >
             Read More <ChevronRight size={16} />
           </Button>
         </Link>
