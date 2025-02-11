@@ -8,9 +8,11 @@ import { cn } from '@/lib/utils';
 export function Logo({
   href = ROUTES.HOME,
   className,
+  inverted = false,
 }: {
   href?: string;
   className?: string;
+  inverted?: boolean;
 }) {
   return (
     <Link
@@ -18,7 +20,7 @@ export function Logo({
       className={cn('flex items-center justify-center', className)}
     >
       <Image
-        src="/logo.svg"
+        src={inverted ? '/logo-white.svg' : '/logo.svg'}
         alt={siteConfig.name}
         width={150}
         height={150}

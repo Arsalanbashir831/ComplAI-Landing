@@ -115,8 +115,9 @@ export const siteConfig = {
     company: {
       title: 'COMPANY',
       links: [
-        { title: 'About', href: '/about' },
-        { title: 'Contact', href: '/contact' },
+        { title: 'About', href: ROUTES.ABOUT },
+        { title: 'Contact', href: ROUTES.CONTACT },
+        { title: 'News', href: ROUTES.NEWS },
       ],
     },
     contact: {

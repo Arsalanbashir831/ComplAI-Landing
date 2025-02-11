@@ -14,7 +14,7 @@ const newsData = [
     title: 'Startup News',
     description: 'Latest in startups.',
     imageUrl: '/images/card-placeholder-img.png',
-    href: '/news/1',
+    slug: 'slug',
     avatar: {
       name: 'John Doe',
       image: 'https://github.com/shadcn.png',
@@ -28,7 +28,7 @@ const newsData = [
     title: 'Company Update',
     description: 'Big moves in companies.',
     imageUrl: '/images/card-placeholder-img.png',
-    href: '/news/2',
+    slug: 'slug',
     readingTime: '5 min read',
     avatar: {
       name: 'Jane Doe',
@@ -42,7 +42,7 @@ const newsData = [
     title: 'Tech Advancements',
     description: 'Latest in tech world.',
     imageUrl: '/images/card-placeholder-img.png',
-    href: '/news/3',
+    slug: 'slug',
     readingTime: '7 min read',
     avatar: {
       name: 'John Doe',
@@ -56,7 +56,7 @@ const newsData = [
     title: 'Chatbot Trends',
     description: 'AI chatbot revolution.',
     imageUrl: '/images/card-placeholder-img.png',
-    href: '/news/4',
+    slug: 'slug',
     readingTime: '4 min read',
     avatar: {
       name: 'Jane Doe',
@@ -70,7 +70,7 @@ const newsData = [
     title: 'Chatbot Trends',
     description: 'AI chatbot revolution.',
     imageUrl: '/images/card-placeholder-img.png',
-    href: '/news/4',
+    slug: 'slug',
     readingTime: '4 min read',
     avatar: {
       name: 'Jane Doe',
@@ -84,7 +84,7 @@ const newsData = [
     title: 'Chatbot Trends',
     description: 'AI chatbot revolution.',
     imageUrl: '/images/card-placeholder-img.png',
-    href: '/news/4',
+    slug: 'slug',
     readingTime: '4 min read',
     avatar: {
       name: 'Jane Doe',
@@ -98,7 +98,7 @@ const newsData = [
     title: 'Chatbot Trends',
     description: 'AI chatbot revolution.',
     imageUrl: '/images/card-placeholder-img.png',
-    href: '/news/4',
+    slug: 'slug',
     readingTime: '4 min read',
     avatar: {
       name: 'Jane Doe',
@@ -112,7 +112,7 @@ const newsData = [
     title: 'Chatbot Trends',
     description: 'AI chatbot revolution.',
     imageUrl: '/images/card-placeholder-img.png',
-    href: '/news/4',
+    slug: 'slug',
     readingTime: '4 min read',
     avatar: {
       name: 'Jane Doe',
@@ -126,7 +126,7 @@ const newsData = [
     title: 'Chatbot Trends',
     description: 'AI chatbot revolution.',
     imageUrl: '/images/card-placeholder-img.png',
-    href: '/news/4',
+    slug: 'slug',
     readingTime: '4 min read',
     avatar: {
       name: 'Jane Doe',
@@ -140,7 +140,7 @@ const newsData = [
     title: 'Chatbot Trends',
     description: 'AI chatbot revolution.',
     imageUrl: '/images/card-placeholder-img.png',
-    href: '/news/4',
+    slug: 'slug',
     readingTime: '4 min read',
     avatar: {
       name: 'Jane Doe',

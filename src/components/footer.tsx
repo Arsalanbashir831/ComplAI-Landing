@@ -1,5 +1,4 @@
 import Link from 'next/link';
-import { ROUTES } from '@/constants/routes';
 import {
   ArrowRight,
   ArrowUp,
@@ -27,30 +26,25 @@ export function Footer() {
   const { footer } = siteConfig;
 
   return (
-    <footer className="border-t py-16">
+    <footer className="border-t py-16 bg-primary">
       <div className="container grid gap-8 md:grid-cols-2 lg:grid-cols-4 mx-auto">
         {/* Logo and Social Section */}
         <div className="space-y-6">
-          <Logo className="justify-start" />
-          <p
-            className="text-sm w-3/4
-					"
-          >
-            {footer.tagline}
-          </p>
+          <Logo className="justify-start" inverted={true} />
+          <p className="text-sm w-3/4 text-white">{footer.tagline}</p>
         </div>
 
         {/* Product Links */}
         <div className="space-y-4">
-          <h3 className="text-sm font-semibold text-muted-foreground">
+          <h3 className="text-sm font-semibold text-white">
             {footer.product.title}
           </h3>
-          <ul className="space-y-3">
+          <ul>
             {footer.product.links.map((link) => (
               <li key={link.href}>
                 <Link
                   href={link.href}
-                  className="text-sm text-foreground transition-colors hover:text-primary"
+                  className="text-sm text-white transition-colors hover:text-gray-300"
                 >
                   {link.title}
                 </Link>
@@ -61,15 +55,15 @@ export function Footer() {
 
         {/* Company Links */}
         <div className="space-y-4">
-          <h3 className="text-sm font-semibold text-muted-foreground">
+          <h3 className="text-sm font-semibold text-white">
             {footer.company.title}
           </h3>
-          <ul className="space-y-3">
+          <ul>
             {footer.company.links.map((link) => (
               <li key={link.href}>
                 <Link
                   href={link.href}
-                  className="text-sm text-foreground transition-colors hover:text-primary"
+                  className="text-sm text-white transition-colors hover:text-gray-300"
                 >
                   {link.title}
                 </Link>
@@ -80,13 +74,10 @@ export function Footer() {
 
         {/* Contact and Newsletter */}
         <div className="space-y-4 flex flex-col items-end">
-          <Button
-            className="bg-black-light text-white rounded-lg"
-            variant="outline"
-          >
+          <Button className="rounded-lg" variant="outline">
             Request a call
           </Button>
-          <div className="space-y-2 text-sm">
+          <div className="space-y-2 text-sm text-white">
             <p>{footer.contact.phone}</p>
             <p>{footer.contact.email}</p>
           </div>
@@ -100,7 +91,7 @@ export function Footer() {
                 <Link
                   key={social.href}
                   href={social.href}
-                  className="rounded-full p-2 text-white bg-black-light transition-colors hover:bg-primary hover:text-primary-foreground"
+                  className="rounded-full p-2 bg-white transition-colors hover:bg-gray-300"
                 >
                   <Icon className="h-4 w-4" />
                 </Link>
@@ -117,7 +108,7 @@ export function Footer() {
           </Link>
         </div>
 
-        <div className="col-span-full flex justify-between gap-16">
+        <div className="col-span-full flex justify-between gap-16 text-white">
           <div className="basis-1/2">
             <p className="text-3xl max-w-sm">{footer.mainText}</p>
           </div>
@@ -129,8 +120,8 @@ export function Footer() {
                 label="Your Email"
                 name={footer.newsletter.placeholder}
                 className="border-[#1B181999] rounded-xl"
-                startIcon={<AtSign className="h-4 w-4" />}
-                endIcon={<ArrowRight className="h-4 w-4" />}
+                startIcon={<AtSign className="h-4 w-4 text-[#000]" />}
+                endIcon={<ArrowRight className="h-4 w-4 text-[#000]" />}
                 startIconClassName="text-black"
                 endIconClassName="text-black"
               />
@@ -138,20 +129,12 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="container flex items-center justify-between col-span-full">
-          <p className="text-sm text-muted-foreground">
+        <div className="container flex items-center justify-center col-span-full">
+          <p className="text-sm text-white">
             © {new Date().getFullYear()} - Copyright
           </p>
-          <Link
-            href={ROUTES.PRIVACY}
-            className="text-sm text-muted-foreground hover:text-primary"
-          >
-            Privacy
-          </Link>
         </div>
       </div>
-
-      {/* Copyright */}
     </footer>
   );
 }

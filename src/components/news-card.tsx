@@ -12,7 +12,7 @@ interface NewsCardProps {
   title: string;
   description: string;
   imageUrl: string;
-  href: string;
+  slug: string;
   readingTime?: string;
   avatar?: {
     name: string;
@@ -25,7 +25,7 @@ export function NewsCard({
   title,
   description,
   imageUrl,
-  href,
+  slug,
   readingTime,
   avatar,
 }: NewsCardProps) {
@@ -69,7 +69,7 @@ export function NewsCard({
           <Calendar size={16} />
           <time className="text-sm">{date}</time>
         </div>
-        <Link href={href} className="ml-auto">
+        <Link href={`/news/${slug}`} className="ml-auto">
           <Button
             variant="outline"
             className="hover:bg-blue-50 text-[#000] font-medium text-sm"
