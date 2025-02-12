@@ -1,3 +1,4 @@
+'use client'
 import CTASection from '@/components/cta-section';
 import FAQSection from '@/components/faq';
 import Features from '@/components/home/features';
@@ -5,6 +6,7 @@ import { Hero } from '@/components/home/hero';
 import IndustryStandards from '@/components/home/industry-standards';
 import { NewsSection } from '@/components/news-section';
 import TestimonialSlider from '@/components/testimonials';
+import { Suspense } from 'react';
 
 export default function Home() {
   const cta = {
@@ -20,17 +22,21 @@ export default function Home() {
   };
   return (
     <>
-      <main >
-        <Hero />
-        <div className="-mt-64">
-          <IndustryStandards />
-        </div>
-        <Features />
-        <TestimonialSlider />
-        <FAQSection />
-        <CTASection cta={cta} showBgImage={true} showRadialImage={false} />
-        <NewsSection />
-      </main>
+      <Suspense>
+
+
+        <main >
+          <Hero />
+          <div className="-mt-64">
+            <IndustryStandards />
+          </div>
+          <Features />
+          <TestimonialSlider />
+          <FAQSection />
+          <CTASection cta={cta} showBgImage={true} showRadialImage={false} />
+          <NewsSection />
+        </main>
+      </Suspense>
     </>
   );
 }
