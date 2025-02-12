@@ -1,8 +1,12 @@
 'use client';
 
+import { useEffect } from 'react';
 import Image from 'next/image';
+import { useSearchParams } from 'next/navigation';
 import { motion } from 'framer-motion';
+import { Command } from 'lucide-react';
 
+import { cn } from '@/lib/utils';
 import { Card, CardContent } from '@/components/ui/card';
 
 interface FeatureCardProps {
@@ -14,6 +18,7 @@ interface FeatureCardProps {
   topImage?: string;
   bottomImage?: string;
   className?: string;
+  bottomImageClassName?: string;
   delay?: number;
 }
 
@@ -26,6 +31,7 @@ function FeatureCard({
   topImage,
   bottomImage,
   className,
+  bottomImageClassName,
   delay = 0,
 }: FeatureCardProps) {
   return (
@@ -77,7 +83,9 @@ function FeatureCard({
             )}
           </div>
           {bottomImage && (
-            <div className="relative h-28 w-full">
+            <div
+              className={cn('relative h-40 w-full mt-6', bottomImageClassName)}
+            >
               <Image
                 src={bottomImage}
                 layout="fill"
@@ -93,17 +101,29 @@ function FeatureCard({
 }
 
 export default function Features() {
+  const searchParams = useSearchParams();
+
+  useEffect(() => {
+    const section = searchParams.get('section');
+    if (section && document.getElementById(section)) {
+      document.getElementById(section)?.scrollIntoView({ behavior: 'smooth' });
+    }
+  }, [searchParams]);
+
   return (
-    <section className="py-16 px-4 md:px-6">
+    <section id="features" className="py-16 px-4 md:px-6">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-12">
           <motion.div
             initial={{ opacity: 0, y: -20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="inline-flex items-center justify-center px-4 py-1.5 mb-4 text-sm font-medium rounded-full bg-blue-100 text-blue-800"
+            className="inline-flex items-center justify-center px-2 py-1.5 mb-4 text-sm font-medium rounded-lg bg-[#F1F2F6] space-x-1"
           >
-            Features
+            <div className="bg-[#D5EAFF] rounded-lg px-3 py-1 text-primary">
+              <Command size={12} />
+            </div>
+            <span>Features</span>
           </motion.div>
           <motion.h2
             initial={{ opacity: 0 }}
@@ -161,6 +181,7 @@ export default function Features() {
             className="col-span-4 row-span-2"
             title="Interactive Query Assistance"
             description="Provides instant, accurate compliance answers, clarifying SRA Rules, AML, Legal Aid, Lexcel, SQM, and more."
+            bottomImage="/images/features/5.svg"
             delay={5}
           />
           <FeatureCard
@@ -183,6 +204,8 @@ export default function Features() {
             className="md:col-span-2"
             title="Guided Compliance Steps"
             description="Simplify complex regulations with step-by-step actions and expert best practices."
+            bottomImage="/images/features/8.svg"
+            bottomImageClassName="h-28"
             delay={8}
           />
         </div>

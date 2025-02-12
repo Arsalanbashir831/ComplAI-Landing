@@ -22,12 +22,14 @@ export default function Home() {
     <>
       <main>
         <Hero />
-        <IndustryStandards />
+        <div className="-mt-64">
+          <IndustryStandards />
+        </div>
         <Features />
         <TestimonialSlider />
         <FAQSection />
+        <CTASection cta={cta} showBgImage={true} showRadialImage={false} />
         <NewsSection />
-        <CTASection cta={cta} />
       </main>
     </>
   );

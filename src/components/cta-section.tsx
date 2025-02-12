@@ -1,3 +1,5 @@
+import Image from 'next/image';
+
 import { cn } from '@/lib/utils';
 import { CTAButton } from '@/components/cta-button';
 
@@ -6,6 +8,8 @@ export default function CTASection({
   containerClassName,
   titleClassName,
   descriptionClassName,
+  showBgImage = false,
+  showRadialImage = true,
 }: {
   cta: {
     title: { start: string; highlight: string; end?: string };
@@ -16,9 +20,38 @@ export default function CTASection({
   containerClassName?: string;
   titleClassName?: string;
   descriptionClassName?: string;
+  showBgImage?: boolean;
+  showRadialImage?: boolean;
 }) {
   return (
-    <section className={cn('bg-blue-lightest to-muted', containerClassName)}>
+    <section
+      className={cn('relative bg-blue-lightest to-muted', containerClassName)}
+    >
+      {showBgImage && (
+        <div className="absolute right-0 inset-0 flex items-center justify-end">
+          <Image
+            src="/images/bg/home-cta-bg.svg"
+            alt="background image"
+            width={800}
+            height={800}
+            className="h-full object-cover"
+          />
+        </div>
+      )}
+
+      {showRadialImage && (
+        <div className="absolute inset-0 flex items-center justify-center">
+          <Image
+            src="/images/bg/blur-cta-bg.svg"
+            alt="background image"
+            width={800}
+            height={800}
+            className="w-full h-full object-cover"
+          />
+        </div>
+      )}
+
+      {/* content */}
       <div className="container rounded-lg px-8 py-28 md:px-12 lg:px-16 flex flex-col items-center text-center space-y-6 max-w-5xl mx-auto">
         <div className="space-y-2">
           <h3

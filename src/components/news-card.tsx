@@ -30,7 +30,7 @@ export function NewsCard({
   avatar,
 }: NewsCardProps) {
   return (
-    <Card className="overflow-hidden border-2 bg-blue-lightest rounded-2xl">
+    <Card className="overflow-hidden bg-[#EDF8FF] rounded-2xl border-none">
       <CardContent className="p-4 space-y-1">
         <div className="relative h-48 mb-4">
           <Image
@@ -41,7 +41,7 @@ export function NewsCard({
           />
         </div>
 
-        {(avatar || readingTime) && (
+        {avatar || readingTime ? (
           <div className="flex items-center justify-between gap-2 text-sm text-gray-dark">
             {avatar && (
               <div className="flex items-center gap-2 text-sm text-gray-dark">
@@ -59,16 +59,23 @@ export function NewsCard({
               </div>
             )}
           </div>
+        ) : (
+          <div className="flex items-center gap-2 text-sm text-gray-dark font-semibold">
+            <Calendar size={16} className="font-semibold" />
+            <time className="text-sm">{date}</time>
+          </div>
         )}
 
         <h3 className="text-2xl font-semibold ">{title}</h3>
         <p className="line-clamp-2 text-gray-dark">{description}</p>
       </CardContent>
       <CardFooter className="p-6 pt-0">
-        <div className="flex items-center gap-2 text-sm text-gray-dark">
-          <Calendar size={16} />
-          <time className="text-sm">{date}</time>
-        </div>
+        {(avatar || readingTime) && (
+          <div className="flex items-center gap-2 text-sm text-gray-dark">
+            <Calendar size={16} />
+            <time className="text-sm">{date}</time>
+          </div>
+        )}
         <Link href={`/news/${slug}`} className="ml-auto">
           <Button
             variant="outline"

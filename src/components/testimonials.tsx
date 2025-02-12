@@ -54,6 +54,7 @@ const testimonials: Testimonial[] = [
 
 export default function TestimonialCarousel() {
   const [items, setItems] = useState(testimonials);
+  const [key, setKey] = useState(0); // Key to trigger re-render
   const focusedIndex = 2;
 
   const rotateItems = useCallback((direction: 'left' | 'right') => {
@@ -68,6 +69,8 @@ export default function TestimonialCarousel() {
       }
       return newItems;
     });
+
+    setKey((prevKey) => prevKey + 1); // Force re-render
   }, []);
 
   const handleClick = useCallback(
@@ -118,7 +121,7 @@ export default function TestimonialCarousel() {
             <AnimatePresence mode="popLayout" initial={false}>
               {items.slice(0, 5).map((item, index) => (
                 <motion.div
-                  key={item.id}
+                  key={`${item.id}-${key}`} // Ensures motion elements re-render
                   layoutId={String(item.id)}
                   className="relative cursor-pointer rounded-lg"
                   initial={{
@@ -129,7 +132,7 @@ export default function TestimonialCarousel() {
                     opacity: 1,
                     x: 0,
                     scale: index === 2 ? 1 : 0.9,
-                    filter: index === 2 ? 'blur(0px)' : 'blur(1.5px)',
+                    filter: index === 2 ? 'blur(0px)' : 'blur(3px)', // Increased blur
                     backgroundColor: index === 2 ? '#D7ECFF' : '#EDF8FF',
                   }}
                   exit={{

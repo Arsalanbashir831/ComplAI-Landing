@@ -33,7 +33,7 @@ const NEWS_ITEMS = [
 
 export function NewsSection() {
   return (
-    <section className="py-12 px-4">
+    <section className="py-20 px-4">
       <div className="max-w-7xl mx-auto">
         <div className="flex justify-between items-center mb-8">
           <h2 className="text-5xl font-semibold">Latest news</h2>
@@ -51,7 +51,7 @@ export function NewsSection() {
               title={item.title}
               description={item.description}
               imageUrl={item.imageUrl}
-              href={item.href}
+              slug={item.href}
             />
           ))}
         </div>

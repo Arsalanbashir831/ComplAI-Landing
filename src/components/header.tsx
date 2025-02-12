@@ -32,7 +32,7 @@ export function Header() {
       <div
         className={cn(
           'container flex h-16 items-center justify-between mx-auto mt-4 rounded-[20px] transition-all',
-          hasScrolled ? 'border-none' : 'border px-4'
+          hasScrolled ? 'border-none' : 'border px-4 bg-white/95'
         )}
       >
         <Logo />
