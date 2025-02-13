@@ -56,7 +56,7 @@ export default function ContactForm() {
               </li>
               <li className="flex items-center gap-2">
                 <Check size={24} />
-                Request customized quotes
+                Request customised quotes
               </li>
             </ul>
           </div>

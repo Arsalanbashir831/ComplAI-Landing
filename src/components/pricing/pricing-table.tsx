@@ -456,7 +456,7 @@ const PricingTable = () => {
 
         <p className="text-sm text-gray-500 mt-6 text-center">
           Mobile functionality on Pay As You Use and Professional plans is
-          limited but still usable, with full optimization exclusive to
+          limited but still usable, with full optimisation exclusive to
           Enterprise
         </p>
       </div>
