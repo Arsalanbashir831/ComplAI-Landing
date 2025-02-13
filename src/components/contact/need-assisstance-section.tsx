@@ -1,3 +1,7 @@
+'use client';
+
+// if you’re using Next.js App Router
+import { motion } from 'framer-motion';
 import type { LucideIcon } from 'lucide-react';
 import { Mail, MapPin, Phone } from 'lucide-react';
 
@@ -63,19 +67,42 @@ export default function NeedAssistanceSection() {
     <section className="py-16 bg-white px-4 md:px-0">
       <div className="container mx-auto">
         <div className="space-y-8">
+          {/* Animated Heading & Paragraph */}
           <div className="text-center space-y-2">
-            <h2 className="text-3xl md:text-4xl font-bold">
+            <motion.h2
+              initial={{ opacity: 0, y: -20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+              viewport={{ amount: 0.5 }}
+              className="text-3xl md:text-4xl font-bold"
+            >
               Need Further Assistance? Contact Us Directly
-            </h2>
-            <p className="text-lg md:text-xl max-w-3xl mx-auto">
+            </motion.h2>
+
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+              viewport={{ amount: 0.5 }}
+              className="text-lg md:text-xl max-w-3xl mx-auto"
+            >
               Send attachments or additional details directly to our Sales or
               Support teams for quick and reliable assistance
-            </p>
+            </motion.p>
           </div>
 
+          {/* Animated Cards */}
           <div className="grid md:grid-cols-3 gap-6">
-            {contactInfo.map((info) => (
-              <ContactCard key={info.title} {...info} />
+            {contactInfo.map((info, index) => (
+              <motion.div
+                key={info.title}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: index * 0.2 }}
+                viewport={{ amount: 0.5 }}
+              >
+                <ContactCard {...info} />
+              </motion.div>
             ))}
           </div>
         </div>

@@ -6,7 +6,6 @@ import CTASection from '@/components/cta-section';
 import FAQSection from '@/components/faq';
 import Features from '@/components/home/features';
 import { Hero } from '@/components/home/hero';
-import IndustryStandards from '@/components/home/industry-standards';
 import { NewsSection } from '@/components/news-section';
 import TestimonialSlider from '@/components/testimonials';
 
@@ -27,9 +26,6 @@ export default function Home() {
       <Suspense>
         <main>
           <Hero />
-          <div className="-mt-44 md:-mt-64">
-            <IndustryStandards />
-          </div>
           <Features />
           <TestimonialSlider />
           <FAQSection />

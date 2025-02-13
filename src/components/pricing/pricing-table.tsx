@@ -12,7 +12,7 @@ import {
 
 const PricingTable = () => {
   return (
-    <div className="px-4 md:px-0">
+    <div className="px-4 md:px-0 mt-10">
       <div className="w-full max-w-6xl mx-auto p-6 bg-white rounded-2xl shadow-2xl">
         <Table>
           <TableHeader>

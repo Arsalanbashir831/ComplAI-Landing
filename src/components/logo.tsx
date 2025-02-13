@@ -2,7 +2,6 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { ROUTES } from '@/constants/routes';
 
-import { siteConfig } from '@/config/site';
 import { cn } from '@/lib/utils';
 
 export function Logo({
@@ -21,7 +20,7 @@ export function Logo({
     >
       <Image
         src={inverted ? '/logo-white.svg' : '/logo.svg'}
-        alt={siteConfig.name}
+        alt="Compl-AI"
         width={150}
         height={150}
         priority

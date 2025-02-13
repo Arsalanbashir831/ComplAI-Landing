@@ -1,4 +1,8 @@
+'use client';
+
+// Needed if using Next.js App Router
 import Image from 'next/image';
+import { motion } from 'framer-motion';
 
 import { cn } from '@/lib/utils';
 import { Card, CardContent } from '@/components/ui/card';
@@ -7,17 +11,24 @@ interface ValueCardProps {
   title: string;
   description: string;
   icon?: string;
-  leftImage?: string;
-  rightImage?: string;
-  topImage?: string;
-  bottomImage?: string;
   className?: string;
-  bottomImageClassName?: string;
+  delay?: number;
 }
 
-function ValueCard({ title, description, icon, className }: ValueCardProps) {
+function ValueCard({
+  title,
+  description,
+  icon,
+  className,
+  delay = 0,
+}: ValueCardProps) {
   return (
-    <div
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5, delay: delay * 0.1 }}
+      whileHover={{ scale: 1.02 }}
+      viewport={{ amount: 0.5 }}
       className={cn(
         'p-4 bg-[url(/images/bg/value-card-bg.svg)] bg-cover bg-center bg-no-repeat rounded-3xl',
         className
@@ -37,7 +48,7 @@ function ValueCard({ title, description, icon, className }: ValueCardProps) {
           </CardContent>
         </Card>
       </div>
-    </div>
+    </motion.div>
   );
 }
 
@@ -45,40 +56,51 @@ export default function ValuesSection() {
   return (
     <section className="md:py-16 px-4 md:px-6">
       <div className="max-w-7xl mx-auto">
+        {/* Animated heading container (similar to the Features example) */}
         <div className="text-center mb-12">
-          <h2 className="text-4xl md:text-5xl font-semibold mb-4">
+          <motion.h2
+            initial={{ opacity: 0, y: -20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            viewport={{ amount: 0.5 }}
+            className="text-4xl md:text-5xl font-semibold mb-4"
+          >
             Our Values
-          </h2>
+          </motion.h2>
         </div>
 
         {/* Bento Grid Container */}
-        <div className="grid md:grid-cols-[1fr_1fr_1fr] gap-6 ">
+        <div className="grid md:grid-cols-[1fr_1fr_1fr] gap-6">
           {/* First Row */}
           <ValueCard
             className="col-span-full md:col-span-2"
             title="Technology-Driven Leadership"
-            description="We	pioneer the use	of cutting-edge technology to transform	compliance in	the legal	industry,	setting	new standards	for	efficiency and innovation"
+            description="We pioneer the use of cutting-edge technology to transform compliance in the legal industry, setting new standards for efficiency and innovation"
             icon="/images/icons/technology.svg"
+            delay={1}
           />
           <ValueCard
             className="col-span-full md:col-span-1"
             title="Collaboration for Impact"
             description="We foster teamwork and partnership to create meaningful change for our users and the industry."
             icon="/images/icons/collaborate.svg"
+            delay={2}
           />
 
           {/* Second Row */}
           <ValueCard
             className="col-span-full md:col-span-1"
-            title="Integrity	and	Accountability"
+            title="Integrity and Accountability"
             description="We are committed to acting with integrity, taking ownership of our work, and delivering dependable solutions."
             icon="/images/icons/integrity.svg"
+            delay={3}
           />
           <ValueCard
             className="col-span-full md:col-span-2"
             title="Empowerment Through Simplicity"
             description="We enable legal teams to master compliance effortlessly, delivering tools that make the complex simple and accessible."
             icon="/images/icons/empowerment.svg"
+            delay={4}
           />
         </div>
       </div>

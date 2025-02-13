@@ -1,3 +1,7 @@
+'use client';
+
+import { motion } from 'framer-motion';
+
 import CTASection from '@/components/cta-section';
 import FAQSection from '@/components/faq';
 import { PricingBanner } from '@/components/pricing/pricing-banner';
@@ -21,14 +25,28 @@ export default function Contact() {
     <>
       <main>
         <div className="relative text-center space-y-2 my-20 bg-gradient-to-b from-[#edf8ff00] to-[#70a2ff85] pt-20 h-screen">
-          <h2 className="text-6xl font-bold">
+          <motion.h2
+            // 1. Animation starting state
+            initial={{ opacity: 0, y: 50 }}
+            // 2. Animation end state
+            animate={{ opacity: 1, y: 0 }}
+            // 3. Animation timing
+            transition={{ duration: 0.8, ease: 'easeOut' }}
+            className="text-6xl font-bold"
+          >
             Smart Compliance, <br />
             Priced for Your Success
-          </h2>
-          <p className="font-normal text-xl">
+          </motion.h2>
+
+          <motion.p
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.3, duration: 0.8, ease: 'easeOut' }}
+            className="font-normal text-xl"
+          >
             Streamline Your Law Firm&rsquo;s Compliance with Artificial
             Intelligence
-          </p>
+          </motion.p>
 
           <div className="absolute top-1/3 left-1/2 transform -translate-x-1/2 text-start w-full">
             <PricingTable />

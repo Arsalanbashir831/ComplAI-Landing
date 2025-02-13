@@ -48,13 +48,6 @@
 <path d="M0 1039.75H1440" stroke="#C1C7CF" stroke-opacity="0.2"/>
 <path d="M0 1097.51H1440" stroke="#C1C7CF" stroke-opacity="0.2"/>
 <path d="M0 1155.27H1440" stroke="#C1C7CF" stroke-opacity="0.2"/>
-<rect x="450" y="250" width="50" height="50" fill="#B9E0FF" fill-opacity="0.5"/>
-<rect x="450" y="800" width="50" height="50" fill="#B9E0FF" fill-opacity="0.5"/>
-<rect x="750" y="700" width="50" height="50" fill="#0A58EB" fill-opacity="0.5"/>
-<rect x="1050" y="700" width="50" height="50" fill="#0A58EB" fill-opacity="0.5"/>
-<rect x="550" y="450" width="50" height="50" fill="#B9E0FF" fill-opacity="0.5"/>
-<rect x="350" y="450" width="50" height="50" fill="#B9E0FF" fill-opacity="0.5"/>
-<rect x="550" y="150" width="50" height="50" fill="#B9E0FF" fill-opacity="0.5"/>
 <mask id="mask0_1894_360" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="852" width="1440" height="679">
 <rect y="852" width="1440" height="679" fill="#EDF8FF"/>
 </mask>

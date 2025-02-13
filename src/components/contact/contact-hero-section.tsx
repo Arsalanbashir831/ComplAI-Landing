@@ -1,9 +1,11 @@
 'use client';
 
+import { motion } from 'framer-motion';
+
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 
-import ContactForm from './contact-form';
-import { SupportForm } from './support-form';
+import SalesForm from './sales-form';
+import SupportForm from './support-form';
 
 export default function ContactHeroSection() {
   return (
@@ -15,13 +17,28 @@ export default function ContactHeroSection() {
         <div className="container mx-auto relative z-10">
           <div className="space-y-12">
             <div className="text-center space-y-2 mb-20">
-              <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold">
+              {/* Animated heading */}
+              <motion.h2
+                initial={{ opacity: 0, y: -20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5 }}
+                viewport={{ once: true, amount: 0.2 }}
+                className="text-4xl sm:text-5xl md:text-6xl font-bold"
+              >
                 Get in Touch with Us Today!
-              </h2>
-              <p className="font-normal sm:text-lg md:text-xl">
+              </motion.h2>
+
+              {/* Animated paragraph */}
+              <motion.p
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.2 }}
+                viewport={{ once: true, amount: 0.2 }}
+                className="font-normal sm:text-lg md:text-xl"
+              >
                 Whether It&rsquo;s Sales, Support, or Just a Question, Our Team
                 Is Happy to Help
-              </p>
+              </motion.p>
             </div>
 
             <Tabs defaultValue="support" className="w-full">
@@ -39,15 +56,13 @@ export default function ContactHeroSection() {
                   Compl-AI Support
                 </TabsTrigger>
               </TabsList>
-              <TabsContent value="support">
-                <ContactForm />
 
-              </TabsContent>
               <TabsContent value="sales">
-                <SupportForm />
-
+                <SalesForm />
               </TabsContent>
-
+              <TabsContent value="support">
+                <SupportForm />
+              </TabsContent>
             </Tabs>
           </div>
         </div>

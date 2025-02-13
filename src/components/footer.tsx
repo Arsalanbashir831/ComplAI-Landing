@@ -1,7 +1,6 @@
 import Link from 'next/link';
+import { ROUTES } from '@/constants/routes';
 import { Facebook, Linkedin, X, Youtube } from 'lucide-react';
-
-import { siteConfig } from '@/config/site';
 
 import { Logo } from './logo';
 import NavigateToTop from './navigate-to-top';
@@ -13,9 +12,44 @@ const socialIcons = {
   youtube: Youtube,
 };
 
-export function Footer() {
-  const { footer } = siteConfig;
+const footer = {
+  tagline: 'Your in-house compliance partner powered by AI',
+  mainText: 'AI makes compliance faster, smarter, and more efficient.',
+  quickLinks: {
+    title: 'Quick Links',
+    links: [
+      { title: 'Home', href: ROUTES.HOME },
+      { title: 'Features', href: `${ROUTES.HOME}?section=features` },
+      { title: 'Pricing', href: ROUTES.PRICING },
+      { title: 'About', href: ROUTES.ABOUT },
+      { title: 'News', href: ROUTES.NEWS },
+      { title: 'Contact', href: ROUTES.CONTACT },
+    ],
+  },
+  company: {
+    title: 'Company',
+    links: [
+      { title: 'Compl-AI GPT', href: '#' },
+      { title: 'Dashboard', href: '#' },
+    ],
+  },
+  contact: {
+    phone: '+1 (555) 555 55 55',
+    email: 'sales@compl-ai.co.uk',
+  },
+  newsletter: {
+    text: 'Just share us your contact email and we will contact you.',
+    placeholder: 'Your email',
+  },
+  socialLinks: [
+    { icon: 'linkedin', href: 'https://linkedin.com' },
+    { icon: 'facebook', href: 'https://facebook.com' },
+    { icon: 'twitter', href: 'https://twitter.com' },
+    { icon: 'youtube', href: 'https://youtube.com' },
+  ],
+};
 
+export function Footer() {
   return (
     <footer className="border-t py-16 bg-primary px-4 md:px-0">
       <div className="relative container grid gap-8 md:grid-cols-[2fr_1fr] mx-auto">
@@ -26,13 +60,13 @@ export function Footer() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:relative">
-          {/* Product Links */}
+          {/* Quick Links */}
           <div className="space-y-4">
             <h3 className="text-xl font-semibold text-white">
-              {footer.product.title}
+              {footer.quickLinks.title}
             </h3>
             <ul className="space-y-1">
-              {footer.product.links.map((link) => (
+              {footer.quickLinks.links.map((link) => (
                 <li key={link.href}>
                   <Link
                     href={link.href}
@@ -97,7 +131,7 @@ export function Footer() {
           {/* support mail */}
           <Link
             href={`mailto:${footer.contact.email}`}
-            className="text-base text-white font-medium"
+            className="relative text-base text-white font-medium after:block after:h-[2px] after:w-0 after:bg-white after:transition-all after:duration-500 after:ease-in-out after:absolute after:left-0 after:bottom-0 hover:after:w-full"
           >
             {footer.contact.email}
           </Link>

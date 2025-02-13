@@ -1,5 +1,5 @@
 import AboutHeroSection from '@/components/about/about-hero-section';
-import AiSection from '@/components/about/Ai-section';
+import AiSection from '@/components/about/ai-section';
 import TrustedSection from '@/components/about/trusteded-section';
 import ValuesSection from '@/components/about/values-section';
 import CTASection from '@/components/cta-section';
@@ -21,7 +21,7 @@ export default function Contact() {
 
   return (
     <>
-      <main className='pt-20'>
+      <main className="pt-20">
         <AboutHeroSection />
         <TrustedSection />
         <AiSection />

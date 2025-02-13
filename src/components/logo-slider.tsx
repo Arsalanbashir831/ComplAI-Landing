@@ -14,20 +14,26 @@ type LogoSliderProps = {
   title: string;
   logos: Logo[];
   titleClassName?: string;
+  showSidesFade?: boolean;
 };
 
 export default function LogoSlider({
   title,
   logos,
   titleClassName,
+  showSidesFade = true,
 }: LogoSliderProps) {
   return (
-    <div className="relative m-auto w-full overflow-hidden before:absolute before:left-0 before:top-0 before:z-[2] before:h-full before:w-[100px] before:bg-[linear-gradient(to_right,#f3f4f6fc,rgba(255,255,255,0)_60%)] md:before:bg-[linear-gradient(to_right,#f3f4f6fc,rgba(255,255,255,0)_100%)] before:content-[''] after:absolute after:right-0 after:top-0 after:z-[2] after:h-full after:w-[100px] after:-scale-x-100 after:bg-[linear-gradient(to_right,#f3f4f6fc,rgba(255,255,255,0)_60%)] md:after:bg-[linear-gradient(to_right,#f3f4f6fc,rgba(255,255,255,0)_100%)] after:content-['']">
-      <div className="flex items-center justify-center">
-        <h2 className={cn('mb-6 text-center text-xl', titleClassName)}>
-          {title}
-        </h2>
-      </div>
+    <div
+      className={cn(
+        'relative m-auto w-full overflow-hidden',
+        showSidesFade &&
+          "before:absolute before:left-0 before:top-0 before:z-[2] before:h-full before:w-[100px] before:bg-[linear-gradient(to_right,#f3f4f6fc,rgba(255,255,255,0)_60%)] md:before:bg-[linear-gradient(to_right,#f3f4f6fc,rgba(255,255,255,0)_100%)] before:content-[''] after:absolute after:right-0 after:top-0 after:z-[2] after:h-full after:w-[100px] after:-scale-x-100 after:bg-[linear-gradient(to_right,#f3f4f6fc,rgba(255,255,255,0)_60%)] md:after:bg-[linear-gradient(to_right,#f3f4f6fc,rgba(255,255,255,0)_100%)] after:content-['']"
+      )}
+    >
+      <h2 className={cn('mb-6 text-center text-xl', titleClassName)}>
+        {title}
+      </h2>
 
       <div className="relative m-auto w-full overflow-hidden py-10">
         <motion.div

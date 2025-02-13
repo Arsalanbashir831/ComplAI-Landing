@@ -1,61 +1,46 @@
-'use client';
-
 import { useState } from 'react';
-import { zodResolver } from '@hookform/resolvers/zod';
-import { useForm } from 'react-hook-form';
 
+import { cn } from '@/lib/utils';
 import { Button } from '@/components/ui/button';
-
+import { Input } from '@/components/ui/input';
 import {
-  EnterpriseFormFields,
-  enterpriseFormSchema,
-  type EnterpriseFormValues,
-} from './support-form-fields';
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from '@/components/ui/select';
+import { Textarea } from '@/components/ui/textarea';
 
-export function SupportForm() {
-  const [isSubmitting, setIsSubmitting] = useState(false);
+import ContactFormLeftSide from './contact-form-left-side';
 
-  const { control, handleSubmit, reset } = useForm<EnterpriseFormValues>({
-    resolver: zodResolver(enterpriseFormSchema),
-    defaultValues: {
-      firmName: '',
-      registrationNumber: '',
-      address: '',
-      website: '',
-      fullName: '',
-      role: '',
-      email: '',
-      phoneNumber: '',
-      numberOfEmployees: '',
-      practiceAreas: '',
-      keyRequirements: '',
-    },
-  });
-
-  const onSubmit = async (data: EnterpriseFormValues) => {
-    setIsSubmitting(true);
-    try {
-      // Simulate API call
-      await new Promise((resolve) => setTimeout(resolve, 2000));
-      console.log(data);
-      reset();
-    } catch (error) {
-      console.error(error);
-    } finally {
-      setIsSubmitting(false);
-    }
-  };
+export default function SupportForm() {
+  const [selectedVersion, setSelectedVersion] = useState('');
 
   return (
-    <form
-      onSubmit={handleSubmit(onSubmit)}
-      className="p-6 pb-20 bg-white rounded-xl w-full mx-auto space-y-8"
-    >
-      <EnterpriseFormFields control={control} />
+    <div className="grid md:grid-cols-2 gap-8 px-4 md:px-0">
+      <ContactFormLeftSide />
 
-      <Button type="submit" className="w-full" disabled={isSubmitting}>
-        {isSubmitting ? 'Submitting...' : 'Apply for Enterprise Plan'}
-      </Button>
-    </form>
+      <div className="space-y-4 flex-1">
+        <Input placeholder="Your full name" className="py-6" />
+        <Input type="email" placeholder="Your email" className="py-6" />
+
+        {/* Version Dropdown */}
+        <Select onValueChange={setSelectedVersion}>
+          <SelectTrigger
+            className={cn(!selectedVersion && 'text-muted-foreground')}
+          >
+            <SelectValue placeholder="Version" />
+          </SelectTrigger>
+          <SelectContent>
+            <SelectItem value="version1">Version 1</SelectItem>
+            <SelectItem value="version2">Version 2</SelectItem>
+          </SelectContent>
+        </Select>
+
+        <Textarea placeholder="Description" className="h-[200px] py-6" />
+        <Button className="w-full">Submit Support Request</Button>
+      </div>
+    </div>
   );
 }

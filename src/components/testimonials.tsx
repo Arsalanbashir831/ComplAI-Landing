@@ -1,9 +1,9 @@
 'use client';
 
+import { useCallback, useState } from 'react';
+import Image from 'next/image';
 import { AnimatePresence, motion } from 'framer-motion';
 import { ArrowLeft, ArrowRight, Star } from 'lucide-react';
-import Image from 'next/image';
-import { useCallback, useState } from 'react';
 
 import { Button } from './ui/button';
 
@@ -18,37 +18,79 @@ const testimonials: Testimonial[] = [
   {
     id: 0,
     quote:
-      'As a small startup law firm, we don’t have the resources for a dedicated compliance team. Compl-AI is like having an expert on hand 24/7, and it fits perfectly within our budget',
-    author: 'Ishtiaq Ahmed',
-    company: 'Finchley Legal',
+      'Compl-AI has saved us thousands in compliance costs. We no longer need to rely on external consultants or spend hours on manual reviews. It’s a must-have for any law firm.',
+    author: 'Chris Marsh',
+    company: 'AWH Solicitors',
   },
   {
     id: 1,
     quote:
-      'Advising law firms on complex regulations is challenging, but Compl-AI has made compliance checks faster, more accurate, and efficient. It’s now essential for ensuring my clients stay compliant with confidence.',
-    author: 'Sean Bucknall',
-    company: 'Quantuma',
+      'What used to take us days now takes seconds. The speed and accuracy of Compl-AI is incredible, letting us focus on growing our practice instead of chasing compliance deadlines.',
+    author: 'Matthew Shiels',
+    company: 'Cartwright King',
   },
   {
     id: 2,
     quote:
-      'Compl-AI has been a game-changer for our advisory process. It’s reliable, easy to use, and takes the guesswork out of helping our clients manage compliance. I can’t imagine going back to the old, manual methods.',
-    author: 'Saif Ullah Khan',
-    company: 'Kaizen Law',
+      'As a small startup law firm, we don’t have the resources for a dedicated compliance team. Compl-AI is like having an expert on hand 24/7, and it fits perfectly within our budget.',
+    author: 'Ishtiaq Ahmed',
+    company: 'Finchley Legal',
   },
   {
     id: 3,
+    quote:
+      'Compl-AI is incredibly user-friendly. It delivers instant answers to compliance questions, which means we can act immediately without wasting time searching for information.',
+    author: 'Craig Cooper',
+    company: 'Barings Law',
+  },
+  {
+    id: 4,
     quote:
       'The time and cost savings are phenomenal. Compl-AI has streamlined our compliance processes, helping us stay ahead of regulations without the usual stress or expense.',
     author: 'Faraz Fazal',
     company: 'Veritas Solicitors',
   },
   {
-    id: 4,
+    id: 5,
     quote:
-      'The time and cost savings are phenomenal. Compl-AI has streamlined our compliance processes and ensures nothing slips through the usual stress of deadlines.',
-    author: 'Peter Head',
-    company: 'Vertex Legal',
+      'The instant insights Compl-AI provides are a game-changer. It’s like having a compliance expert in your pocket, ready to guide you at a moment’s notice.',
+    author: 'Saif Ullah Khan',
+    company: 'Kaizen Law',
+  },
+  {
+    id: 6,
+    quote:
+      'Since adopting Compl-AI, our team has been able to focus on the bigger picture instead of getting bogged down by compliance admin. It’s completely changed the way we work.',
+    author: 'Adrian Biles',
+    company: 'Child & Child',
+  },
+  {
+    id: 7,
+    quote:
+      'Compl-AI has been a game-changer for our advisory process. It’s reliable, easy to use, and takes the guesswork out of helping our clients manage compliance. I can’t imagine going back to the old, manual methods.',
+    author: 'Farook Patel',
+    company: 'Xeinadin',
+  },
+  {
+    id: 8,
+    quote:
+      'Advising law firms on complex regulations is challenging, but Compl-AI has made compliance checks faster, more accurate, and efficient. It’s now essential for ensuring my clients stay compliant with confidence.',
+    author: 'Sean Bucknall',
+    company: 'Quantuma',
+  },
+  {
+    id: 9,
+    quote:
+      'Compl-AI gives us the confidence to fund with peace of mind, knowing the firms we work with are fully compliant. It’s streamlined our processes and ensures we can focus on funding the right cases without unnecessary risks.',
+    author: 'Louisa Klouda',
+    company: 'Fenchurch Legal',
+  },
+  {
+    id: 10,
+    quote:
+      'With Compl-AI, we can lend with greater confidence, knowing the firms we support are meeting compliance standards. It’s transformed how we assess risk, saving time and ensuring our decisions are backed by reliable compliance insights.',
+    author: 'Grant Cumbley',
+    company: 'Nera Capital',
   },
 ];
 
@@ -117,13 +159,13 @@ export default function TestimonialCarousel() {
         </div>
 
         <div className="relative w-full overflow-hidden py-8">
-          <div className="flex items-center justify-center gap-2">
+          <div className="flex items-stretch justify-center gap-2">
             <AnimatePresence mode="popLayout" initial={false}>
               {items.slice(0, 5).map((item, index) => (
                 <motion.div
                   key={`${item.id}-${key}`} // Ensures motion elements re-render
                   layoutId={String(item.id)}
-                  className="relative cursor-pointer rounded-lg"
+                  className="relative cursor-pointer rounded-lg mx-2 flex-1"
                   initial={{
                     opacity: 0,
                     x: index === 0 ? -100 : index === 2 ? 100 : 0,
@@ -131,7 +173,7 @@ export default function TestimonialCarousel() {
                   animate={{
                     opacity: 1,
                     x: 0,
-                    scale: index === 2 ? 1 : 0.9,
+                    // scale: index === 2 ? 1 : 0.9,
                     filter: index === 2 ? 'blur(0px)' : 'blur(3px)', // Increased blur
                     backgroundColor: index === 2 ? '#D7ECFF' : '#EDF8FF',
                   }}
@@ -146,7 +188,7 @@ export default function TestimonialCarousel() {
                   }}
                   onClick={() => handleClick(item.id)}
                 >
-                  <div className="w-[300px] p-6 rounded-lg shadow-lg">
+                  <div className="w-[300px] p-6 rounded-lg flex-1">
                     <div className="mb-4">
                       <Image
                         src="/images/icons/quote.svg"
@@ -155,7 +197,7 @@ export default function TestimonialCarousel() {
                         alt="Quote icon"
                       />
                     </div>
-                    <blockquote className="text-lg mb-4">
+                    <blockquote className="text-lg mb-4 line-clamp-6 overflow-ellipsis overflow-hidden">
                       {item.quote}
                     </blockquote>
                     <footer>
