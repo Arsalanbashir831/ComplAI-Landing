@@ -9,7 +9,7 @@ export default function NavigateToTop() {
     <div className="absolute top-0 right-0 flex items-start justify-center h-full">
       <Button
         onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-        className="rounded-full h-fit p-2 text-primary bg-white transition-colors hover:bg-gray-200"
+        className="rounded-full h-fit p-2 text-primary bg-white hover:bg-gray-200 transition-all duration-300 ease-in-out hover:scale-105"
       >
         <ArrowUp className="h-4 w-4" />
       </Button>

@@ -79,7 +79,7 @@ export function NewsCard({
         <Link href={`/news/${slug}`} className="ml-auto">
           <Button
             variant="outline"
-            className="hover:bg-blue-50 text-[#000] font-medium text-sm"
+            className="hover:bg-blue-50 text-[#000] font-medium text-sm transition-all duration-300 ease-in-out hover:scale-105"
           >
             Read More <ChevronRight size={16} />
           </Button>

@@ -39,7 +39,9 @@ export default function SupportForm() {
         </Select>
 
         <Textarea placeholder="Description" className="h-[200px] py-6" />
-        <Button className="w-full">Submit Support Request</Button>
+        <Button className="w-full transition-all duration-300 ease-in-out hover:scale-105">
+          Submit Support Request
+        </Button>
       </div>
     </div>
   );

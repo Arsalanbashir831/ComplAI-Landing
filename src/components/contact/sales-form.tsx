@@ -16,7 +16,9 @@ export default function SalesForm() {
         <Input placeholder="Your role" className="py-6" />
         <Input placeholder="+44" className="py-6" />
         <Textarea placeholder="Write a message" className="h-[200px] py-6" />
-        <Button className="w-full">Submit Enquiry</Button>
+        <Button className="w-full transition-all duration-300 ease-in-out hover:scale-105">
+          Submit Enquiry
+        </Button>
       </div>
     </div>
   );

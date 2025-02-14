@@ -38,7 +38,7 @@ export function NewsSection() {
         <div className="flex justify-between items-center mb-8">
           <h2 className="text-4xl md:text-5xl font-semibold">Latest news</h2>
           <Link href="/news">
-            <Button className="font-medium">
+            <Button className="font-medium transition-all duration-300 ease-in-out hover:scale-105">
               Browse All <ArrowRight size={16} />
             </Button>
           </Link>

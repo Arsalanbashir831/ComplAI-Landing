@@ -216,13 +216,13 @@ export default function TestimonialCarousel() {
             <Button
               variant="outline"
               onClick={() => rotateItems('right')}
-              className="p-2 rounded-full text-primary border-primary shadow-md h-fit hover:bg-gray-200 hover:text-primary"
+              className="p-2 rounded-full text-primary border-primary shadow-md h-fit hover:bg-gray-200 hover:text-primary transition-all duration-300 ease-in-out hover:scale-105"
             >
               <ArrowLeft size={24} />
             </Button>
             <Button
               onClick={() => rotateItems('left')}
-              className="p-2 rounded-full bg-primary text-white shadow-md h-fit"
+              className="p-2 rounded-full bg-primary text-white shadow-md h-fit transition-all duration-300 ease-in-out hover:scale-105"
             >
               <ArrowRight size={24} />
             </Button>

@@ -46,11 +46,14 @@ export function Header() {
           <Button
             variant="ghost"
             asChild
-            className="text-primary hidden md:block"
+            className="text-primary hidden md:block transition-all duration-300 ease-in-out hover:scale-105"
           >
             <Link href={ROUTES.SIGN_IN}>Sign In</Link>
           </Button>
-          <Button asChild className="rounded-lg hidden md:block">
+          <Button
+            asChild
+            className="rounded-lg hidden md:block transition-all duration-300 ease-in-out hover:scale-105"
+          >
             <Link href={ROUTES.REGISTER}>Register</Link>
           </Button>
 
