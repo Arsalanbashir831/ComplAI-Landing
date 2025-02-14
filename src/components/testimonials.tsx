@@ -1,6 +1,6 @@
 'use client';
 
-import { useCallback, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import Image from 'next/image';
 import { AnimatePresence, motion } from 'framer-motion';
 import { ArrowLeft, ArrowRight, Star } from 'lucide-react';
@@ -133,13 +133,13 @@ export default function TestimonialCarousel() {
     [items, focusedIndex, rotateItems]
   );
 
-  // useEffect(() => {
-  //   const intervalId = setInterval(() => {
-  //     rotateItems('left');
-  //   }, 5000); // Auto-rotate every 5 seconds
+  useEffect(() => {
+    const intervalId = setInterval(() => {
+      rotateItems('left');
+    }, 5000); // Auto-rotate every 5 seconds
 
-  //   return () => clearInterval(intervalId);
-  // }, [rotateItems]);
+    return () => clearInterval(intervalId);
+  }, [rotateItems]);
 
   return (
     <section className="py-16 px-4 md:px-6 bg-gray-50 overflow-hidden">
@@ -174,7 +174,7 @@ export default function TestimonialCarousel() {
                     opacity: 1,
                     x: 0,
                     // scale: index === 2 ? 1 : 0.9,
-                    filter: index === 2 ? 'blur(0px)' : 'blur(3px)', // Increased blur
+                    // filter: index === 2 ? 'blur(0px)' : 'blur(3px)',
                     backgroundColor: index === 2 ? '#D7ECFF' : '#EDF8FF',
                   }}
                   exit={{
