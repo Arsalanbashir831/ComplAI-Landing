@@ -1,8 +1,8 @@
 'use client';
 
-import { useEffect, useState } from 'react';
-import Image from 'next/image';
 import { AnimatePresence, motion } from 'framer-motion';
+import Image from 'next/image';
+import { useEffect, useState } from 'react';
 
 import { CTAButton } from '@/components/cta-button';
 
@@ -36,7 +36,7 @@ export function Hero() {
   const displayDuration = 5; // Display each image for 5 seconds
   const fadeDuration = 1; // Fade transition duration of 1 second
   const totalInterval = displayDuration + 2 * fadeDuration; // Total cycle time per image
-
+  //test
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
   useEffect(() => {
