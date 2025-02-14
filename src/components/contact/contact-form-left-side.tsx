@@ -6,7 +6,7 @@ import TeamsSlider from '../teams-slider';
 
 export default function ContactFormLeftSide() {
   return (
-    <div className="space-y-6">
+    <div className="overflow-hidden grid grid-cols-1 gap-8">
       <Card className="bg-gradient-to-br from-[#6499F4] to-[#0a59eb] to-85% h-fit text-white p-8 rounded-lg">
         <div className="space-y-6">
           <h3 className="text-3xl md:text-4xl font-semibold">
@@ -36,12 +36,10 @@ export default function ContactFormLeftSide() {
         </div>
       </Card>
 
-      <div className="container mx-auto overflow-hidden">
-        <TeamsSlider
-          className="md:text-3xl font-semibold justify-self-start text-left"
-          showSidesFade={false}
-        />
-      </div>
+      <TeamsSlider
+        className="md:text-3xl font-semibold justify-self-start text-left"
+        showSidesFade={false}
+      />
     </div>
   );
 }
