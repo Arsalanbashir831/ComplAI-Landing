@@ -18,23 +18,20 @@ import { Logo } from './logo';
 import TopNavItems from './top-nav-items';
 
 export function MobileSideNav() {
-  // Manage open state for the Sheet
   const [open, setOpen] = useState(false);
 
   return (
     <Sheet open={open} onOpenChange={setOpen}>
-      {/* === Trigger (Hamburger Button) === */}
       <SheetTrigger asChild>
-        <button className="block p-2 md:hidden" aria-label="Open Mobile Menu">
-          <Menu className="w-6 h-6" />
-        </button>
+        <Button
+          variant="outline"
+          className="block border-none p-2 h-fit md:hidden"
+          aria-label="Open Mobile Menu"
+        >
+          <Menu className="!w-6 !h-6" />
+        </Button>
       </SheetTrigger>
 
-      {/* 
-        === Sheet Content (Drawer) ===
-        - side="left": slides in from left
-        - onOpenAutoFocus: prevent default so no element is auto-focused
-      */}
       <SheetContent
         side="left"
         className="p-6"
@@ -42,7 +39,7 @@ export function MobileSideNav() {
       >
         <SheetHeader>
           <SheetTitle>
-            <Logo />
+            <Logo className="justify-start" />
           </SheetTitle>
         </SheetHeader>
 
@@ -50,7 +47,7 @@ export function MobileSideNav() {
         <div className="mt-6">
           <TopNavItems
             className="flex flex-col gap-4"
-            onLinkClick={() => setOpen(false)} // Close the drawer when user clicks a link
+            onLinkClick={() => setOpen(false)}
           />
         </div>
 

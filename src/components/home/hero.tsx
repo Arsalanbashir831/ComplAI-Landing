@@ -76,7 +76,7 @@ export function Hero() {
         </div>
         <div className="relative mx-auto mt-8 w-full max-w-4xl">
           <div className="absolute inset-0 bg-gradient-to-tr from-primary/30 to-primary/10 rounded-lg blur-3xl opacity-50" />
-          <div className="relative w-full h-[400px] md:h-[500px] mx-auto bg-cover ml-[1rem] md:ml-[5rem]">
+          <div className="relative w-full h-[300px] md:h-[500px] mx-auto bg-cover ml-[1rem] md:ml-[5rem]">
             <AnimatePresence mode="wait">
               {images.map((src, index) =>
                 index === currentImageIndex ? (
@@ -103,7 +103,9 @@ export function Hero() {
         </div>
       </div>
 
+      {/* <div className="mt-20"> */}
       <IndustryStandards />
+      {/* </div> */}
     </section>
   );
 }
