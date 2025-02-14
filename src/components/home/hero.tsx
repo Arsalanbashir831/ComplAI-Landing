@@ -1,8 +1,8 @@
 'use client';
 
-import { useEffect, useState } from 'react';
-import Image from 'next/image';
 import { AnimatePresence, motion } from 'framer-motion';
+import Image from 'next/image';
+import { useEffect, useState } from 'react';
 
 import { CTAButton } from '@/components/cta-button';
 
@@ -58,7 +58,7 @@ export function Hero() {
           {title.end}
         </h1>
 
-        <p className="mb-12 text-lg sm:text-xl">{subtitle}</p>
+        <p className="mb-4 text-lg sm:text-xl">{subtitle}</p>
         <div className="flex justify-center gap-4">
           <CTAButton
             href={buttons.primary.href}
