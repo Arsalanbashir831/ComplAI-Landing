@@ -1,12 +1,14 @@
 'use client';
 
-import Link from 'next/link';
 import { useEffect, useState } from 'react';
+import Link from 'next/link';
+import { ROUTES } from '@/constants/routes';
 
-import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
+import { Button } from '@/components/ui/button';
 
 import { Logo } from './logo';
+import { MobileSideNav } from './mobile-side-nav';
 import TopNavItems from './top-nav-items';
 
 export function Header() {
@@ -16,7 +18,6 @@ export function Header() {
     const handleScroll = () => {
       setHasScrolled(window.scrollY > 10);
     };
-
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
@@ -24,9 +25,9 @@ export function Header() {
   return (
     <header
       className={cn(
-        'fixed top-0 z-50 w-full bg-transparent px-5 ',
+        'fixed top-0 z-50 w-full bg-transparent px-5',
         hasScrolled &&
-        'bg-white/95  backdrop-blur supports-[backdrop-filter]:bg-white/60'
+          'bg-white/95 backdrop-blur supports-[backdrop-filter]:bg-white/60'
       )}
     >
       <div
@@ -37,15 +38,24 @@ export function Header() {
       >
         <Logo />
 
-        <TopNavItems />
+        {/* === Desktop Nav (hidden on mobile) === */}
+        <TopNavItems className="hidden md:flex" />
 
         <div className="flex items-center gap-4">
-          <Button variant="ghost" asChild className="text-primary">
-            <Link href="https://compl-ai-frontend.vercel.app/">Sign In</Link>
+          {/* Desktop Buttons */}
+          <Button
+            variant="ghost"
+            asChild
+            className="text-primary hidden md:block"
+          >
+            <Link href={ROUTES.SIGN_IN}>Sign In</Link>
           </Button>
-          <Button asChild className="rounded-lg">
-            <Link href="https://compl-ai-frontend.vercel.app/">Register</Link>
+          <Button asChild className="rounded-lg hidden md:block">
+            <Link href={ROUTES.REGISTER}>Register</Link>
           </Button>
+
+          {/* === Mobile Nav (Sheet) === */}
+          <MobileSideNav />
         </div>
       </div>
     </header>

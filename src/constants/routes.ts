@@ -6,7 +6,6 @@ export const ROUTES = {
   NEWS: '/news',
   CONTACT: '/contact',
   PRIVACY: '/privacy',
-  SIGN_IN: '/sign-in',
-  PARTNERS: '/partners',
-  BLOG: '/blog',
+  SIGN_IN: 'https://compl-ai-frontend.vercel.app/',
+  REGISTER: 'https://compl-ai-frontend.vercel.app/sign-up',
 } as const;

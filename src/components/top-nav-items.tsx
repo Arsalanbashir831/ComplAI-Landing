@@ -1,5 +1,6 @@
 'use client';
 
+import React from 'react';
 import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
 import { ROUTES } from '@/constants/routes';
@@ -13,7 +14,7 @@ const mainNav = [
   },
   {
     title: 'Features',
-    href: `${ROUTES.HOME}?section=features`, // Updated to add query parameter
+    href: `${ROUTES.HOME}?section=features`,
   },
   {
     title: 'Pricing',
@@ -33,7 +34,15 @@ const mainNav = [
   },
 ];
 
-export default function TopNavItems() {
+interface TopNavItemsProps {
+  className?: string;
+  onLinkClick?: () => void;
+}
+
+export default function TopNavItems({
+  className,
+  onLinkClick,
+}: TopNavItemsProps) {
   const pathname = usePathname();
   const router = useRouter();
 
@@ -45,16 +54,21 @@ export default function TopNavItems() {
       event.preventDefault();
       router.push(`${ROUTES.HOME}?section=features`, { scroll: false });
 
-      // Smooth scroll to the Features section
       const featuresSection = document.getElementById('features');
       if (featuresSection) {
         featuresSection.scrollIntoView({ behavior: 'smooth' });
       }
     }
+
+    // If we have an onLinkClick callback (passed from MobileSideNav),
+    // call it to close the sheet.
+    if (onLinkClick) {
+      onLinkClick();
+    }
   };
 
   return (
-    <nav className="hidden md:flex gap-6">
+    <nav className={cn('gap-6', className)}>
       {mainNav.map((item) => (
         <Link
           key={item.href}
