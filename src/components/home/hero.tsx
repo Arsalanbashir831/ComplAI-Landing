@@ -50,7 +50,7 @@ export function Hero() {
   return (
     <section className="relative pt-[6rem] px-4 md:px-0 bg-[url(/images/bg/home-hero-bg.svg)] bg-no-repeat bg-center bg-cover space-y-10">
       <div className="mx-auto container max-w-5xl text-center">
-        <h1 className="mb-6 font-bold tracking-tight text-4xl md:text-6xl leading-[1.5]">
+        <h1 className="mb-6 font-bold tracking-tight text-3xl md:text-6xl leading-[1.5]  ">
           <span className="text-primary">{title.start}</span>
           {title.middle}
           <br className="hidden md:inline" />
@@ -58,7 +58,7 @@ export function Hero() {
           {title.end}
         </h1>
 
-        <p className="mb-4 text-lg sm:text-xl">{subtitle}</p>
+        <p className="mb-4 text-md sm:text-xl">{subtitle}</p>
         <div className="flex justify-center gap-4">
           <CTAButton
             href={buttons.primary.href}
@@ -76,7 +76,7 @@ export function Hero() {
         </div>
         <div className="relative mx-auto mt-8 w-full max-w-4xl">
           <div className="absolute inset-0 bg-gradient-to-tr from-primary/30 to-primary/10 rounded-lg blur-3xl opacity-50" />
-          <div className="relative w-full h-[400px] md:h-[500px] mx-auto bg-cover md:ml-[5rem]">
+          <div className="relative w-full h-[400px] md:h-[500px] mx-auto bg-cover ml-[1rem] md:ml-[5rem]">
             <AnimatePresence mode="wait">
               {images.map((src, index) =>
                 index === currentImageIndex ? (
@@ -89,11 +89,10 @@ export function Hero() {
                     className="absolute inset-0"
                   >
                     <Image
-
                       src={src}
                       alt={`Hero image ${index + 1}`}
                       fill
-                      className="object-contain "
+                      className="object-contain"
                       priority
                     />
                   </motion.div>
