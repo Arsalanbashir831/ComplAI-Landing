@@ -45,7 +45,7 @@ export default function LogoSlider({
             x: {
               repeat: Number.POSITIVE_INFINITY,
               repeatType: 'loop',
-              duration: 80,
+              duration: 200,
               ease: 'linear',
             },
           }}

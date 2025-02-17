@@ -21,7 +21,7 @@ const PricingCard = ({
   mostPopular?: boolean;
 }) => {
   return (
-    <Card className="relative w-80 border rounded-2xl shadow-md p-6">
+    <Card className="relative w-full max-w-sm border rounded-2xl shadow-md p-6">
       {mostPopular && (
         <div className="absolute -top-0 right-0 bg-primary text-white text-xs px-2 py-1 rounded-xl rounded-ss-none rounded-ee-none flex items-center gap-1">
           <Star className="h-3 w-3 inline-block" />
@@ -115,7 +115,7 @@ export default function PricingCards() {
   ];
 
   return (
-    <div className="flex flex-col items-center gap-6">
+    <div className="flex flex-col items-center gap-6 md:hidden px-4">
       {cardsData.map((card, index) => (
         <PricingCard key={index} {...card} />
       ))}
