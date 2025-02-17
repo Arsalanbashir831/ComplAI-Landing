@@ -1,13 +1,13 @@
 'use client';
 
-import { Suspense, useEffect } from 'react';
-import Image from 'next/image';
-import { useSearchParams } from 'next/navigation';
 import { motion } from 'framer-motion';
 import { Command } from 'lucide-react';
+import Image from 'next/image';
+import { useSearchParams } from 'next/navigation';
+import { Suspense, useEffect } from 'react';
 
-import { cn } from '@/lib/utils';
 import { Card, CardContent } from '@/components/ui/card';
+import { cn } from '@/lib/utils';
 
 interface FeatureCardProps {
   title: string;
@@ -182,6 +182,7 @@ export default function Features() {
               topImage="/images/features/4.svg"
               delay={4}
             />
+            {/* test */}
             <FeatureCard
               className="col-span-full md:col-span-4 md:row-span-2"
               title="Interactive Query Assistance"
