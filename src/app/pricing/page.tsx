@@ -5,6 +5,7 @@ import { motion } from 'framer-motion';
 import CTASection from '@/components/cta-section';
 import FAQSection from '@/components/faq';
 import { PricingBanner } from '@/components/pricing/pricing-banner';
+import PricingCards from '@/components/pricing/pricing-cards';
 import PricingTable from '@/components/pricing/pricing-table';
 import TeamsSlider from '@/components/teams-slider';
 
@@ -24,7 +25,7 @@ export default function Contact() {
   return (
     <>
       <main>
-        <div className="relative text-center space-y-2 my-20 bg-gradient-to-b from-[#edf8ff00] to-[#70a2ff85] pt-10 md:pt-20 h-screen">
+        <div className="relative text-center space-y-2 mt-20 md:mb-20 bg-gradient-to-b from-[#edf8ff00] to-[#70a2ff85] py-10 md:pt-20 md:h-screen">
           <motion.h2
             // 1. Animation starting state
             initial={{ opacity: 0, y: 50 }}
@@ -42,17 +43,19 @@ export default function Contact() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.3, duration: 0.8, ease: 'easeOut' }}
-            className="font-normal text-md md:text-xl"
+            className="font-normal text-md md:text-xl !mb-10 md:!mb-0"
           >
             Streamline Your Law Firm&rsquo;s Compliance with Artificial
             Intelligence
           </motion.p>
 
-          <div className="absolute md:top-1/3 left-1/2 transform -translate-x-1/2 text-start w-full">
+          <div className="absolute md:top-1/3 left-1/2 transform -translate-x-1/2 text-start w-full hidden md:block">
             <PricingTable />
           </div>
+
+          <PricingCards />
         </div>
-        <div className="h-96 mt-32" />
+        <div className="hidden md:block h-96 mt-32" />
         <PricingBanner />
         <TeamsSlider />
         <FAQSection />
