@@ -25,7 +25,7 @@ export default function Contact() {
   return (
     <>
       <main>
-        <div className="relative text-center space-y-2 mt-20 md:mb-20 bg-gradient-to-b from-[#edf8ff00] to-[#70a2ff85] py-10 md:pt-20 md:h-screen">
+        <div className="relative text-center space-y-2 mt-20 md:mb-56 bg-gradient-to-b from-[#edf8ff00] to-[#70a2ff85] py-10 md:pt-20 md:h-[700px]">
           <motion.h2
             // 1. Animation starting state
             initial={{ opacity: 0, y: 50 }}
@@ -55,7 +55,7 @@ export default function Contact() {
 
           <PricingCards />
         </div>
-        <div className="hidden md:block h-96 mt-32" />
+        <div className="hidden md:block h-72" />
         <PricingBanner />
         <TeamsSlider />
         <FAQSection />
