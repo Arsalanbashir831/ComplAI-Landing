@@ -29,7 +29,7 @@ const footer = {
   company: {
     title: 'Company',
     links: [
-      { title: 'Compl-AI', href: '#' },
+      { title: 'Compliance AI', href: '#' },
       { title: 'Dashboard', href: '#' },
     ],
   },

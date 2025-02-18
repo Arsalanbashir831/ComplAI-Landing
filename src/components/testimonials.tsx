@@ -94,7 +94,11 @@ const testimonials: Testimonial[] = [
   },
 ];
 
-export default function TestimonialCarousel() {
+export default function TestimonialCarousel({
+  showBadge = false,
+}: {
+  showBadge?: boolean;
+}) {
   const [items, setItems] = useState(testimonials);
   const focusedIndex = 2;
 
@@ -142,12 +146,14 @@ export default function TestimonialCarousel() {
     <section className="py-16 px-4 md:px-6 bg-gray-50 overflow-hidden">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-12">
-          <div className="inline-flex items-center justify-center px-2 py-1.5 mb-4 text-sm font-medium rounded-lg bg-[#F1F2F6] space-x-1">
-            <div className="bg-[#D5EAFF] rounded-lg px-3 py-1 text-primary">
-              <Star size={12} />
+          {showBadge && (
+            <div className="inline-flex items-center justify-center px-2 py-1.5 mb-4 text-sm font-medium rounded-lg bg-[#F1F2F6] space-x-1">
+              <div className="bg-[#D5EAFF] rounded-lg px-3 py-1 text-primary">
+                <Star size={12} />
+              </div>
+              <span>Testimonials</span>
             </div>
-            <span>Testimonials</span>
-          </div>
+          )}
           <h2 className="text-4xl md:text-6xl font-bold mb-4">
             See what all the talk
             <br />

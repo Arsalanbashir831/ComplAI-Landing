@@ -27,7 +27,7 @@ export default function Home() {
         <main>
           <Hero />
           <Features />
-          <TestimonialSlider />
+          <TestimonialSlider showBadge={true} />
           <FAQSection showBadge={true} />
           <CTASection cta={cta} showBgImage={true} showRadialImage={false} />
           <NewsSection />
