@@ -16,13 +16,13 @@ const PricingTable = () => {
       <div className="w-full max-w-6xl mx-auto p-6 bg-white rounded-2xl shadow-2xl">
         <Table>
           <TableHeader>
-            <TableRow className="border-none">
-              <TableHead className="w-1/4">
+            <TableRow className="border-none hover:bg-transparent">
+              <TableHead className="flex flex-col py-2">
                 <div className="mb-8 text-[#000] space-y-2">
                   <h2 className="text-3xl md:text-3xl font-semibold">
                     Find Your Compliance Plan
                   </h2>
-                  <p>
+                  <p className="max-w-56 text-base">
                     Flexible, scorable, and tailored solutions to keep your firm
                     compliant and confident.
                   </p>
@@ -97,9 +97,9 @@ const PricingTable = () => {
             </TableRow>
           </TableHeader>
 
-          <TableBody>
+          <TableBody className="text-[#454545]">
             <TableRow className="border-none">
-              <TableCell className="font-medium">Core</TableCell>
+              <TableCell className="font-semibold">Core</TableCell>
               <TableCell className="!py-0">
                 <div className="border border-y-0 p-2 h-10"></div>
               </TableCell>
@@ -212,7 +212,7 @@ const PricingTable = () => {
             </TableRow>
 
             <TableRow className="border-none">
-              <TableCell className="font-medium">Features</TableCell>
+              <TableCell className="font-semibold">Features</TableCell>
               <TableCell className="!py-0">
                 <div className="border border-y-0 p-2 h-10"></div>
               </TableCell>
@@ -458,7 +458,7 @@ const PricingTable = () => {
           </TableBody>
         </Table>
 
-        <p className="text-sm text-gray-500 mt-6 text-center">
+        <p className="text-base text-gray-dark mt-6 text-center">
           Mobile functionality on Pay As You Use and Professional plans is
           limited but still usable, with full optimisation exclusive to
           Enterprise
