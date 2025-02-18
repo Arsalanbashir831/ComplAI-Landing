@@ -113,7 +113,7 @@ export default function Features() {
 
   return (
     <Suspense>
-      <section id="features" className="py-8 px-4 md:px-6">
+      <section id="features" className="py-12 px-4 md:px-6">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-5">
             <motion.div

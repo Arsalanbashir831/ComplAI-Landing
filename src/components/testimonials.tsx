@@ -143,7 +143,7 @@ export default function TestimonialCarousel({
   }, [rotateItems]);
 
   return (
-    <section className="py-16 px-4 md:px-6 bg-gray-50 overflow-hidden">
+    <section className="py-12 px-4 md:px-6 bg-gray-50 overflow-hidden">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-12">
           {showBadge && (
@@ -161,7 +161,7 @@ export default function TestimonialCarousel({
           </h2>
         </div>
 
-        <div className="relative w-full overflow-hidden py-8">
+        <div className="relative w-full overflow-hidden md:py-8">
           <div className="flex items-stretch justify-center gap-2">
             <AnimatePresence mode="popLayout" initial={false}>
               {items.slice(0, 5).map((item, index) => (

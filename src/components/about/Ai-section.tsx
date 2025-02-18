@@ -5,8 +5,8 @@ import { motion } from 'framer-motion';
 
 export default function AiSection() {
   return (
-    <section className="py-12">
-      <div className="container mx-auto max-w-screen-lg px-4 md:px-8 py-16 flex flex-col items-center space-y-8">
+    <section className="pt-24 md:py-12">
+      <div className="container mx-auto max-w-screen-lg px-4 md:px-8 md:py-16 flex flex-col items-center space-y-8">
         {/* Heading Animation */}
         <motion.h2
           className="text-4xl md:text-6xl font-semibold"

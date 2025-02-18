@@ -15,6 +15,7 @@ type LogoSliderProps = {
   logos: Logo[];
   titleClassName?: string;
   showSidesFade?: boolean;
+  containerClassName?: string;
 };
 
 export default function LogoSlider({
@@ -22,13 +23,15 @@ export default function LogoSlider({
   logos,
   titleClassName,
   showSidesFade = true,
+  containerClassName,
 }: LogoSliderProps) {
   return (
     <div
       className={cn(
-        'relative m-auto w-full overflow-hidden',
+        'relative m-auto w-full overflow-hidden container',
         showSidesFade &&
-          "before:absolute before:left-0 before:top-0 before:z-[2] before:h-full before:w-[100px] before:bg-[linear-gradient(to_right,#f3f4f6fc,rgba(255,255,255,0)_60%)] md:before:bg-[linear-gradient(to_right,#f3f4f6fc,rgba(255,255,255,0)_100%)] before:content-[''] after:absolute after:right-0 after:top-0 after:z-[2] after:h-full after:w-[100px] after:-scale-x-100 after:bg-[linear-gradient(to_right,#f3f4f6fc,rgba(255,255,255,0)_60%)] md:after:bg-[linear-gradient(to_right,#f3f4f6fc,rgba(255,255,255,0)_100%)] after:content-['']"
+          "before:absolute before:left-0 before:top-0 before:z-[2] before:h-full before:w-[100px] before:bg-[linear-gradient(to_right,#f3f4f6fc,rgba(255,255,255,0)_60%)] md:before:bg-[linear-gradient(to_right,#f3f4f6fc,rgba(255,255,255,0)_100%)] before:content-[''] after:absolute after:right-0 after:top-0 after:z-[2] after:h-full after:w-[100px] after:-scale-x-100 after:bg-[linear-gradient(to_right,#f3f4f6fc,rgba(255,255,255,0)_60%)] md:after:bg-[linear-gradient(to_right,#f3f4f6fc,rgba(255,255,255,0)_100%)] after:content-['']",
+        containerClassName
       )}
     >
       <h2 className={cn('mb-6 text-center text-xl', titleClassName)}>
