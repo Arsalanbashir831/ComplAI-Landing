@@ -1,3 +1,6 @@
+'use client';
+
+import { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
 
@@ -32,6 +35,45 @@ const NEWS_ITEMS = [
 ];
 
 export function NewsSection() {
+  const cardRefs = useRef<(HTMLDivElement | null)[]>([]);
+  const [activeIndex, setActiveIndex] = useState(0);
+
+  const scrollToCard = (index: number) => {
+    cardRefs.current[index]?.scrollIntoView({
+      behavior: 'smooth',
+      block: 'nearest',
+      inline: 'center',
+    });
+    setActiveIndex(index);
+  };
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const index = cardRefs.current.findIndex(
+              (ref) => ref === entry.target
+            );
+            if (index !== -1) setActiveIndex(index);
+          }
+        });
+      },
+      { threshold: 0.5 }
+    );
+
+    const currentRefs = cardRefs.current;
+    currentRefs.forEach((ref) => {
+      if (ref) observer.observe(ref);
+    });
+
+    return () => {
+      currentRefs.forEach((ref) => {
+        if (ref) observer.unobserve(ref);
+      });
+    };
+  }, []);
+
   return (
     <section className="py-20 px-4">
       <div className="max-w-7xl mx-auto">
@@ -44,10 +86,6 @@ export function NewsSection() {
           </Link>
         </div>
 
-        {/* 
-          - On small screens: flex layout with horizontal scroll
-          - On medium screens+: grid layout
-        */}
         <div
           className="
           flex gap-6 overflow-x-auto whitespace-nowrap
@@ -57,6 +95,9 @@ export function NewsSection() {
           {NEWS_ITEMS.map((item, index) => (
             <div
               key={index}
+              ref={(el) => {
+                cardRefs.current[index] = el;
+              }}
               className="
                 flex-shrink-0 w-80 
                 md:w-auto
@@ -70,6 +111,16 @@ export function NewsSection() {
                 slug={item.href}
               />
             </div>
+          ))}
+        </div>
+
+        <div className="flex md:hidden justify-center mt-6 gap-2">
+          {NEWS_ITEMS.map((_, index) => (
+            <button
+              key={index}
+              className={`w-3 h-3 rounded-full ${index === activeIndex ? 'bg-blue-600' : 'bg-gray-400'}`}
+              onClick={() => scrollToCard(index)}
+            />
           ))}
         </div>
       </div>
