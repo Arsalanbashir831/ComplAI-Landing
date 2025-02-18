@@ -1,11 +1,9 @@
 'use client';
 
-import { useCallback, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import Image from 'next/image';
-import { AnimatePresence, motion } from 'framer-motion';
-import { ArrowLeft, ArrowRight, Star } from 'lucide-react';
-
-import { Button } from './ui/button';
+import { motion, useAnimation } from 'framer-motion';
+import { Star } from 'lucide-react';
 
 interface Testimonial {
   id: number;
@@ -99,48 +97,21 @@ export default function TestimonialCarousel({
 }: {
   showBadge?: boolean;
 }) {
-  const [items, setItems] = useState(testimonials);
-  const focusedIndex = 2;
-
-  const rotateItems = useCallback((direction: 'left' | 'right') => {
-    setItems((prevItems) => {
-      const newItems = [...prevItems];
-      if (direction === 'right') {
-        const lastItem = newItems.pop()!;
-        newItems.unshift(lastItem);
-      } else {
-        const firstItem = newItems.shift()!;
-        newItems.push(firstItem);
-      }
-      return newItems;
-    });
-  }, []);
-
-  const handleClick = useCallback(
-    (clickedId: number) => {
-      const clickedIndex = items.findIndex((item) => item.id === clickedId);
-      if (clickedIndex === focusedIndex) return;
-
-      const direction = clickedIndex > focusedIndex ? 'left' : 'right';
-      const rotations =
-        direction === 'left'
-          ? clickedIndex - focusedIndex
-          : focusedIndex - clickedIndex;
-
-      for (let i = 0; i < rotations; i++) {
-        rotateItems(direction);
-      }
-    },
-    [items, focusedIndex, rotateItems]
-  );
+  const [isHovered, setIsHovered] = useState(false);
+  const controls = useAnimation();
 
   useEffect(() => {
-    const intervalId = setInterval(() => {
-      rotateItems('left');
-    }, 5000); // Auto-rotate every 5 seconds
+    if (isHovered) {
+      controls.stop();
+    } else {
+      controls.start({
+        x: '-100%',
+        transition: { repeat: Infinity, duration: 100, ease: 'linear' },
+      });
+    }
+  }, [isHovered, controls]);
 
-    return () => clearInterval(intervalId);
-  }, [rotateItems]);
+  const items = [...testimonials, ...testimonials];
 
   return (
     <section className="py-12 px-4 md:px-6 bg-gray-50 overflow-hidden">
@@ -161,78 +132,41 @@ export default function TestimonialCarousel({
           </h2>
         </div>
 
-        <div className="relative w-full overflow-hidden md:py-8">
-          <div className="flex items-stretch justify-center gap-2">
-            <AnimatePresence mode="popLayout" initial={false}>
-              {items.slice(0, 5).map((item, index) => (
-                <motion.div
-                  key={`${item.id}-${index}`}
-                  layoutId={String(item.id)}
-                  className="relative cursor-pointer rounded-lg mx-2 flex-1"
-                  initial={{
-                    // opacity: 0,
-                    x: index === 0 ? -100 : index === 2 ? 100 : 0,
-                  }}
-                  animate={{
-                    // opacity: 1,
-                    x: 0,
-                    // scale: index === 2 ? 1 : 0.9,
-                    // filter: index === 2 ? 'blur(0px)' : 'blur(3px)',
-                    backgroundColor: index === 2 ? '#D7ECFF' : '#EDF8FF',
-                  }}
-                  exit={{
-                    // opacity: 0,
-                    x: index === 0 ? -100 : index === 2 ? 100 : 0,
-                  }}
-                  transition={{
-                    type: 'spring',
-                    stiffness: 500,
-                    damping: 40,
-                  }}
-                  onClick={() => handleClick(item.id)}
-                >
-                  <div className="w-[300px] p-6 rounded-lg flex-1">
-                    <div className="mb-4">
-                      <Image
-                        src="/images/icons/quote.svg"
-                        width={40}
-                        height={40}
-                        alt="Quote icon"
-                      />
-                    </div>
-                    <blockquote className="text-lg mb-4 line-clamp-6 overflow-ellipsis overflow-hidden">
-                      {item.quote}
-                    </blockquote>
-                    <footer>
-                      <cite className="not-italic font-semibold">
-                        {item.author}
-                      </cite>
-                      <div className="text-sm text-gray-500">
-                        {item.company}
-                      </div>
-                    </footer>
-                  </div>
-                </motion.div>
-              ))}
-            </AnimatePresence>
-          </div>
-
-          {/* Navigation Buttons */}
-          <div className="mt-8 flex justify-end gap-2">
-            <Button
-              variant="outline"
-              onClick={() => rotateItems('right')}
-              className="p-2 rounded-full text-primary border-primary shadow-md h-fit hover:bg-gray-200 hover:text-primary transition-all duration-300 ease-in-out hover:scale-105"
-            >
-              <ArrowLeft size={24} />
-            </Button>
-            <Button
-              onClick={() => rotateItems('left')}
-              className="p-2 rounded-full bg-primary text-white shadow-md h-fit transition-all duration-300 ease-in-out hover:scale-105"
-            >
-              <ArrowRight size={24} />
-            </Button>
-          </div>
+        <div
+          className="relative w-full overflow-hidden md:py-8"
+          onMouseEnter={() => setIsHovered(true)}
+          onMouseLeave={() => setIsHovered(false)}
+        >
+          <motion.div
+            className="flex"
+            animate={controls}
+            style={{ width: 'max-content' }}
+          >
+            {items.map((item, index) => (
+              <div
+                key={`${item.id}-${index}`}
+                className="max-w-[300px] p-6 mx-2 bg-[#EDF8FF] rounded-lg shadow-lg"
+              >
+                <div className="mb-4">
+                  <Image
+                    src="/images/icons/quote.svg"
+                    width={40}
+                    height={40}
+                    alt="Quote icon"
+                  />
+                </div>
+                <blockquote className="text-lg mb-4 line-clamp-6 overflow-ellipsis overflow-hidden">
+                  {item.quote}
+                </blockquote>
+                <footer>
+                  <cite className="not-italic font-semibold">
+                    {item.author}
+                  </cite>
+                  <div className="text-sm text-gray-500">{item.company}</div>
+                </footer>
+              </div>
+            ))}
+          </motion.div>
         </div>
       </div>
     </section>
