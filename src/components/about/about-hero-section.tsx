@@ -1,3 +1,8 @@
+import Link from 'next/link';
+import { ROUTES } from '@/constants/routes';
+
+import { Button } from '../ui/button';
+
 export default function AboutHeroSection() {
   return (
     <>
@@ -38,13 +43,16 @@ export default function AboutHeroSection() {
                   Our mission is to empower legal teams with accessible, fast,
                   and reliable compliance solutions.
                 </p>
-                <p className="font-medium text-lg md:text-xl">Join us.</p>
+                <Link href={ROUTES.SIGN_IN} className="block">
+                  <Button className="text-lg px-6 py-5 transition-all duration-300 ease-in-out hover:scale-105">
+                    Join us.
+                  </Button>
+                </Link>
               </div>
 
-              <div className="basis-6/12 border-l-4 border-primary h-fit pl-4">
+              <div className="basis-6/12 border-l-4 border-primary h-fit pl-4 mt-2 md:mt-0">
                 <p className="font-semibold text-black-100 text-3xl md:text-4xl">
-                  Compl-AI provides instant, cost-effective compliance insights
-                  and expertise.
+                  AI makes compliance faster, smarter, and more efficient.
                 </p>
               </div>
             </div>

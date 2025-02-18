@@ -30,7 +30,8 @@ function ValueCard({
       whileHover={{ scale: 1.02 }}
       viewport={{ once: true, amount: 0.5 }}
       className={cn(
-        'p-4 bg-[url(/images/bg/value-card-bg.svg)] bg-cover bg-center bg-no-repeat rounded-3xl',
+        // 'p-4 bg-[url(/images/bg/value-card-bg.svg)] bg-cover bg-center bg-no-repeat rounded-3xl',
+        'p-4 bg-blue-lightest rounded-3xl',
         className
       )}
     >

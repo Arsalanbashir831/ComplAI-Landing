@@ -34,11 +34,11 @@ export function PricingBanner() {
               </li>
               <li className="flex items-center">
                 <Check className="mr-2 h-4 w-4" />
-                <span>Unlimited Regulations</span>
+                <span>Updated Regulations</span>
               </li>
               <li className="flex items-center">
                 <Check className="mr-2 h-4 w-4" />
-                <span>Seamless Integration</span>
+                <span>Seamless Interaction</span>
               </li>
             </ul>
           </div>

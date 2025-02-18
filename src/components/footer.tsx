@@ -123,18 +123,23 @@ export function Footer() {
           <p className="text-3xl max-w-sm">{footer.mainText}</p>
         </div>
 
-        <div className="container flex items-center justify-between col-span-full">
-          <p className="text-sm text-white">
-            © {new Date().getFullYear()} - Copyright
+        {/* support mail */}
+        <Link
+          href={`mailto:${footer.contact.email}`}
+          className="relative text-base ml-auto text-white font-medium col-span-full after:block after:h-[2px] after:w-0 after:bg-white after:transition-all after:duration-500 after:ease-in-out after:absolute after:left-0 after:bottom-0 hover:after:w-full"
+        >
+          {footer.contact.email}
+        </Link>
+
+        <div className="container col-span-full mx-auto">
+          <p className="text-sm text-white text-center">
+            Copyright © {new Date().getFullYear()} Brilliant AI Ltd. All rights
+            reserved. Compl-AI is a registered trademark (Trade Mark No:
+            UK00004155934) and operates as a trading name of Brilliant AI Ltd
+            (Company No: 16134522).
           </p>
 
-          {/* support mail */}
-          <Link
-            href={`mailto:${footer.contact.email}`}
-            className="relative text-base text-white font-medium after:block after:h-[2px] after:w-0 after:bg-white after:transition-all after:duration-500 after:ease-in-out after:absolute after:left-0 after:bottom-0 hover:after:w-full"
-          >
-            {footer.contact.email}
-          </Link>
+          <p className="text-sm text-white"></p>
         </div>
       </div>
     </footer>
