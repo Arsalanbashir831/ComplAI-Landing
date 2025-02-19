@@ -23,7 +23,7 @@ const PricingCard = ({
   mostPopular?: boolean;
 }) => {
   return (
-    <Card className="relative w-full max-w-sm border rounded-2xl shadow-md p-6">
+    <Card className="relative w-full max-w-full border rounded-2xl shadow-md p-6">
       {mostPopular && (
         <div className="absolute -top-0 right-0 bg-primary text-white text-xs px-2 py-1 rounded-xl rounded-ss-none rounded-ee-none flex items-center gap-1">
           <Star className="h-3 w-3 inline-block" />
