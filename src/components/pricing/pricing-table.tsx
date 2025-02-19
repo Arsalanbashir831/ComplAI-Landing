@@ -47,7 +47,10 @@ const PricingTable = () => {
                       Try for Free
                     </Button>
                     <div className="text-xs text-center text-[#000]">
-                      or <span className="text-primary hover:underline cursor-pointer">top-up now</span>
+                      or{' '}
+                      <span className="text-primary hover:underline cursor-pointer">
+                        top-up now
+                      </span>
                     </div>
                   </div>
                 </div>
