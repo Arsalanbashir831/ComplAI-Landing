@@ -1,11 +1,12 @@
 'use client';
 
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { motion } from 'framer-motion';
 
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
-
+import HoverPopup from '../hooverpopup';
 import SalesForm from './sales-form';
 import SupportForm from './support-form';
+
 
 export default function ContactHeroSection() {
   return (
@@ -42,19 +43,24 @@ export default function ContactHeroSection() {
             </div>
 
             <Tabs defaultValue="sales" className="w-full">
-              <TabsList className="flex justify-center items-center mb-6 w-fit mx-auto">
-                <TabsTrigger
-                  value="sales"
-                  className="data-[state=active]:bg-[#1B1819] data-[state=active]:text-white py-2 rounded-lg bg-gray-light"
-                >
-                  Contact Sales
-                </TabsTrigger>
-                <TabsTrigger
-                  value="support"
-                  className="data-[state=active]:bg-[#2d2d6d] data-[state=active]:text-white py-2 rounded-lg bg-gray-light"
-                >
-                  Compl-AI Support
-                </TabsTrigger>
+              <TabsList className="flex justify-center items-center mb-6 w-fit mx-auto space-x-4">
+                <HoverPopup message="Change Query Type">
+                  <TabsTrigger
+                    value="sales"
+                    className="data-[state=active]:bg-blue-600 data-[state=active]:text-white py-2 rounded-lg bg-gray-light"
+                  >
+                    Contact Sales
+                  </TabsTrigger>
+                </HoverPopup>
+
+                <HoverPopup message="Select Support Query">
+                  <TabsTrigger
+                    value="support"
+                    className="data-[state=active]:bg-blue-600 data-[state=active]:text-white py-2 rounded-lg bg-gray-light"
+                  >
+                    Compl-AI Support
+                  </TabsTrigger>
+                </HoverPopup>
               </TabsList>
 
               <TabsContent value="sales">
