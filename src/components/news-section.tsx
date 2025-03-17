@@ -1,38 +1,14 @@
 'use client';
 
-import { useEffect, useRef, useState } from 'react';
-import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
+import Link from 'next/link';
+import { useEffect, useRef, useState } from 'react';
 
-import { Button } from '@/components/ui/button';
 import { NewsCard } from '@/components/news-card';
+import { Button } from '@/components/ui/button';
+import { newsData } from '@/constants/news';
 
-const NEWS_ITEMS = [
-  {
-    date: 'Feb 5, 2025',
-    title: 'Latest News Title',
-    description:
-      'Compl-AI leverages advanced AI to simplify compliance, delivering quality instant...',
-    imageUrl: '/images/card-placeholder-img.png',
-    href: '/news/latest-news-1',
-  },
-  {
-    date: 'Feb 5, 2025',
-    title: 'Latest News Title',
-    description:
-      'Compl-AI leverages advanced AI to simplify compliance, delivering quality instant...',
-    imageUrl: '/images/card-placeholder-img.png',
-    href: '/news/latest-news-2',
-  },
-  {
-    date: 'Feb 5, 2025',
-    title: 'Latest News Title',
-    description:
-      'Compl-AI leverages advanced AI to simplify compliance, delivering quality instant...',
-    imageUrl: '/images/card-placeholder-img.png',
-    href: '/news/latest-news-3',
-  },
-];
+
 
 export function NewsSection() {
   const cardRefs = useRef<(HTMLDivElement | null)[]>([]);
@@ -92,7 +68,7 @@ export function NewsSection() {
           md:overflow-x-visible md:grid md:grid-cols-2 lg:grid-cols-3
         "
         >
-          {NEWS_ITEMS.map((item, index) => (
+          {newsData.map((item, index) => (
             <div
               key={index}
               ref={(el) => {
@@ -108,14 +84,14 @@ export function NewsSection() {
                 title={item.title}
                 description={item.description}
                 imageUrl={item.imageUrl}
-                slug={item.href}
+                id={item.id}
               />
             </div>
           ))}
         </div>
 
         <div className="flex md:hidden justify-center mt-6 gap-2">
-          {NEWS_ITEMS.map((_, index) => (
+          {newsData.map((_, index) => (
             <button
               key={index}
               className={`w-3 h-3 rounded-full ${index === activeIndex ? 'bg-blue-600' : 'bg-gray-400'}`}

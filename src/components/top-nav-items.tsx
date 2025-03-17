@@ -1,9 +1,9 @@
 'use client';
 
-import React, { useEffect, useState } from 'react';
+import { ROUTES } from '@/constants/routes';
 import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
-import { ROUTES } from '@/constants/routes';
+import React, { useEffect, useState } from 'react';
 
 import { cn } from '@/lib/utils';
 
@@ -105,9 +105,9 @@ export default function TopNavItems({
 
   return (
     <nav className={cn('gap-6', className)}>
-      {mainNav.map((item) => (
+      {mainNav.map((item, index) => (
         <Link
-          key={item.href}
+          key={index}
           href={item.href}
           className={cn(
             'text-md font-medium transition-colors hover:text-primary',

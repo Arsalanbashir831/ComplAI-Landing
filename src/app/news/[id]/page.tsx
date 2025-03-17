@@ -1,10 +1,25 @@
+'use client'
 import Link from 'next/link';
+import { useParams } from 'next/navigation';
 
 import CTASection from '@/components/cta-section';
 import { NewsSection } from '@/components/news-section';
 import NewsDetail from '@/components/news/new-detail';
+import { newsData } from '@/constants/news'; // Assuming you have a `newsData` array with the articles
 
 export default function NewsExplanation() {
+  const { id } = useParams(); // Get the `id` from the URL
+
+  // Find the specific news article using the `id`
+  const newsItem = newsData.find((news) => news.id.toString() === id);
+
+  // If no news item is found, you can show an error message or redirect
+  if (!newsItem) {
+    return <div>Article not found</div>;
+  }
+
+  const { title, date, readingTime, content, imageUrl } = newsItem;
+
   const cta = {
     title: {
       start: 'Ready to Experience ',
@@ -19,24 +34,20 @@ export default function NewsExplanation() {
 
   return (
     <>
-      <main className="pt-20">
-        <div className="container mx-auto px-6 pt-12 mt-8 mb-2">
-          <Link href="/" className="text-gray-500 hover:underline mb-4 block">
+      <main className="pt-5">
+        <div className="container mx-auto px-6 pt-12 mt-8 ">
+          <Link href="/" className="text-gray-500 hover:underline  block">
             ← Go back
           </Link>
         </div>
 
+        {/* Pass the filtered news data to NewsDetail component */}
         <NewsDetail
-          title="Step-by-step guide to choosing great font pairs"
-          author="Andrew Jonson"
-          authorRole="Graphic Designer"
-          date="January 25, 2025"
-          readingTime="8 min"
-          avatarUrl="https://github.com/shadcn.png"
-          coverImageUrl="/images/card-placeholder-img.png"
-          content={
-            'Lorem ipsum dolor sit amet, consectetur adipiscing elit... Ut enim ad minim veniam, quis nostrud exercitation ullamco... Duis aute irure dolor in reprehenderit in voluptate velit... Excepteur sint occaecat cupidatat non proident...'
-          }
+          title={title}
+          date={date}
+          readingTime={readingTime}
+          coverImageUrl={imageUrl}
+          content={content}
         />
 
         <CTASection

@@ -4,6 +4,7 @@ import { Geist, Geist_Mono } from 'next/font/google';
 import { Footer } from '@/components/footer';
 import { Header } from '@/components/header';
 
+import NavigateToTop from '@/components/navigate-to-top';
 import './globals.css';
 
 const geistSans = Geist({
@@ -35,6 +36,7 @@ export default function RootLayout({
         <Header />
 
         {children}
+        <NavigateToTop />
         <Footer />
       </body>
     </html>

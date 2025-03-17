@@ -1,9 +1,12 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { ArrowLeft, ArrowRight, Star } from 'lucide-react';
 import Image from 'next/image';
-import { motion, useAnimation } from 'framer-motion';
-import { Star } from 'lucide-react';
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
+import { Navigation, Pagination } from 'swiper/modules';
+import { Swiper, SwiperSlide } from 'swiper/react';
 
 interface Testimonial {
   id: number;
@@ -92,61 +95,54 @@ const testimonials: Testimonial[] = [
   },
 ];
 
-export default function TestimonialCarousel({
-  showBadge = false,
-}: {
-  showBadge?: boolean;
-}) {
-  const [isHovered, setIsHovered] = useState(false);
-  const controls = useAnimation();
-
-  useEffect(() => {
-    if (isHovered) {
-      controls.stop();
-    } else {
-      controls.start({
-        x: '-100%',
-        transition: { repeat: Infinity, duration: 100, ease: 'linear' },
-      });
-    }
-  }, [isHovered, controls]);
-
-  const items = [...testimonials, ...testimonials];
-
+export default function TestimonialCarousel({ showBadge = false }: { showBadge?: boolean }) {
   return (
-    <section className="py-12 px-4 md:px-6 bg-gray-50 overflow-hidden">
+    <section className="py-16 px-6 md:px-10 bg-white overflow-hidden relative">
       <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-12">
-          {showBadge && (
-            <div className="inline-flex items-center justify-center px-2 py-1.5 mb-4 text-sm font-medium rounded-lg bg-[#F1F2F6] space-x-1">
-              <div className="bg-[#D5EAFF] rounded-lg px-3 py-1 text-primary">
-                <Star size={12} />
-              </div>
-              <span>Testimonials</span>
+        {showBadge && (
+          <div className="inline-flex items-center justify-center px-3 py-2 mb-6 text-sm font-medium rounded-lg bg-[#F1F2F6] space-x-2">
+            <div className="bg-[#D5EAFF] rounded-lg px-3 py-1 text-primary">
+              <Star size={12} />
             </div>
-          )}
-          <h2 className="text-4xl md:text-6xl font-bold mb-4">
-            See what all the talk
-            <br />
-            is about.
-          </h2>
-        </div>
+            <span>Testimonials</span>
+          </div>
+        )}
 
-        <div
-          className="relative w-full overflow-hidden md:py-8"
-          onMouseEnter={() => setIsHovered(true)}
-          onMouseLeave={() => setIsHovered(false)}
+        <h2 className="text-center text-4xl md:text-6xl font-bold mb-10">
+          See what all the talk
+          <br />
+          is about.
+        </h2>
+
+        {/* Swiper Container */}
+        <Swiper
+          modules={[Navigation, Pagination]}
+          // Distance between slides (in px)
+          spaceBetween={24}
+          // Responsive slides per view
+          slidesPerView={1}
+          breakpoints={{
+            768: { slidesPerView: 2 },
+            1024: { slidesPerView: 4 },
+
+          }}
+          // Enable looping
+          loop={true}
+          // Custom pagination (bullets) container
+          // pagination={{
+          //   el: '.swiper-pagination-custom',
+          //   clickable: true,
+          // }}
+          // Custom navigation buttons
+          navigation={{
+            nextEl: '.swiper-button-next-custom',
+            prevEl: '.swiper-button-prev-custom',
+          }}
+          className="pb-6"
         >
-          <motion.div
-            className="flex"
-            animate={controls}
-            style={{ width: 'max-content' }}
-          >
-            {items.map((item, index) => (
-              <div
-                key={`${item.id}-${index}`}
-                className="max-w-[300px] p-6 mx-2 bg-[#EDF8FF] rounded-lg shadow-lg"
-              >
+          {testimonials.map((testimonial) => (
+            <SwiperSlide key={testimonial.id}>
+              <div className="max-w-[340px] mx-auto p-6 bg-[#EDF8FF] rounded-lg shadow-lg h-[300px] flex flex-col">
                 <div className="mb-4">
                   <Image
                     src="/images/icons/quote.svg"
@@ -155,18 +151,40 @@ export default function TestimonialCarousel({
                     alt="Quote icon"
                   />
                 </div>
-                <blockquote className="text-lg mb-4 line-clamp-6 overflow-ellipsis overflow-hidden">
-                  {item.quote}
+                <blockquote className="text-lg mb-6 line-clamp-6 overflow-ellipsis overflow-hidden flex-grow">
+                  {testimonial.quote}
                 </blockquote>
                 <footer>
                   <cite className="not-italic font-semibold">
-                    {item.author}
+                    {testimonial.author}
                   </cite>
-                  <div className="text-sm text-gray-500">{item.company}</div>
+                  <div className="text-sm text-gray-500">{testimonial.company}</div>
                 </footer>
               </div>
-            ))}
-          </motion.div>
+            </SwiperSlide>
+          ))}
+        </Swiper>
+
+        {/* Pagination + Arrows Container */}
+        <div className="flex justify-between items-center mt-6 px-2 md:px-0">
+          {/* Custom pagination container */}
+          <div className="swiper-pagination-custom" />
+
+          {/* Custom arrow buttons */}
+          <div className="flex space-x-3">
+            <button
+              className="swiper-button-prev-custom p-2 rounded-full border border-gray-300 hover:bg-gray-100 transition"
+              aria-label="Previous"
+            >
+              <ArrowLeft className="w-5 h-5" />
+            </button>
+            <button
+              className="swiper-button-next-custom p-2 rounded-full border border-gray-300 hover:bg-gray-100 transition"
+              aria-label="Next"
+            >
+              <ArrowRight className="w-5 h-5" />
+            </button>
+          </div>
         </div>
       </div>
     </section>

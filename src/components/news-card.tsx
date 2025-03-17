@@ -1,6 +1,6 @@
+import { Calendar, ChevronRight, Dot } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { Calendar, ChevronRight, Dot } from 'lucide-react';
 
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardFooter } from '@/components/ui/card';
@@ -12,7 +12,7 @@ interface NewsCardProps {
   title: string;
   description: string;
   imageUrl: string;
-  slug: string;
+  id: number;
   readingTime?: string;
   avatar?: {
     name: string;
@@ -25,7 +25,7 @@ export function NewsCard({
   title,
   description,
   imageUrl,
-  slug,
+  id,
   readingTime,
   avatar,
 }: NewsCardProps) {
@@ -66,8 +66,8 @@ export function NewsCard({
           </div>
         )}
 
-        <h3 className="text-2xl font-semibold ">{title}</h3>
-        <p className="line-clamp-2 text-gray-dark">{description}</p>
+        <h3 className="text-2xl font-semibold truncate w-[80%]">{title}</h3> {/* Truncated title */}
+        <p className="line-clamp-2 text-gray-dark truncate w-[80%]">{description}</p>
       </CardContent>
       <CardFooter className="p-6 pt-0">
         {(avatar || readingTime) && (
@@ -76,7 +76,7 @@ export function NewsCard({
             <time className="text-sm">{date}</time>
           </div>
         )}
-        <Link href={`/news/${slug}`} className="ml-auto">
+        <Link href={`/news/${id}`} className="ml-auto">
           <Button
             variant="outline"
             className="hover:bg-blue-50 text-[#000] font-medium text-sm transition-all duration-300 ease-in-out hover:scale-105"

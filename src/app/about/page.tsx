@@ -36,6 +36,7 @@ export default function Contact() {
           descriptionClassName="max-w-4xl"
         />
         <NewsSection />
+
       </main>
     </>
   );
