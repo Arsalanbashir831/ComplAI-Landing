@@ -1,11 +1,12 @@
-'use client'
+'use client';
+
 import Link from 'next/link';
 import { useParams } from 'next/navigation';
+import { newsData } from '@/constants/news'; // Assuming you have a `newsData` array with the articles
 
 import CTASection from '@/components/cta-section';
 import { NewsSection } from '@/components/news-section';
 import NewsDetail from '@/components/news/new-detail';
-import { newsData } from '@/constants/news'; // Assuming you have a `newsData` array with the articles
 
 export default function NewsExplanation() {
   const { id } = useParams(); // Get the `id` from the URL

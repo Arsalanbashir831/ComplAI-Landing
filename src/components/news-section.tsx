@@ -1,14 +1,12 @@
 'use client';
 
-import { ArrowRight } from 'lucide-react';
-import Link from 'next/link';
 import { useEffect, useRef, useState } from 'react';
-
-import { NewsCard } from '@/components/news-card';
-import { Button } from '@/components/ui/button';
+import Link from 'next/link';
 import { newsData } from '@/constants/news';
+import { ArrowRight } from 'lucide-react';
 
-
+import { Button } from '@/components/ui/button';
+import { NewsCard } from '@/components/news-card';
 
 export function NewsSection() {
   const cardRefs = useRef<(HTMLDivElement | null)[]>([]);

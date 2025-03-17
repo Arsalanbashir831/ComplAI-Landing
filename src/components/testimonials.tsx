@@ -1,10 +1,12 @@
 'use client';
 
-import { ArrowLeft, ArrowRight, Star } from 'lucide-react';
 import Image from 'next/image';
+import { ArrowLeft, ArrowRight, Star } from 'lucide-react';
+
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
+
 import { Navigation, Pagination } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 
@@ -95,7 +97,11 @@ const testimonials: Testimonial[] = [
   },
 ];
 
-export default function TestimonialCarousel({ showBadge = false }: { showBadge?: boolean }) {
+export default function TestimonialCarousel({
+  showBadge = false,
+}: {
+  showBadge?: boolean;
+}) {
   return (
     <section className="py-16 px-6 md:px-10 bg-white overflow-hidden relative">
       <div className="max-w-7xl mx-auto">
@@ -124,7 +130,6 @@ export default function TestimonialCarousel({ showBadge = false }: { showBadge?:
           breakpoints={{
             768: { slidesPerView: 2 },
             1024: { slidesPerView: 4 },
-
           }}
           // Enable looping
           loop={true}
@@ -158,7 +163,9 @@ export default function TestimonialCarousel({ showBadge = false }: { showBadge?:
                   <cite className="not-italic font-semibold">
                     {testimonial.author}
                   </cite>
-                  <div className="text-sm text-gray-500">{testimonial.company}</div>
+                  <div className="text-sm text-gray-500">
+                    {testimonial.company}
+                  </div>
                 </footer>
               </div>
             </SwiperSlide>

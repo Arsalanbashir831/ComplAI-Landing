@@ -1,10 +1,10 @@
 'use client';
 
-import DOMPurify from 'dompurify'; // For sanitizing HTML content
-import { Dot, Facebook, Linkedin, X as Twitter } from 'lucide-react';
+import { useEffect, useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { useEffect, useState } from 'react';
+import DOMPurify from 'dompurify'; // For sanitizing HTML content
+import { Dot, Facebook, Linkedin, X as Twitter } from 'lucide-react';
 import ReactMarkdown from 'react-markdown';
 import rehypeRaw from 'rehype-raw'; // For parsing raw HTML in markdown
 import TurndownService from 'turndown';
@@ -83,15 +83,30 @@ export default function NewsDetail({
     ),
 
     // Links
-    a: ({ href = '', children }: React.PropsWithChildren<{ href?: string }>) => (
-      <a href={href} className="text-blue-600 hover:underline" target="_blank" rel="noopener noreferrer">
+    a: ({
+      href = '',
+      children,
+    }: React.PropsWithChildren<{ href?: string }>) => (
+      <a
+        href={href}
+        className="text-blue-600 hover:underline"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
         {children}
       </a>
     ),
 
     // Images
     img: ({ src, alt }: { src?: string; alt?: string }) => (
-      <Image src={src || ''} alt={alt || 'image'} width={800} height={600} className="max-w-full h-auto rounded-lg my-4" unoptimized />
+      <Image
+        src={src || ''}
+        alt={alt || 'image'}
+        width={800}
+        height={600}
+        className="max-w-full h-auto rounded-lg my-4"
+        unoptimized
+      />
     ),
 
     // Blockquote
@@ -103,12 +118,16 @@ export default function NewsDetail({
 
     // Code block (inline)
     code: ({ children }: React.PropsWithChildren<unknown>) => (
-      <code className="bg-gray-200 px-1 py-0.5 rounded text-sm">{children}</code>
+      <code className="bg-gray-200 px-1 py-0.5 rounded text-sm">
+        {children}
+      </code>
     ),
 
     // Preformatted Code Block
     pre: ({ children }: React.PropsWithChildren<unknown>) => (
-      <pre className="bg-gray-900 text-white p-4 rounded-lg overflow-x-auto">{children}</pre>
+      <pre className="bg-gray-900 text-white p-4 rounded-lg overflow-x-auto">
+        {children}
+      </pre>
     ),
 
     // Strong (Bold Text)
@@ -133,7 +152,9 @@ export default function NewsDetail({
         </div>
       </div>
 
-      <h1 className="text-4xl font-bold mb-2 text-[#232536] max-w-[1100px] leading-tight">{title}</h1>
+      <h1 className="text-4xl font-bold mb-2 text-[#232536] max-w-[1100px] leading-tight">
+        {title}
+      </h1>
 
       <div className="flex items-start justify-between gap-3 text-gray-600 text-sm">
         {/* Share Buttons */}
@@ -178,7 +199,6 @@ export default function NewsDetail({
           className="rounded-lg w-full h-[600px] object-cover" // Fixed height with object-cover to maintain aspect ratio
         />
       </div>
-
 
       {/* Render Markdown Content with custom renderers */}
       <div className="space-y-6 text-gray-800">

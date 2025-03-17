@@ -1,6 +1,6 @@
-import { Calendar, ChevronRight, Dot } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
+import { Calendar, ChevronRight, Dot } from 'lucide-react';
 
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardFooter } from '@/components/ui/card';
@@ -40,7 +40,6 @@ export function NewsCard({
             className="object-cover"
           />
         </div>
-
         {avatar || readingTime ? (
           <div className="flex items-center justify-between gap-2 text-sm text-gray-dark">
             {avatar && (
@@ -65,9 +64,11 @@ export function NewsCard({
             <time className="text-sm">{date}</time>
           </div>
         )}
-
-        <h3 className="text-2xl font-semibold truncate w-[80%]">{title}</h3> {/* Truncated title */}
-        <p className="line-clamp-2 text-gray-dark truncate w-[80%]">{description}</p>
+        <h3 className="text-2xl font-semibold truncate w-[80%]">{title}</h3>{' '}
+        {/* Truncated title */}
+        <p className="line-clamp-2 text-gray-dark truncate w-[80%]">
+          {description}
+        </p>
       </CardContent>
       <CardFooter className="p-6 pt-0">
         {(avatar || readingTime) && (

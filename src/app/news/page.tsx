@@ -53,7 +53,6 @@ export default function News() {
           titleClassName="lg:text-[40px]"
           descriptionClassName="max-w-4xl"
         />
-
       </main>
     </>
   );

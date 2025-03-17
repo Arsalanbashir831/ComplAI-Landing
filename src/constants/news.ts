@@ -1,13 +1,14 @@
 export const newsData = [
-    {
-      id: 1,
-      date: 'Feb 6, 2025',
-      title: 'UK Lawtech Sector Booming as Investment Surges, with Risk & Compliance Solutions Gaining Traction',
-      description: 'Compl AI news and articles.',
-      imageUrl: '/blogs/blog1.png',
-      slug: 'slug',
-      readingTime: '3 min read',
-       content:`<!DOCTYPE html>
+  {
+    id: 1,
+    date: 'Feb 6, 2025',
+    title:
+      'UK Lawtech Sector Booming as Investment Surges, with Risk & Compliance Solutions Gaining Traction',
+    description: 'Compl AI news and articles.',
+    imageUrl: '/blogs/blog1.png',
+    slug: 'slug',
+    readingTime: '3 min read',
+    content: `<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -56,17 +57,17 @@ export const newsData = [
     
     <p>As lawtech continues to evolve, compliance and risk management solutions will play an increasingly critical role in shaping the sector’s future. With Compl-AI leading the charge, SRA-regulated firms can expect cutting-edge AI solutions that enhance compliance, mitigate risk, and improve overall efficiency.</p>
 </body>
-</html>`
-    },
-    {
-      id: 2,
-      date: 'Feb 7, 2025',
-      title: 'The Future of AI in Law',
-      description: 'Compl AI news and articles.',
-      imageUrl: '/blogs/blog2.png',
-      slug: 'slug',
-      readingTime: '5 min read',
-       content:`<!DOCTYPE html>
+</html>`,
+  },
+  {
+    id: 2,
+    date: 'Feb 7, 2025',
+    title: 'The Future of AI in Law',
+    description: 'Compl AI news and articles.',
+    imageUrl: '/blogs/blog2.png',
+    slug: 'slug',
+    readingTime: '5 min read',
+    content: `<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -99,17 +100,17 @@ export const newsData = [
     <h2>The Future of AI in Legal Services</h2>
     <p>The legal industry is at a crossroads. AI’s trajectory suggests that firms unwilling to embrace innovation will struggle to compete in an increasingly tech-driven world. While the “fleshy bits” of law—such as client relations and strategic thinking—will always require human expertise, the firms that combine these strengths with AI’s efficiency will lead the sector into the future. Compl-AI is at the forefront of this evolution, ensuring that law firms are not just keeping pace with change, but driving it.</p>
 </body>
-</html>`
-    },
-    {
-      id: 3,
-      date: 'Feb 8, 2025',
-      title: 'Compl-AI: Transforming Compliance',
-      description: 'Compl AI news and articles.',
-      imageUrl: '/blogs/blog3.png',
-      slug: 'slug',
-      readingTime: '7 min read',
-      content:`<!DOCTYPE html>
+</html>`,
+  },
+  {
+    id: 3,
+    date: 'Feb 8, 2025',
+    title: 'Compl-AI: Transforming Compliance',
+    description: 'Compl AI news and articles.',
+    imageUrl: '/blogs/blog3.png',
+    slug: 'slug',
+    readingTime: '7 min read',
+    content: `<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -134,8 +135,8 @@ export const newsData = [
     
     <p>Compl-AI remains committed to continuously developing advanced tools to further enhance compliance processes. As regulations evolve, so too will Compl-AI, ensuring that law firms are always equipped with cutting-edge solutions to meet their compliance obligations efficiently and effectively.</p>
 </body>
-</html>`
-    },
-  
-    // Add more sample data as needed...
-  ];
+</html>`,
+  },
+
+  // Add more sample data as needed...
+];
