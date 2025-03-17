@@ -1,12 +1,12 @@
 'use client';
 
-import { motion } from 'framer-motion';
+import { Suspense, useEffect } from 'react';
 import Image from 'next/image';
 import { useSearchParams } from 'next/navigation';
-import { Suspense, useEffect } from 'react';
+import { motion } from 'framer-motion';
 
-import { Card, CardContent } from '@/components/ui/card';
 import { cn } from '@/lib/utils';
+import { Card, CardContent } from '@/components/ui/card';
 
 interface FeatureCardProps {
   title: string;
@@ -40,7 +40,7 @@ function FeatureCard({
       // transition={{ duration: 0.5, delay: delay * 0.1 }}
       // whileHover={{ scale: 1.02 }}
       className={'text-center ' + className}
-    // viewport={{ once: true }}
+      // viewport={{ once: true }}
     >
       <Card className="h-full overflow-hidden bg-blue-50/50 hover:shadow-lg transition-all duration-300 flex flex-col items-center justify-center">
         <CardContent className=" md:py-6 py-6 px-6 flex flex-col items-center justify-center">
@@ -157,21 +157,21 @@ export default function Features() {
               title="Smart Document Handling"
               description="Upload, review, and draft tailored responses to emails, letters, and more—effortlessly"
               titleIcon="/images/features/1.svg"
-            // delay={1}
+              // delay={1}
             />
             <FeatureCard
               className="col-span-full md:col-span-2"
               title="AI-Powered File Reviews"
               description="Perform detailed file reviews in minutes and get a clear list of next steps."
               titleIcon="/images/features/2.svg"
-            // delay={2}
+              // delay={2}
             />
             <FeatureCard
               className="col-span-full md:col-span-2 text-start"
               title="Custom Compliance Manual Upload"
               description="Add your compliance manual to align AI recommendations with your internal policies."
               rightImage="/images/features/3.svg"
-            // delay={3}
+              // delay={3}
             />
 
             {/* Second Row */}
@@ -180,7 +180,7 @@ export default function Features() {
               title="Voice Assistance"
               description="Experience hands-free AI that delivers real-time, accurate compliance insights on demand."
               topImage="/images/features/4.svg"
-            // delay={4}
+              // delay={4}
             />
             {/* test */}
             <FeatureCard
@@ -188,14 +188,14 @@ export default function Features() {
               title="Interactive Query Assistance"
               description="Provides instant, accurate compliance answers, clarifying SRA Rules, AML, Legal Aid, Lexcel, SQM, and more."
               bottomImage="/images/features/5.svg"
-            // delay={5}
+              // delay={5}
             />
             <FeatureCard
               className="col-span-full md:col-span-1 md:row-span-2"
               title="Instant Document Creation"
               description="Generate bespoke policies, reports, and procedures in seconds to ensure firm-wide compliance."
               topImage="/images/features/6.svg"
-            // delay={6}
+              // delay={6}
             />
 
             {/* Third Row */}
@@ -204,7 +204,7 @@ export default function Features() {
               title="Automated Policy Review & Gap Analysis"
               description="Review policies, uncover compliance gaps, and receive actionable feedback to stay aligned."
               leftImage="/images/features/7.svg"
-            // delay={7}
+              // delay={7}
             />
             <FeatureCard
               className="col-span-full md:col-span-2"
@@ -212,7 +212,7 @@ export default function Features() {
               description="Simplify complex regulations with step-by-step actions and expert best practices."
               bottomImage="/images/features/8.svg"
               bottomImageClassName="h-28"
-            // delay={8}
+              // delay={8}
             />
           </div>
         </div>

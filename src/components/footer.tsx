@@ -1,6 +1,6 @@
+import Link from 'next/link';
 import { ROUTES } from '@/constants/routes';
 import { Facebook, Linkedin, X, Youtube } from 'lucide-react';
-import Link from 'next/link';
 
 import { Logo } from './logo';
 
@@ -96,8 +96,6 @@ export function Footer() {
               ))}
             </ul>
           </div>
-
-
         </div>
 
         <div className="col-span-full flex justify-between">
