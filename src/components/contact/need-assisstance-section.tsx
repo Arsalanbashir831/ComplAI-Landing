@@ -70,20 +70,20 @@ export default function NeedAssistanceSection() {
           {/* Animated Heading & Paragraph */}
           <div className="text-center space-y-2">
             <motion.h2
-              initial={{ opacity: 0, y: -20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5 }}
-              viewport={{ amount: 0.5 }}
+              // initial={{ opacity: 0, y: -20 }}
+              // whileInView={{ opacity: 1, y: 0 }}
+              // transition={{ duration: 0.5 }}
+              // viewport={{ amount: 0.5 }}
               className="text-3xl md:text-4xl font-bold"
             >
               Need Further Assistance? Contact Us Directly
             </motion.h2>
 
             <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.2 }}
-              viewport={{ amount: 0.5 }}
+              // initial={{ opacity: 0, y: 20 }}
+              // whileInView={{ opacity: 1, y: 0 }}
+              // transition={{ duration: 0.5, delay: 0.2 }}
+              // viewport={{ amount: 0.5 }}
               className="text-lg md:text-xl max-w-3xl mx-auto"
             >
               Send attachments or additional details directly to our Sales or
@@ -93,13 +93,13 @@ export default function NeedAssistanceSection() {
 
           {/* Animated Cards */}
           <div className="grid md:grid-cols-3 gap-6">
-            {contactInfo.map((info, index) => (
+            {contactInfo.map((info) => (
               <motion.div
                 key={info.title}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: index * 0.2 }}
-                viewport={{ amount: 0.5 }}
+              // initial={{ opacity: 0, y: 20 }}
+              // whileInView={{ opacity: 1, y: 0 }}
+              // transition={{ duration: 0.5, delay: index * 0.2 }}
+              // viewport={{ amount: 0.5 }}
               >
                 <ContactCard {...info} />
               </motion.div>

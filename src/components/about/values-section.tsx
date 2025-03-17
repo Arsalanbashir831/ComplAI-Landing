@@ -1,11 +1,11 @@
 'use client';
 
 // Needed if using Next.js App Router
-import Image from 'next/image';
 import { motion } from 'framer-motion';
+import Image from 'next/image';
 
-import { cn } from '@/lib/utils';
 import { Card, CardContent } from '@/components/ui/card';
+import { cn } from '@/lib/utils';
 
 interface ValueCardProps {
   title: string;
@@ -20,15 +20,15 @@ function ValueCard({
   description,
   icon,
   className,
-  delay = 0,
+  // delay = 0,
 }: ValueCardProps) {
   return (
     <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.5, delay: delay * 0.1 }}
-      whileHover={{ scale: 1.02 }}
-      viewport={{ once: true, amount: 0.5 }}
+      // initial={{ opacity: 0, y: 20 }}
+      // whileInView={{ opacity: 1, y: 0 }}
+      // transition={{ duration: 0.5, delay: delay * 0.1 }}
+      // whileHover={{ scale: 1.02 }}
+      // viewport={{ once: true, amount: 0.5 }}
       className={cn(
         // 'p-4 bg-[url(/images/bg/value-card-bg.svg)] bg-cover bg-center bg-no-repeat rounded-3xl',
         'p-4 bg-blue-lightest rounded-3xl',

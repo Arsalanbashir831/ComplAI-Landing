@@ -14,10 +14,10 @@ export default function TrustedSection() {
           {/* Heading Animation */}
           <motion.h2
             className="text-4xl font-bold tracking-tight text-white sm:text-6xl"
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.5 }}
-            transition={{ duration: 0.8, ease: 'easeOut' }}
+          // initial={{ opacity: 0, y: 50 }}
+          // whileInView={{ opacity: 1, y: 0 }}
+          // viewport={{ once: true, amount: 0.5 }}
+          // transition={{ duration: 0.8, ease: 'easeOut' }}
           >
             Trusted by Legal Teams Everywhere
           </motion.h2>
@@ -25,10 +25,10 @@ export default function TrustedSection() {
           {/* Paragraphs Animation */}
           <motion.div
             className="space-y-6 md:text-lg leading-relaxed text-white/90"
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.5 }}
-            transition={{ duration: 0.8, ease: 'easeOut', delay: 0.2 }}
+          // initial={{ opacity: 0, y: 50 }}
+          // whileInView={{ opacity: 1, y: 0 }}
+          // viewport={{ once: true, amount: 0.5 }}
+          // transition={{ duration: 0.8, ease: 'easeOut', delay: 0.2 }}
           >
             <p>
               Our users are the compliance champions their teams trust to keep

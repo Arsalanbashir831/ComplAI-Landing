@@ -4,7 +4,6 @@ import { motion } from 'framer-motion';
 
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 
-import HoverPopup from '../hooverpopup';
 import SalesForm from './sales-form';
 import SupportForm from './support-form';
 
@@ -20,10 +19,10 @@ export default function ContactHeroSection() {
             <div className="text-center space-y-2">
               {/* Animated heading */}
               <motion.h1
-                initial={{ opacity: 0, y: -20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5 }}
-                viewport={{ once: true, amount: 0.2 }}
+                // initial={{ opacity: 0, y: -20 }}
+                // whileInView={{ opacity: 1, y: 0 }}
+                // transition={{ duration: 0.5 }}
+                // viewport={{ once: true, amount: 0.2 }}
                 className="text-4xl sm:text-5xl md:text-6xl font-bold"
               >
                 Get in Touch with Us Today!
@@ -31,10 +30,10 @@ export default function ContactHeroSection() {
 
               {/* Animated paragraph */}
               <motion.p
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.2 }}
-                viewport={{ once: true, amount: 0.2 }}
+                // initial={{ opacity: 0, y: 20 }}
+                // whileInView={{ opacity: 1, y: 0 }}
+                // transition={{ duration: 0.5, delay: 0.2 }}
+                // viewport={{ once: true, amount: 0.2 }}
                 className="font-normal sm:text-lg md:text-xl max-w-xs md:max-w-2xl mx-auto"
               >
                 Whether It&rsquo;s Sales, Support, or Just a Question, Our Team
@@ -44,23 +43,23 @@ export default function ContactHeroSection() {
 
             <Tabs defaultValue="sales" className="w-full">
               <TabsList className="flex justify-center items-center mb-6 w-fit mx-auto space-x-4">
-                <HoverPopup message="Change Query Type">
-                  <TabsTrigger
-                    value="sales"
-                    className="data-[state=active]:bg-blue-600 data-[state=active]:text-white py-2 rounded-lg bg-gray-light"
-                  >
-                    Contact Sales
-                  </TabsTrigger>
-                </HoverPopup>
+                {/* <HoverPopup message="Change Query Type"> */}
+                <TabsTrigger
+                  value="sales"
+                  className="data-[state=active]:bg-blue-600 data-[state=active]:text-white py-2 rounded-lg bg-gray-light"
+                >
+                  Contact Sales
+                </TabsTrigger>
+                {/* </HoverPopup> */}
 
-                <HoverPopup message="Select Support Query">
-                  <TabsTrigger
-                    value="support"
-                    className="data-[state=active]:bg-blue-600 data-[state=active]:text-white py-2 rounded-lg bg-gray-light"
-                  >
-                    Compl-AI Support
-                  </TabsTrigger>
-                </HoverPopup>
+                {/* <HoverPopup message="Select Support Query"> */}
+                <TabsTrigger
+                  value="support"
+                  className="data-[state=active]:bg-blue-600 data-[state=active]:text-white py-2 rounded-lg bg-gray-light"
+                >
+                  Compl-AI Support
+                </TabsTrigger>
+                {/* </HoverPopup> */}
               </TabsList>
 
               <TabsContent value="sales">
