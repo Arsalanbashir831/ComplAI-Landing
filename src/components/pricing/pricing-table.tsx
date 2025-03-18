@@ -1,3 +1,6 @@
+import React from 'react';
+import { Check, Star } from 'lucide-react';
+
 import { Button } from '@/components/ui/button';
 import {
   Table,
@@ -7,8 +10,6 @@ import {
   TableHeader,
   TableRow,
 } from '@/components/ui/table';
-import { Check, Star } from 'lucide-react';
-import React from 'react';
 
 const pricingPlans = [
   {
@@ -255,7 +256,8 @@ const PricingTable = () => {
 
         <p className="text-base text-gray-dark mt-6 text-center">
           Mobile functionality on Pay As You Use and Professional plans is
-          limited but still usable, with full optimisation exclusive to Enterprise
+          limited but still usable, with full optimisation exclusive to
+          Enterprise
         </p>
       </div>
     </div>
