@@ -1,25 +1,57 @@
 'use client';
 
-import Link from 'next/link';
-import { useParams } from 'next/navigation';
-import { newsData } from '@/constants/news'; // Assuming you have a `newsData` array with the articles
-
+import Spinner from '@/components/_common/spinner';
 import CTASection from '@/components/cta-section';
 import { NewsSection } from '@/components/news-section';
 import NewsDetail from '@/components/news/new-detail';
+import { API_ROUTES } from '@/constants/routes';
+import Link from 'next/link';
+import { useParams } from 'next/navigation';
+import { useEffect, useState } from 'react';
 
 export default function NewsExplanation() {
+  const [newsItem, setNewsItem] = useState(null); // State to hold the news item
   const { id } = useParams(); // Get the `id` from the URL
 
-  // Find the specific news article using the `id`
-  const newsItem = newsData.find((news) => news.id.toString() === id);
+  // Helper function to format an ISO date string into "dd MMM yyyy" (e.g., "03 Feb 2025")
+  const formatDate = (isoString: string): string => {
+    const date = new Date(isoString);
+    return date.toLocaleDateString('en-GB', {
+      day: '2-digit',
+      month: 'short',
+      year: 'numeric',
+    });
+  };
 
-  // If no news item is found, you can show an error message or redirect
-  if (!newsItem) {
-    return <div>Article not found</div>;
+  useEffect(() => {
+    const getNewsItem = async () => {
+      try {
+        if (typeof id !== 'string') return;
+        const response = await fetch(API_ROUTES.GET_BLOGS_ID(id));
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        const data = await response.json();
+        setNewsItem(data);
+      } catch (error) {
+        console.error('Error fetching news data:', error);
+      }
+    };
+
+    if (id) {
+      getNewsItem();
+    }
+  }, [id]);
+
+  if (newsItem === null) {
+    return (
+      <div className="h-screen flex items-center justify-center">
+        <Spinner />
+      </div>
+    );
   }
 
-  const { title, date, readingTime, content, imageUrl } = newsItem;
+  const { title, uploaded_at, content, image } = newsItem;
 
   const cta = {
     title: {
@@ -36,18 +68,17 @@ export default function NewsExplanation() {
   return (
     <>
       <main className="pt-5">
-        <div className="container mx-auto px-6 pt-12 mt-8 ">
-          <Link href="/" className="text-gray-500 hover:underline  block">
+        <div className="container mx-auto px-6 pt-12 mt-8">
+          <Link href="/" className="text-gray-500 hover:underline block">
             ← Go back
           </Link>
         </div>
 
-        {/* Pass the filtered news data to NewsDetail component */}
         <NewsDetail
           title={title}
-          date={date}
-          readingTime={readingTime}
-          coverImageUrl={imageUrl}
+          date={formatDate(uploaded_at)}
+          readingTime={'3 min read'}
+          coverImageUrl={`${process.env.NEXT_PUBLIC_BACKEND_URL}/${image}`}
           content={content}
         />
 

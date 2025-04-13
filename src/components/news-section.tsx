@@ -1,16 +1,18 @@
 'use client';
 
-import { useEffect, useRef, useState } from 'react';
-import Link from 'next/link';
-import { newsData } from '@/constants/news';
 import { ArrowRight } from 'lucide-react';
+import Link from 'next/link';
+import { useEffect, useRef, useState } from 'react';
 
-import { Button } from '@/components/ui/button';
 import { NewsCard } from '@/components/news-card';
+import { Button } from '@/components/ui/button';
+import { API_ROUTES } from '@/constants/routes';
+import { NewsData } from '@/types/news';
 
 export function NewsSection() {
   const cardRefs = useRef<(HTMLDivElement | null)[]>([]);
   const [activeIndex, setActiveIndex] = useState(0);
+  const [newsData, setNewsData] = useState<NewsData | null>(null);
 
   const scrollToCard = (index: number) => {
     cardRefs.current[index]?.scrollIntoView({
@@ -20,6 +22,40 @@ export function NewsSection() {
     });
     setActiveIndex(index);
   };
+
+  // Helper function to extract plain text from the body of an HTML string
+  const parseBodyContentToText = (htmlString: string): string => {
+    const parser = new DOMParser();
+    const doc = parser.parseFromString(htmlString, 'text/html');
+    return doc.body.textContent || '';
+  };
+
+  // Helper function to format the ISO date into "dd MMM yyyy" (e.g., "03 Feb 2025")
+  const formatDate = (isoString: string): string => {
+    const date = new Date(isoString);
+    return date.toLocaleDateString('en-GB', {
+      day: '2-digit',
+      month: 'short',
+      year: 'numeric',
+    });
+  };
+
+  useEffect(() => {
+    const fetchNewsData = async () => {
+      try {
+        const response = await fetch(API_ROUTES.GET_BLOGS);
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        const data = await response.json();
+        setNewsData(data);
+      } catch (error) {
+        console.error('Error fetching news data:', error);
+      }
+    };
+
+    fetchNewsData();
+  }, []);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -36,13 +72,13 @@ export function NewsSection() {
       { threshold: 0.5 }
     );
 
-    const currentRefs = cardRefs.current;
-    currentRefs.forEach((ref) => {
+    const refs = cardRefs.current;
+    refs.forEach((ref) => {
       if (ref) observer.observe(ref);
     });
 
     return () => {
-      currentRefs.forEach((ref) => {
+      refs.forEach((ref) => {
         if (ref) observer.unobserve(ref);
       });
     };
@@ -60,40 +96,41 @@ export function NewsSection() {
           </Link>
         </div>
 
-        <div
-          className="
-          flex gap-6 overflow-x-auto whitespace-nowrap
-          md:overflow-x-visible md:grid md:grid-cols-2 lg:grid-cols-3
-        "
-        >
-          {newsData.map((item, index) => (
-            <div
-              key={index}
-              ref={(el) => {
-                cardRefs.current[index] = el;
-              }}
-              className="
+        <div className="flex gap-6 overflow-x-auto whitespace-nowrap
+          md:overflow-x-visible md:grid md:grid-cols-2 lg:grid-cols-3">
+          {newsData?.blogs.map((news, index) => {
+            const mainContentText = parseBodyContentToText(news.content).slice(0, 200);
+            return (
+              <div
+                key={index}
+                ref={(el) => {
+                  cardRefs.current[index] = el;
+                }}
+                className="
                 flex-shrink-0 w-80 
                 md:w-auto
               "
-            >
-              <NewsCard
-                date={item.date}
-                title={item.title}
-                description={item.description}
-                imageUrl={item.imageUrl}
-                id={item.id}
-              />
-            </div>
-          ))}
+              >
+                <NewsCard
+                  date={formatDate(news.uploaded_at)}
+                  title={news.title}
+                  description={mainContentText}
+                  imageUrl={`${process.env.NEXT_PUBLIC_BACKEND_URL}/${news.image}`}
+                  id={news.id}
+                />
+              </div>
+            );
+          })}
         </div>
 
+        {/* Mobile navigation dots */}
         <div className="flex md:hidden justify-center mt-6 gap-2">
-          {newsData.map((_, index) => (
+          {newsData?.blogs.map((_, index) => (
             <button
               key={index}
-              className={`w-3 h-3 rounded-full ${index === activeIndex ? 'bg-blue-600' : 'bg-gray-400'}`}
               onClick={() => scrollToCard(index)}
+              className={`w-3 h-3 rounded-full ${activeIndex === index ? 'bg-blue-600' : 'bg-gray-400'
+                }`}
             />
           ))}
         </div>
