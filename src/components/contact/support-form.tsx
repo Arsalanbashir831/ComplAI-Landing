@@ -1,7 +1,7 @@
-import { useState } from 'react';
-import { Check } from 'lucide-react';
 
-import { cn } from '@/lib/utils';
+import { Check } from 'lucide-react';
+import { useState } from 'react';
+
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import {
@@ -12,6 +12,7 @@ import {
   SelectValue,
 } from '@/components/ui/select';
 import { Textarea } from '@/components/ui/textarea';
+import { cn } from '@/lib/utils';
 
 import TeamsSlider from '../teams-slider';
 import { Card } from '../ui/card';
