@@ -1,7 +1,7 @@
 import Image from 'next/image';
 
-import { cn } from '@/lib/utils';
 import { CTAButton } from '@/components/cta-button';
+import { cn } from '@/lib/utils';
 
 export default function CTASection({
   cta,
@@ -34,6 +34,7 @@ export default function CTASection({
             height={800}
             className="h-full object-cover"
           />
+          {/* das */}
         </div>
       )}
 
