@@ -85,7 +85,7 @@ export function NewsSection() {
   }, []);
 
   return (
-    <section className="py-20 px-4">
+    <section className="py-20 px-12">
       <div className="max-w-7xl mx-auto">
         <div className="flex justify-between items-center mb-8">
           <h2 className="text-4xl md:text-5xl font-semibold">Latest news</h2>

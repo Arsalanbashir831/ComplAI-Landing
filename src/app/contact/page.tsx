@@ -8,7 +8,7 @@ import TestimonialCarousel from '@/components/testimonials';
 export default function Contact() {
   return (
     <>
-      <main className="pt-20">
+      <main className="pt-20 ">
         <TooltipProvider>
           <ContactHeroSection />
           <NeedAssistanceSection />

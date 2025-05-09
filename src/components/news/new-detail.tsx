@@ -2,9 +2,9 @@
 
 import { useEffect, useState } from 'react';
 import Image from 'next/image';
-import Link from 'next/link';
+// import Link from 'next/link';
 import DOMPurify from 'dompurify'; // For sanitizing HTML content
-import { Dot, Facebook, Linkedin, X as Twitter } from 'lucide-react';
+import { Dot,  } from 'lucide-react';
 import ReactMarkdown from 'react-markdown';
 import rehypeRaw from 'rehype-raw'; // For parsing raw HTML in markdown
 import TurndownService from 'turndown';
@@ -35,14 +35,14 @@ export default function NewsDetail({
   }, [content]);
 
   // Get current URL for sharing
-  const currentUrl = typeof window !== 'undefined' ? window.location.href : '';
+//   const currentUrl = typeof window !== 'undefined' ? window.location.href : '';
 
   // Social media share links
-  const shareLinks = {
-    linkedin: `https://www.linkedin.com/shareArticle?mini=true&url=${encodeURIComponent(currentUrl)}&title=${encodeURIComponent(title)}`,
-    facebook: `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(currentUrl)}`,
-    twitter: `https://twitter.com/intent/tweet?url=${encodeURIComponent(currentUrl)}&text=${encodeURIComponent(title)}`,
-  };
+//   const shareLinks = {
+//     linkedin: `https://www.linkedin.com/shareArticle?mini=true&url=${encodeURIComponent(currentUrl)}&title=${encodeURIComponent(title)}`,
+//     facebook: `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(currentUrl)}`,
+//     twitter: `https://twitter.com/intent/tweet?url=${encodeURIComponent(currentUrl)}&text=${encodeURIComponent(title)}`,
+//   };
 
   // Custom renderers for markdown elements
   const renderers = {
@@ -156,8 +156,8 @@ export default function NewsDetail({
         {title}
       </h1>
 
-      <div className="flex items-start justify-between gap-3 text-gray-600 text-sm">
-        {/* Share Buttons */}
+      {/* <div className="flex items-start justify-between gap-3 text-gray-600 text-sm">
+
         <div className="flex flex-col items-start gap-2 text-sm text-gray-dark">
           <p className="text-[#6D6E76] text-xl">Share this news</p>
           <div className="flex space-x-4 text-[#292929]">
@@ -187,7 +187,7 @@ export default function NewsDetail({
             </Link>
           </div>
         </div>
-      </div>
+      </div> */}
 
       {/* News Image */}
       <div className="w-full my-6">

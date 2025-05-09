@@ -23,7 +23,7 @@ const contactInfo = [
   {
     icon: MapPin,
     title: 'Our Office',
-    contact: 'Manchester, United Kingdom',
+    contact: 'Manchester, UK',
   },
 ] as const;
 
@@ -41,7 +41,7 @@ function ContactCard({ icon: Icon, title, contact, href }: ContactCardProps) {
         <Icon className="h-5 w-5 text-white" />
       </div>
       <div>
-        <h3 className="font-medium text-xl md:text-2xl">{title}</h3>
+        <h3 className="font-medium text-xl md:text-xl">{title}</h3>
         <span className="text-lg md:text-xl font-bold underline">
           {contact}
         </span>
@@ -50,7 +50,7 @@ function ContactCard({ icon: Icon, title, contact, href }: ContactCardProps) {
   );
 
   return (
-    <Card className="p-4 flex items-center md:justify-center gap-6 h-fit border-primary shadow-primary drop-shadow-md">
+      <Card className="p-4 flex items-center md:justify-center gap-6 h-fit bg-[#F1F5FE] border-none shadow-none">
       {href ? (
         <a href={href} className="flex items-center gap-6">
           {content}
@@ -64,7 +64,7 @@ function ContactCard({ icon: Icon, title, contact, href }: ContactCardProps) {
 
 export default function NeedAssistanceSection() {
   return (
-    <section className="py-16 bg-white px-4 md:px-0">
+    <section className="py-16 bg-white px-4 md:px-12">
       <div className="container mx-auto">
         <div className="space-y-8">
           {/* Animated Heading & Paragraph */}
@@ -84,7 +84,7 @@ export default function NeedAssistanceSection() {
               // whileInView={{ opacity: 1, y: 0 }}
               // transition={{ duration: 0.5, delay: 0.2 }}
               // viewport={{ amount: 0.5 }}
-              className="text-lg md:text-xl max-w-3xl mx-auto"
+              className="text-lg md:text-xl max-w-2xl mx-auto"
             >
               Send attachments or additional details directly to our Sales or
               Support teams for quick and reliable assistance

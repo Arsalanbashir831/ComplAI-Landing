@@ -63,15 +63,15 @@ export default function FAQSection({
             <span>FAQ</span>
           </div>
         )}
-        <h2 className="text-3xl font-bold sm:text-4xl md:text-6xl">
+        <h2 className="text-3xl font-bold sm:text-4xl md:text-5xl">
           {faq.title}
         </h2>
-        <p className="max-w-[900px] md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
+        {/* <p className="max-w-[900px] md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
           {faq.subtitle}
-        </p>
+        </p> */}
       </div>
 
-      <div className="container max-w-3xl py-12 mx-auto">
+      <div className="container max-w-6xl py-12 mx-auto">
         <Accordion
           type="single"
           collapsible

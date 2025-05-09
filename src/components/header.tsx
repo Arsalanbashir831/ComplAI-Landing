@@ -25,7 +25,7 @@ export function Header() {
   return (
     <header
       className={cn(
-        'fixed top-0 z-50 w-full bg-transparent px-5',
+        'fixed top-0 z-50 w-full bg-transparent px-8',
         hasScrolled &&
           'bg-white/95 backdrop-blur supports-[backdrop-filter]:bg-white/60'
       )}

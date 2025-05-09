@@ -50,7 +50,7 @@ const footer = {
 
 export function Footer() {
   return (
-    <footer className="border-t py-16 bg-primary px-4 md:px-0">
+    <footer className="border-t py-16 bg-primary px-4 md:px-8">
       <div className="relative container grid gap-8 md:grid-cols-[2fr_1fr] mx-auto">
         {/* Logo and Social Section */}
         <div className="space-y-6">
@@ -85,7 +85,7 @@ export function Footer() {
             </h3>
             <ul className="space-y-1">
               {footer.company.links.map((link) => (
-                <li key={link.href}>
+                <li key={link.title}>
                   <Link
                     href={link.href}
                     className="text-base text-white transition-colors hover:text-gray-300"

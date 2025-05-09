@@ -103,7 +103,7 @@ export default function TestimonialCarousel({
   showBadge?: boolean;
 }) {
   return (
-    <section className="py-16 px-6 md:px-10 bg-white overflow-hidden relative">
+    <section className="py-16 px-6 md:px-12 bg-white overflow-hidden relative">
       <div className="max-w-7xl mx-auto">
         {showBadge && (
           <div className="inline-flex items-center justify-center px-3 py-2 mb-6 text-sm font-medium rounded-lg bg-[#F1F2F6] space-x-2">
@@ -114,7 +114,7 @@ export default function TestimonialCarousel({
           </div>
         )}
 
-        <h2 className="text-center text-4xl md:text-6xl font-bold mb-10">
+        <h2 className="text-center text-4xl md:text-5xl font-bold mb-10">
           See what all the talk
           <br />
           is about.

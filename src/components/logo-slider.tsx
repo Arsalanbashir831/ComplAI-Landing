@@ -28,13 +28,13 @@ export default function LogoSlider({
   return (
     <div
       className={cn(
-        'relative m-auto w-full overflow-hidden container',
+        'relative m-auto w-full overflow-hidden container px-8  ',
         showSidesFade &&
           "before:absolute before:left-0 before:top-0 before:z-[2] before:h-full  before:bg-[linear-gradient(to_right,#f3f4f6fc,rgba(255,255,255,0)_60%)] md:before:bg-[linear-gradient(to_right,#f3f4f6fc,rgba(255,255,255,0)_100%)] before:content-[''] after:absolute after:right-0 after:top-0 after:z-[2] after:h-full  after:-scale-x-100 after:bg-[linear-gradient(to_right,#f3f4f6fc,rgba(255,255,255,0)_60%)]  after:content-['']",
         containerClassName
       )}
     >
-      <h2 className={cn('mb-6 text-center text-xl', titleClassName)}>
+      <h2 className={cn('mb-6 text-center text-3xl', titleClassName)}>
         {title}
       </h2>
 

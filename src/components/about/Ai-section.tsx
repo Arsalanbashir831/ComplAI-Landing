@@ -20,21 +20,13 @@ export default function AiSection() {
 
         {/* Paragraph Animation */}
         <motion.p
-          className="md:text-lg text-justify md:text-center"
+          className="md:text-lg text-justify md:text-left px-9"
           // initial={{ opacity: 0, y: 50 }}
           // whileInView={{ opacity: 1, y: 0 }}
           // transition={{ duration: 0.8, ease: 'easeOut', delay: 0.2 }}
           // viewport={{ once: true, amount: 0.5 }}
         >
-          Compl-AI is a specialised AI solution for SRA-regulated law firms,
-          offering precise, regulation-aware responses through a custom hybrid
-          architecture and proprietary data protocols. Developed and validated
-          by leading solicitors, it ensures accuracy, reliability, and
-          compliance with the highest legal standards. Hosted on secure,
-          enterprise-grade infrastructure with full GDPR compliance, Compl-AI
-          delivers real-time, low-latency insights to enhance efficiency, reduce
-          risk, and elevate compliance practices beyond the capabilities of
-          generic AI.
+                  Compl-AI is a specialised AI solution for SRA-regulated law firms, delivering precise, regulation-aware responses through a purpose-built legal intelligence framework. Developed and validated by experienced solicitors, it ensures dependable accuracy, practical relevance, and alignment with the highest standards of legal compliance. Hosted on secure, enterprise-grade infrastructure with full GDPR compliance, Compl-AI provides real-time insights that streamline workflows, minimise risk, and raise compliance performance beyond the limits of generic AI tools.
         </motion.p>
 
         {/* Image Animation */}

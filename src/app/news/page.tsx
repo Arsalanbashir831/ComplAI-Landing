@@ -40,7 +40,7 @@ export default function News() {
             // transition={{ delay: 0.3, duration: 0.8, ease: 'easeOut' }}
             className="font-normal text-xl"
           >
-            Our latest updates, news, and AI insights to keep you connected to
+                      Our latest updates, news, and AI insights to keep you connected to <br />
             innovation and progress.
           </motion.p>
         </div>

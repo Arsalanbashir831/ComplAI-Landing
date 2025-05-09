@@ -55,7 +55,7 @@ function ValueCard({
 
 export default function ValuesSection() {
   return (
-    <section className="md:py-16 px-4 md:px-6">
+    <section className="md:py-16 px-4 md:px-12">
       <div className="max-w-7xl mx-auto">
         {/* Animated heading container (similar to the Features example) */}
         <div className="text-center mb-12">

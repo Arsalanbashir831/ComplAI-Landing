@@ -26,7 +26,7 @@ export default function Contact() {
         <TrustedSection />
         <AiSection />
         <ValuesSection />
-        <div className="py-20">
+        <div className="py-20 px-12">
           <TeamsSlider />
         </div>
         <CTASection

@@ -70,7 +70,7 @@ export default function CTASection({
         </div>
         <CTAButton
           href={cta.buttonHref}
-          className="relative z-10 text-base font-medium py-5"
+          className="relative z-10 text-base font-medium py-6"
         >
           {cta.buttonText}
         </CTAButton>
