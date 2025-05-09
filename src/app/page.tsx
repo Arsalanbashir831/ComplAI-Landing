@@ -9,6 +9,7 @@ import { Hero } from '@/components/home/hero';
 import NavigateToTop from '@/components/navigate-to-top';
 import { NewsSection } from '@/components/news-section';
 import TestimonialSlider from '@/components/testimonials';
+import SolutionsSection from '@/components/solutions-section';
 
 export default function Home() {
   const cta = {
@@ -27,8 +28,9 @@ export default function Home() {
       <Suspense>
         <main>
           <Hero />
+                  <SolutionsSection/>
           <Features />
-          <TestimonialSlider showBadge={false} />
+                  <TestimonialSlider showBadge={false} />
           <FAQSection showBadge={false} />
           <CTASection cta={cta} showBgImage={true} showRadialImage={false} />
           <NewsSection />

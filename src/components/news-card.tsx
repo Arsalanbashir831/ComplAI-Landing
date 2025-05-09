@@ -27,7 +27,8 @@ export function NewsCard({
         fill
         className="object-cover transition-transform duration-300 group-hover:scale-105"
       />
-      <div className="absolute inset-0 bg-black/50" />
+          {/* Black Overlay (must go above image, below text) */}
+          <div className="absolute h-96 w-full  inset-0 bg-gray-950/50 z-10" />
 
       <div className="absolute bottom-0 p-4 w-full text-white z-10">
         <div className="flex items-center gap-2 text-sm mb-2">

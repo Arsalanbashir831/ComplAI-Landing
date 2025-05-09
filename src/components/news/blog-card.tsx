@@ -20,14 +20,15 @@ export function BlogCard({
   return (
     <div className="overflow-hidden rounded-lg">
       {/* Image with rounded corners */}
-      <div className="relative h-48 w-full overflow-hidden rounded-lg">
-        <Image
-          src={imageUrl || '/placeholder.svg'}
-          alt={title}
-          fill
-          className="object-cover"
-        />
-      </div>
+          <div className="relative h-48 w-full overflow-hidden rounded-lg">
+              <Image
+                  src={imageUrl || '/placeholder.svg'}
+                  alt={title}
+                  fill
+                  className="object-cover"
+              />
+              <div className="absolute inset-0 bg-black bg-opacity-50" />
+          </div>
 
       <div className="pt-3 pb-2">
         {/* Date */}
