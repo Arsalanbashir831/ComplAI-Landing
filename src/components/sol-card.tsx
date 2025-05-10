@@ -26,7 +26,7 @@ export default function SolCard({
     }[imageAlign];
 
     return (
-        <div className="bg-white rounded-xl border  pb-5 w-full max-w-sm flex flex-col h-full shadow-[0px_0px_18.7px_4px_#0A58EB4D] transition">
+        <div className="bg-white rounded-xl border pb-5 w-full max-w-sm flex flex-col h-full shadow-[0px_0px_18.7px_4px_#0A58EB4D] transition-all transform hover:scale-105 hover:shadow-lg hover:shadow-[0px_0px_25px_#0A58EB] hover:ring-2 hover:ring-blue-500">
             {/* Fixed height image container for equal spacing */}
             <div className={`flex ${alignClass} h-[180px] items-center`}>
                 {typeof image === 'string' ? (

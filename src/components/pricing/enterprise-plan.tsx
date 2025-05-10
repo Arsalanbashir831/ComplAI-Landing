@@ -52,8 +52,8 @@ export default function EnterprisePlan() {
         <section className="text-center px-4 py-12 flex flex-col justify-center items-center">
             <h2 className="text-6xl font-bold mb-16 ">
                 Available with
-                <span className="bg-gradient-to-b from-[#179DFF] to-[#1754FF] bg-clip-text text-transparent "> 
-                     Enterprise Plans
+                <span className="bg-gradient-to-b from-[#179DFF] to-[#1754FF] bg-clip-text text-transparent  ">
+                    {" "} Enterprise Plans
                 </span>
             </h2>
 
@@ -62,7 +62,7 @@ export default function EnterprisePlan() {
                     <SolCard key={idx} {...card} />
                 ))}
             </div>
-            
+
         </section>
     );
 }

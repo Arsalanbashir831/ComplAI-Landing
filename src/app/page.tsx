@@ -4,12 +4,11 @@ import { Suspense } from 'react';
 
 import CTASection from '@/components/cta-section';
 import FAQSection from '@/components/faq';
-import Features from '@/components/home/features';
 import { Hero } from '@/components/home/hero';
 import NavigateToTop from '@/components/navigate-to-top';
 import { NewsSection } from '@/components/news-section';
-import TestimonialSlider from '@/components/testimonials';
 import SolutionsSection from '@/components/solutions-section';
+import TestimonialSlider from '@/components/testimonials';
 
 export default function Home() {
   const cta = {
@@ -28,9 +27,9 @@ export default function Home() {
       <Suspense>
         <main>
           <Hero />
-                  <SolutionsSection/>
-          <Features />
-                  <TestimonialSlider showBadge={false} />
+          <SolutionsSection />
+          {/* <Features /> */}
+          <TestimonialSlider showBadge={false} />
           <FAQSection showBadge={false} />
           <CTASection cta={cta} showBgImage={true} showRadialImage={false} />
           <NewsSection />

@@ -46,16 +46,20 @@ const solutions: CardProps[] = [
 
 export default function SolutionsSection() {
     return (
-        <section className="text-center px-4 py-12">
-            <h2 className="text-6xl font-bold mb-2">Our Solutions</h2>
-            <p className="text-gray-600 max-w-2xl mx-auto mb-10">
-                Discover the innovative features that streamline compliance, enhance productivity, and provide peace of mind. Tailored for legal professionals, by legal professionals.
-            </p>
+        <section className="text-center px-4 py-12 md:px-6">
+            <div className="max-w-7xl mx-auto">
 
-            <div className="grid gap-6 sm:grid-cols-2 md:grid-cols-3 items-stretch">
-                {solutions.map((card, idx) => (
-                    <SolCard key={idx} {...card} />
-                ))}
+
+                <h2 className="text-5xl font-bold mb-2">Our Solutions</h2>
+                <p className="text-gray-600 max-w-2xl mx-auto mb-10">
+                    Discover the innovative features that streamline compliance, enhance productivity, and provide peace of mind. Tailored for legal professionals, by legal professionals.
+                </p>
+
+                <div className="grid gap-6 sm:grid-cols-2 md:grid-cols-3 items-stretch">
+                    {solutions.map((card, idx) => (
+                        <SolCard key={idx} {...card} />
+                    ))}
+                </div>
             </div>
         </section>
     );
