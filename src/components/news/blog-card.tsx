@@ -1,6 +1,6 @@
+import { ChevronRight } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { ChevronRight } from 'lucide-react';
 
 interface NewsCardProps {
   id: number;
@@ -27,6 +27,7 @@ export function BlogCard({
           fill
           className="object-cover"
         />
+        <div className="absolute inset-0 bg-black bg-opacity-50" />
       </div>
 
       <div className="pt-3 pb-2">

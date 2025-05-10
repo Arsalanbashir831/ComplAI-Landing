@@ -1,10 +1,10 @@
 'use client';
 
-import { useEffect, useState } from 'react';
-import Image from 'next/image';
-import Link from 'next/link';
 import { API_ROUTES } from '@/constants/routes';
 import { ChevronRight } from 'lucide-react';
+import Image from 'next/image';
+import Link from 'next/link';
+import { useEffect, useState } from 'react';
 
 import type { NewsData } from '@/types/news';
 
@@ -72,8 +72,15 @@ export default function NewsSection() {
 
   if (loading) {
     return (
-      <div className="container mx-auto px-4 py-8">
-        Loading news articles...
+      <div className="container mx-auto px-4 py-8 flex justify-center items-center h-96">
+        <div className="flex flex-col items-center space-y-4">
+          {/* Spinner */}
+          <div className="w-12 h-12 border-4 border-blue-600 border-t-transparent rounded-full animate-spin"></div>
+          {/* Loading Text */}
+          <p className="text-lg font-medium text-gray-600">
+            Loading news articles...
+          </p>
+        </div>
       </div>
     );
   }

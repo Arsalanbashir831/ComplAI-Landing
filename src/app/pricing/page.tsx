@@ -4,6 +4,8 @@ import { motion } from 'framer-motion';
 
 import CTASection from '@/components/cta-section';
 import FAQSection from '@/components/faq';
+import { NewsSection } from '@/components/news-section';
+import EnterprisePlan from '@/components/pricing/enterprise-plan';
 import { PricingBanner } from '@/components/pricing/pricing-banner';
 import PricingCards from '@/components/pricing/pricing-cards';
 import PricingTable from '@/components/pricing/pricing-table';
@@ -56,6 +58,7 @@ export default function Contact() {
           <PricingCards />
         </div>
         <div className="hidden md:block h-72" />
+        <EnterprisePlan />
         <PricingBanner />
         <TeamsSlider />
         <FAQSection />
@@ -65,6 +68,7 @@ export default function Contact() {
           titleClassName="lg:text-[40px]"
           descriptionClassName="max-w-4xl"
         />
+        <NewsSection />
       </main>
     </>
   );
