@@ -34,13 +34,6 @@ const solutions = [
     comingSoon: false,
   },
   {
-    title: 'Audit',
-    description: 'LAA Audits and Peer Review',
-    href: '/audit',
-    icon: '/images/icons/users-four-gray.svg',
-    comingSoon: true,
-  },
-  {
     title: 'Resolve',
     description: 'Swift Complaint Handling',
     href: '/resolve',
@@ -48,17 +41,24 @@ const solutions = [
     comingSoon: false,
   },
   {
-    title: 'Compose',
-    description: 'Create policies with AI support',
-    href: '/compose',
-    icon: '/images/icons/magic-wand-gray.svg',
-    comingSoon: true,
-  },
-  {
     title: 'Review',
     description: 'Find Compliance Gaps',
     href: '/review',
     icon: '/images/icons/files-sparkle-gray.svg',
+    comingSoon: true,
+  },
+  {
+    title: 'Audit',
+    description: 'LAA Audits and Peer Review',
+    href: '/audit',
+    icon: '/images/icons/users-four-gray.svg',
+    comingSoon: true,
+  },
+  {
+    title: 'Compose',
+    description: 'Create policies with AI support',
+    href: '/compose',
+    icon: '/images/icons/magic-wand-gray.svg',
     comingSoon: true,
   },
   {
@@ -145,10 +145,10 @@ export default function TopNavItems({
               <PopoverContent
                 side="bottom"
                 align="center"
-                className="max-w-[700px] w-full mt-2 p-4 bg-white rounded-2xl shadow-lg"
+                className="!max-w-96 md:max-w-[700px] w-full mt-2 !p-0 md:p-4 bg-white rounded-2xl shadow-lg"
                 onMouseLeave={() => setSolutionsOpen(false)}
               >
-                <div className="grid grid-cols-2">
+                <div className="grid md:grid-cols-2">
                   {solutions.map((sol, idx) => (
                     <Link
                       key={sol.title}
@@ -159,7 +159,7 @@ export default function TopNavItems({
                       }}
                       className={cn(
                         'flex items-center gap-3 p-3 hover:bg-gray-50',
-                        idx % 2 === 1 && 'border-l border-gray-200'
+                        idx % 2 === 1 && 'md:border-l border-gray-200'
                       )}
                     >
                       <div
@@ -173,14 +173,14 @@ export default function TopNavItems({
                           alt={sol.title}
                           width={24}
                           height={24}
-                          className="w-6 h-6"
+                          className="w-4 h-4 md:w-6 md:h-6"
                         />
                       </div>
                       <div className="flex-1">
                         <div className="flex items-center justify-between">
                           <p
                             className={cn(
-                              'text-xl font-semibold',
+                              'md:text-xl font-semibold',
                               sol.comingSoon ? 'text-[#A1A7B4]' : 'text-primary'
                             )}
                           >
@@ -194,7 +194,7 @@ export default function TopNavItems({
                         </div>
                         <p
                           className={cn(
-                            'mt-1 text-xs',
+                            'md:mt-1 text-xs',
                             sol.comingSoon ? 'text-[#A1A7B4]' : 'text-gray-dark'
                           )}
                         >

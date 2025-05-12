@@ -9,7 +9,7 @@ import SolCard from '../sol-card';
 export default function EnterprisePlan() {
   return (
     <section className="relative text-center px-4 pt-12 pb-8 flex flex-col justify-center items-center ">
-      <h2 className="text-6xl font-bold mb-16 ">
+      <h2 className="text-3xl md:text-6xl font-bold mb-8 md:mb-16 ">
         Available with
         <span className="bg-gradient-to-b from-[#179DFF] to-[#1754FF] bg-clip-text text-transparent  ">
           {' '}

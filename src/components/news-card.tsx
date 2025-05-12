@@ -20,7 +20,7 @@ export function NewsCard({
   id,
 }: NewsCardProps) {
   return (
-    <div className="relative rounded-xl overflow-hidden h-96 group">
+    <div className="relative rounded-xl overflow-hidden h-64 md:h-96 group">
       <Image
         src={imageUrl || '/placeholder.svg'}
         alt={title}
@@ -28,7 +28,7 @@ export function NewsCard({
         className="object-cover transition-transform duration-300 group-hover:scale-105"
       />
       {/* Black Overlay (must go above image, below text) */}
-      <div className="absolute h-96 w-full  inset-0 bg-gray-950/50 z-10" />
+      <div className="absolute h-64 md:h-96 w-full inset-0 bg-gray-950/50 z-10" />
 
       <div className="absolute bottom-0 p-4 w-full text-white z-10">
         <div className="flex items-center gap-2 text-sm mb-2">
@@ -38,7 +38,7 @@ export function NewsCard({
         <div className="flex justify-between items-end">
           <h3 className="text-lg font-semibold mb-1 truncate">{title}</h3>
           <Link href={`/news/${id}`}>
-            <Button className="bg-white hover:bg-white hover:text-black-100 text-black-100 text-sm font-medium ">
+            <Button className="bg-white hover:bg-white hover:text-black-100 text-black-100 text-sm font-medium h-fit p-1 px-2">
               Read More <ChevronRight size={16} className="ml-1" />
             </Button>
           </Link>

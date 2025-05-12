@@ -196,7 +196,7 @@ export default function NewsDetail({
           alt={title}
           width={1280} // Full width (adjust as needed)
           height={600} // Manually setting a fixed height to reduce image height
-          className="rounded-lg w-full h-[600px] object-cover" // Fixed height with object-cover to maintain aspect ratio
+          className="rounded-lg w-full md:h-[600px] object-cover" // Fixed height with object-cover to maintain aspect ratio
         />
       </div>
 

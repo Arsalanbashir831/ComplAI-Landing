@@ -94,10 +94,10 @@ export function NewsSection() {
     .slice(0, 3);
 
   return (
-    <section className="py-20 px-12">
+    <section className="py-20 px-4 md:px-12">
       <div className="max-w-7xl mx-auto">
-        <div className="flex justify-between items-center mb-8">
-          <h2 className="text-4xl md:text-5xl font-semibold">Latest news</h2>
+        <div className="flex flex-col md:flex-row md:justify-between md:items-center gap-2 mb-8">
+          <h2 className="text-3xl md:text-5xl font-semibold">Latest news</h2>
           <Link href="/news">
             <Button className="font-medium transition-all duration-300 ease-in-out hover:scale-105">
               Browse All <ArrowRight size={16} />

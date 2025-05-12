@@ -30,7 +30,7 @@ export default function DemoForm() {
         </div>
       </div>
 
-      <div className="w-4/5 space-y-4 pt-8 flex-1 order-1 md:order-2">
+      <div className="md:w-4/5 space-y-4 pt-8 flex-1 order-1 md:order-2">
         <Input placeholder="Your full name" className="py-6" />
         <Input type="email" placeholder="Your email" className="py-6" />
         <Input placeholder="Company name" className="py-6" />

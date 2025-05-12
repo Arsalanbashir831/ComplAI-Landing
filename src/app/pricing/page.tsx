@@ -28,7 +28,7 @@ export default function Contact() {
   return (
     <>
       <main>
-        <div className="relative text-center space-y-2 mt-10 bg-gradient-to-b from-[#edf8ff00] to-[#70a2ff85] md:pt-20">
+        <div className="relative text-center space-y-2 mt-28 bg-gradient-to-b from-[#edf8ff00] to-[#70a2ff85] md:mt-32">
           <motion.h1
             // 1. Animation starting state
             initial={{ opacity: 0, y: 50 }}

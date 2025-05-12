@@ -78,7 +78,7 @@ export function PricingSection() {
   ];
 
   return (
-    <main className="container pt-3 pb-12 px-16 mx-auto max-w-screen-xl">
+    <main className="container pt-3 pb-12 px-16 mx-auto md:max-w-screen-xl">
       <PricingCards plans={pricingPlans} />
     </main>
   );

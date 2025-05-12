@@ -11,7 +11,7 @@ export default function SalesForm() {
   return (
     <div className="grid md:grid-cols-2 gap-8 px-4 md:px-0">
       <div className="overflow-hidden grid grid-cols-1 gap-8 order-2 items-center justify-items-center  text-left md:order-1">
-        <Card className=" w-3/4 bg-gradient-to-br from-[#6499F4] to-[#0a59eb] to-85% h-fit text-white p-8 rounded-lg ">
+        <Card className="md:w-3/4 bg-gradient-to-br from-[#6499F4] to-[#0a59eb] to-85% h-fit text-white p-8 rounded-lg ">
           <div className="space-y-6">
             <h3 className="text-3xl md:text-4xl font-semibold">
               We&apos;d love to help
@@ -41,12 +41,12 @@ export default function SalesForm() {
         </Card>
 
         <TeamsSlider
-          className="md:text-3xl font-semibold justify-self-center text-left px-8"
+          className="md:text-3xl font-semibold justify-self-center md:text-left px-8"
           showSidesFade={false}
         />
       </div>
 
-      <div className="w-4/5 space-y-4 flex-1 order-1 md:order-2">
+      <div className="md:w-4/5 space-y-4 flex-1 order-1 md:order-2">
         <Input placeholder="Your full name" className="py-6" />
         <Input type="email" placeholder="Your email" className="py-6" />
         <Input placeholder="Company name" className="py-6" />
