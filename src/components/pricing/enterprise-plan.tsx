@@ -1,4 +1,8 @@
 // components/sections/SolutionsSection.tsx
+import Image from 'next/image';
+import { ROUTES } from '@/constants/routes';
+
+import { CTAButton } from '../cta-button';
 import SolCard, { CardProps } from '../sol-card';
 
 const solutions: CardProps[] = [
@@ -49,7 +53,7 @@ const solutions: CardProps[] = [
 
 export default function EnterprisePlan() {
   return (
-    <section className="text-center px-4 py-12 flex flex-col justify-center items-center">
+    <section className="relative text-center px-4 pt-12 pb-8 flex flex-col justify-center items-center ">
       <h2 className="text-6xl font-bold mb-16 ">
         Available with
         <span className="bg-gradient-to-b from-[#179DFF] to-[#1754FF] bg-clip-text text-transparent  ">
@@ -62,6 +66,23 @@ export default function EnterprisePlan() {
         {solutions.map((card, idx) => (
           <SolCard key={idx} {...card} />
         ))}
+      </div>
+
+      <CTAButton
+        href={ROUTES.DEMO}
+        className="relative z-10 text-base font-medium py-5 px-12 mt-10"
+      >
+        Book a Demo
+      </CTAButton>
+
+      <div className="absolute bottom-0 flex items-center justify-center">
+        <Image
+          src="/images/bg/blur-cta-bg.svg"
+          alt="background image"
+          width={800}
+          height={800}
+          className="h-full object-cover"
+        />
       </div>
     </section>
   );
