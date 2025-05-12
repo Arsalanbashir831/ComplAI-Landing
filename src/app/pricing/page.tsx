@@ -1,14 +1,15 @@
 'use client';
 
+import Image from 'next/image';
 import { motion } from 'framer-motion';
 
+import { Button } from '@/components/ui/button';
 import CTASection from '@/components/cta-section';
 import FAQSection from '@/components/faq';
 import { NewsSection } from '@/components/news-section';
 import EnterprisePlan from '@/components/pricing/enterprise-plan';
 import { PricingBanner } from '@/components/pricing/pricing-banner';
-import PricingCards from '@/components/pricing/pricing-cards';
-import PricingTable from '@/components/pricing/pricing-table';
+import { PricingSection } from '@/components/pricing/pricing-section';
 import TeamsSlider from '@/components/teams-slider';
 
 export default function Contact() {
@@ -27,7 +28,7 @@ export default function Contact() {
   return (
     <>
       <main>
-        <div className="relative text-center space-y-2 mt-20 md:mb-56 bg-gradient-to-b from-[#edf8ff00] to-[#70a2ff85] py-10 md:pt-20 md:h-[700px]">
+        <div className="relative text-center space-y-2 mt-10 bg-gradient-to-b from-[#edf8ff00] to-[#70a2ff85] md:pt-20">
           <motion.h1
             // 1. Animation starting state
             initial={{ opacity: 0, y: 50 }}
@@ -51,13 +52,26 @@ export default function Contact() {
             Intelligence
           </motion.p>
 
-          <div className="absolute md:top-1/3 left-1/2 transform -translate-x-1/2 text-start w-full hidden md:block">
-            <PricingTable />
-          </div>
+          {/* add button */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.6, duration: 0.8, ease: 'easeOut' }}
+            className="flex justify-center !mt-8"
+          >
+            <Button className="bg-primary text-white px-6 py-3 rounded-full hover:bg-blue-600 transition duration-300 w-full max-w-96">
+              <Image
+                src="/images/icons/bot-sparkle-white.svg"
+                alt=""
+                width={20}
+                height={20}
+              />
+              Companion Pricing
+            </Button>
+          </motion.div>
 
-          <PricingCards />
+          <PricingSection />
         </div>
-        <div className="hidden md:block h-72" />
         <EnterprisePlan />
         <PricingBanner />
         <TeamsSlider />
