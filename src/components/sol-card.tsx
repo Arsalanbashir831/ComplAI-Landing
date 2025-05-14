@@ -19,16 +19,16 @@ export default function SolCard({
   }[imageAlign];
 
   return (
-    <div className="bg-white rounded-xl border pb-5 w-full max-w-sm flex flex-col h-full shadow-[0px_0px_10px_4px_#0A58EB4D] transition-all transform hover:scale-105 hover:shadow-[0px_0px_15px_#0A58EB] hover:ring-2 hover:ring-blue-500">
+    <div className="bg-white rounded-xl border pb-5 w-full max-w-sm flex flex-col h-full shadow-[0px_0px_18px_4px_#0A58EB4D] transition-all transform hover:scale-105 hover:shadow-[0px_0px_15px_#0A58EB] hover:ring-2 hover:ring-blue-500">
       {/* Fixed height image container for equal spacing */}
       <div className={`flex ${alignClass} h-[180px] items-center`}>
         {typeof image === 'string' ? (
           <Image
             src={image}
             alt={title}
-            width={300}
-            height={150}
-            className="object-contain max-h-[150px]"
+            width={400}
+            height={200}
+            className="object-contain max-h-[250px]"
           />
         ) : (
           image
@@ -36,7 +36,7 @@ export default function SolCard({
       </div>
 
       {/* Title + Coming Soon */}
-      <div className="flex items-center px-5 gap-3 mt-4 mb-2">
+      <div className="flex items-center px-7 gap-3 mt-6 mb-2">
         <h3 className="text-xl font-semibold text-[#0A2758]">{title}</h3>
         {comingSoon && (
           <span className="text-white text-xs  px-4 py-1 rounded-full bg-gradient-to-r from-[#0058FF] to-[#21C8F6] shadow-md">
@@ -46,7 +46,7 @@ export default function SolCard({
       </div>
 
       {/* Description should stretch to fill available space */}
-      <p className="text-gray-600 px-5 text-left text-md flex-1">
+      <p className="text-gray-600 px-7 text-left text-md flex-1">
         {description}
       </p>
 

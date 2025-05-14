@@ -7,7 +7,7 @@ export const solutions: Solution[] = [
     image: '/images/companion.svg',
     buttonLabel: 'Learn More →',
     buttonLink: '/companion',
-    imageAlign: 'left',
+    imageAlign: 'center',
   },
   {
     title: 'Resolve',

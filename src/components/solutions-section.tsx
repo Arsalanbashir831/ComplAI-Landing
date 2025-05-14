@@ -14,7 +14,7 @@ export default function SolutionsSection() {
           professionals, by legal professionals.
         </p>
 
-        <div className="grid gap-6 sm:grid-cols-2 md:grid-cols-3 items-stretch">
+        <div className="grid gap-9 sm:grid-cols-2 md:grid-cols-3 items-stretch">
           {solutions.map((card, idx) => (
             <SolCard key={idx} {...card} />
           ))}
