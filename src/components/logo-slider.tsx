@@ -58,7 +58,7 @@ export default function LogoSlider({
             {logos.map((logo, idx) => (
               <div
                 key={idx}
-                className="flex items-center justify-center w-24 md:w-[200px] h-10 md:h-[100px]"
+                className="flex items-center justify-center w-24 md:w-[180px] h-10 md:h-[80px]"
               >
                 <Image
                   width={200}

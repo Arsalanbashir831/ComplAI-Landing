@@ -1,9 +1,5 @@
 'use client';
 
-import { useEffect, useState } from 'react';
-import Image from 'next/image';
-import { AnimatePresence, motion } from 'framer-motion';
-
 import { CTAButton } from '@/components/cta-button';
 
 import IndustryStandards from './industry-standards';
@@ -14,7 +10,8 @@ const title = {
   highlight: 'SRA',
   end: ' regulated law firms',
 };
-const subtitle = 'Your In-house compliance partner, powered by AI.';
+const subtitle =
+  'Your in-house compliance partner, powered by Artificial Intelligence.';
 const buttons = {
   primary: {
     text: 'Get Started',
@@ -27,28 +24,28 @@ const buttons = {
 };
 
 export function Hero() {
-  const images = [
-    '/images/hero1.png',
-    '/images/hero2.png',
-    '/images/hero3.png',
-  ];
+  // const images = [
+  //   '/images/hero1.png',
+  //   '/images/hero2.png',
+  //   '/images/hero3.png',
+  // ];
 
-  const displayDuration = 5; // Display each image for 5 seconds
-  const fadeDuration = 1; // Fade transition duration of 1 second
-  const totalInterval = displayDuration + 2 * fadeDuration; // Total cycle time per image
+  // const displayDuration = 5; // Display each image for 5 seconds
+  // const fadeDuration = 1; // Fade transition duration of 1 second
+  // const totalInterval = displayDuration + 2 * fadeDuration; // Total cycle time per image
   //test
-  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  // const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentImageIndex((prevIndex) => (prevIndex + 1) % images.length);
-    }, totalInterval * 1000); // Convert to milliseconds
+  // useEffect(() => {
+  //   const interval = setInterval(() => {
+  //     setCurrentImageIndex((prevIndex) => (prevIndex + 1) % images.length);
+  //   }, totalInterval * 1000); // Convert to milliseconds
 
-    return () => clearInterval(interval);
-  }, [images.length, totalInterval]);
+  //   return () => clearInterval(interval);
+  // }, [images.length, totalInterval]);
 
   return (
-    <section className="relative pt-[6rem] px-4 md:px-0 bg-[url(/images/bg/home-hero-bg.svg)] bg-no-repeat bg-center bg-cover space-y-10">
+    <section className="relative pt-[8rem] px-4 md:px-0 bg-[url(/images/bg/home-hero-bg.svg)] bg-no-repeat bg-center bg-cover space-y-10 h-screen flex flex-col justify-center items-center">
       <div className="mx-auto container max-w-5xl text-center">
         <h1 className="mb-6 font-bold tracking-tight text-3xl md:text-6xl leading-[1.5]  ">
           <span className="text-primary">{title.start}</span>
@@ -74,7 +71,7 @@ export function Hero() {
             {buttons.secondary.text}
           </CTAButton>
         </div>
-        <div className="relative mx-auto mt-8 w-full max-w-4xl">
+        {/* <div className="relative mx-auto mt-8 w-full max-w-4xl">
           <div className="absolute inset-0 bg-gradient-to-tr from-primary/30 to-primary/10 rounded-lg blur-3xl opacity-50" />
           <div className="relative w-full h-[300px] md:h-[500px] mx-auto bg-cover ml-[1rem] md:ml-[5rem]">
             <AnimatePresence mode="wait">
@@ -100,7 +97,7 @@ export function Hero() {
               )}
             </AnimatePresence>
           </div>
-        </div>
+        </div> */}
       </div>
 
       {/* <div className="mt-20"> */}
