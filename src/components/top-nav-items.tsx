@@ -3,7 +3,7 @@
 import React, { useEffect, useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { usePathname, useRouter } from 'next/navigation';
+import { usePathname } from 'next/navigation';
 import { ROUTES } from '@/constants/routes';
 
 import { cn } from '@/lib/utils';
@@ -17,7 +17,6 @@ import {
 const mainNav = [
   { title: 'Home', href: ROUTES.HOME },
   { title: 'Solutions', href: '#' },
-  { title: 'Features', href: `${ROUTES.HOME}?section=features` },
   { title: 'Pricing', href: ROUTES.PRICING },
   { title: 'About', href: ROUTES.ABOUT },
   { title: 'News', href: ROUTES.NEWS },
@@ -80,21 +79,8 @@ export default function TopNavItems({
   onLinkClick,
 }: TopNavItemsProps) {
   const pathname = usePathname();
-  const router = useRouter();
   const [activeSection, setActiveSection] = useState('home');
   const [solutionsOpen, setSolutionsOpen] = useState(false);
-
-  // Observe the features section for activeSection logic
-  useEffect(() => {
-    const featuresEl = document.getElementById('features');
-    if (!featuresEl) return;
-    const obs = new IntersectionObserver(
-      ([entry]) => setActiveSection(entry.isIntersecting ? 'features' : 'home'),
-      { threshold: 0.5 }
-    );
-    obs.observe(featuresEl);
-    return () => obs.disconnect();
-  }, []);
 
   // Sync activeSection when the route changes
   useEffect(() => {
@@ -107,16 +93,7 @@ export default function TopNavItems({
     e: React.MouseEvent<HTMLElement>,
     item: { title: string; href: string }
   ) => {
-    if (item.title === 'Features') {
-      e.preventDefault();
-      router.push(`${ROUTES.HOME}?section=features`, { scroll: false });
-      document
-        .getElementById('features')
-        ?.scrollIntoView({ behavior: 'smooth' });
-      setActiveSection('features');
-    } else {
-      setActiveSection(item.title.toLowerCase());
-    }
+    setActiveSection(item.title.toLowerCase());
     onLinkClick?.();
   };
 
@@ -124,7 +101,7 @@ export default function TopNavItems({
     activeSection.startsWith(title.toLowerCase());
 
   return (
-    <nav className={cn('relative flex items-center gap-6', className)}>
+    <nav className={cn('relative flex items-center gap-8', className)}>
       {mainNav.map((item) =>
         item.title === 'Solutions' ? (
           <Popover
@@ -219,7 +196,7 @@ export default function TopNavItems({
             href={item.href}
             className={cn(
               'text-md font-medium transition-colors hover:text-primary',
-              { 'text-primary': isActive(item.title) }
+              { 'text-primary font-semibold': isActive(item.title) }
             )}
             onClick={(e) => handleNavClick(e, item)}
           >

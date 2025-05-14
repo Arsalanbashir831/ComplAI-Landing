@@ -56,13 +56,13 @@ export default function NewsExplanation() {
 
   const cta = {
     title: {
-      start: 'Ready to Experience ',
-      highlight: 'AI-Powered Compliance?',
+      start: 'Ready to Try ',
+      highlight: 'Compl-AI?',
       end: '',
     },
     description:
-      'Compl-AI leverages advanced AI to simplify compliance, delivering instant answers and smart insights when you need them. Save time, enhance accuracy, and let AI handle the heavy lifting.',
-    buttonText: 'Get Compl-AI Free',
+      'Compl-AI provides instant compliance insights and solutions exactly when your team needs them. Save time, lower costs, and stay ahead with ease.',
+    buttonText: 'Start Your Free Trial',
     buttonHref: '/signup',
   };
 

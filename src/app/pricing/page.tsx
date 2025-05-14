@@ -20,8 +20,8 @@ export default function Contact() {
       end: '',
     },
     description:
-      'Compl-AI leverages advanced AI to simplify compliance, delivering instant answers and smart insights when you need them. Save time, enhance accuracy, and let AI handle the heavy lifting.',
-    buttonText: 'Get Compl-AI Free',
+      'Compl-AI is your all in one platform for AI solutions built for real compliance work, delivering fast insights and confident results across every task.',
+    buttonText: 'Start Your Free Trial',
     buttonHref: '/signup',
   };
 

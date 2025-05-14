@@ -20,8 +20,8 @@ export default function Home() {
       end: '',
     },
     description:
-      'Compl-AI delivers instant compliance insights and tools when your team needs them most. Save time, reduce costs, and stay ahead effortlessly',
-    buttonText: 'Get Compl-AI Free',
+      'Compl-AI provides instant compliance insights and solutions exactly when your team needs them. Save time, lower costs, and stay ahead with ease.',
+    buttonText: 'Start Your Free Trial',
     buttonHref: '/signup',
   };
   return (

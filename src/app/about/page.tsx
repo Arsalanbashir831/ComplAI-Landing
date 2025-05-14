@@ -1,5 +1,4 @@
 import AboutHeroSection from '@/components/about/about-hero-section';
-import AiSection from '@/components/about/Ai-section';
 import TrustedSection from '@/components/about/trusteded-section';
 import ValuesSection from '@/components/about/values-section';
 import CTASection from '@/components/cta-section';
@@ -14,8 +13,8 @@ export default function Contact() {
       end: '',
     },
     description:
-      'Compl-AI leverages advanced AI to simplify compliance, delivering instant answers and smart insights when you need them. Save time, enhance accuracy, and let AI handle the heavy lifting.',
-    buttonText: 'Get Compl-AI Free',
+      'Compl-AI is your all in one platform for AI solutions built for real compliance work, delivering fast insights and confident results across every task.',
+    buttonText: 'Get Started',
     buttonHref: '/signup',
   };
 
@@ -24,7 +23,6 @@ export default function Contact() {
       <main className="pt-20">
         <AboutHeroSection />
         <TrustedSection />
-        <AiSection />
         <ValuesSection />
         <div className="py-20">
           <TeamsSlider />

@@ -66,8 +66,8 @@ export function PricingCard({ plan }: PricingCardProps) {
             <Badge
               variant="outline"
               className={cn(
-                'bg-white text-primary border-white font-medium px-2 md:px-3 py-0.5 md:py-1 text-[10px] md:text-xs rounded-full',
-                !plan.popular && 'bg-transparent text-primary shadow'
+                'bg-white text-primary border-white font-medium px-2 md:px-3 py-0.5 md:py-1 text-[10px] md:text-xs rounded-full shadow',
+                plan.color === 'blue' && 'shadow-[0px_2px_3px_0px_#ffffff9a]'
               )}
             >
               {plan.badge}
@@ -128,6 +128,10 @@ export function PricingCard({ plan }: PricingCardProps) {
           <div className="border-t border-blue-500 mb-6" />
         )}
 
+        {plan.name === 'Enterprise' && (
+          <div className="border-t border-[#D1D1D1] mb-6" />
+        )}
+
         <div className="space-y-2">
           {plan.name && (
             <p
@@ -145,13 +149,13 @@ export function PricingCard({ plan }: PricingCardProps) {
               <div key={index} className="flex items-start gap-3 text-left">
                 <Check
                   className={cn(
-                    'h-3 w-3 shrink-0 mt-0.5',
+                    'h-4 w-4 shrink-0 mt-0.5',
                     plan.color === 'blue' ? 'text-white' : 'text-[#454545]'
                   )}
                 />
                 <span
                   className={cn(
-                    'text-xs',
+                    'text-sm',
                     plan.color === 'blue' ? 'text-blue-50' : 'text-[#454545]'
                   )}
                 >
@@ -174,9 +178,9 @@ export function PricingCard({ plan }: PricingCardProps) {
             )}
           >
             {plan.footerHeading && (
-              <p className="text-xs font-semibold">{plan.footerHeading}</p>
+              <p className="text-sm font-semibold">{plan.footerHeading}</p>
             )}
-            {plan.footerText && <p className="text-xs">{plan.footerText}</p>}{' '}
+            {plan.footerText && <p className="text-sm">{plan.footerText}</p>}{' '}
           </div>
         </CardFooter>
       )}

@@ -82,7 +82,7 @@ export default function FAQSection({
             <AccordionItem
               key={index}
               value={`item-${index}`}
-              className="border rounded-xl px-6 py-2 data-[state=open]:bg-blue-lightest"
+              className="border rounded-xl px-6 py-2 data-[state=open]:bg-[#0A58EB0F] data-[state=open]:border-none"
             >
               <AccordionTrigger
                 className="text-left font-semibold hover:no-underline"
