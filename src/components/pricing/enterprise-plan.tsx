@@ -10,11 +10,11 @@ export default function EnterprisePlan() {
   return (
     <section className="relative text-center px-4 pt-12 pb-8 flex flex-col justify-center items-center ">
       <h2 className="text-3xl md:text-6xl font-bold mb-8 md:mb-16 ">
-        Available with
-        <span className="bg-gradient-to-b from-[#179DFF] to-[#1754FF] bg-clip-text text-transparent  ">
+        All Our Solutions
+        {/* <span className="bg-gradient-to-b from-[#179DFF] to-[#1754FF] bg-clip-text text-transparent  ">
           {' '}
           Enterprise Plans
-        </span>
+        </span> */}
       </h2>
 
       <div className="grid gap-6 sm:grid-cols-2 md:grid-cols-3 items-stretch">
@@ -27,7 +27,7 @@ export default function EnterprisePlan() {
         href={ROUTES.DEMO}
         className="relative z-10 text-base font-medium py-5 px-12 mt-10"
       >
-        Book a Demo
+        Book a Demo for Enterprise
       </CTAButton>
 
       <div className="absolute bottom-0 flex items-center justify-center">

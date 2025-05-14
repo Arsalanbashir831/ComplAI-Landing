@@ -10,27 +10,31 @@ export default function DemoForm() {
       <div className="w-full flex justify-center  ">
         <div className="w-full max-w-6xl px-4 flex flex-col">
           {/* Heading */}
-          <h2 className="text-5xl font-bold leading-tight mb-4 text-black">
+          <h2 className="text-[68px] font-bold leading-tight mb-4 text-black">
             Let’s Walk You <br className="hidden sm:block" />
             Through Smarter Compliance.
           </h2>
-          <p className="text-lg text-gray-700 mb-12">
+          <p className="text-xl mb-4">
             All your compliance tools. One powerful AI platform.
           </p>
 
           {/* Illustration */}
-          <div className="relative w-full max-w-3xl aspect-[1.2/1]">
+          <div className="relative md:-ml-4 w-full aspect-[1.2]">
             <Image
-              src="/images/demohead.svg" // replace with actual path
+              src="/images/demohead.svg"
               alt="Demo Illustration"
               fill
+              priority
               className="object-contain"
             />
           </div>
         </div>
       </div>
 
-      <div className="md:w-4/5 space-y-4 pt-8 flex-1 order-1 md:order-2">
+      <div className="md:w-4/5 ml-auto space-y-4 pt-8 flex-1 order-1 md:order-2">
+        <div className="w-fit px-6 py-2 text-center text-sm rounded-full mb-4 mx-auto bg-primary text-white">
+          For Enterprise Enquiries Only
+        </div>
         <Input placeholder="Your full name" className="py-6" />
         <Input type="email" placeholder="Your email" className="py-6" />
         <Input placeholder="Company name" className="py-6" />

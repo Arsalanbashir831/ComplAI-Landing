@@ -180,13 +180,13 @@ export default function TestimonialCarousel({
           {/* Custom arrow buttons */}
           <div className="flex space-x-3">
             <button
-              className="swiper-button-prev-custom p-2 rounded-full border border-gray-300 hover:bg-gray-100 transition"
+              className="swiper-button-prev-custom p-2 rounded-full border border-primary text-primary hover:bg-primary hover:text-white transition"
               aria-label="Previous"
             >
               <ArrowLeft className="w-5 h-5" />
             </button>
             <button
-              className="swiper-button-next-custom p-2 rounded-full border border-gray-300 hover:bg-gray-100 transition"
+              className="swiper-button-next-custom p-2 rounded-full border border-primary text-primary hover:bg-primary hover:text-white transition"
               aria-label="Next"
             >
               <ArrowRight className="w-5 h-5" />

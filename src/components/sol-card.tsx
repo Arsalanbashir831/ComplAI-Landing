@@ -28,7 +28,7 @@ export default function SolCard({
             alt={title}
             width={400}
             height={200}
-            className="object-contain max-h-[250px]"
+            className="object-contain max-h-[200px]"
           />
         ) : (
           image

@@ -26,7 +26,7 @@ interface PricingCardsProps {
 
 export function PricingCards({ plans }: PricingCardsProps) {
   return (
-    <div className="grid gap-6 md:grid-cols-3">
+    <div className="grid gap-8 md:grid-cols-3">
       {plans.map((plan) => (
         <PricingCard key={plan.id} plan={plan} />
       ))}
@@ -42,16 +42,20 @@ export function PricingCard({ plan }: PricingCardProps) {
   return (
     <Card
       className={cn(
-        'flex flex-col overflow-hidden border rounded-lg',
-        plan.color === 'blue' && 'bg-primary text-white border-primary'
+        'relative flex flex-col border rounded-xl',
+        plan.color === 'blue' &&
+          'bg-primary text-white border-primary shadow-[0px_0px_39px_5px_#0686F6]'
       )}
     >
+      {plan.popular && (
+        <div className="absolute -top-16 -right-2/3 w-full h-16 bg-[url(/images/professional-pricing-promo.svg)] bg-contain bg-center bg-no-repeat hidden md:block" />
+      )}
       <CardHeader className="pt-6 pb-2 px-6">
-        <div className="flex justify-between items-start">
+        <div className="flex justify-between items-center">
           <div>
             <h3
               className={cn(
-                'text-2xl font-bold',
+                'text-xl md:text-2xl font-bold',
                 plan.color === 'blue' && 'text-[#EDEDED]'
               )}
             >
@@ -62,7 +66,7 @@ export function PricingCard({ plan }: PricingCardProps) {
             <Badge
               variant="outline"
               className={cn(
-                'bg-white text-primary border-white font-medium px-3 py-1 rounded-full',
+                'bg-white text-primary border-white font-medium px-2 md:px-3 py-0.5 md:py-1 text-[10px] md:text-xs rounded-full',
                 !plan.popular && 'bg-transparent text-primary shadow'
               )}
             >
@@ -76,7 +80,7 @@ export function PricingCard({ plan }: PricingCardProps) {
           <div className="flex items-baseline h-fit">
             <span
               className={cn(
-                'text-4xl font-bold',
+                'text-3xl md:text-4xl font-bold',
                 plan.color === 'blue' ? 'text-white' : 'text-primary'
               )}
             >
@@ -85,16 +89,11 @@ export function PricingCard({ plan }: PricingCardProps) {
             {plan.description && (
               <span
                 className={cn(
-                  'ml-2 text-3xl font-bold',
-                  plan.color === 'blue' && 'text-white'
+                  'ml-2 text-2xl md:text-3xl font-bold',
+                  plan.color === 'blue' ? 'text-white' : 'text-primary'
                 )}
               >
                 {plan.description}
-              </span>
-            )}
-            {plan.message && (
-              <span className="text-[9px] leading-3 text-white ml-4 w-20 text-left self-center">
-                50% Cheaper than Top-up
               </span>
             )}
           </div>
@@ -103,7 +102,7 @@ export function PricingCard({ plan }: PricingCardProps) {
         <Button
           variant={plan.color === 'blue' ? 'default' : 'outline'}
           className={cn(
-            'w-full mb-4',
+            'w-full mb-4 text-xl',
             plan.color === 'blue'
               ? 'bg-white text-primary hover:bg-blue-50'
               : 'text-primary hover:text-blue-600 border-primary'
@@ -119,7 +118,7 @@ export function PricingCard({ plan }: PricingCardProps) {
               <p className="text-[#000000] font-semibold">Or</p>
               <Separator className="basis-1/2 bg-[#9D9D9D]" />
             </div>
-            <Button className="w-full mt-2 bg-primary text-white hover:bg-blue-600">
+            <Button className="w-full mt-2 bg-primary text-white hover:bg-blue-600 text-xl">
               {plan.secondaryButtonText}
             </Button>
           </div>
@@ -133,7 +132,7 @@ export function PricingCard({ plan }: PricingCardProps) {
           {plan.name && (
             <p
               className={cn(
-                'font-medium mb-2 text-left text-xs',
+                'mb-2 text-left text-sm font-bold w-2/3',
                 plan.color === 'blue' && 'text-white'
               )}
             >
@@ -165,10 +164,10 @@ export function PricingCard({ plan }: PricingCardProps) {
       </CardContent>
 
       {(plan.footerText || plan.footerHeading) && (
-        <CardFooter className="p-0 mt-auto">
+        <CardFooter className="p-0 px-6 mt-10">
           <div
             className={cn(
-              'w-full max-w-52 py-2 text-center text-sm rounded-full mb-4 mx-auto',
+              'w-full py-2 text-center text-sm rounded-full mb-4 mx-auto',
               plan.color === 'blue'
                 ? 'bg-white text-primary'
                 : 'bg-primary text-white'

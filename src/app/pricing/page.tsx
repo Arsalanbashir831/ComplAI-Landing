@@ -46,7 +46,7 @@ export default function Contact() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.3, duration: 0.8, ease: 'easeOut' }}
-            className="font-normal text-md md:text-xl !mb-10 md:!mb-0"
+            className="font-normal text-md md:text-xl !mt-4 !mb-10 md:!mb-0"
           >
             Streamline Your Law Firm&rsquo;s Compliance with Artificial
             Intelligence
@@ -57,7 +57,7 @@ export default function Contact() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.6, duration: 0.8, ease: 'easeOut' }}
-            className="flex justify-center !mt-8"
+            className="flex justify-center !mt-4 !mb-16"
           >
             <Button className="bg-primary text-white px-6 py-3 rounded-full hover:bg-blue-600 transition duration-300 w-full max-w-96">
               <Image

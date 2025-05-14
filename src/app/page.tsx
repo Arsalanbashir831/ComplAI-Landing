@@ -4,10 +4,10 @@ import { Suspense } from 'react';
 
 import CTASection from '@/components/cta-section';
 import FAQSection from '@/components/faq';
-import { DemoBanner } from '@/components/home/demo-banner';
 import { Hero } from '@/components/home/hero';
 import NavigateToTop from '@/components/navigate-to-top';
 import { NewsSection } from '@/components/news-section';
+import { PricingBanner } from '@/components/pricing/pricing-banner';
 import SolutionsSection from '@/components/solutions-section';
 import TeamsSlider from '@/components/teams-slider';
 import TestimonialSlider from '@/components/testimonials';
@@ -32,7 +32,7 @@ export default function Home() {
           <SolutionsSection />
           {/* <Features /> */}
           <TeamsSlider />
-          <DemoBanner />
+          <PricingBanner />
           <TestimonialSlider showBadge={false} />
           <FAQSection showBadge={false} />
           <CTASection cta={cta} showBgImage={true} showRadialImage={false} />
