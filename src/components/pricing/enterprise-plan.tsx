@@ -18,7 +18,7 @@ export default function EnterprisePlan() {
         viewport={{ once: true }}
         className="text-3xl md:text-6xl font-bold mb-8 md:mb-16 "
       >
-        All Our Solutions
+        Our Solutions
         {/* <span className="bg-gradient-to-b from-[#179DFF] to-[#1754FF] bg-clip-text text-transparent  ">
           {' '}
           Enterprise Plans

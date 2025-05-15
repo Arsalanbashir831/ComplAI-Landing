@@ -142,25 +142,15 @@ export function Footer() {
           <p className="text-3xl max-w-sm">{footer.mainText}</p>
         </div>
 
-        <div className="flex flex-col md:flex-row md:justify-between md:items-center gap-8 col-span-full mb-8">
+        <div className="flex flex-col md:flex-row md:justify-between md:items-center gap-8 col-span-full ">
           {/* Logo and Social Section */}
           <div className="space-y-4">
             <Logo className="justify-start" inverted={true} />
             <p className="text-xl max-w-72 text-white">{footer.tagline}</p>
           </div>
 
-          {/* support mail */}
-          <Link
-            href={`mailto:${footer.contact.email}`}
-            className="relative text-base text-white font-medium col-span-full after:block after:h-[2px] after:w-0 after:bg-white after:transition-all after:duration-500 after:ease-in-out after:absolute after:left-0 after:bottom-0 hover:after:w-full underline"
-          >
-            {footer.contact.email}
-          </Link>
-
           <div className="space-y-2 flex flex-col md:tems-end">
-            <p className="text-xl max-w-72 text-white md:text-right">
-              A Product of
-            </p>
+            <p className="text-xl max-w-72 text-white">A Product of</p>
             <Image
               src="/images/logos/brilliant_ai_logo.svg"
               alt="Compl-AI Logo"
@@ -171,13 +161,20 @@ export function Footer() {
           </div>
         </div>
 
+        {/* support mail */}
+        <Link
+          href={`mailto:${footer.contact.email}`}
+          className="relative text-base text-white font-medium col-span-full after:block after:h-[2px] after:w-0 after:bg-white after:transition-all after:duration-500 after:ease-in-out after:absolute after:left-0 after:bottom-0 hover:after:w-full underline mb-8"
+        >
+          {footer.contact.email}
+        </Link>
+
         <div className="container col-span-full mx-auto">
           <p className="text-[13px] text-white">
-            © {new Date().getFullYear()} — Copyright ©{' '}
-            {new Date().getFullYear()} Brilliant AI Ltd. All rights reserved.
-            Compl-AI is a registered trademark (Trade Mark No: UK00004155934)
-            and operates as a trading name of Brilliant AI Ltd (Company No:
-            16134522).
+            Copyright © {new Date().getFullYear()} Brilliant AI Ltd. All rights
+            reserved. Compl-AI is a registered trademark (Trade Mark No:
+            UK00004155934) and operates as a trading name of Brilliant AI Ltd
+            (Company No: 16134522).
           </p>
 
           <p className="text-sm text-white"></p>

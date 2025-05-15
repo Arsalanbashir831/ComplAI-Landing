@@ -25,7 +25,7 @@ export function MobileSideNav() {
       <SheetTrigger asChild>
         <Button
           variant="outline"
-          className="block border-none p-2 h-fit md:hidden"
+          className="block border-none p-2 h-fit lg:hidden"
           aria-label="Open Mobile Menu"
         >
           <Menu className="!w-6 !h-6" />

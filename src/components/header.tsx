@@ -32,27 +32,27 @@ export function Header() {
     >
       <div
         className={cn(
-          'container flex h-16 items-center justify-between mx-auto mt-4 rounded-[20px] transition-all px-2 md:px-5 gap-16',
+          'container flex h-16 items-center justify-between mx-auto mt-4 rounded-[20px] transition-all px-2 md:px-5 gap-16 max-w-5xl',
           hasScrolled ? 'border-none' : 'border px-4 bg-white/95'
         )}
       >
         <Logo />
 
         {/* === Desktop Nav (hidden on mobile) === */}
-        <TopNavItems className="hidden md:flex w-full" />
+        <TopNavItems className="hidden lg:flex w-full" />
 
         <div className="flex items-center gap-4">
           {/* Desktop Buttons */}
           <Button
             variant="ghost"
             asChild
-            className="text-primary hidden md:block transition-all duration-300 ease-in-out hover:scale-105"
+            className="text-primary hidden lg:block transition-all duration-300 ease-in-out hover:scale-105"
           >
             <Link href={ROUTES.SIGN_IN}>Sign In</Link>
           </Button>
           <Button
             asChild
-            className="rounded-lg hidden md:block transition-all duration-300 ease-in-out hover:scale-105"
+            className="rounded-lg hidden lg:block transition-all duration-300 ease-in-out hover:scale-105"
           >
             <Link href={ROUTES.REGISTER}>Register</Link>
           </Button>

@@ -5,6 +5,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { ROUTES } from '@/constants/routes';
+import { ChevronDown } from 'lucide-react';
 
 import { cn } from '@/lib/utils';
 import { Badge } from '@/components/ui/badge';
@@ -43,8 +44,8 @@ const solutions = [
     title: 'Resolve',
     description: 'Swift Complaint Handling',
     href: ROUTES.RESOLVE,
-    icon: '/images/icons/file-sparkle-blue.svg',
-    comingSoon: false,
+    icon: '/images/icons/file-sparkle-gray.svg',
+    comingSoon: true,
   },
   {
     title: 'Compose',
@@ -114,11 +115,11 @@ export default function TopNavItems({
                 onClick={() => setSolutionsOpen((o) => !o)}
                 onMouseEnter={() => setSolutionsOpen(true)}
                 className={cn(
-                  'text-md font-medium transition-colors hover:text-primary',
+                  'text-md font-medium transition-colors hover:text-primary flex items-center',
                   { 'text-primary': isActive('solutions') }
                 )}
               >
-                {item.title}
+                {item.title} <ChevronDown className="w-4 h-4 ml-1" />
               </button>
             </PopoverTrigger>
 
@@ -134,13 +135,7 @@ export default function TopNavItems({
                 {solutions.map((sol, idx) => (
                   <Link
                     key={sol.title}
-                    href={sol.href}
-                    onClick={() => {
-                      if (!sol.comingSoon) {
-                        setSolutionsOpen(false);
-                        onLinkClick?.();
-                      }
-                    }}
+                    href={sol.comingSoon ? '#' : sol.href}
                     className={cn(
                       'flex items-center gap-3 p-3 hover:bg-gray-50',
                       idx % 2 === 1 && 'md:border-l border-gray-200'

@@ -76,7 +76,7 @@ export function Hero() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 0.8, duration: 0.8, ease: 'easeOut' }}
-        className="justify-self-end"
+        className="justify-self-end overflow-hidden w-full h-[250px] md:h-[400px] relative"
       >
         <IndustryStandards />
       </motion.div>
