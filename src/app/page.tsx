@@ -1,5 +1,6 @@
 import { Suspense } from 'react';
 
+import { SecurityFeatures } from '@/components/_common/security-features';
 import CTASection from '@/components/cta-section';
 import FAQSection from '@/components/faq';
 import { Hero } from '@/components/home/hero';
@@ -30,8 +31,9 @@ export default function Home() {
           <SolutionsSection />
           {/* <Features /> */}
           <TeamsSlider />
-          <PricingBanner />
+          <SecurityFeatures />
           <TestimonialSlider showBadge={false} />
+          <PricingBanner />
           <FAQSection showBadge={false} />
           <CTASection cta={cta} showBgImage={true} showRadialImage={false} />
           <NewsSection />

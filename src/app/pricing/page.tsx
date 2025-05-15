@@ -4,6 +4,7 @@ import Image from 'next/image';
 import { motion } from 'framer-motion';
 
 import { Button } from '@/components/ui/button';
+import { SecurityFeatures } from '@/components/_common/security-features';
 import CTASection from '@/components/cta-section';
 import FAQSection from '@/components/faq';
 import { NewsSection } from '@/components/news-section';
@@ -74,6 +75,7 @@ export default function Contact() {
         </div>
         <EnterprisePlan />
         <PricingBanner />
+        <SecurityFeatures className="mb-28" />
         <TeamsSlider />
         <FAQSection />
         <CTASection
