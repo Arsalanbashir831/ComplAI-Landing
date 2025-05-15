@@ -1,38 +1,90 @@
-import Image from 'next/image';
+'use client';
 
-import { CTAButton } from '@/components/cta-button';
+import Image from 'next/image';
+import { motion } from 'framer-motion';
+
+import { CTAButton } from '../cta-button';
 
 export function CompanionHero() {
   return (
-    <section className="relative pt-[6rem] px-4 md:px-0 space-y-10">
-      <div className="mx-auto container max-w-5xl text-center">
-        <h1 className="mb-4 tracking-tight text-3xl md:text-6xl flex flex-col items-center gap-2">
-          <span className="inline-block font-semibold">Companion</span>
-          <span className="inline-block text-2xl md:text-5xl font-semibold">
-            Your AI Compliance Assistant
-          </span>
-        </h1>
+    <section className="w-full max-w-screen-2xl mx-auto overflow-hidden">
+      <div className="pt-24 md:py-24">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+          {/* Left side - Hero content */}
+          <div className="flex flex-col items-start justify-center px-16">
+            <motion.h1
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{
+                duration: 0.8,
+                ease: 'easeOut',
+              }}
+              viewport={{ once: true }}
+              className="text-5xl font-bold text-primary"
+            >
+              Companion
+            </motion.h1>
+            <motion.h2
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{
+                delay: 0.2,
+                duration: 0.8,
+                ease: 'easeOut',
+              }}
+              viewport={{ once: true }}
+              className="text-4xl font-semibold text-gray-900"
+            >
+              Your AI Compliance Expert
+            </motion.h2>
+            <motion.p
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{
+                delay: 0.4,
+                duration: 0.8,
+                ease: 'easeOut',
+              }}
+              viewport={{ once: true }}
+              className="text-xl mt-6 mb-4"
+            >
+              Get instant answers to compliance queries
+            </motion.p>
+            <motion.div
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{
+                delay: 0.6,
+                duration: 0.8,
+                ease: 'easeOut',
+              }}
+              viewport={{ once: true }}
+            >
+              <CTAButton href="#" className="z-10 text-base px-4">
+                Get Companion
+              </CTAButton>
+            </motion.div>
+          </div>
 
-        <p className="mb-8 text-md sm:text-xl">
-          Get instant answers to compliance questions without waiting for a
-          consultant.
-        </p>
-        <div className="flex justify-center gap-4">
-          <CTAButton href="#" className="text-base font-medium px-12 py-5">
-            Get Companion
-          </CTAButton>
-        </div>
-        <div className="relative mx-auto mt-8 w-full max-w-4xl">
-          <div className="absolute inset-0 bg-gradient-to-tr from-primary/30 to-primary/10 rounded-lg blur-3xl opacity-50" />
-          <div className="relative w-full h-[300px] md:h-[500px] mx-auto bg-cover ml-[1rem] md:ml-[5rem]">
+          {/* Right side - Image */}
+          <motion.div
+            initial={{ opacity: 0, x: 100 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{
+              duration: 1.2,
+              ease: 'easeOut',
+            }}
+            viewport={{ once: true }}
+            className="flex justify-end pl-4 md:p-0"
+          >
             <Image
               src="/images/companion-hero.svg"
-              alt=""
-              fill
-              className="object-contain"
-              priority
+              alt="Companion Hero Image"
+              width={700}
+              height={700}
+              className="w-full max-w-2xl"
             />
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>

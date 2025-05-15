@@ -162,12 +162,14 @@ export function Footer() {
         </div>
 
         {/* support mail */}
-        <Link
-          href={`mailto:${footer.contact.email}`}
-          className="relative text-base text-white font-medium col-span-full after:block after:h-[2px] after:w-0 after:bg-white after:transition-all after:duration-500 after:ease-in-out after:absolute after:left-0 after:bottom-0 hover:after:w-full underline mb-8"
-        >
-          {footer.contact.email}
-        </Link>
+        <div className="mb-8">
+          <Link
+            href={`mailto:${footer.contact.email}`}
+            className="relative text-base text-white font-medium col-span-full after:block after:h-[2px] after:w-0 after:bg-white after:transition-all after:duration-500 after:ease-in-out after:absolute after:left-0 after:bottom-0 hover:after:w-full"
+          >
+            {footer.contact.email}
+          </Link>
+        </div>
 
         <div className="container col-span-full mx-auto">
           <p className="text-[13px] text-white">

@@ -32,14 +32,14 @@ export function Header() {
     >
       <div
         className={cn(
-          'container flex h-16 items-center justify-between mx-auto mt-4 rounded-[20px] transition-all px-2 md:px-5 gap-16 max-w-5xl',
+          'container flex h-16 items-center justify-between mx-auto mt-4 rounded-[20px] transition-all px-2 md:px-5 gap-8 w-fit',
           hasScrolled ? 'border-none' : 'border px-4 bg-white/95'
         )}
       >
         <Logo />
 
         {/* === Desktop Nav (hidden on mobile) === */}
-        <TopNavItems className="hidden lg:flex w-full" />
+        <TopNavItems className="hidden lg:flex w-fit" />
 
         <div className="flex items-center gap-4">
           {/* Desktop Buttons */}

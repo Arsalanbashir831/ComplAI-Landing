@@ -1,3 +1,7 @@
+'use client';
+
+import { motion } from 'framer-motion';
+
 import { Feature } from '@/types/feature';
 
 import { FeatureCard } from '../_common/features';
@@ -58,26 +62,68 @@ export default function WhyCompanionSection() {
   return (
     <section className="py-20 bg-white">
       <div className="container mx-auto px-4 text-center mb-12">
-        <h2 className="text-5xl font-bold mb-4">
+        <motion.h2
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{
+            duration: 0.8,
+            ease: 'easeOut',
+          }}
+          viewport={{ once: true }}
+          className="text-5xl font-bold mb-4"
+        >
           Why Your Firm Needs Resolve?
-        </h2>
-        <p className="text-2xl ">
+        </motion.h2>
+        <motion.p
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{
+            delay: 0.2,
+            duration: 0.8,
+            ease: 'easeOut',
+          }}
+          viewport={{ once: true }}
+          className="text-2xl "
+        >
           Focus on your real work — let Resolve handle the complaints.
-        </p>
+        </motion.p>
       </div>
 
       <div className="container mx-auto px-4 flex flex-col justify-center md:flex-row gap-8">
         {/* Left column */}
         <div className="flex-1 space-y-8 max-w-md">
           {leftFeatures.map((feature) => (
-            <FeatureCard key={feature.title} feature={feature} />
+            <motion.div
+              key={feature.title}
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{
+                duration: 0.8,
+                ease: 'easeOut',
+              }}
+              viewport={{ once: true }}
+            >
+              <FeatureCard feature={feature} />
+            </motion.div>
           ))}
         </div>
 
         {/* Right column */}
         <div className="flex-1 space-y-8 mt-12 max-w-md">
           {rightFeatures.map((feature) => (
-            <FeatureCard key={feature.title} feature={feature} />
+            <motion.div
+              key={feature.title}
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{
+                delay: 0.2,
+                duration: 0.8,
+                ease: 'easeOut',
+              }}
+              viewport={{ once: true }}
+            >
+              <FeatureCard feature={feature} />
+            </motion.div>
           ))}
         </div>
       </div>
