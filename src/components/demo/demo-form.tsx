@@ -1,7 +1,7 @@
 'use client';
 
-import Image from 'next/image';
 import { motion } from 'framer-motion';
+import Image from 'next/image';
 
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -98,7 +98,7 @@ export default function DemoForm() {
           className="relative w-full aspect-[1.2] md:hidden"
         >
           <Image
-            src="/images/demohead.svg"
+            src="/images/demohead.png"
             alt="Demo Illustration"
             fill
             priority
