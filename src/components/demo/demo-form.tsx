@@ -98,7 +98,7 @@ export default function DemoForm() {
           className="relative w-full aspect-[1.2] md:hidden"
         >
           <Image
-            src="/images/demohead.svg"
+            src="/images/demohead.png"
             alt="Demo Illustration"
             fill
             priority
