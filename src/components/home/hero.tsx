@@ -1,9 +1,9 @@
 'use client';
 
-import { useEffect, useState } from 'react';
-import Image from 'next/image';
 import { AnimatePresence, motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
+import Image from 'next/image';
+import { useEffect, useState } from 'react';
 
 import { CTAButton } from '@/components/cta-button'; // Assuming this path is correct
 
@@ -41,11 +41,12 @@ export function Hero() {
     return () => clearInterval(interval);
   }, []);
 
-  const imageHeightReservationClass = 'pb-[20rem] md:pb-[24rem]';
+  // Reduced bottom padding on mobile to reduce extra space
+  const imageHeightReservationClass = 'pb-[16rem] md:pb-[24rem]';
 
   return (
     <section
-      className={`relative pt-[8rem] ${imageHeightReservationClass} px-4 md:px-0 bg-[url(/images/bg/home-hero-bg.svg)] bg-no-repeat bg-center bg-cover h-screen md:h-auto md:min-h-screen flex flex-col justify-center items-center overflow-hidden`}
+      className={`relative pt-36 md:pt-[8rem] ${imageHeightReservationClass} px-4 md:px-0 bg-[url(/images/bg/home-hero-bg.svg)] bg-no-repeat bg-center bg-cover min-h-[60vh] md:min-h-screen flex flex-col justify-center items-center overflow-hidden`}
     >
       <div className="mx-auto container max-w-5xl text-center z-10">
         <motion.h1

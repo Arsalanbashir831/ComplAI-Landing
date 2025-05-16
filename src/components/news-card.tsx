@@ -1,6 +1,6 @@
+import { ArrowRightIcon, Calendar } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { Calendar, ChevronRight } from 'lucide-react';
 
 import { Button } from '@/components/ui/button';
 
@@ -38,8 +38,11 @@ export function NewsCard({
         <div className="flex justify-between items-end">
           <h3 className="text-lg font-semibold mb-1 truncate">{title}</h3>
           <Link href={`/news/${id}`}>
-            <Button className="bg-white hover:bg-white hover:text-black-100 text-black-100 text-sm font-medium h-fit p-1 px-2">
-              Read More <ChevronRight size={16} className="ml-1" />
+            <Button className="bg-white hover:bg-white hover:text-black-100 text-black-100 text-sm font-medium h-fit p-1 px-2 group inline-flex items-center">
+              Read More
+              <span className="ml-1 transition-transform duration-300 group-hover:translate-x-1">
+                <ArrowRightIcon size={16} />
+              </span>
             </Button>
           </Link>
         </div>
