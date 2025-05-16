@@ -179,7 +179,7 @@ export default function TopNavItems({
                           key={sol.title}
                           href={sol.comingSoon ? '#' : sol.href}
                           className={cn(
-                            'flex items-center gap-3 p-3 hover:bg-gray-50 whitespace-nowrap',
+                            'flex items-center gap-[0.3rem] p-3 hover:bg-gray-50 whitespace-nowrap',
                             idx % 2 === 1 && 'md:border-l border-gray-200'
                           )}
                         >
@@ -196,7 +196,8 @@ export default function TopNavItems({
                               alt={sol.title}
                               width={24}
                               height={24}
-                              className="w-4 h-4 md:w-6 md:h-6"
+                              className="w-5 h-5 md:w-6 md:h-6"
+                              unoptimized
                             />
                           </div>
                           <div className="flex-1">
@@ -265,7 +266,7 @@ export default function TopNavItems({
 
                   <motion.div
                     id="mobile-solutions-menu"
-                    className="mt-2 flex flex-col space-y-2 pl-4 border-l border-gray-300"
+                    className="mt-2 flex flex-col space-y-2 pl-0 border-l border-gray-300"
                     initial={{ opacity: 0, height: 0 }}
                     animate={
                       mobileSolutionsOpen
@@ -285,7 +286,7 @@ export default function TopNavItems({
                         <Link
                           href={sol.comingSoon ? '#' : sol.href}
                           className={cn(
-                            'flex items-center gap-3 p-2 rounded hover:bg-gray-100 whitespace-nowrap',
+                            'flex items-center gap-[0.3rem] p-2 rounded hover:bg-gray-100 whitespace-nowrap',
                             sol.comingSoon
                               ? 'text-[#A1A7B4] cursor-not-allowed'
                               : 'text-gray-900'
@@ -314,19 +315,28 @@ export default function TopNavItems({
                               width={20}
                               height={20}
                               className="w-5 h-5"
+                              unoptimized
                             />
                           </div>
                           <div className="flex flex-col">
-                            <p
-                              className={cn(
-                                'font-semibold text-sm',
-                                sol.comingSoon
-                                  ? 'text-[#A1A7B4]'
-                                  : 'text-primary'
+                            <div className="flex items-center gap-2">
+                              <p
+                                className={cn(
+                                  'font-semibold text-sm',
+                                  sol.comingSoon
+                                    ? 'text-[#A1A7B4]'
+                                    : 'text-primary'
+                                )}
+                              >
+                                {sol.title}
+                              </p>
+                              {sol.comingSoon && (
+                                <Badge className="px-2 py-0.5 text-[7px] font-medium text-white bg-gradient-to-r from-[#0058FF] to-[#21C8F6] rounded-full shadow">
+                                  Coming Soon
+                                </Badge>
                               )}
-                            >
-                              {sol.title}
-                            </p>
+                            </div>
+
                             <p
                               className={cn(
                                 'text-xs',
@@ -338,11 +348,6 @@ export default function TopNavItems({
                               {sol.description}
                             </p>
                           </div>
-                          {sol.comingSoon && (
-                            <Badge className="ml-auto px-2 py-0.5 text-[7px] font-medium text-white bg-gradient-to-r from-[#0058FF] to-[#21C8F6] rounded-full shadow">
-                              Coming Soon
-                            </Badge>
-                          )}
                         </Link>
                       </motion.div>
                     ))}

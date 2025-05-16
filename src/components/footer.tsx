@@ -172,7 +172,7 @@ export function Footer() {
         </div>
 
         <div className="container col-span-full mx-auto">
-          <p className="text-[13px] text-white">
+          <p className="text-[13px] text-white text-center">
             Copyright © {new Date().getFullYear()} Brilliant AI Ltd. All rights
             reserved. Compl-AI is a registered trademark (Trade Mark No:
             UK00004155934) and operates as a trading name of Brilliant AI Ltd
