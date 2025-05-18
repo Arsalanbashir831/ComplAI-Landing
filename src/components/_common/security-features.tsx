@@ -1,9 +1,9 @@
 'use client';
 
-import { motion } from 'framer-motion';
-import { ArrowUpRight } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
+import { motion } from 'framer-motion';
+import { ArrowUpRight } from 'lucide-react';
 
 import { cn } from '@/lib/utils';
 
@@ -100,8 +100,7 @@ export function SecurityFeatures({ className = '' }: SecurityFeaturesProps) {
               <h3 className="text-4xl font-semibold md:max-w-[380px]">
                 <span className="text-blue-600">Security</span> is fundamental
                 to <br />
-                Everything <span className="text-blue-600">we</span>{' '}
-                do
+                Everything <span className="text-blue-600">we</span> do
               </h3>
             </div>
             <div className="md:w-1/2 flex justify-end">

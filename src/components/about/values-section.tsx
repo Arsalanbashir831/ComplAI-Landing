@@ -1,11 +1,11 @@
 'use client';
 
 // Needed if using Next.js App Router
-import { motion } from 'framer-motion';
 import Image from 'next/image';
+import { motion } from 'framer-motion';
 
-import { Card, CardContent } from '@/components/ui/card';
 import { cn } from '@/lib/utils';
+import { Card, CardContent } from '@/components/ui/card';
 
 interface ValueCardProps {
   title: string;

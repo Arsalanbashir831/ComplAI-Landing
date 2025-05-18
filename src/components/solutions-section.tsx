@@ -1,8 +1,8 @@
 'use client';
 
+import Link from 'next/link';
 import { solutions } from '@/data/solutions';
 import { motion } from 'framer-motion';
-import Link from 'next/link';
 
 import SolCard from './sol-card';
 

@@ -1,8 +1,8 @@
 'use client';
 
+import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { ArrowLeft, ArrowRight, Star } from 'lucide-react';
-import Image from 'next/image';
 
 import 'swiper/css';
 import 'swiper/css/navigation';

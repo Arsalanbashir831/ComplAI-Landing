@@ -1,8 +1,9 @@
 'use client';
 
-import { motion } from 'framer-motion';
 import Image from 'next/image';
+import { motion } from 'framer-motion';
 
+import { Button } from '@/components/ui/button';
 import { SecurityFeatures } from '@/components/_common/security-features';
 import CTASection from '@/components/cta-section';
 import FAQSection from '@/components/faq';
@@ -11,7 +12,6 @@ import EnterprisePlan from '@/components/pricing/enterprise-plan';
 import { PricingBanner } from '@/components/pricing/pricing-banner';
 import { PricingSection } from '@/components/pricing/pricing-section';
 import TeamsSlider from '@/components/teams-slider';
-import { Button } from '@/components/ui/button';
 
 export default function Contact() {
   const cta = {
