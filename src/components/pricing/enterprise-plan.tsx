@@ -1,10 +1,11 @@
 'use client';
 
-import Image from 'next/image';
 import { ROUTES } from '@/constants/routes';
 import { solutions } from '@/data/solutions';
 import { motion } from 'framer-motion';
+import Image from 'next/image';
 
+import Link from 'next/link';
 import { CTAButton } from '../cta-button';
 import SolCard from '../sol-card';
 
@@ -21,21 +22,27 @@ export default function EnterprisePlan() {
         Our <span className="text-primary">Solutions</span>
       </motion.h2>
 
-      <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 items-stretch">
+      <div className="grid gap-9 sm:grid-cols-2 lg:grid-cols-3 items-stretch">
         {solutions.map((card, idx) => (
-          <motion.div
+          <Link
             key={idx}
-            initial={{ y: 50 }}
-            whileInView={{ y: 0 }}
-            transition={{
-              delay: 0.4 + 0.2 * idx,
-              duration: 0.8,
-              ease: 'easeOut',
-            }}
-            viewport={{ once: true }}
+            href={card.buttonLink ?? '#'}
+            className="flex flex-col flex-1 h-full" // added h-full
           >
-            <SolCard {...card} />
-          </motion.div>
+            <motion.div
+              initial={{ y: 50 }}
+              whileInView={{ y: 0 }}
+              transition={{
+                delay: 0.4 + 0.2 * idx,
+                duration: 0.8,
+                ease: 'easeOut',
+              }}
+              viewport={{ once: true }}
+              className="h-full"
+            >
+              <SolCard {...card} />
+            </motion.div>
+          </Link>
         ))}
       </div>
 
