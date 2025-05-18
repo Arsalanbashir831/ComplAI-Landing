@@ -1,11 +1,11 @@
 'use client';
 
+import Image from 'next/image';
+import Link from 'next/link';
 import { ROUTES } from '@/constants/routes';
 import { solutions } from '@/data/solutions';
 import { motion } from 'framer-motion';
-import Image from 'next/image';
 
-import Link from 'next/link';
 import { CTAButton } from '../cta-button';
 import SolCard from '../sol-card';
 
