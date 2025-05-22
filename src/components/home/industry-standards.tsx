@@ -61,7 +61,7 @@ export default function IndustryStandards() {
       <motion.h2
         initial={{ y: 100 }}
         animate={{ y: 50 }}
-        transition={{ delay: 0.8, duration: 0.8, ease: 'easeOut' }}
+        transition={{ delay: 0.3, duration: 0.4, ease: 'easeOut' }}
         className="text-3xl md:text-5xl font-bold text-center pt-4"
       >
         Aligned with <span className="text-primary">Industry Standards</span>
@@ -69,7 +69,7 @@ export default function IndustryStandards() {
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ delay: 0.8, duration: 0.8, ease: 'easeOut' }}
+        transition={{ delay: 0.3, duration: 0.4, ease: 'easeOut' }}
         className="overflow-hidden w-full relative pt-20"
       >
         <LogoSlider

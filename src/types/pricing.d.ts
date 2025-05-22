@@ -2,6 +2,7 @@ export type PricingPlan = {
   id: string;
   name: string;
   description: string;
+  btn_redirection:string;
   message?: string;
   price: string;
   featuresHeader: string;

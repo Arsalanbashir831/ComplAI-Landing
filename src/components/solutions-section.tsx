@@ -1,8 +1,8 @@
 'use client';
 
-import Link from 'next/link';
 import { solutions } from '@/data/solutions';
 import { motion } from 'framer-motion';
+import Link from 'next/link';
 
 import SolCard from './sol-card';
 
@@ -14,7 +14,7 @@ export default function SolutionsSection() {
         <motion.h2
           initial={{ y: 50 }}
           whileInView={{ y: 0 }}
-          transition={{ duration: 0.8, ease: 'easeOut' }}
+          transition={{ delay: 0.3, duration: 0.4, ease: 'easeOut' }}
           viewport={{ once: true }}
           className="text-3xl md:text-5xl font-bold mb-2"
         >
@@ -23,7 +23,7 @@ export default function SolutionsSection() {
         <motion.p
           initial={{ y: 50 }}
           whileInView={{ y: 0 }}
-          transition={{ delay: 0.2, duration: 0.8, ease: 'easeOut' }}
+          transition={{ delay: 0.3, duration: 0.4, ease: 'easeOut' }}
           viewport={{ once: true }}
           className="text-gray-600 max-w-2xl mx-auto mb-10"
         >

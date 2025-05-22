@@ -66,7 +66,7 @@ export default function FAQSection({
         <motion.h2
           initial={{ y: 50 }}
           whileInView={{ y: 0 }}
-          transition={{ duration: 0.8, ease: 'easeOut' }}
+          transition={{ delay: 0.3, duration: 0.4, ease: 'easeOut' }}
           viewport={{ once: true }}
           className="text-3xl font-bold sm:text-4xl md:text-5xl"
         >
@@ -89,7 +89,7 @@ export default function FAQSection({
             <motion.div
               // initial={{ opacity: 0, y: 50 }}
               // whileInView={{ opacity: 1, y: 0 }}
-              // transition={{
+              //   transition={{ delay: 0.3, duration: 0.4, ease: 'easeOut' }} {{
               //   delay: 0.2 * index,
               //   duration: 0.8,
               //   ease: 'easeOut',

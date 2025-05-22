@@ -1,9 +1,9 @@
 'use client';
 
-import { useState } from 'react';
-import Link from 'next/link';
 import { ROUTES } from '@/constants/routes';
 import { Menu } from 'lucide-react';
+import Link from 'next/link';
+import { useState } from 'react';
 
 import { Button } from '@/components/ui/button';
 import {
@@ -46,13 +46,13 @@ export function MobileSideNav() {
         {/* Mobile Nav Items */}
         <div className="mt-6">
           <TopNavItems
-            className="flex flex-col gap-4"
+            className="flex flex-col gap-2"
             onLinkClick={() => setOpen(false)}
           />
         </div>
 
         {/* Mobile Sign In / Register */}
-        <div className="mt-8 flex flex-col gap-4">
+        <div className="mt-8 flex flex-col gap-2">
           <Button variant="ghost" asChild className="text-primary">
             <Link href={ROUTES.SIGN_IN}>Sign In</Link>
           </Button>
@@ -60,6 +60,7 @@ export function MobileSideNav() {
             <Link href={ROUTES.REGISTER}>Register</Link>
           </Button>
         </div>
+
       </SheetContent>
     </Sheet>
   );

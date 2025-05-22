@@ -1,6 +1,5 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import { ArrowRight } from 'lucide-react';
 
 interface NewsCardProps {
   id: number;
@@ -18,41 +17,34 @@ export function BlogCard({
   date,
 }: NewsCardProps) {
   return (
-    <div className="overflow-hidden rounded-lg">
-      {/* Image with rounded corners */}
-      <div className="relative h-48 w-full overflow-hidden rounded-lg">
+    <Link
+      href={`/news/${id}`}
+      className="group inline-flex flex-col overflow-hidden rounded-lg bg-white shadow-sm hover:shadow-lg hover:shadow-blue-200 transition-shadow duration-300"
+    >
+      <div className="relative h-48 w-full overflow-hidden">
         <Image
           src={imageUrl || '/placeholder.svg'}
           alt={title}
           fill
-          className="object-cover"
+          className="object-cover group-hover:scale-105 transition-transform duration-300"
         />
-        <div className="absolute inset-0 bg-black bg-opacity-50" />
+        <div className="absolute inset-0 bg-black bg-opacity-20 group-hover:bg-opacity-10 transition-bg duration-300" />
       </div>
 
-      <div className="pt-3 pb-2">
-        {/* Date */}
+      <div className="px-4 pt-3 pb-4 flex flex-col flex-grow">
         <div className="text-sm text-gray-500 mb-1">{date}</div>
-
-        {/* Title - up to 2 lines with truncation */}
         <h3 className="text-2xl font-bold text-gray-900 mb-2 line-clamp-2 min-h-[4rem]">
           {title}
         </h3>
-
-        {/* Description - up to 3 lines with truncation */}
-        <p className="text-gray-600 mb-3 line-clamp-3 min-h-[4.5rem]">
+        <p className="text-gray-600 mb-4 line-clamp-3 min-h-[4.5rem]">
           {description}
         </p>
-
-        {/* Read More link */}
-        <Link
-          href={`/news/${id}`}
-          className="group inline-flex items-center text-blue-600 font-medium"
-        >
-          Read More{' '}
-          <ArrowRight className="ml-1 h-4 w-4 group-hover:translate-x-1 transition-transform" />
-        </Link>
+        {/* <div className="mt-auto">
+          <span className="inline-flex items-center text-blue-600 font-medium">
+            Read More <ArrowRight className="ml-1 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+          </span>
+        </div> */}
       </div>
-    </div>
+    </Link>
   );
 }

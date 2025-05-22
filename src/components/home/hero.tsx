@@ -1,9 +1,9 @@
 'use client';
 
-import { useEffect, useState } from 'react';
-import Image from 'next/image';
 import { AnimatePresence, motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
+import Image from 'next/image';
+import { useEffect, useState } from 'react';
 
 import { CTAButton } from '@/components/cta-button'; // Assuming this path is correct
 
@@ -18,7 +18,7 @@ const subtitle =
 const buttons = {
   primary: {
     text: 'Get Started',
-    href: '/get-started',
+    href: '/pricing',
   },
   secondary: {
     text: 'Learn More',
@@ -51,7 +51,7 @@ export function Hero() {
         <motion.h1
           initial={{ y: 50 }}
           animate={{ y: 0 }}
-          transition={{ duration: 0.8, ease: 'easeOut' }}
+          transition={{ delay: 0.3, duration: 0.4, ease: 'easeOut' }}
           className="mb-6 font-bold tracking-tight text-3xl md:text-6xl leading-[1.5]"
         >
           <span className="text-primary">{title.start}</span>
@@ -64,7 +64,7 @@ export function Hero() {
         <motion.p
           initial={{ y: 50 }}
           animate={{ y: 0 }}
-          transition={{ duration: 0.8, ease: 'easeOut' }}
+          transition={{ delay: 0.3, duration: 0.4, ease: 'easeOut' }}
           className="mb-4 text-md sm:text-xl"
         >
           {subtitle}
@@ -72,8 +72,8 @@ export function Hero() {
         <motion.div
           initial={{ y: 50 }}
           animate={{ y: 0 }}
-          transition={{ delay: 0.6, duration: 0.8, ease: 'easeOut' }}
-          className="flex justify-center gap-4"
+          transition={{ delay: 0.3, duration: 0.4, ease: 'easeOut' }}  // ideal speed 
+          className="flex justify-center gap-4 py-5 "
         >
           <CTAButton
             href={buttons.primary.href}
@@ -92,7 +92,7 @@ export function Hero() {
           initial={{ y: 50 }}
           animate={{ y: 0 }}
           exit={{ y: 50 }}
-          transition={{ duration: 1, ease: 'easeOut' }}
+          transition={{ delay: 0.3, duration: 0.4, ease: 'easeOut' }}
           className="absolute bottom-0 md:-bottom-4 lg:bottom-0  -translate-x-1/2 max-w-[800px] w-full"
         >
           <Image

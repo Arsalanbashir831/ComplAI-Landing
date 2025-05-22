@@ -1,20 +1,19 @@
 'use client';
 
-import React, { useEffect, useState } from 'react';
-import Image from 'next/image';
-import Link from 'next/link';
-import { usePathname } from 'next/navigation';
 import { ROUTES } from '@/constants/routes';
 import { motion } from 'framer-motion';
 import { ChevronDown, ChevronUp } from 'lucide-react';
+import Image from 'next/image';
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
+import React, { useEffect, useState } from 'react';
 
-import { cn } from '@/lib/utils';
-import { Badge } from '@/components/ui/badge';
 import {
   Popover,
   PopoverContent,
   PopoverTrigger,
 } from '@/components/ui/popover';
+import { cn } from '@/lib/utils';
 
 import { ScrollArea } from './ui/scroll-area';
 
@@ -275,14 +274,14 @@ export default function TopNavItems({
                         : { opacity: 0, height: 0 }
                     }
                     style={{ overflow: 'hidden' }}
-                    transition={{ duration: 0.3 }}
+                    transition={{ delay: 0.3, duration: 0.4, ease: 'easeOut' }}
                   >
                     {solutions.map((sol) => (
                       <motion.div
                         key={sol.title}
                         initial={{ opacity: 0, x: -20 }}
                         animate={{ opacity: 1, x: 0 }}
-                        transition={{ delay: 0.1 }}
+                        transition={{ delay: 0.3 }}
                       >
                         <Link
                           href={sol.comingSoon ? '#' : sol.href}
@@ -332,9 +331,9 @@ export default function TopNavItems({
                                 {sol.title}
                               </p>
                               {sol.comingSoon && (
-                                <Badge className="px-2 py-0.5 text-[7px] font-medium text-white bg-gradient-to-r from-[#0058FF] to-[#21C8F6] rounded-full shadow">
+                                <div className="px-3 py-0.5 text-[7px] font-medium text-white bg-gradient-to-r from-[#0058FF] to-[#21C8F6] rounded-full shadow">
                                   Coming Soon
-                                </Badge>
+                                </div>
                               )}
                             </div>
 

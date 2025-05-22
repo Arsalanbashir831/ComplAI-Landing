@@ -14,47 +14,47 @@ export default function TeamsSlider({
   const logos = [
     {
       name: 'AWH Solicitors',
-      url: '/images/logos/awh_solicitors_logo.webp',
+      url: '/logos/awh.png',
     },
     {
       name: 'Barings',
-      url: '/images/logos/barings_logo.png',
+      url: '/logos/barings.png',
     },
     {
       name: 'Cartwright King',
-      url: '/images/logos/cartwright_king_logo.png',
+      url: '/logos/ck.png',
     },
     {
       name: 'Child&Child',
-      url: '/images/logos/child_and_child_logo.jpg',
+      url: '/logos/cc.png',
     },
     {
       name: 'Fenchurch Legal',
-      url: '/images/logos/fenchurch_logo.jpeg',
+      url: '/logos/fl.png',
     },
     {
       name: 'Finchley Legal',
-      url: '/images/logos/finchley_logo.png',
+      url: '/logos/finchley.png',
     },
     {
       name: 'Kaizen Law',
-      url: '/images/logos/kaizen_logo.png',
+      url: '/logos/kl.png',
     },
     {
       name: 'Nera Capital',
-      url: '/images/logos/nera_logo.png',
+      url: '/logos/nc.png',
     },
     {
       name: 'Quantuma',
-      url: '/images/logos/quantuma_logo.png',
+      url: '/logos/quantuma.png',
     },
     {
       name: 'Veritas Law',
-      url: '/images/logos/veritas_logo.png',
+      url: '/logos/vs.png',
     },
     {
       name: 'Xeinadin',
-      url: '/images/logos/xeinadin_logo.png',
+      url: '/logos/xeinadin.png',
     },
   ];
 
@@ -62,7 +62,7 @@ export default function TeamsSlider({
     <motion.div
       initial={{ y: 100 }}
       animate={{ y: 50 }}
-      transition={{ duration: 0.8, ease: 'easeOut' }}
+      transition={{ delay: 0.3, duration: 0.4, ease: 'easeOut' }}
     >
       <LogoSlider
         title={

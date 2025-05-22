@@ -25,7 +25,7 @@ export default function News() {
           <motion.h1
             initial={{ y: 50 }}
             whileInView={{ y: 0 }}
-            transition={{ duration: 0.8, ease: 'easeOut' }}
+            transition={{ delay: 0.3, duration: 0.4, ease: 'easeOut' }}
             viewport={{ once: true }}
             className="text-5xl md:text-6xl font-bold"
           >
@@ -35,7 +35,7 @@ export default function News() {
           <motion.p
             initial={{ y: 50 }}
             whileInView={{ y: 0 }}
-            transition={{ delay: 0.2, duration: 0.8, ease: 'easeOut' }}
+            transition={{ delay: 0.3, duration: 0.4, ease: 'easeOut' }}
             viewport={{ once: true }}
             className="font-normal text-xl"
           >

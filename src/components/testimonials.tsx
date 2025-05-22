@@ -1,8 +1,8 @@
 'use client';
 
-import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { ArrowLeft, ArrowRight, Star } from 'lucide-react';
+import Image from 'next/image';
 
 import 'swiper/css';
 import 'swiper/css/navigation';
@@ -118,7 +118,7 @@ export default function TestimonialCarousel({
         <motion.h2
           initial={{ y: 50 }}
           whileInView={{ y: 0 }}
-          transition={{ duration: 0.8, ease: 'easeOut' }}
+          transition={{ delay: 0.3, duration: 0.4, ease: 'easeOut' }}
           viewport={{ once: true }}
           className="text-center text-4xl md:text-5xl font-bold mb-10"
         >

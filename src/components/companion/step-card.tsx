@@ -1,7 +1,7 @@
 'use client';
 
-import Image from 'next/image';
 import { motion } from 'framer-motion';
+import Image from 'next/image';
 
 interface StepCardProps {
   stepNumber: number;
@@ -25,10 +25,7 @@ export function StepCard({
       <motion.div
         initial={{ y: 50 }}
         whileInView={{ y: 0 }}
-        transition={{
-          duration: 0.8,
-          ease: 'easeOut',
-        }}
+        transition={{ delay: 0.3, duration: 0.4, ease: 'easeOut' }}
         viewport={{ once: true }}
         className="flex"
       >
@@ -50,10 +47,7 @@ export function StepCard({
       <motion.div
         initial={{ x: 100 }}
         whileInView={{ x: 0 }}
-        transition={{
-          duration: 0.8,
-          ease: 'easeOut',
-        }}
+        transition={{ delay: 0.3, duration: 0.4, ease: 'easeOut' }}
         viewport={{ once: true }}
       >
         <Image

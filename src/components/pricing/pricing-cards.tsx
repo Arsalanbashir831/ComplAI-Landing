@@ -3,6 +3,7 @@ import { Check, Star } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 
+import Link from 'next/link';
 import { Logo } from '../logo';
 
 const PricingCard = ({
@@ -13,6 +14,7 @@ const PricingCard = ({
   description,
   features,
   mostPopular,
+  btn_redirection
 }: {
   title: string;
   price: string;
@@ -21,7 +23,9 @@ const PricingCard = ({
   description: string;
   features: string[];
   mostPopular?: boolean;
+  btn_redirection: string
 }) => {
+
   return (
     <Card className="relative w-full max-w-full border rounded-2xl shadow-md p-6">
       {mostPopular && (
@@ -41,9 +45,11 @@ const PricingCard = ({
             <span className="text-sm text-gray-500">{subtitle}</span>
           </p>
         </div>
-        <Button className="text-white font-semibold py-2 px-4 rounded-md mb-4">
-          {buttonText}
-        </Button>
+        <Link href={btn_redirection}>
+          <Button className="text-white font-semibold py-2 px-4 rounded-md mb-4">
+            {buttonText}
+          </Button>
+        </Link>
         <p className="text-justify text-[#1F1F1F] mb-4">{description}</p>
         <ul className="space-y-3 text-gray-700 text-start">
           {features.map((feature, index) => (
@@ -63,6 +69,7 @@ export default function PricingCards() {
       title: 'Pay As You Use',
       price: 'Top-up Anytime',
       buttonText: 'Try for free',
+      btn_redirection: '',
       description:
         'Firms seeking occasional compliance support without long-term commitments',
       features: [
@@ -82,6 +89,7 @@ export default function PricingCards() {
       price: '$49',
       subtitle: 'per month',
       buttonText: 'Get Professional',
+      btn_redirection: '',
       description:
         'Firms aiming to stay ahead of compliance requirements and maintain quality accreditations ',
       features: [
@@ -101,6 +109,7 @@ export default function PricingCards() {
       title: 'Enterprise',
       price: 'Custom Quote',
       buttonText: 'Contact Sales',
+      btn_redirection: '/contact',
       description:
         'Firms managing high-risk areas, multiple legal services, or volume litigation',
       features: [

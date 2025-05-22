@@ -1,6 +1,6 @@
+import { ROUTES } from '@/constants/routes';
 import Image from 'next/image';
 import Link from 'next/link';
-import { ROUTES } from '@/constants/routes';
 
 import { Logo } from './logo';
 
@@ -11,7 +11,7 @@ const footer = {
     title: 'Quick Links',
     links: [
       { title: 'Home', href: ROUTES.HOME },
-      { title: 'Solutions', href: `#` },
+      // { title: 'Solutions', href: `#` },
       { title: 'News', href: ROUTES.NEWS },
       { title: 'Demo', href: ROUTES.DEMO },
       { title: 'About', href: ROUTES.ABOUT },
@@ -91,20 +91,27 @@ export function Footer() {
             </ul>
           </div>
 
-          {/* Prodcut Links */}
+          {/* Product Links */}
           <div className="space-y-4">
             <h3 className="text-xl font-semibold text-white">
               {footer.productLinks.title}
             </h3>
             <ul className="space-y-1">
               {footer.productLinks.links.map((link) => (
-                <li key={link.href}>
-                  <Link
-                    href={link.href}
-                    className="text-base text-white transition-colors hover:text-gray-300"
-                  >
-                    {link.title}
-                  </Link>
+                <li key={link.title}>
+                  {/* Only Companion is active */}
+                  {link.title === 'Companion' ? (
+                    <Link
+                      href={link.href}
+                      className="text-base text-white transition-colors hover:text-gray-300"
+                    >
+                      {link.title}
+                    </Link>
+                  ) : (
+                    <span className="text-base text-gray-400 cursor-not-allowed">
+                      {link.title} (Coming Soon)
+                    </span>
+                  )}
                 </li>
               ))}
             </ul>
@@ -149,25 +156,24 @@ export function Footer() {
           </div>
         </div>
 
+        {/* Social Icons */}
         <div className="col-span-full flex justify-between">
           <div className="flex space-x-4">
-            {footer.socialLinks.map((social) => {
-              return (
-                <Link
-                  key={social.href}
-                  href={social.href}
-                  className="rounded-full p-3 bg-white transition-colors hover:bg-gray-300"
-                >
-                  <Image
-                    src={social.icon}
-                    alt={social.icon}
-                    width={32}
-                    height={32}
-                    className="w-4 h-4"
-                  />
-                </Link>
-              );
-            })}
+            {footer.socialLinks.map((social) => (
+              <Link
+                key={social.href}
+                href={social.href}
+                className="rounded-full p-3 bg-white transition-colors hover:bg-gray-300"
+              >
+                <Image
+                  src={social.icon}
+                  alt={social.icon}
+                  width={32}
+                  height={32}
+                  className="w-4 h-4"
+                />
+              </Link>
+            ))}
           </div>
         </div>
 
@@ -177,7 +183,7 @@ export function Footer() {
 
         <div className="flex flex-col md:flex-row md:justify-between md:items-center gap-8 col-span-full mb-8">
           {/* support mail */}
-          <div className="">
+          <div>
             <Link
               href={`mailto:${footer.contact.email}`}
               className="relative text-base text-white font-medium col-span-full after:block after:h-[2px] after:w-0 after:bg-white after:transition-all after:duration-500 after:ease-in-out after:absolute after:left-0 after:bottom-0 hover:after:w-full"
@@ -186,7 +192,7 @@ export function Footer() {
             </Link>
           </div>
 
-          <div className="space-y-2 flex flex-col md:tems-end">
+          <div className="space-y-2 flex flex-col md:items-end">
             <p className="text-xl max-w-72 text-white">A Product of</p>
             <Image
               src="/images/logos/brilliant_ai_logo.svg"
@@ -205,8 +211,6 @@ export function Footer() {
             UK00004155934) and operates as a trading name of Brilliant AI Ltd
             (Company No: 16134522).
           </p>
-
-          <p className="text-sm text-white"></p>
         </div>
       </div>
     </footer>

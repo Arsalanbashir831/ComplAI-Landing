@@ -16,7 +16,7 @@ export default function SalesForm() {
       <motion.div
         initial={{ y: 50 }}
         whileInView={{ y: 0 }}
-        transition={{ delay: 0.4, duration: 0.8, ease: 'easeOut' }}
+        transition={{ delay: 0.3, duration: 0.4, ease: 'easeOut' }}
         viewport={{ once: true }}
         className="overflow-hidden grid grid-cols-1 gap-8 order-2 items-center justify-items-center  text-left md:order-1"
       >
@@ -58,7 +58,7 @@ export default function SalesForm() {
       <motion.div
         initial={{ y: 50 }}
         whileInView={{ y: 0 }}
-        transition={{ delay: 0.4, duration: 0.8, ease: 'easeOut' }}
+        transition={{ delay: 0.3, duration: 0.4, ease: 'easeOut' }}
         viewport={{ once: true }}
         className="md:w-4/5 space-y-4 flex-1 order-1 md:order-2"
       >
@@ -71,7 +71,7 @@ export default function SalesForm() {
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
-          transition={{ duration: 0.8, ease: 'easeOut' }}
+          transition={{ delay: 0.3, duration: 0.4, ease: 'easeOut' }}
           viewport={{ once: true }}
         >
           <Button className="w-full transition-all duration-300 ease-in-out">

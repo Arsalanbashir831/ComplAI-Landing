@@ -16,7 +16,7 @@ export const ROUTES = {
   COOKIE_POLICY: '/cookie-policy',
   USER_AGREEMENT_POLICY: '/user-agreement',
   SIGN_IN: 'https://compl-ai-frontend.vercel.app/',
-  REGISTER: 'https://compl-ai-frontend.vercel.app/sign-up',
+  REGISTER: 'https://compl-ai-frontend.vercel.app/',
 } as const;
 
 export const API_ROUTES = {

@@ -1,7 +1,7 @@
 'use client';
 
-import Image from 'next/image';
 import { motion } from 'framer-motion';
+import Image from 'next/image';
 
 import { CTAButton } from '../cta-button';
 
@@ -15,10 +15,7 @@ export function CompanionHero() {
             <motion.h1
               initial={{ y: 50 }}
               whileInView={{ y: 0 }}
-              transition={{
-                duration: 0.8,
-                ease: 'easeOut',
-              }}
+              transition={{ delay: 0.3, duration: 0.4, ease: 'easeOut' }}
               viewport={{ once: true }}
               className="text-4xl md:text-6xl font-bold text-primary"
             >
@@ -27,11 +24,7 @@ export function CompanionHero() {
             <motion.h2
               initial={{ y: 50 }}
               whileInView={{ y: 0 }}
-              transition={{
-                delay: 0.2,
-                duration: 0.8,
-                ease: 'easeOut',
-              }}
+              transition={{ delay: 0.3, duration: 0.4, ease: 'easeOut' }}
               viewport={{ once: true }}
               className="text-3xl md:text-5xl font-semibold text-gray-900"
             >
@@ -40,11 +33,7 @@ export function CompanionHero() {
             <motion.p
               initial={{ y: 50 }}
               whileInView={{ y: 0 }}
-              transition={{
-                delay: 0.4,
-                duration: 0.8,
-                ease: 'easeOut',
-              }}
+              transition={{ delay: 0.3, duration: 0.4, ease: 'easeOut' }}
               viewport={{ once: true }}
               className="text-xl mt-6 mb-4"
             >
@@ -53,14 +42,10 @@ export function CompanionHero() {
             <motion.div
               initial={{ y: 50 }}
               whileInView={{ y: 0 }}
-              transition={{
-                delay: 0.6,
-                duration: 0.8,
-                ease: 'easeOut',
-              }}
+              transition={{ delay: 0.3, duration: 0.4, ease: 'easeOut' }}
               viewport={{ once: true }}
             >
-              <CTAButton href="#" className="z-10 text-base px-4">
+              <CTAButton href="/pricing" className="z-10 text-base px-4">
                 Get Companion
               </CTAButton>
             </motion.div>
@@ -70,10 +55,7 @@ export function CompanionHero() {
           <motion.div
             initial={{ x: 100 }}
             whileInView={{ x: 0 }}
-            transition={{
-              duration: 1.2,
-              ease: 'easeOut',
-            }}
+            transition={{ delay: 0.3, duration: 0.4, ease: 'easeOut' }}
             viewport={{ once: true }}
             className="flex justify-end pl-4 md:p-0"
           >

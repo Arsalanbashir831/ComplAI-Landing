@@ -65,10 +65,7 @@ export default function WhyCompanionSection() {
         <motion.h2
           initial={{ y: 50 }}
           whileInView={{ y: 0 }}
-          transition={{
-            duration: 0.8,
-            ease: 'easeOut',
-          }}
+          transition={{ delay: 0.3, duration: 0.4, ease: 'easeOut' }}
           viewport={{ once: true }}
           className="text-4xl md:text-5xl font-bold mb-4"
         >
@@ -77,11 +74,7 @@ export default function WhyCompanionSection() {
         <motion.p
           initial={{ y: 50 }}
           whileInView={{ y: 0 }}
-          transition={{
-            delay: 0.2,
-            duration: 0.8,
-            ease: 'easeOut',
-          }}
+          transition={{ delay: 0.3, duration: 0.4, ease: 'easeOut' }}
           viewport={{ once: true }}
           className="text-xl md:text-2xl "
         >
@@ -97,10 +90,7 @@ export default function WhyCompanionSection() {
               key={feature.title}
               initial={{ y: 50 }}
               whileInView={{ y: 0 }}
-              transition={{
-                duration: 0.8,
-                ease: 'easeOut',
-              }}
+              transition={{ delay: 0.3, duration: 0.4, ease: 'easeOut' }}
               viewport={{ once: true }}
             >
               <FeatureCard feature={feature} />
@@ -115,11 +105,7 @@ export default function WhyCompanionSection() {
               key={feature.title}
               initial={{ y: 50 }}
               whileInView={{ y: 0 }}
-              transition={{
-                delay: 0.2,
-                duration: 0.8,
-                ease: 'easeOut',
-              }}
+              transition={{ delay: 0.3, duration: 0.4, ease: 'easeOut' }}
               viewport={{ once: true }}
             >
               <FeatureCard feature={feature} />

@@ -1,10 +1,10 @@
 'use client';
 
-import Image from 'next/image';
 import { motion } from 'framer-motion';
+import Image from 'next/image';
 
-import { cn } from '@/lib/utils';
 import { CTAButton } from '@/components/cta-button';
+import { cn } from '@/lib/utils';
 
 export default function CTASection({
   cta,
@@ -59,7 +59,7 @@ export default function CTASection({
           <motion.h3
             initial={{ y: 50 }}
             whileInView={{ y: 0 }}
-            transition={{ duration: 0.8, ease: 'easeOut' }}
+            transition={{ delay: 0.3, duration: 0.4, ease: 'easeOut' }}
             viewport={{ once: true }}
             className={cn('font-semibold text-3xl lg:text-5xl', titleClassName)}
           >
@@ -70,7 +70,7 @@ export default function CTASection({
           <motion.p
             initial={{ y: 50 }}
             whileInView={{ y: 0 }}
-            transition={{ delay: 0.2, duration: 0.8, ease: 'easeOut' }}
+            transition={{ delay: 0.3, duration: 0.4, ease: 'easeOut' }}
             viewport={{ once: true }}
             className={cn('max-w-3xl md:text-xl/relaxed', descriptionClassName)}
           >
@@ -80,7 +80,7 @@ export default function CTASection({
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
-          transition={{ delay: 0.4, duration: 0.8, ease: 'easeOut' }}
+          transition={{ delay: 0.3, duration: 0.4, ease: 'easeOut' }}
           viewport={{ once: true }}
         >
           <CTAButton

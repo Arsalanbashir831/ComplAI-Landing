@@ -1,4 +1,3 @@
-import { ROUTES } from '@/constants/routes';
 
 import { Banner } from '../_common/banner';
 
@@ -7,7 +6,7 @@ export function PricingBanner() {
   const description =
     'Compl-AI simplifies compliance with intelligent AI solutions, saving time and reducing effort so your team can stay focused on what matters most.';
   const ctaText = 'Get Started';
-  const ctaHref = ROUTES.REGISTER;
+  const ctaHref = '/pricing';
   const featuresTitle = 'All Plans Include';
   const features = [
     'Enterprise Grade Security',

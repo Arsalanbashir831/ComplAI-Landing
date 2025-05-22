@@ -11,10 +11,7 @@ export function ComparisonSection() {
           <motion.h2
             initial={{ y: 50 }}
             whileInView={{ y: 0 }}
-            transition={{
-              duration: 0.8,
-              ease: 'easeOut',
-            }}
+            transition={{ delay: 0.3, duration: 0.4, ease: 'easeOut' }}
             viewport={{ once: true }}
             className="text-4xl md:text-5xl font-bold mb-4"
           >
@@ -24,11 +21,7 @@ export function ComparisonSection() {
           <motion.h3
             initial={{ y: 50 }}
             whileInView={{ y: 0 }}
-            transition={{
-              delay: 0.2,
-              duration: 0.8,
-              ease: 'easeOut',
-            }}
+            transition={{ delay: 0.3, duration: 0.4, ease: 'easeOut' }}
             viewport={{ once: true }}
             className="text-4xl md:text-5xl font-bold"
           >
@@ -39,11 +32,7 @@ export function ComparisonSection() {
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
-          transition={{
-            delay: 0.4,
-            duration: 0.8,
-            ease: 'easeOut',
-          }}
+          transition={{ delay: 0.3, duration: 0.4, ease: 'easeOut' }}
           viewport={{ once: true }}
           className="max-w-6xl mx-auto rounded-lg overflow-hidden"
         >
@@ -51,13 +40,9 @@ export function ComparisonSection() {
             {/* Before Companion Column */}
             <div className="py-7 px-7 md:px-14 rounded-l-lg border-[3px] border-[#E9E8E8]">
               <motion.h3
-                initial={{ y: 50 }}
-                whileInView={{ y: 0 }}
-                transition={{
-                  delay: 0.8,
-                  duration: 0.8,
-                  ease: 'easeOut',
-                }}
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.3, duration: 0.4, ease: 'easeOut' }}
                 viewport={{ once: true }}
                 className="text-4xl font-bold text-[#4C4C4C] mb-8"
               >
@@ -65,13 +50,9 @@ export function ComparisonSection() {
               </motion.h3>
 
               <motion.div
-                initial={{ y: 50 }}
-                whileInView={{ y: 0 }}
-                transition={{
-                  delay: 1,
-                  duration: 0.8,
-                  ease: 'easeOut',
-                }}
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.3, duration: 0.4, ease: 'easeOut' }}
                 viewport={{ once: true }}
                 className="space-y-10"
               >
@@ -92,13 +73,9 @@ export function ComparisonSection() {
                 </div>
 
                 <motion.div
-                  initial={{ y: 50 }}
-                  whileInView={{ y: 0 }}
-                  transition={{
-                    delay: 1.2,
-                    duration: 0.8,
-                    ease: 'easeOut',
-                  }}
+                  initial={{ opacity: 0, y: 50 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.3, duration: 0.4, ease: 'easeOut' }}
                   viewport={{ once: true }}
                   className="flex"
                 >
@@ -120,13 +97,9 @@ export function ComparisonSection() {
                 </motion.div>
 
                 <motion.div
-                  initial={{ y: 50 }}
-                  whileInView={{ y: 0 }}
-                  transition={{
-                    delay: 1.4,
-                    duration: 0.8,
-                    ease: 'easeOut',
-                  }}
+                  initial={{ opacity: 0, y: 50 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.3, duration: 0.4, ease: 'easeOut' }}
                   viewport={{ once: true }}
                   className="flex"
                 >
@@ -150,13 +123,9 @@ export function ComparisonSection() {
             {/* With Companion Column */}
             <div className="py-7 px-7 md:px-14 bg-blue-600 text-[#EFEFEF]">
               <motion.h3
-                initial={{ y: 50 }}
-                whileInView={{ y: 0 }}
-                transition={{
-                  delay: 0.8,
-                  duration: 0.8,
-                  ease: 'easeOut',
-                }}
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.3, duration: 0.4, ease: 'easeOut' }}
                 viewport={{ once: true }}
                 className="text-4xl font-bold mb-8"
               >
@@ -165,13 +134,9 @@ export function ComparisonSection() {
 
               <div className="space-y-10">
                 <motion.div
-                  initial={{ y: 50 }}
-                  whileInView={{ y: 0 }}
-                  transition={{
-                    delay: 1,
-                    duration: 0.8,
-                    ease: 'easeOut',
-                  }}
+                  initial={{ opacity: 0, y: 50 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.3, duration: 0.4, ease: 'easeOut' }}
                   viewport={{ once: true }}
                   className="flex"
                 >
@@ -190,13 +155,9 @@ export function ComparisonSection() {
                 </motion.div>
 
                 <motion.div
-                  initial={{ y: 50 }}
-                  whileInView={{ y: 0 }}
-                  transition={{
-                    delay: 1.2,
-                    duration: 0.8,
-                    ease: 'easeOut',
-                  }}
+                  initial={{ opacity: 0, y: 50 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.3, duration: 0.4, ease: 'easeOut' }}
                   viewport={{ once: true }}
                   className="flex"
                 >
@@ -215,13 +176,9 @@ export function ComparisonSection() {
                 </motion.div>
 
                 <motion.div
-                  initial={{ y: 50 }}
-                  whileInView={{ y: 0 }}
-                  transition={{
-                    delay: 1.4,
-                    duration: 0.8,
-                    ease: 'easeOut',
-                  }}
+                  initial={{ opacity: 0, y: 50 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.3, duration: 0.4, ease: 'easeOut' }}
                   viewport={{ once: true }}
                   className="flex"
                 >

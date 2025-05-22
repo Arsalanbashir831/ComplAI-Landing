@@ -1,3 +1,5 @@
+'use client';
+
 import { Suspense } from 'react';
 
 import { SecurityFeatures } from '@/components/_common/security-features';
@@ -14,16 +16,13 @@ import TestimonialSlider from '@/components/testimonials';
 
 export default function Home() {
   const cta = {
-    title: {
-      start: 'Ready to Try ',
-      highlight: 'Compl-AI?',
-      end: '',
-    },
+    title: { start: 'Ready to Try ', highlight: 'Compl-AI?', end: '' },
     description:
       'Compl-AI provides instant compliance insights and solutions exactly when your team needs them. Save time, lower costs, and stay ahead with ease.',
     buttonText: 'Start Your Free Trial',
     buttonHref: '/signup',
   };
+
   return (
     <>
       <Suspense>
@@ -36,11 +35,15 @@ export default function Home() {
           <TestimonialSlider showBadge={false} />
           <PricingBanner />
           <FAQSection showBadge={false} />
-          <CTASection cta={cta} showBgImage={true} showRadialImage={false} />
+          <CTASection
+            cta={cta}
+            showBgImage={true}
+            showRadialImage={false}
+          />
           <NewsSection />
-          <NavigateToTop />
         </main>
       </Suspense>
+      <NavigateToTop />
     </>
   );
 }

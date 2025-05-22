@@ -3,8 +3,6 @@
 import { motion } from 'framer-motion';
 import { Check } from 'lucide-react';
 
-import { PricingPlan } from '@/types/pricing';
-import { cn } from '@/lib/utils';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import {
@@ -13,7 +11,10 @@ import {
   CardFooter,
   CardHeader,
 } from '@/components/ui/card';
+import { cn } from '@/lib/utils';
+import { PricingPlan } from '@/types/pricing';
 
+import Link from 'next/link';
 import { Separator } from '../ui/separator';
 
 // Define the types for our pricing plans
@@ -40,12 +41,12 @@ interface PricingCardProps {
   plan: PricingPlan;
 }
 
-export function PricingCard({ plan, id }: PricingCardProps) {
+export function PricingCard({ plan }: PricingCardProps) {
   return (
     <motion.div
       initial={{ y: 50 }}
       whileInView={{ y: 0 }}
-      transition={{ delay: 0.8 + 0.2 * id, duration: 0.8, ease: 'easeOut' }}
+      transition={{ delay: 0.3, duration: 0.4, ease: 'easeOut' }}
       viewport={{ once: true }}
       className="flex flex-col "
     >
@@ -53,14 +54,14 @@ export function PricingCard({ plan, id }: PricingCardProps) {
         className={cn(
           'relative flex flex-col border rounded-xl h-full',
           plan.color === 'blue' &&
-            'bg-primary text-white border-primary shadow-[0px_0px_39px_5px_#0686F6]'
+          'bg-primary text-white border-primary shadow-[0px_0px_39px_5px_#0686F6]'
         )}
       >
         {plan.popular && (
           <motion.div
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
-            transition={{ delay: 2, duration: 0.8, ease: 'easeOut' }}
+            transition={{ delay: 0.3, duration: 0.4, ease: 'easeOut' }}
             viewport={{ once: true }}
             className="absolute -top-16 -right-2/3 w-full h-16 bg-[url(/images/professional-pricing-promo.svg)] bg-contain bg-center bg-no-repeat hidden lg:block"
           />
@@ -114,17 +115,19 @@ export function PricingCard({ plan, id }: PricingCardProps) {
             </div>
           </div>
 
-          <Button
-            variant={plan.color === 'blue' ? 'default' : 'outline'}
-            className={cn(
-              'w-full mb-4 text-xl',
-              plan.color === 'blue'
-                ? 'bg-white text-primary hover:bg-blue-50'
-                : 'text-primary hover:text-blue-600 border-primary'
-            )}
-          >
-            {plan.buttonText}
-          </Button>
+          <Link href={plan.btn_redirection}>
+            <Button
+              variant={plan.color === 'blue' ? 'default' : 'outline'}
+              className={cn(
+                'w-full mb-4 text-xl',
+                plan.color === 'blue'
+                  ? 'bg-white text-primary hover:bg-blue-50'
+                  : 'text-primary hover:text-blue-600 border-primary'
+              )}
+            >
+              {plan.buttonText}
+            </Button>
+          </Link>
 
           {plan.secondaryButtonText && (
             <div className="mb-4">
@@ -160,9 +163,9 @@ export function PricingCard({ plan, id }: PricingCardProps) {
             )}
 
             <div className="space-y-3 mt-4">
-              <>
+              {/* <>
                 <p className="font-bold underline">{plan.comitmentText}</p>
-              </>
+              </> */}
               {plan.features.map((feature, index) => (
                 <div key={index} className="flex items-start gap-3 text-left">
                   <Check

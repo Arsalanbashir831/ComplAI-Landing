@@ -1,9 +1,9 @@
 'use client';
 
+import { motion } from 'framer-motion';
+import { ArrowRight } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { motion } from 'framer-motion';
-import { ArrowUpRight } from 'lucide-react';
 
 import { cn } from '@/lib/utils';
 
@@ -34,7 +34,7 @@ export function SecurityFeatures({ className = '' }: SecurityFeaturesProps) {
           <motion.h2
             initial={{ y: 50 }}
             whileInView={{ y: 0 }}
-            transition={{ duration: 0.8, ease: 'easeOut' }}
+            transition={{ delay: 0.3, duration: 0.4, ease: 'easeOut' }}
             viewport={{ once: true }}
             className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl text-center"
           >
@@ -57,7 +57,7 @@ export function SecurityFeatures({ className = '' }: SecurityFeaturesProps) {
               >
                 <div
                   className={cn(
-                    'text-blue-600 h-32 w-32 flex items-center justify-center',
+                    'text-blue-600 flex items-center justify-center',
                     feature.iconSize.width,
                     feature.iconSize.height
                   )}
@@ -68,7 +68,7 @@ export function SecurityFeatures({ className = '' }: SecurityFeaturesProps) {
                     width={120}
                     height={120}
                     className={cn(
-                      'w-32 h-32 object-contain',
+                      'object-contain',
                       feature.iconSize.width,
                       feature.iconSize.height
                     )}
@@ -76,11 +76,14 @@ export function SecurityFeatures({ className = '' }: SecurityFeaturesProps) {
                   />
                 </div>
                 <h3 className="text-xl font-medium">{feature.title}</h3>
-                <Link
+                <Link target="_blank" rel="noopener noreferrer"
                   href={feature.detailLink || '#'}
-                  className="text-[#7A7A7A] flex items-center"
+                  className="group text-[#7A7A7A] flex items-center space-x-1"
                 >
-                  Detail <ArrowUpRight className="h-3 w-3 ml-1" />
+                  <span className="inline-flex items-center text-blue-600 font-medium transition-transform duration-300 ">
+                    More Details
+                  </span>
+                  <ArrowRight className="h-4 w-4 text-blue-600 transition-transform duration-300 group-hover:translate-x-1" />
                 </Link>
               </motion.div>
             ))}
@@ -91,7 +94,7 @@ export function SecurityFeatures({ className = '' }: SecurityFeaturesProps) {
         <motion.div
           initial={{ y: 50 }}
           whileInView={{ y: 0 }}
-          transition={{ delay: 0.6, duration: 0.8, ease: 'easeOut' }}
+          transition={{ delay: 0.3, duration: 0.4, ease: 'easeOut' }}
           viewport={{ once: true }}
           className="bg-blue-50"
         >
@@ -129,7 +132,7 @@ const defaultFeatures: SecurityFeature[] = [
       height: 'h-32 md:h-40',
     },
     title: 'End-to-End Encryption',
-    detailLink: '/security/encryption',
+    detailLink: 'https://www.iso.org/standard/75307.html',
   },
   {
     icon: '/images/icons/shield.svg',
@@ -138,7 +141,7 @@ const defaultFeatures: SecurityFeature[] = [
       height: 'h-40',
     },
     title: 'GDPR Compliant',
-    detailLink: '/security/gdpr',
+    detailLink: 'http://gdpr-info.eu',
   },
   {
     icon: '/images/icons/iso.svg',
@@ -147,6 +150,6 @@ const defaultFeatures: SecurityFeature[] = [
       height: 'h-40',
     },
     title: 'ISO 27001 Hosting',
-    detailLink: '/security/iso',
+    detailLink: 'https://www.iso.org/standard/27001',
   },
 ];

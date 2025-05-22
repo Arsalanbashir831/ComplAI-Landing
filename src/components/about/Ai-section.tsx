@@ -1,7 +1,7 @@
 'use client';
 
-import Image from 'next/image';
 import { motion } from 'framer-motion';
+import Image from 'next/image';
 
 export default function AiSection() {
   return (
@@ -10,10 +10,10 @@ export default function AiSection() {
         {/* Heading Animation */}
         <motion.h2
           className="text-4xl md:text-6xl font-semibold"
-          // initial={{ opacity: 0, y: 50 }}
-          // whileInView={{ opacity: 1, y: 0 }}
-          // transition={{ duration: 0.8, ease: 'easeOut' }}
-          // viewport={{ once: true, amount: 0.5 }}
+        // initial={{ opacity: 0, y: 50 }}
+        // whileInView={{ opacity: 1, y: 0 }}
+        //   transition={{ delay: 0.3, duration: 0.4, ease: 'easeOut' }} {{ duration: 0.8, ease: 'easeOut' }}
+        // viewport={{ once: true, amount: 0.5 }}
         >
           AI-Driven Compliance
         </motion.h2>
@@ -21,10 +21,10 @@ export default function AiSection() {
         {/* Paragraph Animation */}
         <motion.p
           className="md:text-lg text-justify md:text-left px-9"
-          // initial={{ opacity: 0, y: 50 }}
-          // whileInView={{ opacity: 1, y: 0 }}
-          // transition={{ duration: 0.8, ease: 'easeOut', delay: 0.2 }}
-          // viewport={{ once: true, amount: 0.5 }}
+        // initial={{ opacity: 0, y: 50 }}
+        // whileInView={{ opacity: 1, y: 0 }}
+        //   transition={{ delay: 0.3, duration: 0.4, ease: 'easeOut' }} {{ duration: 0.8, ease: 'easeOut', delay: 0.2 }}
+        // viewport={{ once: true, amount: 0.5 }}
         >
           Compl-AI is a specialised AI solution for SRA-regulated law firms,
           delivering precise, regulation-aware responses through a purpose-built
@@ -40,10 +40,10 @@ export default function AiSection() {
         {/* Image Animation */}
         <motion.div
           className="relative w-full h-[400px] mx-auto"
-          // initial={{ opacity: 0, scale: 0.9 }}
-          // whileInView={{ opacity: 1, scale: 1 }}
-          // transition={{ duration: 0.8, ease: 'easeOut', delay: 0.4 }}
-          // viewport={{ once: true, amount: 0.5 }}
+        // initial={{ opacity: 0, scale: 0.9 }}
+        // whileInView={{ opacity: 1, scale: 1 }}
+        //   transition={{ delay: 0.3, duration: 0.4, ease: 'easeOut' }} {{ duration: 0.8, ease: 'easeOut', delay: 0.4 }}
+        // viewport={{ once: true, amount: 0.5 }}
         >
           <Image
             src="/images/ai-model.svg"

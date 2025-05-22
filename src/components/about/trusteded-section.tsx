@@ -16,7 +16,7 @@ export default function TrustedSection() {
             initial={{ y: 50 }}
             whileInView={{ y: 0 }}
             viewport={{ once: true, amount: 0.5 }}
-            transition={{ duration: 0.8, ease: 'easeOut' }}
+            transition={{ delay: 0.3, duration: 0.4, ease: 'easeOut' }}
             className="text-4xl font-bold tracking-tight text-white sm:text-6xl"
           >
             Fair Compliance for Everyone
@@ -27,7 +27,7 @@ export default function TrustedSection() {
             <motion.p
               initial={{ y: 50 }}
               whileInView={{ y: 0 }}
-              transition={{ delay: 0.2, duration: 0.8, ease: 'easeOut' }}
+              transition={{ delay: 0.3, duration: 0.4, ease: 'easeOut' }}
               viewport={{ once: true }}
             >
               Compl-AI was founded by lawyers who know firsthand the frustration
@@ -39,7 +39,7 @@ export default function TrustedSection() {
             <motion.p
               initial={{ y: 50 }}
               whileInView={{ y: 0 }}
-              transition={{ delay: 0.4, duration: 0.8, ease: 'easeOut' }}
+              transition={{ delay: 0.3, duration: 0.4, ease: 'easeOut' }}
               viewport={{ once: true }}
             >
               Our commitment is to make powerful, reliable compliance support
@@ -52,7 +52,7 @@ export default function TrustedSection() {
             <motion.p
               initial={{ y: 50 }}
               whileInView={{ y: 0 }}
-              transition={{ delay: 0.6, duration: 0.8, ease: 'easeOut' }}
+              transition={{ delay: 0.3, duration: 0.4, ease: 'easeOut' }}
               viewport={{ once: true }}
             >
               By backing Compl-AI, you’re helping to put an end to the outdated

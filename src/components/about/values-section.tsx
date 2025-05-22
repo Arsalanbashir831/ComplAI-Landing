@@ -1,11 +1,11 @@
 'use client';
 
 // Needed if using Next.js App Router
-import Image from 'next/image';
 import { motion } from 'framer-motion';
+import Image from 'next/image';
 
-import { cn } from '@/lib/utils';
 import { Card, CardContent } from '@/components/ui/card';
+import { cn } from '@/lib/utils';
 
 interface ValueCardProps {
   title: string;
@@ -26,7 +26,7 @@ function ValueCard({
     <motion.div
       // initial={{   y: 20 }}
       // whileInView={{   y: 0 }}
-      // transition={{ duration: 0.5, delay: delay * 0.1 }}
+      //   transition={{ delay: 0.3, duration: 0.4, ease: 'easeOut' }} {{ duration: 0.5, delay: delay * 0.1 }}
       // whileHover={{ scale: 1.02 }}
       // viewport={{ once: true, amount: 0.5 }}
       className={cn(
@@ -62,7 +62,7 @@ export default function ValuesSection() {
           <motion.h2
             initial={{ y: 50 }}
             whileInView={{ y: 0 }}
-            transition={{ duration: 0.8, ease: 'easeOut' }}
+            transition={{ delay: 0.3, duration: 0.4, ease: 'easeOut' }}
             viewport={{ once: true }}
             className="text-4xl md:text-5xl font-semibold mb-4"
           >
@@ -74,7 +74,7 @@ export default function ValuesSection() {
         <motion.div
           initial={{ y: 50 }}
           whileInView={{ y: 0 }}
-          transition={{ delay: 0.3, duration: 0.8, ease: 'easeOut' }}
+          transition={{ delay: 0.3, duration: 0.4, ease: 'easeOut' }}
           viewport={{ once: true }}
           className="grid md:grid-cols-[1fr_1fr_1fr] gap-6"
         >

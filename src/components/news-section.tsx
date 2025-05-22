@@ -1,14 +1,14 @@
 'use client';
 
-import { useEffect, useRef, useState } from 'react';
-import Link from 'next/link';
 import { API_ROUTES } from '@/constants/routes';
 import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
+import Link from 'next/link';
+import { useEffect, useRef, useState } from 'react';
 
-import { NewsData } from '@/types/news';
-import { Button } from '@/components/ui/button';
 import { NewsCard } from '@/components/news-card';
+import { Button } from '@/components/ui/button';
+import { NewsData } from '@/types/news';
 
 export function NewsSection() {
   const cardRefs = useRef<(HTMLDivElement | null)[]>([]);
@@ -101,7 +101,7 @@ export function NewsSection() {
           <motion.h2
             initial={{ y: 50 }}
             whileInView={{ y: 0 }}
-            transition={{ duration: 0.8, ease: 'easeOut' }}
+            transition={{ delay: 0.3, duration: 0.4, ease: 'easeOut' }}
             viewport={{ once: true }}
             className="text-3xl md:text-5xl font-semibold"
           >
@@ -116,7 +116,7 @@ export function NewsSection() {
         </div>
 
         <div
-          className="flex gap-6 overflow-x-auto whitespace-nowrap
+          className="flex gap-6 overflow-x-auto overflow-y-hidden whitespace-nowrap
           lg:overflow-x-visible lg:grid lg:grid-cols-3"
         >
           {latestBlogs?.map((news, index) => {
@@ -130,7 +130,7 @@ export function NewsSection() {
                 initial={{ y: 50 }}
                 whileInView={{ y: 0 }}
                 transition={{
-                  delay: 0.1 + 0.1 * index,
+                  delay: 0.2 + 0.1 * index,
                   duration: 0.8,
                   ease: 'easeOut',
                 }}
@@ -161,9 +161,8 @@ export function NewsSection() {
             <button
               key={index}
               onClick={() => scrollToCard(index)}
-              className={`w-3 h-3 rounded-full ${
-                activeIndex === index ? 'bg-blue-600' : 'bg-gray-400'
-              }`}
+              className={`w-3 h-3 rounded-full ${activeIndex === index ? 'bg-blue-600' : 'bg-gray-400'
+                }`}
             />
           ))}
         </div>

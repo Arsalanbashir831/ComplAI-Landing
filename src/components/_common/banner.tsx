@@ -1,8 +1,8 @@
 'use client';
 
-import { FC } from 'react';
 import { motion } from 'framer-motion';
 import { Check } from 'lucide-react';
+import { FC } from 'react';
 
 import { Card, CardContent } from '@/components/ui/card';
 
@@ -32,7 +32,7 @@ export const Banner: FC<BannerProps> = ({
   <motion.section
     initial={{ y: 50 }}
     whileInView={{ y: 0 }}
-    transition={{ duration: 0.8, ease: 'easeOut' }}
+    transition={{ delay: 0.3, duration: 0.4, ease: 'easeOut' }}
     viewport={{ once: true }}
     className={`container mx-auto flex justify-center py-12 md:py-24 px-4 md:px-0 ${className}`}
   >

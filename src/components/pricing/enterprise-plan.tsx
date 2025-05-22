@@ -1,10 +1,10 @@
 'use client';
 
-import Image from 'next/image';
-import Link from 'next/link';
 import { ROUTES } from '@/constants/routes';
 import { solutions } from '@/data/solutions';
 import { motion } from 'framer-motion';
+import Image from 'next/image';
+import Link from 'next/link';
 
 import { CTAButton } from '../cta-button';
 import SolCard from '../sol-card';
@@ -15,7 +15,7 @@ export default function EnterprisePlan() {
       <motion.h2
         initial={{ y: 50 }}
         whileInView={{ y: 0 }}
-        transition={{ duration: 0.8, ease: 'easeOut' }}
+        transition={{ delay: 0.3, duration: 0.4, ease: 'easeOut' }}
         viewport={{ once: true }}
         className="text-3xl md:text-5xl font-bold mb-8 md:mb-12 "
       >
@@ -32,11 +32,7 @@ export default function EnterprisePlan() {
             <motion.div
               initial={{ y: 50 }}
               whileInView={{ y: 0 }}
-              transition={{
-                delay: 0.4 + 0.2 * idx,
-                duration: 0.8,
-                ease: 'easeOut',
-              }}
+              transition={{ delay: 0.3, duration: 0.4, ease: 'easeOut' }}
               viewport={{ once: true }}
               className="h-full"
             >
@@ -49,7 +45,7 @@ export default function EnterprisePlan() {
       <motion.div
         // initial={{ opacity: 0 }}
         // whileInView={{ opacity: 1 }}
-        // transition={{ delay: 1.8, duration: 0.8, ease: 'easeOut' }}
+        //   transition={{ delay: 0.3, duration: 0.4, ease: 'easeOut' }} {{ delay: 1.8, duration: 0.8, ease: 'easeOut' }}
         // viewport={{ once: true }}
         className="flex flex-col items-center justify-center mt-10"
       >

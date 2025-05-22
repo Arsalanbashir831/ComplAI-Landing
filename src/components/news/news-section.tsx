@@ -1,10 +1,10 @@
 'use client';
 
-import { useEffect, useState } from 'react';
-import Image from 'next/image';
-import Link from 'next/link';
 import { API_ROUTES } from '@/constants/routes';
 import { ArrowRight } from 'lucide-react';
+import Image from 'next/image';
+import Link from 'next/link';
+import { useEffect, useState } from 'react';
 
 import type { NewsData } from '@/types/news';
 
@@ -124,7 +124,7 @@ export default function NewsSection() {
                 </span>
                 {calculateReadTime(featuredBlog.content)} min read
               </div>
-              <h2 className="text-3xl md:text-4xl font-normal text-gray-900">
+              <h2 className="text-3xl md:text-4xl font-bold text-gray-900">
                 {featuredBlog.title}
               </h2>
               <p className="text-gray-700">
@@ -144,7 +144,7 @@ export default function NewsSection() {
 
       {/* Recent Articles */}
       <div className="mb-8">
-        <h2 className="text-2xl font-bold mb-6">Our Recent Articles</h2>
+        <h2 className="text-4xl font-bold mb-6 text-blue-700 "> Recent News </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {recentBlogs.map((blog, index) => (
             <BlogCard

@@ -18,7 +18,7 @@ export default function ContactHeroSection() {
               <motion.h1
                 initial={{ y: 50 }}
                 whileInView={{ y: 0 }}
-                transition={{ duration: 0.8, ease: 'easeOut' }}
+                transition={{ delay: 0.3, duration: 0.4, ease: 'easeOut' }}
                 viewport={{ once: true }}
                 className="text-4xl sm:text-5xl md:text-5xl font-bold"
               >
@@ -30,7 +30,7 @@ export default function ContactHeroSection() {
               <motion.p
                 initial={{ y: 50 }}
                 whileInView={{ y: 0 }}
-                transition={{ delay: 0.2, duration: 0.8, ease: 'easeOut' }}
+                transition={{ delay: 0.3, duration: 0.4, ease: 'easeOut' }}
                 viewport={{ once: true }}
                 className="font-normal  md:text-md   max-w-xs md:max-w-2xl mx-auto"
               >
