@@ -1,5 +1,5 @@
-import { PricingCards } from '@/components/pricing/new-pricing-cards';
 import { PricingPlan } from '@/types/pricing';
+import { PricingCards } from '@/components/pricing/new-pricing-cards';
 
 export function PricingSection() {
   const pricingPlans: PricingPlan[] = [
