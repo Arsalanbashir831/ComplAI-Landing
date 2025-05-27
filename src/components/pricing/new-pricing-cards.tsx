@@ -1,11 +1,9 @@
 'use client';
 
-import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { Check } from 'lucide-react';
+import Link from 'next/link';
 
-import { PricingPlan } from '@/types/pricing';
-import { cn } from '@/lib/utils';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import {
@@ -14,6 +12,8 @@ import {
   CardFooter,
   CardHeader,
 } from '@/components/ui/card';
+import { cn } from '@/lib/utils';
+import { PricingPlan } from '@/types/pricing';
 
 import { Separator } from '../ui/separator';
 
@@ -54,7 +54,7 @@ export function PricingCard({ plan }: PricingCardProps) {
         className={cn(
           'relative flex flex-col border rounded-xl h-full',
           plan.color === 'blue' &&
-            'bg-primary text-white border-primary shadow-[0px_0px_39px_5px_#0686F6]'
+          'bg-primary text-white border-primary shadow-[0px_0px_39px_5px_#0686F6]'
         )}
       >
         {plan.popular && (
@@ -136,9 +136,12 @@ export function PricingCard({ plan }: PricingCardProps) {
                 <p className="text-[#000000] font-semibold">Or</p>
                 <Separator className="basis-1/2 bg-[#9D9D9D]" />
               </div>
-              <Button className="w-full mt-2 bg-primary text-white hover:bg-blue-600 text-xl">
-                {plan.secondaryButtonText}
-              </Button>
+              <Link href={`${process.env.NEXT_PUBLIC_APPLICATION_URL}`}>
+                <Button className="w-full mt-2 bg-primary text-white hover:bg-blue-600 text-xl">
+                  {plan.secondaryButtonText}
+                </Button>
+              </Link>
+
             </div>
           )}
 

@@ -1,5 +1,5 @@
-import { PricingPlan } from '@/types/pricing';
 import { PricingCards } from '@/components/pricing/new-pricing-cards';
+import { PricingPlan } from '@/types/pricing';
 
 export function PricingSection() {
   const pricingPlans: PricingPlan[] = [
@@ -9,7 +9,7 @@ export function PricingSection() {
       price: '',
       description: '',
       buttonText: 'Start Free Trial',
-      btn_redirection: '',
+      btn_redirection: `${process.env.NEXT_PUBLIC_APPLICATION_URL}?subscription=topup`,
       badge: 'Starter',
       secondaryButtonText: 'Top-up Now',
       featuresHeader: 'Top-Up & Go Details:',
@@ -33,7 +33,7 @@ export function PricingSection() {
     {
       id: 'professional',
       name: 'Professional',
-      btn_redirection: '',
+      btn_redirection: `${process.env.NEXT_PUBLIC_APPLICATION_URL}?subscription=monthly`,
       price: '£49',
       description: '/month',
       message: '50% Cheaper than Top-up',
