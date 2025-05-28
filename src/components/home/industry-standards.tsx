@@ -1,76 +1,57 @@
 'use client';
 
-import { motion } from 'framer-motion';
+import { motion, Variants } from 'framer-motion';
+import { useRef } from 'react';
 
 import LogoSlider from '../logo-slider';
 
 export default function IndustryStandards() {
   const logos = [
-    {
-      name: 'Solictors Regulation Authority',
-      url: './images/logos/sra_logo.svg',
-    },
-    {
-      name: 'Legal Aid Agency',
-      url: './images/logos/laa_logo.svg',
-    },
-    {
-      name: 'Lexcel',
-      url: './images/logos/lexcel_logo.svg',
-    },
-    {
-      name: 'SQM',
-      url: './images/logos/sqm_logo.svg',
-    },
-    {
-      name: 'The Law Society',
-      url: './images/logos/law_society_logo.svg',
-    },
-    {
-      name: 'Gov.uk',
-      url: './images/logos/gov_uk_logo.svg',
-    },
-    {
-      name: 'Solictors Regulation Authority',
-      url: './images/logos/sra_logo.svg',
-    },
-    {
-      name: 'Legal Aid Agency',
-      url: './images/logos/laa_logo.svg',
-    },
-    {
-      name: 'Lexcel',
-      url: './images/logos/lexcel_logo.svg',
-    },
-    {
-      name: 'SQM',
-      url: './images/logos/sqm_logo.svg',
-    },
-    {
-      name: 'The Law Society',
-      url: './images/logos/law_society_logo.svg',
-    },
-    {
-      name: 'Gov.uk',
-      url: './images/logos/gov_uk_logo.svg',
-    },
+    { name: 'Solicitors Regulation Authority', url: './images/logos/sra_logo.svg' },
+    { name: 'Legal Aid Agency', url: './images/logos/laa_logo.svg' },
+    { name: 'Lexcel', url: './images/logos/lexcel_logo.svg' },
+    { name: 'SQM', url: './images/logos/sqm_logo.svg' },
+    { name: 'The Law Society', url: './images/logos/law_society_logo.svg' },
+    { name: 'Gov.uk', url: './images/logos/gov_uk_logo.svg' },
+    // ...repeat or dedupe as needed
   ];
+
+  const containerRef = useRef(null);
+
+  const revealVariants: Variants = {
+    hidden: { opacity: 0, y: 50 },
+    visible: (i: number = 1) => ({
+      opacity: 1,
+      y: 0,
+      transition: {
+        delay: i * 0.2,
+        duration: 0.8,
+        ease: 'easeInOut',
+      },
+    }),
+  };
 
   return (
     <>
       <motion.h2
-        initial={{ y: 100 }}
-        animate={{ y: 50 }}
-        transition={{ delay: 0.3, duration: 0.4, ease: 'easeOut' }}
-        className="text-3xl md:text-5xl font-bold text-center pt-4"
+        ref={containerRef}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.3 }}
+        custom={0}
+        variants={revealVariants}
+        className="text-3xl md:text-5xl font-bold text-center pt-4 mt-20"
       >
         Aligned with <span className="text-primary">Industry Standards</span>
       </motion.h2>
+
       <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 0.3, duration: 0.4, ease: 'easeOut' }}
-        className="overflow-hidden w-full relative pt-20"
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.3 }}
+        custom={1}
+        variants={revealVariants}
+        className="overflow-hidden w-full relative "
       >
         <LogoSlider
           title=""

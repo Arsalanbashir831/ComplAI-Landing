@@ -1,54 +1,58 @@
 'use client';
 
-// Needed if using Next.js App Router
-import Image from 'next/image';
-import { motion } from 'framer-motion';
-
-import { cn } from '@/lib/utils';
 import { Card, CardContent } from '@/components/ui/card';
+import { cn } from '@/lib/utils';
+import { motion, Variants } from 'framer-motion';
+import Image from 'next/image';
 
 interface ValueCardProps {
   title: string;
   description: string;
   icon?: string;
   className?: string;
-  delay?: number;
 }
 
-function ValueCard({
-  title,
-  description,
-  icon,
-  className,
-  // delay = 0,
-}: ValueCardProps) {
+// Parent container variants for staggered, fluid animation
+const containerVariants: Variants = {
+  hidden: {},
+  visible: {
+    transition: {
+      staggerChildren: 0.15,
+      delayChildren: 0.2,
+    },
+  },
+};
+
+// Fluid spring with gentle overshoot keyframes
+const itemVariants: Variants = {
+  hidden: { opacity: 0, y: 40 },
+  visible: {
+    opacity: 1,
+    y: [40, -8, 0],
+    transition: {
+      y: { type: 'spring', stiffness: 45, damping: 14, mass: 0.7 },
+      opacity: { duration: 0.5, ease: 'easeInOut' },
+    },
+  },
+};
+
+function ValueCard({ title, description, icon, className }: ValueCardProps) {
   return (
-    <motion.div
-      // initial={{   y: 20 }}
-      // whileInView={{   y: 0 }}
-      //   transition={{ delay: 0.3, duration: 0.4, ease: 'easeOut' }} {{ duration: 0.5, delay: delay * 0.1 }}
-      // whileHover={{ scale: 1.02 }}
-      // viewport={{ once: true, amount: 0.5 }}
-      className={cn(
-        // 'p-4 bg-[url(/images/bg/value-card-bg.png)] bg-cover bg-center bg-no-repeat rounded-3xl',
-        'p-4 bg-blue-lightest rounded-3xl',
-        className
-      )}
-    >
-      <div className="relative p-0.5 bg-gradient-to-l from-white to-[#0a59eb96] rounded-3xl h-full">
+    <motion.div variants={itemVariants} whileHover={{ scale: 1.02 }} className={cn('p-4 bg-blue-lightest rounded-3xl', className)}>
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 0.1 }}
+        className="relative p-0.5 bg-gradient-to-l from-white to-[#0a59eb96] rounded-3xl h-full"
+      >
         <Card className="h-full overflow-hidden bg-white hover:shadow-lg transition-all duration-300 flex flex-col items-center justify-center rounded-3xl">
           <CardContent className="p-6 flex flex-col items-center justify-center">
-            <div className="flex flex-col justify-center gap-2">
-              {icon && <Image src={icon} width={52} height={52} alt="" />}
-              <h3 className="text-xl md:text-2xl font-semibold text-[#000]">
-                {title}
-              </h3>
-
-              <p className="md:text-lg text-[#1D1E4A]">{description}</p>
-            </div>
+            {icon && <Image src={icon} width={52} height={52} alt={title} />}
+            <h3 className="text-xl md:text-2xl font-semibold text-[#000] mt-4">{title}</h3>
+            <p className="md:text-lg text-[#1D1E4A] mt-2 text-center">{description}</p>
           </CardContent>
         </Card>
-      </div>
+      </motion.div>
     </motion.div>
   );
 }
@@ -57,57 +61,36 @@ export default function ValuesSection() {
   return (
     <section className="pt-16 md:py-16 px-4 md:px-12">
       <div className="max-w-7xl mx-auto">
-        {/* Animated heading container (similar to the Features example) */}
-        <div className="text-center mb-12">
-          <motion.h2
-            initial={{ y: 50 }}
-            whileInView={{ y: 0 }}
-            transition={{ delay: 0.3, duration: 0.4, ease: 'easeOut' }}
-            viewport={{ once: true }}
-            className="text-4xl md:text-5xl font-semibold mb-4"
-          >
+        {/* Heading */}
+        <motion.div variants={containerVariants} initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.3 }} className="text-center mb-12">
+          <motion.h2 variants={itemVariants} className="text-4xl md:text-5xl font-semibold mb-4">
             Our <span className="text-primary">Values</span>
           </motion.h2>
-        </div>
+        </motion.div>
 
-        {/* Bento Grid Container */}
-        <motion.div
-          initial={{ y: 50 }}
-          whileInView={{ y: 0 }}
-          transition={{ delay: 0.3, duration: 0.4, ease: 'easeOut' }}
-          viewport={{ once: true }}
-          className="grid md:grid-cols-[1fr_1fr_1fr] gap-6"
-        >
-          {/* First Row */}
+        {/* Cards Grid */}
+        <motion.div variants={containerVariants} initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.3 }} className="grid md:grid-cols-[1fr_1fr_1fr] gap-6">
           <ValueCard
-            className="col-span-full md:col-span-2"
             title="Technology-Driven Leadership"
-            description="We pioneer the use of cutting-edge technology to transform compliance in the legal industry, setting new standards for efficiency and innovation"
+            description="We pioneer the use of cutting-edge technology to transform compliance in the legal industry, setting new standards for efficiency and innovation."
             icon="/images/icons/technology.png"
-            delay={1}
+            className="col-span-full md:col-span-2"
           />
           <ValueCard
-            className="col-span-full md:col-span-1"
             title="Collaboration for Impact"
             description="We foster teamwork and partnership to create meaningful change for our users and the industry."
             icon="/images/icons/collaborate.png"
-            delay={2}
           />
-
-          {/* Second Row */}
           <ValueCard
-            className="col-span-full md:col-span-1"
             title="Integrity and Accountability"
             description="We are committed to acting with integrity, taking ownership of our work, and delivering dependable solutions."
             icon="/images/icons/integrity.png"
-            delay={3}
           />
           <ValueCard
-            className="col-span-full md:col-span-2"
             title="Empowerment Through Simplicity"
             description="We enable legal teams to master compliance effortlessly, delivering tools that make the complex simple and accessible."
             icon="/images/icons/empowerment.png"
-            delay={4}
+            className="col-span-full md:col-span-2"
           />
         </motion.div>
       </div>

@@ -1,10 +1,10 @@
 'use client';
 
+import { motion, Variants } from 'framer-motion';
 import Image from 'next/image';
-import { motion } from 'framer-motion';
 
-import { cn } from '@/lib/utils';
 import { CTAButton } from '@/components/cta-button';
+import { cn } from '@/lib/utils';
 
 export default function CTASection({
   cta,
@@ -26,6 +26,32 @@ export default function CTASection({
   showBgImage?: boolean;
   showRadialImage?: boolean;
 }) {
+  // Parent to stagger children
+  const containerVariants: Variants = {
+    hidden: {},
+    visible: {
+      transition: {
+        staggerChildren: 0.2,
+        delayChildren: 0.3,
+      },
+    },
+  };
+
+  // Fluid spring for each item
+  const itemVariants: Variants = {
+    hidden: { opacity: 0, y: 40 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        type: 'spring',
+        stiffness: 60,
+        damping: 16,
+        mass: 0.6,
+      },
+    },
+  };
+
   return (
     <section className={cn('relative bg-blue-lightest', containerClassName)}>
       {showBgImage && (
@@ -37,7 +63,6 @@ export default function CTASection({
             height={800}
             className="h-full object-cover"
           />
-          {/* das */}
         </div>
       )}
 
@@ -54,35 +79,30 @@ export default function CTASection({
       )}
 
       {/* content */}
-      <div className="relative z-10 container rounded-lg px-8 py-10 md:py-28 md:px-12 lg:px-16 flex flex-col items-center text-center space-y-6 max-w-5xl mx-auto">
-        <div className="space-y-2">
-          <motion.h3
-            initial={{ y: 50 }}
-            whileInView={{ y: 0 }}
-            transition={{ delay: 0.3, duration: 0.4, ease: 'easeOut' }}
-            viewport={{ once: true }}
-            className={cn('font-semibold text-3xl lg:text-5xl', titleClassName)}
-          >
-            {cta.title.start}
-            <span className="text-primary">{cta.title.highlight}</span>
-            {cta.title.end}
-          </motion.h3>
-          <motion.p
-            initial={{ y: 50 }}
-            whileInView={{ y: 0 }}
-            transition={{ delay: 0.3, duration: 0.4, ease: 'easeOut' }}
-            viewport={{ once: true }}
-            className={cn('max-w-3xl md:text-xl/relaxed', descriptionClassName)}
-          >
-            {cta.description}
-          </motion.p>
-        </div>
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ delay: 0.3, duration: 0.4, ease: 'easeOut' }}
-          viewport={{ once: true }}
+      <motion.div
+        variants={containerVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.3 }}
+        className="relative z-10 container rounded-lg px-8 py-10 md:py-28 md:px-12 lg:px-16 flex flex-col items-center text-center space-y-6 max-w-5xl mx-auto"
+      >
+        <motion.h3
+          variants={itemVariants}
+          className={cn('font-semibold text-3xl lg:text-5xl', titleClassName)}
         >
+          {cta.title.start}
+          <span className="text-primary">{cta.title.highlight}</span>
+          {cta.title.end}
+        </motion.h3>
+
+        <motion.p
+          variants={itemVariants}
+          className={cn('max-w-3xl md:text-xl/relaxed', descriptionClassName)}
+        >
+          {cta.description}
+        </motion.p>
+
+        <motion.div variants={itemVariants}>
           <CTAButton
             href={cta.buttonHref}
             className="relative z-10 text-base font-medium py-6"
@@ -90,7 +110,7 @@ export default function CTASection({
             {cta.buttonText}
           </CTAButton>
         </motion.div>
-      </div>
+      </motion.div>
     </section>
   );
 }

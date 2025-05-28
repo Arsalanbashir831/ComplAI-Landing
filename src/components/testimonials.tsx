@@ -1,14 +1,15 @@
+
 'use client';
 
-import Image from 'next/image';
-import { motion } from 'framer-motion';
+import { motion, Variants } from 'framer-motion';
 import { ArrowLeft, ArrowRight, Star } from 'lucide-react';
+import Image from 'next/image';
 
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 
-import { Navigation, Pagination } from 'swiper/modules';
+import { Autoplay, Navigation, Pagination } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 
 interface Testimonial {
@@ -98,6 +99,16 @@ const testimonials: Testimonial[] = [
   },
 ];
 
+// A shared “fluid” spring for items
+const springVariant: Variants = {
+  hidden: { opacity: 0, y: 30 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { type: 'spring', stiffness: 80, damping: 20, mass: 0.5 },
+  },
+};
+
 export default function TestimonialCarousel({
   showBadge = false,
 }: {
@@ -106,20 +117,29 @@ export default function TestimonialCarousel({
   return (
     <section className="py-16 px-6 md:px-12 bg-white overflow-hidden relative">
       <div className="max-w-7xl mx-auto">
+
+        {/* Optional badge */}
         {showBadge && (
-          <div className="inline-flex items-center justify-center px-3 py-2 mb-6 text-sm font-medium rounded-lg bg-[#F1F2F6] space-x-2">
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.3 }}
+            variants={springVariant}
+            className="inline-flex items-center justify-center px-3 py-2 mb-6 text-sm font-medium rounded-lg bg-[#F1F2F6] space-x-2"
+          >
             <div className="bg-[#D5EAFF] rounded-lg px-3 py-1 text-primary">
               <Star size={12} />
             </div>
             <span>Testimonials</span>
-          </div>
+          </motion.div>
         )}
 
+        {/* Heading */}
         <motion.h2
-          initial={{ y: 50 }}
-          whileInView={{ y: 0 }}
-          transition={{ delay: 0.3, duration: 0.4, ease: 'easeOut' }}
-          viewport={{ once: true }}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.3 }}
+          variants={springVariant}
           className="text-center text-4xl md:text-5xl font-bold mb-10"
         >
           See <span className="text-primary">what all the talk</span>
@@ -127,34 +147,35 @@ export default function TestimonialCarousel({
           is about.
         </motion.h2>
 
-        {/* Swiper Container */}
+        {/* Swiper */}
         <Swiper
-          modules={[Navigation, Pagination]}
-          // Distance between slides (in px)
+          modules={[Navigation, Pagination, Autoplay]}
           spaceBetween={32}
-          // Responsive slides per view
           slidesPerView={1}
           breakpoints={{
             768: { slidesPerView: 2 },
             1024: { slidesPerView: 4 },
           }}
-          // Enable looping
-          loop={true}
-          // Custom pagination (bullets) container
-          // pagination={{
-          //   el: '.swiper-pagination-custom',
-          //   clickable: true,
-          // }}
-          // Custom navigation buttons
+          loop
+          speed={800}                            // slower slide for smoothness
+          autoplay={{ delay: 5000, disableOnInteraction: false }}
+          grabCursor
+          // pagination={{ clickable: true }}
           navigation={{
-            nextEl: '.swiper-button-next-custom',
             prevEl: '.swiper-button-prev-custom',
+            nextEl: '.swiper-button-next-custom',
           }}
           className="pb-8"
         >
-          {testimonials.map((testimonial) => (
-            <SwiperSlide key={testimonial.id}>
-              <div className="max-w-[340px] mx-auto p-4 bg-[#EDF8FF] rounded-lg  h-[350px] flex flex-col">
+          {testimonials.map((t) => (
+            <SwiperSlide key={t.id}>
+              <motion.div
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, amount: 0.3 }}
+                variants={springVariant}
+                className="max-w-[340px] mx-auto p-4 bg-[#EDF8FF] rounded-lg h-[350px] flex flex-col"
+              >
                 <div className="mb-4">
                   <Image
                     src="/images/icons/quote.svg"
@@ -164,27 +185,22 @@ export default function TestimonialCarousel({
                   />
                 </div>
                 <blockquote className="text-lg mb-6 overflow-ellipsis overflow-hidden flex-grow">
-                  {testimonial.quote}
+                  {t.quote}
                 </blockquote>
                 <footer>
-                  <cite className="not-italic font-semibold">
-                    {testimonial.author}
-                  </cite>
+                  <cite className="not-italic font-semibold">{t.author}</cite>
                   <div className="text-sm text-gray-500">
-                    {testimonial.company}
+                    {t.company}
                   </div>
                 </footer>
-              </div>
+              </motion.div>
             </SwiperSlide>
           ))}
         </Swiper>
 
-        {/* Pagination + Arrows Container */}
+        {/* Pagination + Arrows */}
         <div className="flex justify-between items-center mt-6 px-2 md:px-0">
-          {/* Custom pagination container */}
           <div className="swiper-pagination-custom" />
-
-          {/* Custom arrow buttons */}
           <div className="flex space-x-3">
             <button
               className="swiper-button-prev-custom p-2 rounded-full border border-primary text-primary hover:bg-primary hover:text-white transition"
