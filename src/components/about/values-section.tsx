@@ -1,9 +1,10 @@
 'use client';
 
-import { Card, CardContent } from '@/components/ui/card';
-import { cn } from '@/lib/utils';
-import { motion, Variants } from 'framer-motion';
 import Image from 'next/image';
+import { motion, Variants } from 'framer-motion';
+
+import { cn } from '@/lib/utils';
+import { Card, CardContent } from '@/components/ui/card';
 
 interface ValueCardProps {
   title: string;
@@ -38,7 +39,11 @@ const itemVariants: Variants = {
 
 function ValueCard({ title, description, icon, className }: ValueCardProps) {
   return (
-    <motion.div variants={itemVariants} whileHover={{ scale: 1.02 }} className={cn('p-4 bg-blue-lightest rounded-3xl', className)}>
+    <motion.div
+      variants={itemVariants}
+      whileHover={{ scale: 1.02 }}
+      className={cn('p-4 bg-blue-lightest rounded-3xl', className)}
+    >
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
@@ -48,8 +53,12 @@ function ValueCard({ title, description, icon, className }: ValueCardProps) {
         <Card className="h-full overflow-hidden bg-white hover:shadow-lg transition-all duration-300 flex flex-col items-center justify-center rounded-3xl">
           <CardContent className="p-6 flex flex-col items-center justify-center">
             {icon && <Image src={icon} width={52} height={52} alt={title} />}
-            <h3 className="text-xl md:text-2xl font-semibold text-[#000] mt-4">{title}</h3>
-            <p className="md:text-lg text-[#1D1E4A] mt-2 text-center">{description}</p>
+            <h3 className="text-xl md:text-2xl font-semibold text-[#000] mt-4">
+              {title}
+            </h3>
+            <p className="md:text-lg text-[#1D1E4A] mt-2 text-center">
+              {description}
+            </p>
           </CardContent>
         </Card>
       </motion.div>
@@ -62,14 +71,29 @@ export default function ValuesSection() {
     <section className="pt-16 md:py-16 px-4 md:px-12">
       <div className="max-w-7xl mx-auto">
         {/* Heading */}
-        <motion.div variants={containerVariants} initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.3 }} className="text-center mb-12">
-          <motion.h2 variants={itemVariants} className="text-4xl md:text-5xl font-semibold mb-4">
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.3 }}
+          className="text-center mb-12"
+        >
+          <motion.h2
+            variants={itemVariants}
+            className="text-4xl md:text-5xl font-semibold mb-4"
+          >
             Our <span className="text-primary">Values</span>
           </motion.h2>
         </motion.div>
 
         {/* Cards Grid */}
-        <motion.div variants={containerVariants} initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.3 }} className="grid md:grid-cols-[1fr_1fr_1fr] gap-6">
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.3 }}
+          className="grid md:grid-cols-[1fr_1fr_1fr] gap-6"
+        >
           <ValueCard
             title="Technology-Driven Leadership"
             description="We pioneer the use of cutting-edge technology to transform compliance in the legal industry, setting new standards for efficiency and innovation."

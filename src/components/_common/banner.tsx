@@ -1,11 +1,11 @@
 'use client';
 
+import { FC } from 'react';
 import { motion, Variants } from 'framer-motion';
 import { Check } from 'lucide-react';
-import { FC } from 'react';
 
-import { CTAButton } from '@/components/cta-button';
 import { Card, CardContent } from '@/components/ui/card';
+import { CTAButton } from '@/components/cta-button';
 
 interface BannerProps {
   title: string;
@@ -68,17 +68,26 @@ export const Banner: FC<BannerProps> = ({
       <Card className="bg-blue-lightest border-0 overflow-hidden w-full md:w-[90%] rounded-[40px]">
         <CardContent className="flex flex-col md:flex-row items-center justify-between gap-6 p-0 h-full">
           <div className="space-y-4 px-8 pt-8 md:py-20 md:px-16 md:basis-8/12">
-            <motion.h3 variants={itemVariants} className="text-2xl md:text-3xl font-semibold">
+            <motion.h3
+              variants={itemVariants}
+              className="text-2xl md:text-3xl font-semibold"
+            >
               {title}
             </motion.h3>
 
             {subtitle && (
-              <motion.h4 variants={itemVariants} className="text-lg font-medium">
+              <motion.h4
+                variants={itemVariants}
+                className="text-lg font-medium"
+              >
                 {subtitle}
               </motion.h4>
             )}
 
-            <motion.p variants={itemVariants} className="text-gray-dark max-w-xl md:text-lg font-normal">
+            <motion.p
+              variants={itemVariants}
+              className="text-gray-dark max-w-xl md:text-lg font-normal"
+            >
               {description}
             </motion.p>
 
@@ -89,8 +98,13 @@ export const Banner: FC<BannerProps> = ({
             </motion.div>
           </div>
 
-          <motion.div variants={itemVariants} className="bg-blue-600 p-8 md:p-4 text-white h-full w-full md:basis-3/12 flex flex-col justify-center md:items-center">
-            <h4 className="text-xl md:text-2xl font-medium mb-4">{featuresTitle}</h4>
+          <motion.div
+            variants={itemVariants}
+            className="bg-blue-600 p-8 md:p-4 text-white h-full w-full md:basis-3/12 flex flex-col justify-center md:items-center"
+          >
+            <h4 className="text-xl md:text-2xl font-medium mb-4">
+              {featuresTitle}
+            </h4>
             <ul className="space-y-3 text-sm font-normal">
               {features.map((feat) => (
                 <li key={feat} className="flex items-center">

@@ -41,13 +41,23 @@ export default function ContactHeroSection() {
       >
         <div className="absolute right-0 top-0 h-[400px] w-[400px] md:h-[600px] md:w-[600px] bg-[url('/images/bg/ellipse.svg')] bg-contain bg-right bg-no-repeat" />
 
-        <motion.div variants={containerVariants} className="container mx-auto relative z-10 space-y-12 md:space-y-16">
+        <motion.div
+          variants={containerVariants}
+          className="container mx-auto relative z-10 space-y-12 md:space-y-16"
+        >
           <motion.div variants={itemVariants} className="text-center space-y-2">
-            <motion.h1 variants={itemVariants} className="text-4xl sm:text-5xl md:text-5xl font-bold">
+            <motion.h1
+              variants={itemVariants}
+              className="text-4xl sm:text-5xl md:text-5xl font-bold"
+            >
               <span className="text-primary">Get in Touch</span> with Us Today!
             </motion.h1>
-            <motion.p variants={itemVariants} className="font-normal md:text-md max-w-xs md:max-w-2xl mx-auto">
-              Whether It&rsquo;s Sales, Support, or Just a Question, Our Team Is Happy to Help
+            <motion.p
+              variants={itemVariants}
+              className="font-normal md:text-md max-w-xs md:max-w-2xl mx-auto"
+            >
+              Whether It&rsquo;s Sales, Support, or Just a Question, Our Team Is
+              Happy to Help
             </motion.p>
           </motion.div>
 

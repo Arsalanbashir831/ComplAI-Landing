@@ -57,9 +57,7 @@ export default function Contact() {
             animate={{ opacity: 1 }}
             transition={{ delay: 0.3, duration: 0.4, ease: 'easeOut' }}
             className="flex justify-center !mt-4 !mb-16"
-          >
-
-          </motion.div>
+          ></motion.div>
 
           <PricingSection />
         </div>

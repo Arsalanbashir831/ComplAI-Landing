@@ -7,9 +7,24 @@ import { Mail, MapPin, Phone } from 'lucide-react';
 import { Card } from '@/components/ui/card';
 
 const contactInfo = [
-  { icon: Mail, title: 'Support Email', contact: 'support@compl-ai.co.uk', href: 'mailto:support@compl-ai.co.uk' },
-  { icon: Phone, title: 'Sales Email', contact: 'sales@compl-ai.co.uk', href: 'mailto:sales@compl-ai.co.uk' },
-  { icon: MapPin, title: 'Our Office', contact: 'Manchester, UK', href: undefined },
+  {
+    icon: Mail,
+    title: 'Support Email',
+    contact: 'support@compl-ai.co.uk',
+    href: 'mailto:support@compl-ai.co.uk',
+  },
+  {
+    icon: Phone,
+    title: 'Sales Email',
+    contact: 'sales@compl-ai.co.uk',
+    href: 'mailto:sales@compl-ai.co.uk',
+  },
+  {
+    icon: MapPin,
+    title: 'Our Office',
+    contact: 'Manchester, UK',
+    href: undefined,
+  },
 ] as const;
 
 interface ContactCardProps {
@@ -59,7 +74,13 @@ function ContactCard({ icon: Icon, title, contact, href }: ContactCardProps) {
   return (
     <motion.div variants={itemVariants}>
       <Card className="p-4 flex items-center justify-center gap-6 h-fit bg-[#F1F5FE] border-none shadow-none hover:ring-2 hover:ring-blue-500 transition-all">
-        {href ? <a href={href} className="flex items-center gap-6">{content}</a> : content}
+        {href ? (
+          <a href={href} className="flex items-center gap-6">
+            {content}
+          </a>
+        ) : (
+          content
+        )}
       </Card>
     </motion.div>
   );
@@ -77,17 +98,24 @@ export default function NeedAssistanceSection() {
       <div className="container mx-auto space-y-8">
         {/* Heading & Paragraph */}
         <motion.div variants={itemVariants} className="text-center space-y-2">
-          <motion.h2 variants={itemVariants} className="text-3xl md:text-4xl font-bold">
+          <motion.h2
+            variants={itemVariants}
+            className="text-3xl md:text-4xl font-bold"
+          >
             Need Further Assistance? Contact Us Directly
           </motion.h2>
-          <motion.p variants={itemVariants} className="text-lg md:text-xl max-w-2xl mx-auto">
-            Send attachments or additional details directly to our Sales or Support teams for quick and reliable assistance
+          <motion.p
+            variants={itemVariants}
+            className="text-lg md:text-xl max-w-2xl mx-auto"
+          >
+            Send attachments or additional details directly to our Sales or
+            Support teams for quick and reliable assistance
           </motion.p>
         </motion.div>
 
         {/* Contact Cards Grid */}
         <div className="grid md:grid-cols-3 gap-6">
-          {contactInfo.map(info => (
+          {contactInfo.map((info) => (
             <ContactCard key={info.title} {...info} />
           ))}
         </div>

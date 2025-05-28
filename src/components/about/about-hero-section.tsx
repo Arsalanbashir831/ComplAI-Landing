@@ -47,13 +47,16 @@ export default function AboutHeroSection() {
               variants={itemVariants}
               className="text-3xl sm:text-4xl font-bold tracking-tight md:text-6xl max-w-4xl text-black-100"
             >
-              Our mission is to harness AI to transform compliance in the legal industry.
+              Our mission is to harness AI to transform compliance in the legal
+              industry.
             </motion.h1>
             <motion.p
               variants={itemVariants}
               className="text-lg md:text-xl max-w-xl"
             >
-              The most advanced AI compliance solutions are now within reach, delivering powerful insights and practical solutions for every legal professional.
+              The most advanced AI compliance solutions are now within reach,
+              delivering powerful insights and practical solutions for every
+              legal professional.
             </motion.p>
           </motion.div>
 
@@ -71,7 +74,15 @@ export default function AboutHeroSection() {
                   variants={itemVariants}
                   className="font-medium text-gray-dark max-w-xl text-lg md:text-xl"
                 >
-                  For COLPs, COFAs, and compliance leads, especially in small and medium sized firms, routine compliance work can quickly become a drain on time and focus. Hours are lost trying to interpret complex rules, respond to complaints, draft new policies, and prepare for audits — time that could be better spent on billable work or managing your team. When answers are unclear, firms often rely on helplines or external advisers, waiting days for guidance that may still lack certainty. It is inefficient, frustrating, and unnecessarily costly.
+                  For COLPs, COFAs, and compliance leads, especially in small
+                  and medium sized firms, routine compliance work can quickly
+                  become a drain on time and focus. Hours are lost trying to
+                  interpret complex rules, respond to complaints, draft new
+                  policies, and prepare for audits — time that could be better
+                  spent on billable work or managing your team. When answers are
+                  unclear, firms often rely on helplines or external advisers,
+                  waiting days for guidance that may still lack certainty. It is
+                  inefficient, frustrating, and unnecessarily costly.
                 </motion.p>
               </motion.div>
 
@@ -83,7 +94,8 @@ export default function AboutHeroSection() {
                   variants={itemVariants}
                   className="font-semibold text-black-100 text-3xl md:text-4xl"
                 >
-                  AI makes compliance faster, smarter, and more <br /> efficient.
+                  AI makes compliance faster, smarter, and more <br />{' '}
+                  efficient.
                 </motion.p>
               </motion.div>
             </motion.div>
@@ -98,7 +110,12 @@ export default function AboutHeroSection() {
               variants={itemVariants}
               className="font-medium text-gray-dark text-lg md:text-xl max-w-xl"
             >
-              A suite of intelligent solutions designed to make compliance faster, clearer, and more manageable. No waiting for advice, no bloated consultancy costs, and no friction in day to day tasks. Just practical, reliable support across everything from answering regulatory questions to handling complaints, reviewing files, and drafting policies.
+              A suite of intelligent solutions designed to make compliance
+              faster, clearer, and more manageable. No waiting for advice, no
+              bloated consultancy costs, and no friction in day to day tasks.
+              Just practical, reliable support across everything from answering
+              regulatory questions to handling complaints, reviewing files, and
+              drafting policies.
             </motion.p>
           </motion.div>
         </div>

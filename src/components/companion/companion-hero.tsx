@@ -1,7 +1,7 @@
 'use client';
 
-import { motion, Variants } from 'framer-motion';
 import Image from 'next/image';
+import { motion, Variants } from 'framer-motion';
 
 import { CTAButton } from '../cta-button';
 
@@ -45,13 +45,18 @@ export function CompanionHero() {
     >
       <div className="pt-32 md:py-24">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
-
           {/* Left side - Hero content */}
           <div className="flex flex-col items-start justify-center px-8 md:pl-16">
-            <motion.h1 variants={itemVariants} className="text-4xl md:text-6xl font-bold text-primary">
+            <motion.h1
+              variants={itemVariants}
+              className="text-4xl md:text-6xl font-bold text-primary"
+            >
               Companion
             </motion.h1>
-            <motion.h2 variants={itemVariants} className="text-3xl md:text-5xl font-semibold text-gray-900">
+            <motion.h2
+              variants={itemVariants}
+              className="text-3xl md:text-5xl font-semibold text-gray-900"
+            >
               Your AI Compliance Expert
             </motion.h2>
             <motion.p variants={itemVariants} className="text-xl mt-6 mb-4">
@@ -65,7 +70,10 @@ export function CompanionHero() {
           </div>
 
           {/* Right side - Image */}
-          <motion.div variants={itemVariants} className="flex justify-end pl-4 md:p-0">
+          <motion.div
+            variants={itemVariants}
+            className="flex justify-end pl-4 md:p-0"
+          >
             <Image
               src="/images/companion-hero.png"
               alt="Companion Hero Image"
@@ -74,7 +82,6 @@ export function CompanionHero() {
               className="w-full max-w-2xl"
             />
           </motion.div>
-
         </div>
       </div>
     </motion.section>

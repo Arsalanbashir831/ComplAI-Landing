@@ -1,13 +1,16 @@
 'use client';
 
-import { motion, Variants } from 'framer-motion';
 import { useRef } from 'react';
+import { motion, Variants } from 'framer-motion';
 
 import LogoSlider from '../logo-slider';
 
 export default function IndustryStandards() {
   const logos = [
-    { name: 'Solicitors Regulation Authority', url: './images/logos/sra_logo.svg' },
+    {
+      name: 'Solicitors Regulation Authority',
+      url: './images/logos/sra_logo.svg',
+    },
     { name: 'Legal Aid Agency', url: './images/logos/laa_logo.svg' },
     { name: 'Lexcel', url: './images/logos/lexcel_logo.svg' },
     { name: 'SQM', url: './images/logos/sqm_logo.svg' },

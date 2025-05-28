@@ -76,7 +76,11 @@ const itemVariants: Variants = {
   },
 };
 
-export default function FAQSection({ showBadge = false }: { showBadge?: boolean }) {
+export default function FAQSection({
+  showBadge = false,
+}: {
+  showBadge?: boolean;
+}) {
   return (
     <section className="w-full py-16 px-4 md:px-0">
       <div className="container flex flex-col items-center justify-center space-y-4 text-center mx-auto">
@@ -110,7 +114,8 @@ export default function FAQSection({ showBadge = false }: { showBadge?: boolean 
           viewport={{ once: true }}
           className="max-w-[900px] md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed"
         >
-          Explore the most common questions about our platform and how it helps you stay compliant.
+          Explore the most common questions about our platform and how it helps
+          you stay compliant.
         </motion.p>
       </div>
 

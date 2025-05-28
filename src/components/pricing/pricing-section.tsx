@@ -1,8 +1,9 @@
 'use client';
 
-import { PricingCards } from '@/components/pricing/new-pricing-cards';
-import { PricingPlan } from '@/types/pricing';
 import { motion } from 'framer-motion';
+
+import { PricingPlan } from '@/types/pricing';
+import { PricingCards } from '@/components/pricing/new-pricing-cards';
 
 const pricingPlans: PricingPlan[] = [
   {
@@ -20,7 +21,9 @@ const pricingPlans: PricingPlan[] = [
       { text: 'Buy credits as needed, with a minimum top-up of £50.' },
       { text: 'Access to Companion, your AI-powered compliance expert.' },
       { text: 'Basic email support for general assistance.' },
-      { text: 'Suitable for occasional users who require flexible, pay-as-you-go access.' },
+      {
+        text: 'Suitable for occasional users who require flexible, pay-as-you-go access.',
+      },
     ],
     footerHeading: 'No commitment.',
     footerText: '',
@@ -40,10 +43,16 @@ const pricingPlans: PricingPlan[] = [
     comitmentText: '12-month commitment.',
     features: [
       { text: '500 credits per month with no rollover.' },
-      { text: 'Access to Resolve, our AI-powered tool for efficient complaint handling.' },
+      {
+        text: 'Access to Resolve, our AI-powered tool for efficient complaint handling.',
+      },
       { text: 'File upload feature on Companion for documents up to 5MB.' },
-      { text: 'Priority email support for quicker assistance when you need it.' },
-      { text: 'Suitable for regular users who need consistent and reliable AI support.' },
+      {
+        text: 'Priority email support for quicker assistance when you need it.',
+      },
+      {
+        text: 'Suitable for regular users who need consistent and reliable AI support.',
+      },
     ],
     footerHeading: '12-month commitment.',
     footerText: '',
@@ -62,9 +71,15 @@ const pricingPlans: PricingPlan[] = [
     features: [
       { text: 'Access all solutions with unlimited usage across the platform' },
       { text: 'File upload on Companion for documents up to 30MB' },
-      { text: 'Dedicated account manager to support your team and ensure success' },
-      { text: 'Exclusive demos and walkthroughs for every solution to maximise value.' },
-      { text: 'Ideal for teams and professionals who require comprehensive access and support.' },
+      {
+        text: 'Dedicated account manager to support your team and ensure success',
+      },
+      {
+        text: 'Exclusive demos and walkthroughs for every solution to maximise value.',
+      },
+      {
+        text: 'Ideal for teams and professionals who require comprehensive access and support.',
+      },
     ],
     footerHeading: '24-month commitment.',
     footerText: '',

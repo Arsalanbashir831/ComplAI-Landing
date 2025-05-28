@@ -1,9 +1,9 @@
 'use client';
 
-import { motion, Variants } from 'framer-motion';
-import { ArrowRight } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
+import { motion, Variants } from 'framer-motion';
+import { ArrowRight } from 'lucide-react';
 
 import { cn } from '@/lib/utils';
 
@@ -140,8 +140,8 @@ export function SecurityFeatures({ className = '' }: { className?: string }) {
         <div className="container max-w-5xl mx-auto py-20 px-12 flex flex-col md:flex-row gap-8 md:gap-16 items-start">
           <div className="md:w-1/2">
             <h3 className="text-4xl font-semibold md:max-w-[380px]">
-              <span className="text-blue-600">Security</span> is fundamental
-              to <br />
+              <span className="text-blue-600">Security</span> is fundamental to{' '}
+              <br />
               Everything <span className="text-blue-600">we</span> do
             </h3>
           </div>
@@ -150,10 +150,10 @@ export function SecurityFeatures({ className = '' }: { className?: string }) {
               We’re deeply committed to GDPR compliance and the protection of
               sensitive client and firm information. Our system is built with
               security at its core, using end-to-end encryption, strict access
-              controls and continuous threat monitoring. We’re hosted on
-              secure servers, operate under robust data processing agreements
-              and follow strict protocols to ensure your data stays safe and
-              your trust is always protected.
+              controls and continuous threat monitoring. We’re hosted on secure
+              servers, operate under robust data processing agreements and
+              follow strict protocols to ensure your data stays safe and your
+              trust is always protected.
             </p>
           </div>
         </div>

@@ -1,9 +1,8 @@
-
 'use client';
 
+import Image from 'next/image';
 import { motion, Variants } from 'framer-motion';
 import { ArrowLeft, ArrowRight, Star } from 'lucide-react';
-import Image from 'next/image';
 
 import 'swiper/css';
 import 'swiper/css/navigation';
@@ -117,7 +116,6 @@ export default function TestimonialCarousel({
   return (
     <section className="py-16 px-6 md:px-12 bg-white overflow-hidden relative">
       <div className="max-w-7xl mx-auto">
-
         {/* Optional badge */}
         {showBadge && (
           <motion.div
@@ -157,7 +155,7 @@ export default function TestimonialCarousel({
             1024: { slidesPerView: 4 },
           }}
           loop
-          speed={800}                            // slower slide for smoothness
+          speed={800} // slower slide for smoothness
           autoplay={{ delay: 5000, disableOnInteraction: false }}
           grabCursor
           // pagination={{ clickable: true }}
@@ -189,9 +187,7 @@ export default function TestimonialCarousel({
                 </blockquote>
                 <footer>
                   <cite className="not-italic font-semibold">{t.author}</cite>
-                  <div className="text-sm text-gray-500">
-                    {t.company}
-                  </div>
+                  <div className="text-sm text-gray-500">{t.company}</div>
                 </footer>
               </motion.div>
             </SwiperSlide>

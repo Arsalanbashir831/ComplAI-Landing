@@ -1,10 +1,10 @@
 'use client';
 
-import { motion, Variants } from 'framer-motion';
 import Image from 'next/image';
+import { motion, Variants } from 'framer-motion';
 
-import { CTAButton } from '@/components/cta-button';
 import { cn } from '@/lib/utils';
+import { CTAButton } from '@/components/cta-button';
 
 export default function CTASection({
   cta,

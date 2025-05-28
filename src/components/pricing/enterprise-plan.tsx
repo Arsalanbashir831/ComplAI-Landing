@@ -1,10 +1,10 @@
 'use client';
 
+import Image from 'next/image';
+import Link from 'next/link';
 import { ROUTES } from '@/constants/routes';
 import { solutions } from '@/data/solutions';
 import { motion, Variants } from 'framer-motion';
-import Image from 'next/image';
-import Link from 'next/link';
 
 import { CTAButton } from '../cta-button';
 import SolCard from '../sol-card';
@@ -42,7 +42,10 @@ export default function EnterprisePlan() {
       viewport={{ once: true, amount: 0.3 }}
       className="relative text-center px-4 pt-12 pb-8 flex flex-col justify-center items-center"
     >
-      <motion.h2 variants={itemVariants} className="text-3xl md:text-5xl font-bold mb-8 md:mb-12">
+      <motion.h2
+        variants={itemVariants}
+        className="text-3xl md:text-5xl font-bold mb-8 md:mb-12"
+      >
         Our <span className="text-primary">Solutions</span>
       </motion.h2>
 
@@ -60,7 +63,10 @@ export default function EnterprisePlan() {
         ))}
       </div>
 
-      <motion.div variants={itemVariants} className="flex flex-col items-center justify-center mt-10">
+      <motion.div
+        variants={itemVariants}
+        className="flex flex-col items-center justify-center mt-10"
+      >
         <CTAButton
           href={ROUTES.DEMO}
           className="relative z-10 text-base font-medium py-5 px-12 mt-10"
@@ -69,7 +75,10 @@ export default function EnterprisePlan() {
         </CTAButton>
       </motion.div>
 
-      <motion.div variants={itemVariants} className="absolute bottom-0 flex items-center justify-center w-full">
+      <motion.div
+        variants={itemVariants}
+        className="absolute bottom-0 flex items-center justify-center w-full"
+      >
         <Image
           src="/images/bg/blur-cta-bg.svg"
           alt="background image"

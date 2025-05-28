@@ -1,9 +1,9 @@
 'use client';
 
+import { useEffect, useState } from 'react';
+import Image from 'next/image';
 import { AnimatePresence, motion, Variants } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
-import Image from 'next/image';
-import { useEffect, useState } from 'react';
 
 import { CTAButton } from '@/components/cta-button';
 
@@ -61,9 +61,7 @@ export function Hero() {
   }, []);
 
   return (
-    <section
-      className="relative pt-36 md:pt-[8rem] pb-[16rem] md:pb-[24rem] px-4 md:px-0 bg-[url(/images/bg/home-hero-bg.svg)] bg-no-repeat bg-center bg-cover min-h-[60vh] md:min-h-screen flex flex-col justify-center items-center overflow-hidden"
-    >
+    <section className="relative pt-36 md:pt-[8rem] pb-[16rem] md:pb-[24rem] px-4 md:px-0 bg-[url(/images/bg/home-hero-bg.svg)] bg-no-repeat bg-center bg-cover min-h-[60vh] md:min-h-screen flex flex-col justify-center items-center overflow-hidden">
       <motion.div
         className="mx-auto container max-w-5xl text-center z-10"
         variants={containerVariants}
@@ -81,10 +79,7 @@ export function Hero() {
           {title.end}
         </motion.h1>
 
-        <motion.p
-          variants={itemVariants}
-          className="mb-4 text-md sm:text-xl"
-        >
+        <motion.p variants={itemVariants} className="mb-4 text-md sm:text-xl">
           {subtitle}
         </motion.p>
 
