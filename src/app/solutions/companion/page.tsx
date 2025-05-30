@@ -24,8 +24,8 @@ export default function CompanionPage() {
         title: '1-3 Hours',
         desc: (
           <>
-            <span className="text-red-400">Spent searching</span> through the SRA Handbook,
-            LAA contract, Warning Notices, and outdated templates
+            <span className="text-red-400">Spent searching</span> through the
+            SRA Handbook, LAA contract, Warning Notices, and outdated templates
           </>
         ),
       },
@@ -35,8 +35,8 @@ export default function CompanionPage() {
         title: '+5 Days',
         desc: (
           <>
-            <span className="text-red-400">Waiting for replies</span> from helplines or
-            external advisers
+            <span className="text-red-400">Waiting for replies</span> from
+            helplines or external advisers
           </>
         ),
       },

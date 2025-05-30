@@ -1,8 +1,8 @@
 'use client';
 
+import React from 'react';
 import { motion, Variants } from 'framer-motion';
 import { Check, X } from 'lucide-react';
-import React from 'react';
 
 // Animation variants for staggered, springy entrance with fade
 const containerVariants: Variants = {
@@ -67,8 +67,9 @@ export function ComparisonSection({
             return (
               <HeadingTag
                 key={idx}
-                className={`text-4xl md:text-5xl font-bold mb-2 ${line.highlight ? 'text-primary' : ''
-                  }`}
+                className={`text-4xl md:text-5xl font-bold mb-2 ${
+                  line.highlight ? 'text-primary' : ''
+                }`}
               >
                 {line.text}
               </HeadingTag>
@@ -89,7 +90,7 @@ export function ComparisonSection({
             >
               <h3 className="text-3xl font-bold mb-6">Before Companion</h3>
               <div className="space-y-6">
-                {beforeItems?.map(item => (
+                {beforeItems?.map((item) => (
                   <motion.div
                     key={item.id}
                     variants={itemVariants}
@@ -110,9 +111,7 @@ export function ComparisonSection({
                       <h4 className="text-xl font-semibold mb-1">
                         {item.title}
                       </h4>
-                      <p className="text-base leading-relaxed">
-                        {item.desc}
-                      </p>
+                      <p className="text-base leading-relaxed">{item.desc}</p>
                     </div>
                   </motion.div>
                 ))}
@@ -126,7 +125,7 @@ export function ComparisonSection({
             >
               <h3 className="text-3xl font-bold mb-6">With Companion</h3>
               <div className="space-y-6">
-                {afterItems?.map(item => (
+                {afterItems?.map((item) => (
                   <motion.div
                     key={item.id}
                     variants={itemVariants}
@@ -147,9 +146,7 @@ export function ComparisonSection({
                       <h4 className="text-xl font-semibold mb-1">
                         {item.title}
                       </h4>
-                      <p className="text-base leading-relaxed">
-                        {item.desc}
-                      </p>
+                      <p className="text-base leading-relaxed">{item.desc}</p>
                     </div>
                   </motion.div>
                 ))}
