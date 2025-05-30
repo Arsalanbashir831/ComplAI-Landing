@@ -2,19 +2,22 @@
 
 import { motion, Variants } from 'framer-motion';
 import { Check, X } from 'lucide-react';
+import React from 'react';
 
-// Parent container for staggered fluid animation
+// Animation variants for staggered, springy entrance with fade
 const containerVariants: Variants = {
-  hidden: {},
+  hidden: { opacity: 0 },
   visible: {
+    opacity: 1,
     transition: {
+      opacity: { duration: 0.6, ease: 'easeInOut' },
       staggerChildren: 0.15,
       delayChildren: 0.2,
     },
   },
 };
 
-// Fluid springy keyframes for each item
+// Individual item variants: slide up and fade
 const itemVariants: Variants = {
   hidden: { opacity: 0, y: 40 },
   visible: {
@@ -27,7 +30,27 @@ const itemVariants: Variants = {
   },
 };
 
-export function ComparisonSection() {
+// Data shape for a comparison entry
+export interface ComparisonItem {
+  id: string;
+  title: string;
+  desc: React.ReactNode;
+  positive: boolean; // true uses Check icon, false uses X icon
+}
+
+export interface ComparisonSectionProps {
+  headingLines: Array<{ text: string; highlight?: boolean }>;
+  beforeItems: ComparisonItem[];
+  afterItems: ComparisonItem[];
+}
+
+export function ComparisonSection({
+  headingLines,
+  beforeItems,
+  afterItems,
+}: ComparisonSectionProps) {
+  const iconSize = 24; // consistent icon size (px)
+
   return (
     <motion.section
       variants={containerVariants}
@@ -37,15 +60,20 @@ export function ComparisonSection() {
       className="w-full md:py-16 pt-16"
     >
       <div className="container px-4 mx-auto space-y-12">
-        {/* Headings Group */}
+        {/* Headings */}
         <motion.div variants={itemVariants} className="text-center">
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">
-            From <span className="text-primary">Compliance</span> Query to
-            Resolution
-          </h2>
-          <h3 className="text-4xl md:text-5xl font-bold">
-            In Under <span className="text-primary">60 Seconds</span>
-          </h3>
+          {headingLines?.map((line, idx) => {
+            const HeadingTag = headingLines.length === 1 ? 'h2' : 'h3';
+            return (
+              <HeadingTag
+                key={idx}
+                className={`text-4xl md:text-5xl font-bold mb-2 ${line.highlight ? 'text-primary' : ''
+                  }`}
+              >
+                {line.text}
+              </HeadingTag>
+            );
+          })}
         </motion.div>
 
         {/* Comparison Cards */}
@@ -54,109 +82,74 @@ export function ComparisonSection() {
           className="max-w-6xl mx-auto rounded-lg overflow-hidden"
         >
           <div className="grid grid-cols-1 md:grid-cols-2">
-            {/* Before Companion */}
+            {/* Before */}
             <motion.div
               variants={itemVariants}
-              className="py-7 px-7 md:px-14 rounded-l-lg border-4 border-[#E9E8E8] space-y-10"
+              className="py-7 px-7 md:px-14 bg-white text-gray-800 border-4 border-gray-200 space-y-10"
             >
-              <h3 className="text-4xl font-bold text-[#4C4C4C] mb-6">
-                Before Companion
-              </h3>
-
+              <h3 className="text-3xl font-bold mb-6">Before Companion</h3>
               <div className="space-y-6">
-                {[
-                  {
-                    icon: <X className="h-6 w-6 text-red-500 mr-4 mt-1" />,
-                    title: '1-3 Hours',
-                    desc: (
-                      <>
-                        <span className="text-red-400">Spent searching</span>{' '}
-                        through the SRA Handbook, LAA contract, Warning Notices,
-                        and outdated templates
-                      </>
-                    ),
-                  },
-                  {
-                    icon: <X className="h-6 w-6 text-red-500 mr-4 mt-1" />,
-                    title: '+5 Days',
-                    desc: (
-                      <>
-                        <span className="text-red-400">
-                          Waiting for replies
-                        </span>{' '}
-                        from helplines or external advisers
-                      </>
-                    ),
-                  },
-                  {
-                    icon: <X className="h-6 w-6 text-red-500 mr-4 mt-1" />,
-                    title: 'Unclear next steps',
-                    desc: (
-                      <>
-                        <span className="text-red-400">Struggling</span> to
-                        apply the <span className="text-red-400">rules</span>{' '}
-                        confidently
-                      </>
-                    ),
-                  },
-                ].map(({ icon, title, desc }, i) => (
+                {beforeItems?.map(item => (
                   <motion.div
-                    key={i}
+                    key={item.id}
                     variants={itemVariants}
                     className="flex items-start"
                   >
-                    {icon}
+                    {item.positive ? (
+                      <Check
+                        size={iconSize}
+                        className="flex-shrink-0 text-green-400 mr-4 mt-1"
+                      />
+                    ) : (
+                      <X
+                        size={iconSize}
+                        className="flex-shrink-0 text-red-500 mr-4 mt-1"
+                      />
+                    )}
                     <div>
-                      <h4 className="text-3xl font-bold text-[#4C4C4C] mb-2">
-                        {title}
+                      <h4 className="text-xl font-semibold mb-1">
+                        {item.title}
                       </h4>
-                      <p className="text-[#4C4C4C] text-lg">{desc}</p>
+                      <p className="text-base leading-relaxed">
+                        {item.desc}
+                      </p>
                     </div>
                   </motion.div>
                 ))}
               </div>
             </motion.div>
 
-            {/* With Companion */}
+            {/* After */}
             <motion.div
               variants={itemVariants}
-              className="py-7 px-7 md:px-14 bg-blue-600 text-[#EFEFEF] space-y-10"
+              className="py-7 px-7 md:px-14 bg-blue-600 text-white space-y-10"
             >
-              <h3 className="text-4xl font-bold mb-6">With Companion</h3>
-
+              <h3 className="text-3xl font-bold mb-6">With Companion</h3>
               <div className="space-y-6">
-                {[
-                  {
-                    icon: (
-                      <Check className="h-6 w-6 text-green-400 mr-4 mt-1" />
-                    ),
-                    title: 'Under 60 seconds',
-                    desc: 'Type your compliance question and get a clear, accurate answer.',
-                  },
-                  {
-                    icon: (
-                      <Check className="h-6 w-6 text-green-400 mr-4 mt-1" />
-                    ),
-                    title: 'Guided next Steps',
-                    desc: 'Follow on with compliant actions — draft replies, update documents, escalate when required.',
-                  },
-                  {
-                    icon: (
-                      <Check className="h-6 w-6 text-green-400 mr-4 mt-1" />
-                    ),
-                    title: 'Resolve the Issue Fully',
-                    desc: 'Move from query to confident resolution — without delay, doubt, or cost.',
-                  },
-                ].map(({ icon, title, desc }, i) => (
+                {afterItems?.map(item => (
                   <motion.div
-                    key={i}
+                    key={item.id}
                     variants={itemVariants}
                     className="flex items-start"
                   >
-                    {icon}
+                    {item.positive ? (
+                      <Check
+                        size={iconSize}
+                        className="flex-shrink-0 text-green-200 mr-4 mt-1"
+                      />
+                    ) : (
+                      <X
+                        size={iconSize}
+                        className="flex-shrink-0 text-red-400 mr-4 mt-1"
+                      />
+                    )}
                     <div>
-                      <h4 className="text-3xl font-bold mb-2">{title}</h4>
-                      <p className="text-lg">{desc}</p>
+                      <h4 className="text-xl font-semibold mb-1">
+                        {item.title}
+                      </h4>
+                      <p className="text-base leading-relaxed">
+                        {item.desc}
+                      </p>
                     </div>
                   </motion.div>
                 ))}
