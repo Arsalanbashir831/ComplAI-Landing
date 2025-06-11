@@ -2,8 +2,8 @@
 
 import { motion } from 'framer-motion';
 
-import { PricingPlan } from '@/types/pricing';
 import { PricingCards } from '@/components/pricing/new-pricing-cards';
+import { PricingPlan } from '@/types/pricing';
 
 const pricingPlans: PricingPlan[] = [
   {
@@ -33,7 +33,7 @@ const pricingPlans: PricingPlan[] = [
     id: 'professional',
     name: 'Professional',
     btn_redirection: `${process.env.NEXT_PUBLIC_APPLICATION_URL}?subscription=monthly`,
-    price: '£49',
+    price: '£199',
     description: '/month',
     message: '50% Cheaper than Top-up',
     buttonText: 'Select Plan',
