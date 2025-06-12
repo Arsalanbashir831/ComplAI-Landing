@@ -1,7 +1,8 @@
 'use client';
 
-import useMobile from '@/hooks/useMobile';
 import { motion, Variants } from 'framer-motion';
+
+import useMobile from '@/hooks/useMobile';
 
 // Parent container for fluid staggered reveal
 const containerVariants: Variants = {
@@ -87,22 +88,22 @@ export default function AboutHeroSection() {
                   inefficient, frustrating, and unnecessarily costly.
                 </motion.p>
               </motion.div>
-              {!isMobile && (<>
-                <motion.div
-                  variants={itemVariants}
-                  className="basis-6/12 border-l-4 border-primary h-fit pl-4 mt-2 md:mt-0"
-                >
-                  <motion.p
+              {!isMobile && (
+                <>
+                  <motion.div
                     variants={itemVariants}
-                    className="font-semibold text-black-100 text-3xl md:text-4xl"
+                    className="basis-6/12 border-l-4 border-primary h-fit pl-4 mt-2 md:mt-0"
                   >
-                    AI makes compliance faster, smarter, and more <br />{' '}
-                    efficient.
-                  </motion.p>
-                </motion.div>
-
-              </>)}
-
+                    <motion.p
+                      variants={itemVariants}
+                      className="font-semibold text-black-100 text-3xl md:text-4xl"
+                    >
+                      AI makes compliance faster, smarter, and more <br />{' '}
+                      efficient.
+                    </motion.p>
+                  </motion.div>
+                </>
+              )}
             </motion.div>
 
             <motion.p
@@ -123,21 +124,22 @@ export default function AboutHeroSection() {
               drafting policies.
             </motion.p>
           </motion.div>
-          {isMobile && (<>
-            <motion.div
-              variants={itemVariants}
-              className="basis-6/12 border-l-4 border-primary h-fit pl-4 mt-2 md:mt-0"
-            >
-              <motion.p
+          {isMobile && (
+            <>
+              <motion.div
                 variants={itemVariants}
-                className="font-semibold text-black-100 text-3xl md:text-4xl"
+                className="basis-6/12 border-l-4 border-primary h-fit pl-4 mt-2 md:mt-0"
               >
-                AI makes compliance faster, smarter, and more <br />{' '}
-                efficient.
-              </motion.p>
-            </motion.div>
-          </>)}
-
+                <motion.p
+                  variants={itemVariants}
+                  className="font-semibold text-black-100 text-3xl md:text-4xl"
+                >
+                  AI makes compliance faster, smarter, and more <br />{' '}
+                  efficient.
+                </motion.p>
+              </motion.div>
+            </>
+          )}
         </div>
       </motion.section>
     </>
