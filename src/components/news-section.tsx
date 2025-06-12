@@ -2,172 +2,175 @@
 
 import { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
-import { API_ROUTES } from '@/constants/routes';
-import { motion } from 'framer-motion';
+import { motion, Variants } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
-
-import { NewsData } from '@/types/news';
 import { Button } from '@/components/ui/button';
+import { API_ROUTES } from '@/constants/routes';
+import type { NewsData } from '@/types/news';
 import { NewsCard } from '@/components/news-card';
 
+const containerVariants: Variants = {
+    hidden: {},
+    visible: {
+        transition: { staggerChildren: 0.15, delayChildren: 0.2 },
+    },
+};
+
+// Desktop slide-up + spring
+const desktopItemVariants: Variants = {
+    hidden: { opacity: 0, y: 40 },
+    visible: {
+        opacity: 1,
+        y: 0,
+        transition: { type: 'spring', stiffness: 60, damping: 16, mass: 0.5 },
+    },
+};
+
+// Mobile fade-in only
+const mobileItemVariants: Variants = {
+    hidden: { opacity: 0 },
+    visible: { opacity: 1, transition: { duration: 0.6, ease: 'easeOut' } },
+};
+
 export function NewsSection() {
-  const cardRefs = useRef<(HTMLDivElement | null)[]>([]);
-  const [activeIndex, setActiveIndex] = useState(0);
-  const [newsData, setNewsData] = useState<NewsData | null>(null);
+    const [newsData, setNewsData] = useState<NewsData | null>(null);
+    const [loading, setLoading] = useState(true);
+    const [isMobile, setIsMobile] = useState(false);
+    const cardRefs = useRef<(HTMLDivElement | null)[]>([]);
+    const [activeIndex, setActiveIndex] = useState(0);
 
-  const scrollToCard = (index: number) => {
-    cardRefs.current[index]?.scrollIntoView({
-      behavior: 'smooth',
-      block: 'nearest',
-      inline: 'center',
-    });
-    setActiveIndex(index);
-  };
+    // 1) Detect mobile vs desktop
+    useEffect(() => {
+        const update = () => setIsMobile(window.innerWidth < 768);
+        update();
+        window.addEventListener('resize', update);
+        return () => window.removeEventListener('resize', update);
+    }, []);
 
-  // Helper function to extract plain text from the body of an HTML string
-  const parseBodyContentToText = (htmlString: string): string => {
-    const parser = new DOMParser();
-    const doc = parser.parseFromString(htmlString, 'text/html');
-    return doc.body.textContent || '';
-  };
+    // 2) Fetch news once
+    useEffect(() => {
+        (async () => {
+            setLoading(true);
+            try {
+                const res = await fetch(API_ROUTES.GET_BLOGS);
+                if (!res.ok) throw new Error(res.statusText);
+                const data = await res.json();
+                setNewsData(data);
+            } catch (e) {
+                console.error(e);
+            } finally {
+                setLoading(false);
+            }
+        })();
+    }, []);
 
-  // Helper function to format the ISO date into "dd MMM yyyy" (e.g., "03 Feb 2025")
-  const formatDate = (isoString: string): string => {
-    const date = new Date(isoString);
-    return date.toLocaleDateString('en-GB', {
-      day: '2-digit',
-      month: 'short',
-      year: 'numeric',
-    });
-  };
-
-  useEffect(() => {
-    const fetchNewsData = async () => {
-      try {
-        const response = await fetch(API_ROUTES.GET_BLOGS);
-        if (!response.ok) {
-          throw new Error(`HTTP error! status: ${response.status}`);
-        }
-        const data = await response.json();
-        setNewsData(data);
-      } catch (error) {
-        console.error('Error fetching news data:', error);
-      }
+    // 3) Helper to strip HTML + truncate
+    const parseText = (html: string, max = 200) => {
+        if (typeof window === 'undefined') return '';
+        const doc = new DOMParser().parseFromString(html, 'text/html');
+        const txt = doc.body.textContent || '';
+        return txt.slice(0, max) + (txt.length > max ? '…' : '');
     };
-
-    fetchNewsData();
-  }, []);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            const index = cardRefs.current.findIndex(
-              (ref) => ref === entry.target
-            );
-            if (index !== -1) setActiveIndex(index);
-          }
+    // 4) Helper to format date
+    const fmtDate = (iso: string) =>
+        new Date(iso).toLocaleDateString('en-GB', {
+            day: '2-digit', month: 'short', year: 'numeric',
         });
-      },
-      { threshold: 0.5 }
-    );
 
-    const refs = cardRefs.current;
-    refs.forEach((ref) => {
-      if (ref) observer.observe(ref);
-    });
-
-    return () => {
-      refs.forEach((ref) => {
-        if (ref) observer.unobserve(ref);
-      });
+    // 5) Scroll-into-view for mobile dots
+    const scrollToCard = (idx: number) => {
+        cardRefs.current[idx]?.scrollIntoView({
+            behavior: 'smooth', block: 'nearest', inline: 'center',
+        });
+        setActiveIndex(idx);
     };
-  }, []);
 
-  const latestBlogs = newsData?.blogs
-    // sort by uploaded_at descending, if your backend doesn’t already return newest-first
-    .slice() // clone so we don’t mutate original
-    .sort(
-      (a, b) =>
-        new Date(b.uploaded_at).getTime() - new Date(a.uploaded_at).getTime()
-    )
-    .slice(0, 3);
+    if (loading) {
+        return (
+            <div className="container mx-auto px-4 py-8 flex justify-center items-center h-96">
+                <div className="text-center">
+                    <div className="w-12 h-12 border-4 border-blue-600 border-t-transparent rounded-full animate-spin mx-auto" />
+                    <p className="mt-4 text-gray-600">Loading news articles...</p>
+                </div>
+            </div>
+        );
+    }
 
-  return (
-    <section className="py-20 px-4 md:px-12">
-      <div className="max-w-7xl mx-auto">
-        <div className="flex flex-col md:flex-row md:justify-between md:items-center gap-2 mb-8">
-          <motion.h2
-            initial={{ y: 50 }}
-            whileInView={{ y: 0 }}
-            transition={{ delay: 0.3, duration: 0.4, ease: 'easeOut' }}
-            viewport={{ once: true }}
-            className="text-3xl md:text-5xl font-semibold"
-          >
-            Latest News
-          </motion.h2>
-          <Link href="/news">
-            <Button className="group font-medium transition-all duration-300 ease-in-out">
-              Browse All{' '}
-              <ArrowRight className="ml-0.5 h-4 w-4 group-hover:translate-x-1 transition-transform" />
-            </Button>
-          </Link>
-        </div>
+    const blogs = newsData?.blogs || [];
+    const latest = blogs
+        .slice()
+        .sort((a, b) => +new Date(b.uploaded_at) - +new Date(a.uploaded_at))
+        .slice(0, 3);
 
-        <div
-          className="flex gap-6 overflow-x-auto overflow-y-hidden whitespace-nowrap
-          lg:overflow-x-visible lg:grid lg:grid-cols-3"
-        >
-          {latestBlogs?.map((news, index) => {
-            const mainContentText = parseBodyContentToText(news.content).slice(
-              0,
-              200
-            );
-            return (
-              <motion.div
-                key={index}
-                initial={{ y: 50 }}
-                whileInView={{ y: 0 }}
-                transition={{
-                  delay: 0.2 + 0.1 * index,
-                  duration: 0.8,
-                  ease: 'easeOut',
-                }}
-                viewport={{ once: true }}
-                ref={(el) => {
-                  cardRefs.current[index] = el;
-                }}
-                className="
-                flex-shrink-0 w-80 
-                lg:w-auto
-              "
-              >
-                <NewsCard
-                  date={formatDate(news.uploaded_at)}
-                  title={news.title}
-                  description={mainContentText}
-                  imageUrl={`${process.env.NEXT_PUBLIC_BACKEND_URL}/${news.image}`}
-                  id={news.id}
-                />
-              </motion.div>
-            );
-          })}
-        </div>
+    return (
+        <section className="py-20 px-4 md:px-12 bg-white">
+            <div className="max-w-7xl mx-auto">
+                {/* Header */}
+                <div className="flex flex-col md:flex-row md:justify-between md:items-center gap-2 mb-8">
+                    <motion.h2
+                        initial={{ y: 50 }}
+                        whileInView={{ y: 0 }}
+                        transition={{ delay: 0.3, duration: 0.4, ease: 'easeOut' }}
+                        viewport={{ once: true }}
+                        className="text-3xl md:text-5xl font-semibold"
+                    >
+                        Latest News
+                    </motion.h2>
 
-        {/* Mobile navigation dots */}
-        <div className="flex lg:hidden justify-center mt-6 gap-2">
-          {latestBlogs?.map((_, index) => (
-            <button
-              key={index}
-              onClick={() => scrollToCard(index)}
-              className={`w-3 h-3 rounded-full ${
-                activeIndex === index ? 'bg-blue-600' : 'bg-gray-400'
-              }`}
-            />
-          ))}
-        </div>
-      </div>
-    </section>
-  );
+                    <Link href="/news">
+                        <Button className="group font-medium transition-all duration-300 ease-in-out">
+                            Browse All{' '}
+                            <ArrowRight className="ml-0.5 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                        </Button>
+                    </Link>
+                </div>
+
+                {/* Cards container: flex+scroll on mobile, grid on lg+ */}
+                <motion.div
+                    variants={containerVariants}
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true, amount: 0.3 }}
+                    className="
+            flex gap-6 overflow-x-auto overflow-y-hidden whitespace-nowrap
+            lg:overflow-x-visible lg:grid lg:grid-cols-3
+            py-10 px-4
+          "
+                >
+                    {latest.map((post, idx) => (
+                        <motion.div
+                            key={post.id}
+                            variants={isMobile ? mobileItemVariants : desktopItemVariants}
+                            whileHover={isMobile ? undefined : { scale: 1.03 }}
+                            transition={isMobile ? undefined : { type: 'spring', stiffness: 300, damping: 20 }}
+                            ref={(el) => {
+                                cardRefs.current[idx] = el; // ← using a block so the function returns void
+                            }}
+                            className="flex-shrink-0 w-80 lg:w-auto h-full"
+                        >
+                            <NewsCard
+                                id={post.id}
+                                title={post.title}
+                                description={parseText(post.content)}
+                                imageUrl={`${process.env.NEXT_PUBLIC_BACKEND_URL}/${post.image}`}
+                                date={fmtDate(post.uploaded_at)}
+                            />
+                        </motion.div>
+                    ))}
+                </motion.div>
+
+                {/* Mobile navigation dots */}
+                <div className="flex lg:hidden justify-center mt-6 gap-2">
+                    {latest.map((_, idx) => (
+                        <button
+                            key={idx}
+                            onClick={() => scrollToCard(idx)}
+                            className={`w-3 h-3 rounded-full ${activeIndex === idx ? 'bg-blue-600' : 'bg-gray-400'
+                                }`}
+                        />
+                    ))}
+                </div>
+            </div>
+        </section>
+    );
 }

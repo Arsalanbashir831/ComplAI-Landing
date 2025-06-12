@@ -248,7 +248,7 @@ export default function TopNavItems({
                   <motion.button
                     onClick={() => setMobileSolutionsOpen(!mobileSolutionsOpen)}
                     className={cn(
-                      'text-xl md:text-base font-medium transition-colors hover:text-primary flex items-center whitespace-nowrap',
+                      'text-lg md:text-base font-medium transition-colors hover:text-primary flex items-center whitespace-nowrap',
                       { 'text-primary': isActive('solutions') }
                     )}
                     aria-expanded={mobileSolutionsOpen}

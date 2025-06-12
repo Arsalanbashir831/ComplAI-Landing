@@ -142,7 +142,7 @@ export default function NewsDetail({
   };
 
   return (
-    <div className="container mx-auto p-6">
+      <div className="container mx-auto p-6 md:px-12">
       {/* Title & Metadata */}
       <div className="flex items-center gap-4 text-sm">
         <p className="text-[#6D6E76]">Posted on {date}</p>

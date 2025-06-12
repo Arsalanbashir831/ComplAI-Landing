@@ -1,53 +1,71 @@
+// NewsCard.tsx
 import Image from 'next/image';
 import Link from 'next/link';
 import { Calendar } from 'lucide-react';
 
 interface NewsCardProps {
-  date: string;
-  title: string;
-  description: string;
-  imageUrl: string;
-  id: number;
+    date: string;
+    title: string;
+    description: string;
+    imageUrl: string;
+    id: number;
 }
 
 export function NewsCard({
-  date,
-  title,
-  description,
-  imageUrl,
-  id,
+    date,
+    title,
+    description,
+    imageUrl,
+    id,
 }: NewsCardProps) {
-  return (
-    <Link href={`/news/${id}`}>
-      <div className="relative rounded-xl overflow-hidden h-64 md:h-96 group">
-        <Image
-          src={imageUrl || '/placeholder.svg'}
-          alt={title}
-          fill
-          className="object-cover transition-transform duration-300 group-hover:scale-105"
-        />
-        {/* Black Overlay (must go above image, below text) */}
-        <div className="absolute h-64 md:h-96 w-full inset-0 bg-gray-950/50 z-10" />
+    return (
+        <Link href={`/news/${id}`}>
+            <div
+                className={`
+          group
+          relative
+          overflow-hidden
+          rounded-2xl
+          bg-white
 
-        <div className="absolute bottom-0 p-4 w-full text-white z-10">
-          <div className="flex items-center gap-2 text-sm mb-2">
-            <Calendar size={16} />
-            <time>{date}</time>
-          </div>
-          <div className="flex justify-between items-end">
-            <h3 className="text-lg font-semibold mb-1 truncate">{title}</h3>
-            {/* <Link href={`/news/${id}`}>
-            <Button className="bg-white hover:bg-white hover:text-black-100 text-black-100 text-sm font-medium h-fit p-1 px-2 group inline-flex items-center">
-              Read More
-              <span className="ml-1 transition-transform duration-300 group-hover:translate-x-1">
-                <ArrowRightIcon size={16} />
-              </span>
-            </Button>
-          </Link> */}
-          </div>
-          <p className="text-sm line-clamp-2 mb-4">{description}</p>
-        </div>
-      </div>
-    </Link>
-  );
+          /* default subtle glow */
+          
+          shadow-[0_0_16px_rgba(96,174,255,0.5)]
+
+       
+          transition-all duration-300 
+          hover:border-4 hover:border-blue-500 hover:ring-opacity-100
+          hover:shadow-[0_0_24px_rgba(96,174,255,0.8)]
+        `}
+            >
+                {/* image (top corners clipped automatically) */}
+                <div className="relative h-48 md:h-64 w-full overflow-hidden">
+                    <Image
+                        src={imageUrl || '/placeholder.svg'}
+                        alt={title}
+                        fill
+                        className="
+              object-cover
+              w-full h-full
+              transition-transform duration-300
+              group-hover:scale-105
+            "
+                    />
+                </div>
+
+                {/* dark overlay for text readability */}
+                <div className="absolute inset-0 bg-gray-900/30 z-10" />
+
+                {/* content */}
+                <div className="absolute bottom-0 left-0 right-0 p-4 z-20 text-white">
+                    <div className="flex items-center gap-2 text-sm mb-1">
+                        <Calendar size={16} />
+                        <time>{date}</time>
+                    </div>
+                    <h3 className="text-lg font-semibold mb-1 truncate">{title}</h3>
+                    <p className="text-sm line-clamp-2">{description}</p>
+                </div>
+            </div>
+        </Link>
+    );
 }
