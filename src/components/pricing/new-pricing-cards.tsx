@@ -146,7 +146,9 @@ export function PricingCard({ plan }: PricingCardProps) {
                 <p className="text-[#000000] font-semibold">Or</p>
                 <Separator className="basis-1/2 bg-[#9D9D9D]" />
               </div>
-              <Link href={`${plan.btn_redirection}?subscription=topup`}>
+              <Link
+                href={`${plan.btn_redirection}/auth/sign-up?subscription=topup`}
+              >
                 <Button className="w-full mt-2 bg-primary text-white hover:bg-blue-600 text-xl">
                   {plan.secondaryButtonText}
                 </Button>

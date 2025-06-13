@@ -32,7 +32,7 @@ const pricingPlans: PricingPlan[] = [
   {
     id: 'professional',
     name: 'Professional',
-    btn_redirection: `${process.env.NEXT_PUBLIC_APPLICATION_URL}?subscription=monthly`,
+    btn_redirection: `${process.env.NEXT_PUBLIC_APPLICATION_URL}/auth/sign-up?subscription=monthly`,
     price: '£199',
     description: '/month',
     message: '50% Cheaper than Top-up',
