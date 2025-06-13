@@ -8,6 +8,7 @@ import { ArrowRight } from 'lucide-react';
 
 import type { NewsData } from '@/types/news';
 
+import { Skeleton } from '../ui/skeleton';
 import { BlogCard } from './blog-card';
 
 export default function NewsSection() {
@@ -72,14 +73,36 @@ export default function NewsSection() {
 
   if (loading) {
     return (
-      <div className="container mx-auto px-4 py-8 flex justify-center items-center h-96">
-        <div className="flex flex-col items-center space-y-4">
-          {/* Spinner */}
-          <div className="w-12 h-12 border-4 border-blue-600 border-t-transparent rounded-full animate-spin"></div>
-          {/* Loading Text */}
-          <p className="text-lg font-medium text-gray-600">
-            Loading news articles...
-          </p>
+      <div className="container mx-auto px-12 py-8 space-y-16">
+        {/* Featured skeleton */}
+        <div className="flex flex-col md:flex-row gap-8">
+          <Skeleton className="w-full md:w-1/2 h-[380px] rounded-lg" />
+          <div className="flex-1 space-y-4 py-4">
+            <Skeleton className="w-1/3" />
+            <Skeleton className="w-full h-8" />
+            <Skeleton className="w-full h-40" />
+            <Skeleton className="w-32 h-10 rounded-md" />
+          </div>
+        </div>
+
+        {/* Recent articles skeleton grid */}
+        <div>
+          <Skeleton className="w-1/4 mb-6" />
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {Array.from({ length: 6 }).map((_, i) => (
+              <div key={i} className="space-y-2">
+                <Skeleton className="w-full h-48 rounded-lg" />
+                <Skeleton className="w-3/4" />
+                <Skeleton className="w-full h-6" />
+                <Skeleton className="w-1/2 h-6" />
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Load more skeleton button */}
+        <div className="flex justify-center">
+          <Skeleton className="w-32 h-10 rounded-md" />
         </div>
       </div>
     );
@@ -107,7 +130,7 @@ export default function NewsSection() {
     <div className="container mx-auto px-12 py-8">
       {/* Featured Article */}
       {featuredBlog && (
-        <div className="mb-16 ">
+        <div className="mb-24 md:mb-16">
           <div className="flex flex-col  md:flex-row gap-8 items-center">
             <div className="w-full md:w-1/2 relative h-[300px] md:h-[380px] rounded-lg overflow-hidden">
               <Image

@@ -67,8 +67,8 @@ export default function NewsExplanation() {
   };
 
   return (
-    <>
-      <main className="pt-5 md:px-12">
+    <main>
+      <div className="pt-5 md:px-12">
         <div className="container mx-auto px-6 pt-12 mt-8">
           <Link href="/" className="text-gray-500 hover:underline block">
             ← Go back
@@ -82,16 +82,16 @@ export default function NewsExplanation() {
           coverImageUrl={`${process.env.NEXT_PUBLIC_BACKEND_URL}/${image}`}
           content={content}
         />
-
-        <CTASection
-          cta={cta}
-          containerClassName="bg-[#EDF8FF]"
-          titleClassName="lg:text-[40px]"
-          descriptionClassName="max-w-4xl"
-        />
-
+      </div>
+      <CTASection
+        cta={cta}
+        containerClassName="bg-[#EDF8FF]"
+        titleClassName="lg:text-[40px]"
+        descriptionClassName="max-w-4xl"
+      />
+      <div className="md:px-12">
         <NewsSection />
-      </main>
-    </>
+      </div>
+    </main>
   );
 }

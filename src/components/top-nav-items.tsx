@@ -248,7 +248,7 @@ export default function TopNavItems({
                   <motion.button
                     onClick={() => setMobileSolutionsOpen(!mobileSolutionsOpen)}
                     className={cn(
-                      'text-xl md:text-base font-medium transition-colors hover:text-primary flex items-center whitespace-nowrap',
+                      'md:text-base font-medium transition-colors hover:text-primary flex items-center whitespace-nowrap',
                       { 'text-primary': isActive('solutions') }
                     )}
                     aria-expanded={mobileSolutionsOpen}
@@ -267,11 +267,11 @@ export default function TopNavItems({
                   <motion.div
                     id="mobile-solutions-menu"
                     className="mt-2 flex flex-col space-y-2 pl-0 border-l border-gray-300"
-                    initial={{ opacity: 0, height: 0 }}
+                    initial={{ opacity: 0, height: 0, display: 'none' }}
                     animate={
                       mobileSolutionsOpen
-                        ? { opacity: 1, height: 'auto' }
-                        : { opacity: 0, height: 0 }
+                        ? { opacity: 1, height: 'auto', display: 'block' }
+                        : { opacity: 0, height: 0, display: 'none' }
                     }
                     style={{ overflow: 'hidden' }}
                     transition={{ delay: 0.3, duration: 0.4, ease: 'easeOut' }}

@@ -7,10 +7,12 @@ import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
 
 import { NewsData } from '@/types/news';
+import useMobile from '@/hooks/useMobile';
 import { Button } from '@/components/ui/button';
 import { NewsCard } from '@/components/news-card';
 
 export function NewsSection() {
+  const isMobile = useMobile();
   const cardRefs = useRef<(HTMLDivElement | null)[]>([]);
   const [activeIndex, setActiveIndex] = useState(0);
   const [newsData, setNewsData] = useState<NewsData | null>(null);
@@ -124,24 +126,26 @@ export function NewsSection() {
               0,
               200
             );
+
+            const Wrapper = isMobile ? 'div' : motion.div;
+
             return (
-              <motion.div
-                key={index}
-                initial={{ y: 50 }}
-                whileInView={{ y: 0 }}
-                transition={{
-                  delay: 0.2 + 0.1 * index,
-                  duration: 0.8,
-                  ease: 'easeOut',
-                }}
-                viewport={{ once: true }}
-                ref={(el) => {
+              <Wrapper
+                key={news.id}
+                {...(!isMobile && {
+                  initial: { y: 50 },
+                  whileInView: { y: 0 },
+                  transition: {
+                    delay: 0.2 + 0.1 * index,
+                    duration: 0.8,
+                    ease: 'easeOut',
+                  },
+                  viewport: { once: true },
+                })}
+                ref={(el: HTMLDivElement) => {
                   cardRefs.current[index] = el;
                 }}
-                className="
-                flex-shrink-0 w-80 
-                lg:w-auto
-              "
+                className="flex-shrink-0 w-80 lg:w-auto"
               >
                 <NewsCard
                   date={formatDate(news.uploaded_at)}
@@ -150,7 +154,7 @@ export function NewsSection() {
                   imageUrl={`${process.env.NEXT_PUBLIC_BACKEND_URL}/${news.image}`}
                   id={news.id}
                 />
-              </motion.div>
+              </Wrapper>
             );
           })}
         </div>

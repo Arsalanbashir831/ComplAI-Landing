@@ -19,7 +19,7 @@ export function BlogCard({
   return (
     <Link
       href={`/news/${id}`}
-      className="group inline-flex flex-col overflow-hidden rounded-lg bg-white shadow-sm hover:shadow-lg hover:shadow-blue-200 transition-shadow duration-300"
+      className="group inline-flex flex-col overflow-hidden rounded-lg bg-white duration-300 border shadow-[0px_0px_18px_4px_#0A58EB4D] transition-all transform hover:scale-105 hover:shadow-[0px_0px_15px_#0A58EB] hover:ring-2 hover:ring-blue-500"
     >
       <div className="relative h-48 w-full overflow-hidden">
         <Image

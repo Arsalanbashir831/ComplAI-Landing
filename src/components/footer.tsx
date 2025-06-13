@@ -55,9 +55,9 @@ const footer = {
   },
   socialLinks: [
     { icon: '/images/icons/linkedin.svg', href: 'https://linkedin.com' },
-    { icon: '/images/icons/facebook.svg', href: 'https://facebook.com' },
-    { icon: '/images/icons/x.svg', href: 'https://x.com' },
-    { icon: '/images/icons/brain-ai.svg', href: 'https://youtube.com' },
+    // { icon: '/images/icons/facebook.svg', href: 'https://facebook.com' },
+    // { icon: '/images/icons/x.svg', href: 'https://x.com' },
+    // { icon: '/images/icons/brain-ai.svg', href: 'https://youtube.com' },
   ],
 };
 
@@ -192,7 +192,7 @@ export function Footer() {
             </Link>
           </div>
 
-          <div className="space-y-2 flex flex-col md:items-end">
+          {/*<div className="space-y-2 flex flex-col md:items-end">
             <p className="text-xl max-w-72 text-white">A Product of</p>
             <Image
               src="/images/logos/brilliant_ai_logo.svg"
@@ -201,7 +201,7 @@ export function Footer() {
               height={50}
               className="w-40 h-auto"
             />
-          </div>
+          </div>*/}
         </div>
 
         <div className="container col-span-full mx-auto">
