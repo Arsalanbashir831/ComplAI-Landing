@@ -1,6 +1,7 @@
 'use client';
 
 import { Suspense } from 'react';
+import { HomeFAQs } from '@/constants/faqs';
 
 import { SecurityFeatures } from '@/components/_common/security-features';
 import CTASection from '@/components/cta-section';
@@ -13,7 +14,6 @@ import { PricingBanner } from '@/components/pricing/pricing-banner';
 import SolutionsSection from '@/components/solutions-section';
 import TeamsSlider from '@/components/teams-slider';
 import TestimonialSlider from '@/components/testimonials';
-import { HomeFAQs } from '@/constants/faqs';
 
 export default function Home() {
   const cta = {

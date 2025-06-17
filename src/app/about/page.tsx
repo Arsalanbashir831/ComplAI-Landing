@@ -1,3 +1,5 @@
+import { AboutFAQs } from '@/constants/faqs';
+
 import { SecurityFeatures } from '@/components/_common/security-features';
 import AboutHeroSection from '@/components/about/about-hero-section';
 import TrustedSection from '@/components/about/trusteded-section';
@@ -6,7 +8,6 @@ import CTASection from '@/components/cta-section';
 import FAQSection from '@/components/faq';
 import { NewsSection } from '@/components/news-section';
 import TeamsSlider from '@/components/teams-slider';
-import { AboutFAQs } from '@/constants/faqs';
 
 export default function Contact() {
   const cta = {

@@ -1,10 +1,10 @@
+import { DemoFAQs } from '@/constants/faqs';
 import { TooltipProvider } from '@radix-ui/react-tooltip';
 
 import DemoHeroSection from '@/components/demo/demo-hero-section';
 import FAQSection from '@/components/faq';
 import TeamsSlider from '@/components/teams-slider';
 import TestimonialCarousel from '@/components/testimonials';
-import { DemoFAQs } from '@/constants/faqs';
 
 export default function Demo() {
   return (

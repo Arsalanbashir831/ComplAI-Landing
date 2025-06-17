@@ -47,7 +47,10 @@ const itemVariants: Variants = {
   },
 };
 
-export default function FAQSection({ faqs, showBadge = false }: FAQSectionProps) {
+export default function FAQSection({
+  faqs,
+  showBadge = false,
+}: FAQSectionProps) {
   return (
     <section className="w-full py-16 px-4 md:px-0">
       <div className="container flex flex-col items-center justify-center space-y-4 text-center mx-auto">

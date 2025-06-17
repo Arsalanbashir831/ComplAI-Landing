@@ -1,6 +1,7 @@
 'use client';
 
 import { Suspense } from 'react';
+import { CompanionFAQs } from '@/constants/faqs';
 
 import { CompanionBanner } from '@/components/companion/companion-banner';
 import { CompanionHero } from '@/components/companion/companion-hero';
@@ -10,7 +11,6 @@ import WhyCompanionSection from '@/components/companion/why-companion';
 import FAQSection from '@/components/faq';
 import NavigateToTop from '@/components/navigate-to-top';
 import TestimonialSlider from '@/components/testimonials';
-import { CompanionFAQs } from '@/constants/faqs';
 
 export default function CompanionPage() {
   // Example default props
