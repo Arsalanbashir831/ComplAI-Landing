@@ -1,8 +1,8 @@
 'use client';
 
-import Image from 'next/image';
 import { motion, Variants } from 'framer-motion';
 import { ArrowLeft, ArrowRight, Star } from 'lucide-react';
+import Image from 'next/image';
 
 import 'swiper/css';
 import 'swiper/css/navigation';
@@ -172,7 +172,7 @@ export default function TestimonialCarousel({
                 whileInView="visible"
                 viewport={{ once: true, amount: 0.3 }}
                 variants={springVariant}
-                className="max-w-[340px] mx-auto p-4 bg-[#EDF8FF] rounded-lg h-[350px] flex flex-col"
+                className="max-w-[340px] mx-auto p-4 bg-white border-2 border-blue-600 rounded-lg h-[350px] flex flex-col"
               >
                 <div className="mb-4">
                   <Image
