@@ -1,9 +1,9 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { ROUTES } from '@/constants/routes';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
-import { ROUTES } from '@/constants/routes';
+import { useEffect, useState } from 'react';
 
 import { Button } from '@/components/ui/button';
 import {
@@ -25,33 +25,35 @@ type Blog = {
 };
 
 type BlogAPIResponse = {
-  [id: string]: {
-    title: string;
-    slug: string;
-    content: string;
-    thumbnail: string;
-    createdAt: string;
-    updatedAt: string;
-  };
+  title: string;
+  slug: string;
+  content: string;
+  thumbnail: string;
+  createdAt: string;
+  updatedAt: string;
 };
+
 const fetchBlogs = async (): Promise<Blog[]> => {
   const res = await fetch('/api/blogs');
   if (!res.ok) return [];
 
-  const data: { blogs?: BlogAPIResponse } = await res.json();
-  if (!data.blogs) return [];
+  const data: BlogAPIResponse[] = await res.json();
+  console.log('data', data);
+  if (!Array.isArray(data)) return [];
 
-  return Object.entries(data.blogs).map(([id, blog]) => ({
-    id: String(id),
+  return data.map((blog) => ({
+    id: blog.slug,
     title: blog.title ?? '',
     slug: blog.slug ?? '',
     content: blog.content ?? '',
     date: blog.createdAt
-      ? new Date(blog.createdAt).toISOString().slice(0, 10)
+      ? new Date(Number(blog.createdAt)).toISOString().slice(0, 10)
       : '',
     thumbnail: blog.thumbnail ?? '',
   }));
 };
+
+
 
 const BlogListPage = () => {
   const [blogs, setBlogs] = useState<Blog[]>([]);
