@@ -6,20 +6,15 @@ import { useParams } from 'next/navigation';
 import { API_ROUTES } from '@/constants/routes';
 import readingTime from 'reading-time';
 
+import { Blog } from '@/types/news';
+import { formatDate } from '@/lib/date-utils';
 import Spinner from '@/components/_common/spinner';
 import CTASection from '@/components/cta-section';
 import { NewsSection } from '@/components/news-section';
 import NewsDetail from '@/components/news/new-detail';
 
-export const formatDate = (ts: number) =>
-  new Date(ts).toLocaleDateString('en-GB', {
-    day: '2-digit',
-    month: 'short',
-    year: 'numeric',
-  });
-
 export default function NewsExplanation() {
-  const [newsItem, setNewsItem] = useState(null);
+  const [newsItem, setNewsItem] = useState<Blog | null>(null);
   const { id } = useParams();
 
   useEffect(() => {

@@ -7,11 +7,11 @@ import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
 
 import { Blog } from '@/types/news';
+import { formatDate } from '@/lib/date-utils';
 import { parseBodyContentToText } from '@/lib/text-utils';
 import useMobile from '@/hooks/useMobile';
 import { Button } from '@/components/ui/button';
 import { NewsCard } from '@/components/news-card';
-import { formatDate } from '@/app/(landing)/news/[id]/page';
 
 export function NewsSection() {
   const isMobile = useMobile();

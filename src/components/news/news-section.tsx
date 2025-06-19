@@ -7,6 +7,7 @@ import { API_ROUTES } from '@/constants/routes';
 import { ArrowRight } from 'lucide-react';
 import readingTime from 'reading-time';
 
+import { formatDate } from '@/lib/date-utils';
 import { parseBodyContentToText } from '@/lib/text-utils';
 
 import { Skeleton } from '../ui/skeleton';
@@ -26,14 +27,6 @@ type NewsData = BlogItem[];
 export default function NewsSection() {
   const [newsData, setNewsData] = useState<NewsData | null>(null);
   const [loading, setLoading] = useState(true);
-
-  // Format timestamps
-  const formatDate = (timestamp: number): string =>
-    new Date(timestamp).toLocaleDateString('en-GB', {
-      day: '2-digit',
-      month: 'short',
-      year: 'numeric',
-    });
 
   useEffect(() => {
     const fetchNewsData = async () => {
