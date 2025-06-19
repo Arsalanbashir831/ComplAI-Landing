@@ -1,17 +1,17 @@
 'use client';
 
-import { useEffect, useRef, useState } from 'react';
-import Link from 'next/link';
 import { API_ROUTES } from '@/constants/routes';
 import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
+import Link from 'next/link';
+import { useEffect, useRef, useState } from 'react';
 
-import { Blog } from '@/types/news';
+import { NewsCard } from '@/components/news-card';
+import { Button } from '@/components/ui/button';
+import useMobile from '@/hooks/useMobile';
 import { formatDate } from '@/lib/date-utils';
 import { parseBodyContentToText } from '@/lib/text-utils';
-import useMobile from '@/hooks/useMobile';
-import { Button } from '@/components/ui/button';
-import { NewsCard } from '@/components/news-card';
+import { Blog } from '@/types/news';
 
 export function NewsSection() {
   const isMobile = useMobile();
@@ -84,24 +84,27 @@ export function NewsSection() {
   return (
     <section className="py-20 px-4 md:px-12">
       <div className="max-w-7xl mx-auto">
-        <div className="flex flex-col md:flex-row md:justify-between md:items-center gap-2 mb-8">
-          <motion.h2
-            initial={{ y: 50 }}
-            whileInView={{ y: 0 }}
-            transition={{ delay: 0.3, duration: 0.4, ease: 'easeOut' }}
-            viewport={{ once: true }}
-            className="text-3xl md:text-5xl font-semibold"
-          >
-            Latest News
-          </motion.h2>
-          <Link href="/news">
-            <Button className="group font-medium transition-all duration-300 ease-in-out">
-              Browse All{' '}
-              <ArrowRight className="ml-0.5 h-4 w-4 group-hover:translate-x-1 transition-transform" />
-            </Button>
-          </Link>
-        </div>
+        {latestBlogs.length != 0 && (<>
 
+
+          <div className="flex flex-col md:flex-row md:justify-between md:items-center gap-2 mb-8">
+            <motion.h2
+              initial={{ y: 50 }}
+              whileInView={{ y: 0 }}
+              transition={{ delay: 0.3, duration: 0.4, ease: 'easeOut' }}
+              viewport={{ once: true }}
+              className="text-3xl md:text-5xl font-semibold"
+            >
+              Latest News
+            </motion.h2>
+            <Link href="/news">
+              <Button className="group font-medium transition-all duration-300 ease-in-out">
+                Browse All{' '}
+                <ArrowRight className="ml-0.5 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+              </Button>
+            </Link>
+          </div>
+        </>)}
         <div
           className="flex gap-6 overflow-x-auto overflow-y-hidden whitespace-nowrap
           lg:overflow-x-visible lg:grid lg:grid-cols-3"
@@ -150,9 +153,8 @@ export function NewsSection() {
             <button
               key={index}
               onClick={() => scrollToCard(index)}
-              className={`w-3 h-3 rounded-full ${
-                activeIndex === index ? 'bg-blue-600' : 'bg-gray-400'
-              }`}
+              className={`w-3 h-3 rounded-full ${activeIndex === index ? 'bg-blue-600' : 'bg-gray-400'
+                }`}
             />
           ))}
         </div>
