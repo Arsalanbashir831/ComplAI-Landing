@@ -1,6 +1,7 @@
-import { db, bucket } from '@/app/firebase/admin';
 import { NextResponse } from 'next/server';
 import slugify from 'slugify';
+
+import { bucket, db } from '@/app/firebase/admin';
 
 interface Props {
   params: {
@@ -25,7 +26,10 @@ export async function GET(
     return NextResponse.json(blog, { status: 200 });
   } catch (error) {
     console.error('Error fetching blog:', error);
-    return NextResponse.json({ error: 'Failed to fetch blog' }, { status: 500 });
+    return NextResponse.json(
+      { error: 'Failed to fetch blog' },
+      { status: 500 }
+    );
   }
 }
 // PUT (update) blog by ID
@@ -39,10 +43,13 @@ export async function PUT(request: Request, { params }: Props) {
     const thumbnail = formData.get('thumbnail') as File | null;
 
     if (!title || !content) {
-      return NextResponse.json({ error: 'Title and content are required' }, { status: 400 });
+      return NextResponse.json(
+        { error: 'Title and content are required' },
+        { status: 400 }
+      );
     }
 
-    let thumbnailUrl = formData.get('currentThumbnailUrl') as string || '';
+    let thumbnailUrl = (formData.get('currentThumbnailUrl') as string) || '';
 
     // Generate new slug from updated title
     const newSlug = slugify(title, { lower: true, strict: true });
@@ -104,7 +111,10 @@ export async function PUT(request: Request, { params }: Props) {
     );
   } catch (error) {
     console.error('Error updating blog:', error);
-    return NextResponse.json({ error: 'Failed to update blog' }, { status: 500 });
+    return NextResponse.json(
+      { error: 'Failed to update blog' },
+      { status: 500 }
+    );
   }
 }
 
@@ -113,7 +123,7 @@ export async function DELETE(request: Request, { params }: Props) {
   try {
     const { id } = params;
     const blogRef = db.ref(`blogs/${id}`);
-    
+
     // Get the blog data first to check if it exists and get the thumbnail URL
     const snapshot = await blogRef.once('value');
     const blog = snapshot.val();
@@ -137,9 +147,15 @@ export async function DELETE(request: Request, { params }: Props) {
     // Delete the blog entry
     await blogRef.remove();
 
-    return NextResponse.json({ message: 'Blog deleted successfully' }, { status: 200 });
+    return NextResponse.json(
+      { message: 'Blog deleted successfully' },
+      { status: 200 }
+    );
   } catch (error) {
     console.error('Error deleting blog:', error);
-    return NextResponse.json({ error: 'Failed to delete blog' }, { status: 500 });
+    return NextResponse.json(
+      { error: 'Failed to delete blog' },
+      { status: 500 }
+    );
   }
 }
