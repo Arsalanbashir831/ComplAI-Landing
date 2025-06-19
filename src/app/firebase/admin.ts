@@ -12,9 +12,13 @@ export function initFirebaseAdmin() {
       storageBucket: process.env.FIREBASE_STORAGE_BUCKET,
     });
   }
+
   return admin;
 }
 
-export const db = admin.database();
-export const bucket = admin.storage().bucket();
-export const auth = admin.auth();
+// Call init before exporting services
+const adminApp = initFirebaseAdmin();
+
+export const db = adminApp.database();
+export const bucket = adminApp.storage().bucket();
+export const auth = adminApp.auth();
