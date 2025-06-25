@@ -106,12 +106,12 @@ export default function FAQSection({
                 className="border rounded-xl px-6 py-2 data-[state=open]:bg-[#0A58EB0F] data-[state=open]:border-none"
               >
                 <AccordionTrigger
-                  className="text-left font-semibold hover:no-underline"
+                  className="text-left font-semibold hover:no-underline text-base md:text-lg lg:text-lg"
                   iconClassName="bg-primary p-1 rounded-full h-7 w-7 text-white"
                 >
                   {item.question}
                 </AccordionTrigger>
-                <AccordionContent className="font-normal">
+                <AccordionContent className="font-normal md:text-base lg:text-base">
                   {item.answer}
                 </AccordionContent>
               </AccordionItem>

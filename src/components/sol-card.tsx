@@ -1,6 +1,4 @@
 import Image from 'next/image';
-import Link from 'next/link';
-import { ArrowRight } from 'lucide-react';
 
 import { Solution } from '@/types/solutions';
 
@@ -51,7 +49,7 @@ export default function SolCard({
         {description}
       </p>
 
-      {buttonLabel && buttonLink && (
+      {/* {buttonLabel && buttonLink && (
         <Link
           href={buttonLink}
           className="text-primary px-5 text-sm font-medium text-right mt-2 flex items-center justify-end"
@@ -59,7 +57,7 @@ export default function SolCard({
           {buttonLabel}
           <ArrowRight className="ml-0.5 h-4 w-4 group-hover:translate-x-1 transition-transform" />
         </Link>
-      )}
+      )} */}
     </div>
   );
 }

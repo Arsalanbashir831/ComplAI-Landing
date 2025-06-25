@@ -1,8 +1,8 @@
 'use client';
 
-import Link from 'next/link';
 import { solutions } from '@/data/solutions';
 import { motion, Variants } from 'framer-motion';
+import Link from 'next/link';
 
 import SolCard from './sol-card';
 
@@ -68,7 +68,7 @@ export default function SolutionsSection() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.3 }}
-          className="grid gap-9 sm:grid-cols-2 lg:grid-cols-3 items-stretch"
+          className="grid gap-y-[3.25rem] gap-x-9 sm:grid-cols-2 lg:grid-cols-3 items-stretch"
         >
           {solutions.map((card, idx) => (
             <Link

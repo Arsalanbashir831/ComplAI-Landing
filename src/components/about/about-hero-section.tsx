@@ -33,15 +33,15 @@ export default function AboutHeroSection() {
   return (
     <>
       <div className="absolute left-0 top-0 bottom-0 right-0 bg-gradient-to-b from-[#70a2ff36] to-[#43619900]" />
+      <div className="absolute right-0 top-10 h-[500px] w-[550px] bg-[url('/images/bg/about-hero-bg.svg')] bg-contain bg-right bg-no-repeat" />
       <motion.section
         variants={containerVariants}
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, amount: 0.3 }}
-        className="relative overflow-hidden py-16 px-4 md:px-12"
+        className="relative overflow-hidden py-16 md:mx-auto  max-w-7xl"
       >
         {/* Background SVG */}
-        <div className="absolute right-0 top-10 h-[500px] w-[500px] bg-[url('/images/bg/about-hero-bg.svg')] bg-contain bg-right bg-no-repeat" />
 
         <div className="container relative mx-auto space-y-8">
           {/* Heading & Subheading */}
@@ -98,7 +98,7 @@ export default function AboutHeroSection() {
                       variants={itemVariants}
                       className="font-semibold text-black-100 text-3xl md:text-4xl"
                     >
-                      AI makes compliance faster, smarter, and more <br />{' '}
+                      AI makes compliance faster, smarter, and more{' '}
                       efficient.
                     </motion.p>
                   </motion.div>
@@ -134,7 +134,7 @@ export default function AboutHeroSection() {
                   variants={itemVariants}
                   className="font-semibold text-black-100 text-3xl md:text-4xl"
                 >
-                  AI makes compliance faster, smarter, and more <br />{' '}
+                  AI makes compliance faster, smarter, and more {' '}
                   efficient.
                 </motion.p>
               </motion.div>

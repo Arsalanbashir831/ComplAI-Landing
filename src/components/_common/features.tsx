@@ -1,18 +1,18 @@
 import { Check } from 'lucide-react';
 
-import { Feature } from '@/types/feature';
 import {
   Card,
   CardContent,
   CardFooter,
   CardHeader,
 } from '@/components/ui/card';
+import { Feature } from '@/types/feature';
 
 export function FeatureCard({ feature }: { feature: Feature }) {
   return (
     <Card className="rounded-lg overflow-hidden">
-      <CardHeader className="p-6 bg-blue-600 text-white min-h-[128px]">
-        <h2 className="text-4xl font-semibold">{feature.title}</h2>
+      <CardHeader className=" p-6 bg-blue-600 text-white min-h-[80px] md:min-h-[128px]">
+        <h2 className=" text-2xl md:text-4xl font-semibold">{feature.title}</h2>
       </CardHeader>
       <CardContent className="p-6 bg-[#F5F7F9]">
         <h3 className="text-sm mb-4 text-[#686868] ml-6">{feature.subtitle}</h3>

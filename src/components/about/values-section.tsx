@@ -1,10 +1,10 @@
 'use client';
 
-import Image from 'next/image';
 import { motion, Variants } from 'framer-motion';
+import Image from 'next/image';
 
-import { cn } from '@/lib/utils';
 import { Card, CardContent } from '@/components/ui/card';
+import { cn } from '@/lib/utils';
 
 interface ValueCardProps {
   title: string;
@@ -42,15 +42,15 @@ function ValueCard({ title, description, icon, className }: ValueCardProps) {
     <motion.div
       variants={itemVariants}
       whileHover={{ scale: 1.02 }}
-      className={cn('p-4 bg-blue-lightest rounded-3xl', className)}
+      className={cn(' ', className)}
     >
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 0.1 }}
-        className="relative p-0.5 bg-gradient-to-l from-white to-[#0a59eb96] rounded-3xl h-full"
+        className="relative p-1  rounded-3xl h-full "
       >
-        <Card className="h-full overflow-hidden bg-white hover:shadow-lg transition-all duration-300 flex flex-col items-center justify-center rounded-3xl">
+        <Card className="h-full overflow-hidden bg-white border-2 border-primary transition-all duration-300 flex flex-col items-center justify-center rounded-3xl">
           <CardContent className="p-6 flex flex-col items-center justify-center">
             {icon && <Image src={icon} width={52} height={52} alt={title} />}
             <h3 className="text-xl md:text-2xl font-semibold text-[#000] mt-4">

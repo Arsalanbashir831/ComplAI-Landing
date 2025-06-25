@@ -1,6 +1,6 @@
+import { ROUTES } from '@/constants/routes';
 import Image from 'next/image';
 import Link from 'next/link';
-import { ROUTES } from '@/constants/routes';
 
 import { Logo } from './logo';
 
@@ -22,11 +22,11 @@ const footer = {
     title: 'Products',
     links: [
       { title: 'Companion', href: ROUTES.COMPANION },
-      { title: 'Resolve', href: ROUTES.RESOLVE },
-      { title: 'Compose', href: ROUTES.COMPOSE },
-      { title: 'Review', href: ROUTES.REVIEW },
-      { title: 'Validate', href: ROUTES.VALIDATE },
-      { title: 'Audit', href: ROUTES.AUDIT },
+      // { title: 'Resolve', href: ROUTES.RESOLVE },
+      // { title: 'Compose', href: ROUTES.COMPOSE },
+      // { title: 'Review', href: ROUTES.REVIEW },
+      // { title: 'Validate', href: ROUTES.VALIDATE },
+      // { title: 'Audit', href: ROUTES.AUDIT },
     ],
   },
   policyLinks: {
@@ -34,7 +34,7 @@ const footer = {
     links: [
       { title: 'Privacy Policy', href: ROUTES.PRIVACY_POLICY },
       { title: 'Cookie Policy', href: ROUTES.COOKIE_POLICY },
-      { title: 'User Agreement', href: ROUTES.USER_AGREEMENT_POLICY },
+      // { title: 'User Agreement', href: ROUTES.USER_AGREEMENT_POLICY },
     ],
   },
   company: {

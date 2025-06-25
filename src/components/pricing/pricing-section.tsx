@@ -2,8 +2,8 @@
 
 import { motion } from 'framer-motion';
 
-import { PricingPlan } from '@/types/pricing';
 import { PricingCards } from '@/components/pricing/new-pricing-cards';
+import { PricingPlan } from '@/types/pricing';
 
 const pricingPlans: PricingPlan[] = [
   {
@@ -25,7 +25,7 @@ const pricingPlans: PricingPlan[] = [
         text: 'Suitable for occasional users who require flexible, pay-as-you-go access.',
       },
     ],
-    footerHeading: 'No commitment.',
+    footerHeading: 'No commitment',
     footerText: '',
     color: 'default',
   },
@@ -54,7 +54,7 @@ const pricingPlans: PricingPlan[] = [
         text: 'Suitable for regular users who need consistent and reliable AI support.',
       },
     ],
-    footerHeading: '12-month commitment.',
+    footerHeading: '12-month commitment',
     footerText: '',
     color: 'blue',
   },
@@ -81,7 +81,7 @@ const pricingPlans: PricingPlan[] = [
         text: 'Ideal for teams and professionals who require comprehensive access and support.',
       },
     ],
-    footerHeading: '24-month commitment.',
+    footerHeading: '24-month commitment',
     footerText: '',
     color: 'default',
   },

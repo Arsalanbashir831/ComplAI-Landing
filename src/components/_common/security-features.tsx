@@ -1,9 +1,9 @@
 'use client';
 
-import Image from 'next/image';
-import Link from 'next/link';
 import { motion, Variants } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
+import Image from 'next/image';
+import Link from 'next/link';
 
 import { cn } from '@/lib/utils';
 
@@ -46,7 +46,7 @@ const containerVariants: Variants = {
   },
 };
 
-// “Fluid” spring for each item
+// "Fluid" spring for each item
 const itemVariants: Variants = {
   hidden: { opacity: 0, y: 40 },
   visible: {
@@ -103,7 +103,7 @@ export function SecurityFeatures({ className = '' }: { className?: string }) {
                     feature.iconSize.width,
                     feature.iconSize.height
                   )}
-                  priority
+                  loading="lazy"
                 />
               </div>
               <h3 className="text-xl font-medium">{feature.title}</h3>
@@ -147,10 +147,10 @@ export function SecurityFeatures({ className = '' }: { className?: string }) {
           </div>
           <div className="md:w-1/2 flex justify-end">
             <p className="md:max-w-[380px] text-justify">
-              We’re deeply committed to GDPR compliance and the protection of
+              We&apos;re deeply committed to GDPR compliance and the protection of
               sensitive client and firm information. Our system is built with
               security at its core, using end-to-end encryption, strict access
-              controls and continuous threat monitoring. We’re hosted on secure
+              controls and continuous threat monitoring. We&apos;re hosted on secure
               servers, operate under robust data processing agreements and
               follow strict protocols to ensure your data stays safe and your
               trust is always protected.

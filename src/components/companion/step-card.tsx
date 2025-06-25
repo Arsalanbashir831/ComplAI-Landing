@@ -1,7 +1,7 @@
 'use client';
 
-import Image from 'next/image';
 import { motion } from 'framer-motion';
+import Image from 'next/image';
 
 interface StepCardProps {
   stepNumber: number;
@@ -52,7 +52,7 @@ export function StepCard({
       >
         <Image
           src={image}
-          alt={`Step ${stepNumber} illustration`}
+          alt={`Step ${stepNumber}: ${title} - illustration`}
           width={400}
           height={400}
           className="w-full max-w-[500px] h-auto ml-auto"

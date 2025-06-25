@@ -1,7 +1,7 @@
 'use client';
 
-import Image from 'next/image';
 import { motion, Variants } from 'framer-motion';
+import Image from 'next/image';
 
 import { CTAButton } from '../cta-button';
 
@@ -41,7 +41,7 @@ export function CompanionHero() {
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, amount: 0.3 }}
-      className="w-full max-w-screen-2xl mx-auto overflow-hidden bg-[url('/images/bg/companion-hero-bg.svg')] bg-cover bg-no-repeat bg-center"
+      className="w-full  mx-auto overflow-hidden bg-[url('/images/bg/companion-hero-bg.svg')] bg-cover bg-no-repeat bg-center"
     >
       <div className="pt-32 md:py-24">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
@@ -63,7 +63,7 @@ export function CompanionHero() {
               Get instant answers to compliance queries
             </motion.p>
             <motion.div variants={itemVariants}>
-              <CTAButton href="/pricing" className="z-10 text-base px-4">
+              <CTAButton href="/pricing" className="z-10 text-base p-7">
                 Get Companion
               </CTAButton>
             </motion.div>
@@ -80,6 +80,7 @@ export function CompanionHero() {
               width={700}
               height={700}
               className="w-full max-w-2xl"
+              fetchPriority="high"
             />
           </motion.div>
         </div>

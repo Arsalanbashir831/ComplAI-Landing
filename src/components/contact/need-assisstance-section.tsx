@@ -61,7 +61,7 @@ const itemVariants: Variants = {
 function ContactCard({ icon: Icon, title, contact, href }: ContactCardProps) {
   const content = (
     <>
-      <div className="h-14 w-14 rounded-full bg-primary flex items-center justify-center">
+      <div className="h-14 w-14 rounded-full bg-primary flex items-center justify-center ">
         <Icon className="h-5 w-5 text-white" />
       </div>
       <div>
@@ -73,7 +73,7 @@ function ContactCard({ icon: Icon, title, contact, href }: ContactCardProps) {
 
   return (
     <motion.div variants={itemVariants}>
-      <Card className="p-4 flex items-center justify-center gap-6 h-fit bg-[#F1F5FE] border-none shadow-none hover:ring-2 hover:ring-blue-500 transition-all">
+      <Card className="p-4 flex items-center justify-center gap-6 h-fit bg-[#F1F5FE] border-none shadow-none hover:ring-2 hover:ring-blue-500 transition-all py-6">
         {href ? (
           <a href={href} className="flex items-center gap-6">
             {content}
@@ -93,7 +93,7 @@ export default function NeedAssistanceSection() {
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, amount: 0.5 }}
-      className="py-16 bg-white px-4 md:px-12"
+      className="py-16 bg-white px-4 md:px-28 "
     >
       <div className="container mx-auto space-y-8">
         {/* Heading & Paragraph */}

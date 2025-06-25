@@ -57,7 +57,7 @@ export function HowItWorks() {
           </motion.p>
         </div>
 
-        <div className="max-w-[1440px] mx-auto border border-[#86C0FF] rounded-lg p-6 md:py-8 md:px-16 space-y-16">
+        <div className="max-w-[1200px] mx-auto border border-[#86C0FF] rounded-lg p-6 md:py-8 md:px-16 space-y-16">
           {steps.map((step, index) => (
             <StepCard
               key={step.stepNumber}

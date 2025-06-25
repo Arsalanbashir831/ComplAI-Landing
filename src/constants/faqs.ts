@@ -45,7 +45,7 @@ export const PricingFAQs = {
     {
       question: 'Can we upgrade to Professional or Enterprise later?',
       answer:
-        'Yes, upgrading is simple and can be done at any time. Many firms begin with Top-Up &amp; Go to explore Companion, then upgrade to Professional once regular usage becomes part of their workflow. For firms managing larger caseloads, team-wide compliance oversight, or external audits, the Enterprise plan offers a seamless transition with full access, personalised support, and hands-on onboarding to ensure long-term value.',
+        'Yes, upgrading is simple and can be done at any time. Many firms begin with Top-Up Go to explore Companion, then upgrade to Professional once regular usage becomes part of their workflow. For firms managing larger caseloads, team-wide compliance oversight, or external audits, the Enterprise plan offers a seamless transition with full access, personalised support, and hands-on onboarding to ensure long-term value.',
     },
     {
       question: 'Is a free trial available before choosing a plan?',
@@ -55,7 +55,7 @@ export const PricingFAQs = {
     {
       question: 'How is billing managed and what are the terms?',
       answer:
-        'Top-Up &amp; Go is a flexible, credit-based model with no contract — you simply top up as required, starting from £50. The Professional plan is billed monthly and includes a 12-month commitment, offering reliable access to key tools and enhanced support. Enterprise plans are structured around a 24-month agreement tailored to your firm’s goals, with full platform access, unlimited usage, and a dedicated account manager focused on your long-term success.',
+        'Top-Up Go is a flexible, credit-based model with no contract — you simply top up as required, starting from £50. The Professional plan is billed monthly and includes a 12-month commitment, offering reliable access to key tools and enhanced support. Enterprise plans are structured around a 24-month agreement tailored to your firm’s goals, with full platform access, unlimited usage, and a dedicated account manager focused on your long-term success.',
     },
   ],
 };

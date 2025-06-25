@@ -1,8 +1,8 @@
 'use client';
 
-import { FormEvent, useState } from 'react';
-import Image from 'next/image';
 import { motion, Variants } from 'framer-motion';
+import Image from 'next/image';
+import { FormEvent, useState } from 'react';
 
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -161,7 +161,7 @@ export default function SalesForm() {
             />
             <Button
               type="submit"
-              className="w-full transition-all duration-300 ease-in-out"
+              className="w-full transition-all duration-300 ease-in-out p-6 text-base"
               disabled={loading}
             >
               {loading ? 'Submitting...' : 'Submit Enquiry'}
