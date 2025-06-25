@@ -1,7 +1,7 @@
 'use client';
 
-import { motion, Variants } from 'framer-motion';
 import Image from 'next/image';
+import { motion, Variants } from 'framer-motion';
 
 import { CTAButton } from '../cta-button';
 

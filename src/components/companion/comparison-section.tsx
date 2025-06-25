@@ -1,8 +1,8 @@
 'use client';
 
+import React from 'react';
 import { motion, Variants } from 'framer-motion';
 import { Check, X } from 'lucide-react';
-import React from 'react';
 
 // Animation variants for staggered, springy entrance with fade
 const containerVariants: Variants = {
@@ -67,8 +67,9 @@ export function ComparisonSection({
             return (
               <HeadingTag
                 key={idx}
-                className={`text-4xl md:text-5xl font-bold mb-2 ${line.highlight ? 'text-primary' : ''
-                  }`}
+                className={`text-4xl md:text-5xl font-bold mb-2 ${
+                  line.highlight ? 'text-primary' : ''
+                }`}
               >
                 {line.text}
               </HeadingTag>

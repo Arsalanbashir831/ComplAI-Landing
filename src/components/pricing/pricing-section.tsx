@@ -2,8 +2,8 @@
 
 import { motion } from 'framer-motion';
 
-import { PricingCards } from '@/components/pricing/new-pricing-cards';
 import { PricingPlan } from '@/types/pricing';
+import { PricingCards } from '@/components/pricing/new-pricing-cards';
 
 const pricingPlans: PricingPlan[] = [
   {

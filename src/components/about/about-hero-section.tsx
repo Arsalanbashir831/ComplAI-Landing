@@ -98,8 +98,7 @@ export default function AboutHeroSection() {
                       variants={itemVariants}
                       className="font-semibold text-black-100 text-3xl md:text-4xl"
                     >
-                      AI makes compliance faster, smarter, and more{' '}
-                      efficient.
+                      AI makes compliance faster, smarter, and more efficient.
                     </motion.p>
                   </motion.div>
                 </>
@@ -134,8 +133,7 @@ export default function AboutHeroSection() {
                   variants={itemVariants}
                   className="font-semibold text-black-100 text-3xl md:text-4xl"
                 >
-                  AI makes compliance faster, smarter, and more {' '}
-                  efficient.
+                  AI makes compliance faster, smarter, and more efficient.
                 </motion.p>
               </motion.div>
             </>

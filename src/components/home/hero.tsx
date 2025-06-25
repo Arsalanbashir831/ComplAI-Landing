@@ -1,10 +1,10 @@
 'use client';
 
-import { AnimatePresence, motion, Variants } from 'framer-motion';
-import { ArrowRight } from 'lucide-react';
+import { useEffect, useState } from 'react';
 import Head from 'next/head';
 import Image from 'next/image';
-import { useEffect, useState } from 'react';
+import { AnimatePresence, motion, Variants } from 'framer-motion';
+import { ArrowRight } from 'lucide-react';
 
 import { CTAButton } from '@/components/cta-button';
 
@@ -64,11 +64,7 @@ export function Hero() {
   return (
     <>
       <Head>
-        <link
-          rel="preload"
-          as="image"
-          href="/images/bg/home-hero-bg.svg"
-        />
+        <link rel="preload" as="image" href="/images/bg/home-hero-bg.svg" />
       </Head>
       <section className="relative pt-36 md:pt-[8rem] pb-[16rem] md:pb-[24rem] px-4 md:px-0 bg-[url(/images/bg/home-hero-bg.svg)] bg-no-repeat bg-center bg-cover min-h-[60vh] md:min-h-screen flex flex-col justify-center items-center overflow-hidden">
         <motion.div

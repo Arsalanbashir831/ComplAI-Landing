@@ -1,12 +1,12 @@
 import { Check } from 'lucide-react';
 
+import { Feature } from '@/types/feature';
 import {
   Card,
   CardContent,
   CardFooter,
   CardHeader,
 } from '@/components/ui/card';
-import { Feature } from '@/types/feature';
 
 export function FeatureCard({ feature }: { feature: Feature }) {
   return (

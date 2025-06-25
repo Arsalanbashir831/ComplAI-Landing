@@ -1,8 +1,8 @@
 'use client';
 
-import { motion } from 'framer-motion';
-import Image from 'next/image';
 import React from 'react';
+import Image from 'next/image';
+import { motion } from 'framer-motion';
 
 import { cn } from '@/lib/utils';
 
@@ -31,22 +31,23 @@ export default function LogoSlider({
       className={cn(
         'relative m-auto w-full overflow-hidden container px-8  ',
         showSidesFade &&
-        "before:absolute before:left-0 before:top-0 before:z-[2] before:h-full  before:bg-[linear-gradient(to_right,#f3f4f6fc,rgba(255,255,255,0)_60%)] md:before:bg-[linear-gradient(to_right,#f3f4f6fc,rgba(255,255,255,0)_100%)] before:content-[''] after:absolute after:right-0 after:top-0 after:z-[2] after:h-full  after:-scale-x-100 after:bg-[linear-gradient(to_right,#f3f4f6fc,rgba(255,255,255,0)_60%)]  after:content-['']",
+          "before:absolute before:left-0 before:top-0 before:z-[2] before:h-full  before:bg-[linear-gradient(to_right,#f3f4f6fc,rgba(255,255,255,0)_60%)] md:before:bg-[linear-gradient(to_right,#f3f4f6fc,rgba(255,255,255,0)_100%)] before:content-[''] after:absolute after:right-0 after:top-0 after:z-[2] after:h-full  after:-scale-x-100 after:bg-[linear-gradient(to_right,#f3f4f6fc,rgba(255,255,255,0)_60%)]  after:content-['']",
         containerClassName
       )}
     >
-      {title && (<>
-        <motion.h2
-          initial={{ y: 50 }}
-          whileInView={{ y: 0 }}
-          transition={{ delay: 0.3, duration: 0.4, ease: 'easeOut' }}
-          viewport={{ once: true }}
-          className={cn('mb-6 text-center text-3xl pb-5', titleClassName)}
-        >
-          {title}
-        </motion.h2>
-      </>)}
-
+      {title && (
+        <>
+          <motion.h2
+            initial={{ y: 50 }}
+            whileInView={{ y: 0 }}
+            transition={{ delay: 0.3, duration: 0.4, ease: 'easeOut' }}
+            viewport={{ once: true }}
+            className={cn('mb-6 text-center text-3xl pb-5', titleClassName)}
+          >
+            {title}
+          </motion.h2>
+        </>
+      )}
 
       <motion.div
         initial={{ opacity: 0 }}

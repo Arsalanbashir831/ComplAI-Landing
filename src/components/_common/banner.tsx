@@ -1,11 +1,11 @@
 'use client';
 
+import { FC } from 'react';
 import { motion, Variants } from 'framer-motion';
 import { Check } from 'lucide-react';
-import { FC } from 'react';
 
-import { CTAButton } from '@/components/cta-button';
 import { Card, CardContent } from '@/components/ui/card';
+import { CTAButton } from '@/components/cta-button';
 
 interface BannerProps {
   title: string;

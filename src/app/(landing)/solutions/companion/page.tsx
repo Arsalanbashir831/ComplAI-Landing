@@ -1,7 +1,7 @@
 'use client';
 
-import { CompanionFAQs } from '@/constants/faqs';
 import { Suspense } from 'react';
+import { CompanionFAQs } from '@/constants/faqs';
 
 import { CompanionBanner } from '@/components/companion/companion-banner';
 import { CompanionHero } from '@/components/companion/companion-hero';
@@ -26,8 +26,9 @@ export default function CompanionPage() {
         title: '1-3 Hours',
         desc: (
           <>
-            <span className="text-red-400 font-bold">Spent searching</span> through the
-            SRA Handbook, LAA contract, Warning Notices, and outdated templates
+            <span className="text-red-400 font-bold">Spent searching</span>{' '}
+            through the SRA Handbook, LAA contract, Warning Notices, and
+            outdated templates
           </>
         ),
       },
@@ -37,8 +38,8 @@ export default function CompanionPage() {
         title: '+5 Days',
         desc: (
           <>
-            <span className="text-red-400 font-bold">Waiting for replies</span> from
-            helplines or external advisers
+            <span className="text-red-400 font-bold">Waiting for replies</span>{' '}
+            from helplines or external advisers
           </>
         ),
       },
@@ -48,8 +49,9 @@ export default function CompanionPage() {
         title: 'Unclear next steps',
         desc: (
           <>
-            <span className="text-red-400 font-bold">Struggling</span> to apply the{' '}
-            <span className="text-red-400 font-bold">rules</span> confidently
+            <span className="text-red-400 font-bold">Struggling</span> to apply
+            the <span className="text-red-400 font-bold">rules</span>{' '}
+            confidently
           </>
         ),
       },

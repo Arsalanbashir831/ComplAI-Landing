@@ -1,9 +1,9 @@
 'use client';
 
-import { motion, Variants } from 'framer-motion';
-import { ArrowRight } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
+import { motion, Variants } from 'framer-motion';
+import { ArrowRight } from 'lucide-react';
 
 import { cn } from '@/lib/utils';
 
@@ -147,13 +147,13 @@ export function SecurityFeatures({ className = '' }: { className?: string }) {
           </div>
           <div className="md:w-1/2 flex justify-end">
             <p className="md:max-w-[380px] text-justify">
-              We&apos;re deeply committed to GDPR compliance and the protection of
-              sensitive client and firm information. Our system is built with
+              We&apos;re deeply committed to GDPR compliance and the protection
+              of sensitive client and firm information. Our system is built with
               security at its core, using end-to-end encryption, strict access
-              controls and continuous threat monitoring. We&apos;re hosted on secure
-              servers, operate under robust data processing agreements and
-              follow strict protocols to ensure your data stays safe and your
-              trust is always protected.
+              controls and continuous threat monitoring. We&apos;re hosted on
+              secure servers, operate under robust data processing agreements
+              and follow strict protocols to ensure your data stays safe and
+              your trust is always protected.
             </p>
           </div>
         </div>

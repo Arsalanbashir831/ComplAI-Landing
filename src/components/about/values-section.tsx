@@ -1,10 +1,10 @@
 'use client';
 
-import { motion, Variants } from 'framer-motion';
 import Image from 'next/image';
+import { motion, Variants } from 'framer-motion';
 
-import { Card, CardContent } from '@/components/ui/card';
 import { cn } from '@/lib/utils';
+import { Card, CardContent } from '@/components/ui/card';
 
 interface ValueCardProps {
   title: string;
