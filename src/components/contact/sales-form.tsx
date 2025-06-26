@@ -1,8 +1,8 @@
 'use client';
 
-import { FormEvent, useState } from 'react';
-import Image from 'next/image';
 import { motion, Variants } from 'framer-motion';
+import Image from 'next/image';
+import { FormEvent, useState } from 'react';
 
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -104,7 +104,7 @@ export default function SalesForm() {
             alt="Demo Illustration"
             width={600}
             height={400}
-            className="object-contain"
+            className="object-contain hidden md:block"
           />
           {/* ...You can keep other informational content here...*/}
         </motion.div>
