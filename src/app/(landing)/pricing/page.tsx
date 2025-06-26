@@ -1,6 +1,7 @@
 'use client';
 
 import { PricingFAQs } from '@/constants/faqs';
+import { ROUTES } from '@/constants/routes';
 import { motion } from 'framer-motion';
 
 import { SecurityFeatures } from '@/components/_common/security-features';
@@ -12,7 +13,6 @@ import { PricingBanner } from '@/components/pricing/pricing-banner';
 import { PricingSection } from '@/components/pricing/pricing-section';
 import SolutionsSection from '@/components/solutions-section';
 import TeamsSlider from '@/components/teams-slider';
-import { ROUTES } from '@/constants/routes';
 
 export default function Contact() {
   const cta = {

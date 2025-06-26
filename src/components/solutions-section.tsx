@@ -1,9 +1,9 @@
 'use client';
 
-import { solutions } from '@/data/solutions';
-import { motion, Variants } from 'framer-motion';
 import Image from 'next/image';
 import Link from 'next/link';
+import { solutions } from '@/data/solutions';
+import { motion, Variants } from 'framer-motion';
 
 import SolCard from './sol-card';
 
@@ -33,7 +33,13 @@ const itemVariants: Variants = {
 
 interface SolutionsSectionProps {
   ctaButton?: React.ReactNode;
-  backgroundImage?: { src: string; alt: string; width?: number; height?: number; className?: string };
+  backgroundImage?: {
+    src: string;
+    alt: string;
+    width?: number;
+    height?: number;
+    className?: string;
+  };
   title?: string;
   description?: string;
   className?: string;
@@ -47,7 +53,9 @@ export default function SolutionsSection({
   className = '',
 }: SolutionsSectionProps) {
   return (
-    <section className={`text-center px-4 pt-10 pb-24 md:pb-32 md:px-6 relative ${className}`}>
+    <section
+      className={`text-center px-4 pt-10 pb-24 md:pb-32 md:px-6 relative ${className}`}
+    >
       <div className="max-w-7xl mx-auto">
         <motion.h2
           initial={{ opacity: 0, y: 30 }}
@@ -65,7 +73,9 @@ export default function SolutionsSection({
             <>
               {title.split(' ').map((word, i) =>
                 word === 'Solutions' ? (
-                  <span key={i} className="text-primary">{word} </span>
+                  <span key={i} className="text-primary">
+                    {word}{' '}
+                  </span>
                 ) : (
                   word + ' '
                 )
