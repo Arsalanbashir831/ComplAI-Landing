@@ -1,10 +1,10 @@
 'use client';
 
-import { useEffect, useState } from 'react';
-import Head from 'next/head';
-import Image from 'next/image';
 import { AnimatePresence, motion, Variants } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
+import Head from 'next/head';
+import Image from 'next/image';
+import { useEffect, useState } from 'react';
 
 import { CTAButton } from '@/components/cta-button';
 
@@ -25,7 +25,7 @@ const buttons = {
 
 const images = [
   { src: '/images/homehero.png', alt: 'Hero Image 1' },
-  { src: '/images/homehero2.png', alt: 'Hero Image 2' },
+  { src: '/images/hero-bg-2.png', alt: 'Hero Image 2' },
 ];
 
 const containerVariants: Variants = {

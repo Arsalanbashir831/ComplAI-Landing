@@ -40,22 +40,22 @@ export const PricingFAQs = {
     {
       question: 'What are credits and how are they used in each plan?',
       answer:
-        'Credits are the internal currency used to power AI-driven tasks on the platform, including queries, document reviews, and complaint triage. With the Professional plan, you receive 500 new credits each month to support ongoing use across your firm. The Enterprise plan removes credit limits entirely, offering unlimited usage so your team can scale AI support across departments without friction or restriction.',
+        `Credits are the internal currency used to power AI-driven tasks on the platform, including queries, document reviews, and complaint triage. With the Professional plan, you receive 500 new credits each month to support ongoing use across your firm.\nThe Enterprise plan removes credit limits entirely, offering unlimited usage so your team can scale AI support across departments without friction or restriction.`,
     },
     {
       question: 'Can we upgrade to Professional or Enterprise later?',
       answer:
-        'Yes, upgrading is simple and can be done at any time. Many firms begin with Top-Up Go to explore Companion, then upgrade to Professional once regular usage becomes part of their workflow. For firms managing larger caseloads, team-wide compliance oversight, or external audits, the Enterprise plan offers a seamless transition with full access, personalised support, and hands-on onboarding to ensure long-term value.',
+        'Yes, upgrading is simple and can be done at any time. Many firms begin with Top-Up & Go to explore Companion, then upgrade to Professional once regular usage becomes part of their workflow. For firms managing larger caseloads, team-wide compliance oversight, or external audits, the Enterprise plan offers a seamless transition with full access, personalised support, and hands-on onboarding to ensure long-term value.',
     },
     {
       question: 'Is a free trial available before choosing a plan?',
       answer:
-        'Yes, we offer a free trial through our Starter option, giving you access to Companion with a limited number of credits so you can explore its capabilities risk-free. If you&#39;re considering the Professional or Enterprise plans, our team can provide a tailored walkthrough and, where appropriate, a guided pilot to help you assess how the platform aligns with your compliance needs.',
+        "Yes, we offer a free trial through our Starter option, giving you access to Companion with a limited number of credits so you can explore its capabilities risk-free. If you're considering the Professional or Enterprise plans, our team can provide a tailored walkthrough and, where appropriate, a guided pilot to help you assess how the platform aligns with your compliance needs.",
     },
     {
       question: 'How is billing managed and what are the terms?',
       answer:
-        'Top-Up Go is a flexible, credit-based model with no contract — you simply top up as required, starting from £50. The Professional plan is billed monthly and includes a 12-month commitment, offering reliable access to key tools and enhanced support. Enterprise plans are structured around a 24-month agreement tailored to your firm’s goals, with full platform access, unlimited usage, and a dedicated account manager focused on your long-term success.',
+        'Top-Up & Go is a flexible, credit-based model with no contract — you simply top up as required, starting from £50. The Professional plan is billed monthly and includes a 12-month commitment, offering reliable access to key tools and enhanced support. Enterprise plans are structured around a 24-month agreement tailored to your firm’s goals, with full platform access, unlimited usage, and a dedicated account manager focused on your long-term success.',
     },
   ],
 };

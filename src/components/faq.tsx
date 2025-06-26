@@ -111,7 +111,7 @@ export default function FAQSection({
                 >
                   {item.question}
                 </AccordionTrigger>
-                <AccordionContent className="font-normal md:text-base lg:text-base">
+                <AccordionContent className="font-normal md:text-lg lg:text-lg whitespace-pre-line">
                   {item.answer}
                 </AccordionContent>
               </AccordionItem>
