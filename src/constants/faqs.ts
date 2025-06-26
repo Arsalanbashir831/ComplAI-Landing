@@ -39,8 +39,7 @@ export const PricingFAQs = {
     },
     {
       question: 'What are credits and how are they used in each plan?',
-      answer:
-        `Credits are the internal currency used to power AI-driven tasks on the platform, including queries, document reviews, and complaint triage. With the Professional plan, you receive 500 new credits each month to support ongoing use across your firm.\nThe Enterprise plan removes credit limits entirely, offering unlimited usage so your team can scale AI support across departments without friction or restriction.`,
+      answer: `Credits are the internal currency used to power AI-driven tasks on the platform, including queries, document reviews, and complaint triage. With the Professional plan, you receive 500 new credits each month to support ongoing use across your firm.\nThe Enterprise plan removes credit limits entirely, offering unlimited usage so your team can scale AI support across departments without friction or restriction.`,
     },
     {
       question: 'Can we upgrade to Professional or Enterprise later?',

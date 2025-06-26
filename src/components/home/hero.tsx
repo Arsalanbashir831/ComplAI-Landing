@@ -1,10 +1,10 @@
 'use client';
 
-import { AnimatePresence, motion, Variants } from 'framer-motion';
-import { ArrowRight } from 'lucide-react';
+import { useEffect, useState } from 'react';
 import Head from 'next/head';
 import Image from 'next/image';
-import { useEffect, useState } from 'react';
+import { AnimatePresence, motion, Variants } from 'framer-motion';
+import { ArrowRight } from 'lucide-react';
 
 import { CTAButton } from '@/components/cta-button';
 
