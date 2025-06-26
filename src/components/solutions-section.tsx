@@ -1,8 +1,8 @@
 'use client';
 
+import Link from 'next/link';
 import { solutions } from '@/data/solutions';
 import { motion, Variants } from 'framer-motion';
-import Link from 'next/link';
 
 import SolCard from './sol-card';
 
@@ -78,7 +78,11 @@ export default function SolutionsSection() {
               </motion.div>
             );
             return isCompanion ? (
-              <Link key={idx} href={card.buttonLink ?? '#'} className="flex flex-col">
+              <Link
+                key={idx}
+                href={card.buttonLink ?? '#'}
+                className="flex flex-col"
+              >
                 {cardContent}
               </Link>
             ) : (
