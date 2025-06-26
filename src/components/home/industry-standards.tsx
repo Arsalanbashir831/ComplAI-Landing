@@ -1,7 +1,7 @@
 'use client';
 
-import { useRef } from 'react';
 import { motion, Variants } from 'framer-motion';
+import { useRef } from 'react';
 
 import LogoSlider from '../logo-slider';
 
@@ -9,13 +9,13 @@ export default function IndustryStandards() {
   const logos = [
     {
       name: 'Solicitors Regulation Authority',
-      url: './images/logos/sra_logo.svg',
+      url: '/industry-img/sra.png',
     },
-    { name: 'Legal Aid Agency', url: './images/logos/laa_logo.svg' },
-    { name: 'Lexcel', url: './images/logos/lexcel_logo.svg' },
-    { name: 'SQM', url: './images/logos/sqm_logo.svg' },
-    { name: 'The Law Society', url: './images/logos/law_society_logo.svg' },
-    { name: 'Gov.uk', url: './images/logos/gov_uk_logo.svg' },
+    { name: 'Legal Aid Agency', url: '/industry-img/legalaidagency.png' },
+    { name: 'Lexcel', url: '/industry-img/lexcel.png' },
+    { name: 'SQM', url: '/industry-img/sqm-logo.png' },
+    { name: 'The Law Society', url: '/industry-img/lawsociety.png' },
+    { name: 'Gov.uk', url: '/industry-img/gov.png' },
     // ...repeat or dedupe as needed
   ];
 

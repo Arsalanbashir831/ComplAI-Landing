@@ -1,12 +1,11 @@
-import { Suspense } from 'react';
-import { Metadata } from 'next';
 import { HomeFAQs } from '@/constants/faqs';
+import { Metadata } from 'next';
+import { Suspense } from 'react';
 
 import { SecurityFeatures } from '@/components/_common/security-features';
 import CTASection from '@/components/cta-section';
 import FAQSection from '@/components/faq';
 import { Hero } from '@/components/home/hero';
-import IndustryStandards from '@/components/home/industry-standards';
 import NavigateToTop from '@/components/navigate-to-top';
 import { NewsSection } from '@/components/news-section';
 import { PricingBanner } from '@/components/pricing/pricing-banner';
@@ -41,7 +40,7 @@ export default function Home() {
       <Suspense>
         <main>
           <Hero />
-          <IndustryStandards />
+          {/* <IndustryStandards /> */}
           <SolutionsSection />
           <TeamsSlider />
           <SecurityFeatures />
