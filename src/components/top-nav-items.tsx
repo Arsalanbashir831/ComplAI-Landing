@@ -1,19 +1,19 @@
 'use client';
 
-import React, { useEffect, useState } from 'react';
-import Image from 'next/image';
-import Link from 'next/link';
-import { usePathname } from 'next/navigation';
 import { ROUTES } from '@/constants/routes';
 import { motion } from 'framer-motion';
 import { ChevronDown, ChevronUp } from 'lucide-react';
+import Image from 'next/image';
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
+import React, { useEffect, useState } from 'react';
 
-import { cn } from '@/lib/utils';
 import {
   Popover,
   PopoverContent,
   PopoverTrigger,
 } from '@/components/ui/popover';
+import { cn } from '@/lib/utils';
 
 import { ScrollArea } from './ui/scroll-area';
 
@@ -35,41 +35,41 @@ const solutions = [
     icon: '/images/icons/bot-sparkle-blue.svg',
     comingSoon: false,
   },
-  {
-    title: 'Audit',
-    description: 'LAA Audits and Peer Review',
-    href: ROUTES.AUDIT,
-    icon: '/images/icons/users-four-gray.svg',
-    comingSoon: true,
-  },
-  {
-    title: 'Resolve',
-    description: 'Swift Complaint Handling',
-    href: ROUTES.RESOLVE,
-    icon: '/images/icons/file-sparkle-gray.svg',
-    comingSoon: true,
-  },
-  {
-    title: 'Compose',
-    description: 'Create policies with AI support',
-    href: ROUTES.COMPOSE,
-    icon: '/images/icons/magic-wand-gray.svg',
-    comingSoon: true,
-  },
-  {
-    title: 'Review',
-    description: 'Find Compliance Gaps',
-    href: ROUTES.REVIEW,
-    icon: '/images/icons/files-sparkle-gray.svg',
-    comingSoon: true,
-  },
-  {
-    title: 'Validate',
-    description: 'Compliance file review made easy',
-    href: ROUTES.VALIDATE,
-    icon: '/images/icons/file-text-gray.svg',
-    comingSoon: true,
-  },
+  // {
+  //   title: 'Audit',
+  //   description: 'LAA Audits and Peer Review',
+  //   href: ROUTES.AUDIT,
+  //   icon: '/images/icons/users-four-gray.svg',
+  //   comingSoon: true,
+  // },
+  // {
+  //   title: 'Resolve',
+  //   description: 'Swift Complaint Handling',
+  //   href: ROUTES.RESOLVE,
+  //   icon: '/images/icons/file-sparkle-gray.svg',
+  //   comingSoon: true,
+  // },
+  // {
+  //   title: 'Compose',
+  //   description: 'Create policies with AI support',
+  //   href: ROUTES.COMPOSE,
+  //   icon: '/images/icons/magic-wand-gray.svg',
+  //   comingSoon: true,
+  // },
+  // {
+  //   title: 'Review',
+  //   description: 'Find Compliance Gaps',
+  //   href: ROUTES.REVIEW,
+  //   icon: '/images/icons/files-sparkle-gray.svg',
+  //   comingSoon: true,
+  // },
+  // {
+  //   title: 'Validate',
+  //   description: 'Compliance file review made easy',
+  //   href: ROUTES.VALIDATE,
+  //   icon: '/images/icons/file-text-gray.svg',
+  //   comingSoon: true,
+  // },
 ];
 
 interface TopNavItemsProps {
