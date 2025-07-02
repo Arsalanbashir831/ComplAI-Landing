@@ -1,17 +1,17 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { API_ROUTES } from '@/constants/routes';
 import Link from 'next/link';
 import { useParams } from 'next/navigation';
-import { API_ROUTES } from '@/constants/routes';
+import { useEffect, useState } from 'react';
 import readingTime from 'reading-time';
 
-import { Blog } from '@/types/news';
-import { formatDate } from '@/lib/date-utils';
 import Spinner from '@/components/_common/spinner';
 import CTASection from '@/components/cta-section';
 import { NewsSection } from '@/components/news-section';
 import NewsDetail from '@/components/news/new-detail';
+import { formatDate } from '@/lib/date-utils';
+import { Blog } from '@/types/news';
 
 export default function NewsExplanation() {
   const [newsItem, setNewsItem] = useState<Blog | null>(null);
@@ -45,7 +45,7 @@ export default function NewsExplanation() {
     description:
       'Compl-AI provides instant compliance insights and solutions exactly when your team needs them. Save time, lower costs, and stay ahead with ease.',
     buttonText: 'Start Your Free Trial',
-    buttonHref: '/signup',
+    buttonHref: process.env.NEXT_PUBLIC_APPLICATION_URL,
   };
 
   return (
