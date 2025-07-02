@@ -1,6 +1,6 @@
-import { HomeFAQs } from '@/constants/faqs';
-import { Metadata } from 'next';
 import { Suspense } from 'react';
+import { Metadata } from 'next';
+import { HomeFAQs } from '@/constants/faqs';
 
 import { SecurityFeatures } from '@/components/_common/security-features';
 import CTASection from '@/components/cta-section';

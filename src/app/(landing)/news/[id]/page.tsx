@@ -1,17 +1,17 @@
 'use client';
 
-import { API_ROUTES } from '@/constants/routes';
+import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { useParams } from 'next/navigation';
-import { useEffect, useState } from 'react';
+import { API_ROUTES } from '@/constants/routes';
 import readingTime from 'reading-time';
 
+import { Blog } from '@/types/news';
+import { formatDate } from '@/lib/date-utils';
 import Spinner from '@/components/_common/spinner';
 import CTASection from '@/components/cta-section';
 import { NewsSection } from '@/components/news-section';
 import NewsDetail from '@/components/news/new-detail';
-import { formatDate } from '@/lib/date-utils';
-import { Blog } from '@/types/news';
 
 export default function NewsExplanation() {
   const [newsItem, setNewsItem] = useState<Blog | null>(null);
