@@ -1,16 +1,16 @@
 'use client';
 
-import { Blog, getBlogBySlug } from '@/services/blog-api';
+import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { useParams } from 'next/navigation';
-import { useEffect, useState } from 'react';
+import { Blog, getBlogBySlug } from '@/services/blog-api';
 import readingTime from 'reading-time';
 
+import { formatDate } from '@/lib/date-utils';
 import Spinner from '@/components/_common/spinner';
 import CTASection from '@/components/cta-section';
 import { NewsSection } from '@/components/news-section';
 import NewsDetail from '@/components/news/new-detail';
-import { formatDate } from '@/lib/date-utils';
 
 export default function NewsExplanation() {
   const [newsItem, setNewsItem] = useState<Blog | null>(null);
