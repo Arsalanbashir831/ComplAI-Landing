@@ -1,10 +1,10 @@
 'use client';
 
-import { BlogListResponse, getAllBlogs } from '@/services/blog-api';
-import { ArrowRight } from 'lucide-react';
+import { useEffect, useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { useEffect, useState } from 'react';
+import { BlogListResponse, getAllBlogs } from '@/services/blog-api';
+import { ArrowRight } from 'lucide-react';
 import ReactMarkdown from 'react-markdown';
 import readingTime from 'reading-time';
 import rehypeRaw from 'rehype-raw';
@@ -96,7 +96,7 @@ export default function NewsSection() {
                 fill
                 className="object-cover rounded-lg"
                 unoptimized
-                loading='lazy'
+                loading="lazy"
               />
             </div>
             <div className="flex flex-col justify-between w-full md:w-1/2 space-y-4 h-96 py-4">
