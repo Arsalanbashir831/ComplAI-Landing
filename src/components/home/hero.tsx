@@ -1,10 +1,10 @@
 'use client';
 
-import { useEffect, useState } from 'react';
-import Head from 'next/head';
-import Image from 'next/image';
 import { AnimatePresence, motion, Variants } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
+import Head from 'next/head';
+import Image from 'next/image';
+import { useEffect, useState } from 'react';
 
 import { CTAButton } from '@/components/cta-button';
 
@@ -18,7 +18,7 @@ const subtitle =
   'Your in-house compliance partner, powered by Artificial Intelligence.';
 const buttons = {
   primary: {
-    text: 'Get Started',
+    text: 'Start Free Trial',
     href: '/pricing',
   },
 };
