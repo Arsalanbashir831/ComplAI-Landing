@@ -1,6 +1,6 @@
-import { Suspense } from 'react';
-import { Metadata } from 'next';
 import { HomeFAQs } from '@/constants/faqs';
+import { Metadata } from 'next';
+import { Suspense } from 'react';
 
 import { SecurityFeatures } from '@/components/_common/security-features';
 import CTASection from '@/components/cta-section';
@@ -30,7 +30,7 @@ export default function Home() {
     description:
       'Compl-AI provides instant compliance insights and solutions exactly when your team needs them. Save time, lower costs, and stay ahead with ease.',
     buttonText: 'Start Your Free Trial',
-    buttonHref: process.env.NEXT_PUBLIC_APPLICATION_URL,
+    buttonHref: process.env.NEXT_PUBLIC_APPLICATION_URL || '/demo',
   };
 
   return (

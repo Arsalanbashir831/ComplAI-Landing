@@ -23,7 +23,7 @@ export default function Contact() {
     description:
       'Compl-AI is your all in one platform for AI solutions built for real compliance work, delivering fast insights and confident results across every task.',
     buttonText: 'Start Your Free Trial',
-    buttonHref: process.env.NEXT_PUBLIC_APPLICATION_URL,
+    buttonHref: process.env.NEXT_PUBLIC_APPLICATION_URL || '/demo',
   };
 
   return (
