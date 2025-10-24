@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 import dynamic from 'next/dynamic';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
-import { ROUTES } from '@/constants/routes';
+import { API_ROUTES, ROUTES } from '@/constants/routes';
 
 // Dynamically import MDEditor (to support SSR)
 const MDEditor = dynamic(() => import('@uiw/react-md-editor'), { ssr: false });
@@ -33,7 +33,7 @@ const Page = () => {
         formData.append('thumbnail', thumbnail);
       }
 
-      const res = await fetch('/api/blogs', {
+      const res = await fetch(API_ROUTES.GET_BLOGS, {
         method: 'POST',
         body: formData,
       });

@@ -1,6 +1,9 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { Calendar } from 'lucide-react';
+import ReactMarkdown from 'react-markdown';
+import rehypeRaw from 'rehype-raw';
+import remarkGfm from 'remark-gfm';
 
 interface NewsCardProps {
   date: string;
@@ -45,7 +48,40 @@ export function NewsCard({
             </Button>
           </Link> */}
           </div>
-          <p className="text-sm line-clamp-2 mb-4">{description}</p>
+          <div className="text-sm line-clamp-2 mb-4 prose prose-sm max-w-none">
+            <ReactMarkdown
+              remarkPlugins={[remarkGfm]}
+              rehypePlugins={[rehypeRaw]}
+              components={{
+                p: ({ children }) => (
+                  <p className="text-sm text-white">{children}</p>
+                ),
+                strong: ({ children }) => (
+                  <strong className="font-semibold text-white">
+                    {children}
+                  </strong>
+                ),
+                em: ({ children }) => (
+                  <em className="italic text-white">{children}</em>
+                ),
+                ul: ({ children }) => (
+                  <ul className="list-disc pl-4 text-sm text-white">
+                    {children}
+                  </ul>
+                ),
+                ol: ({ children }) => (
+                  <ol className="list-decimal pl-4 text-sm text-white">
+                    {children}
+                  </ol>
+                ),
+                li: ({ children }) => (
+                  <li className="text-white">{children}</li>
+                ),
+              }}
+            >
+              {description}
+            </ReactMarkdown>
+          </div>
         </div>
       </div>
     </Link>

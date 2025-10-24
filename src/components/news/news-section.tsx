@@ -5,10 +5,12 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { API_ROUTES } from '@/constants/routes';
 import { ArrowRight } from 'lucide-react';
+import ReactMarkdown from 'react-markdown';
 import readingTime from 'reading-time';
+import rehypeRaw from 'rehype-raw';
+import remarkGfm from 'remark-gfm';
 
 import { formatDate } from '@/lib/date-utils';
-import { parseBodyContentToText } from '@/lib/text-utils';
 
 import { Skeleton } from '../ui/skeleton';
 import { BlogCard } from './blog-card';
@@ -115,9 +117,34 @@ export default function NewsSection() {
               <h2 className="text-3xl md:text-4xl font-bold text-gray-900">
                 {featured.title}
               </h2>
-              <p className="text-gray-700">
-                {parseBodyContentToText(featured.content).slice(0, 200)}
-              </p>
+              <div className="text-gray-700 prose prose-sm max-w-none">
+                <ReactMarkdown
+                  remarkPlugins={[remarkGfm]}
+                  rehypePlugins={[rehypeRaw]}
+                  components={{
+                    p: ({ children }) => (
+                      <p className="text-gray-700">{children}</p>
+                    ),
+                    strong: ({ children }) => (
+                      <strong className="font-semibold">{children}</strong>
+                    ),
+                    em: ({ children }) => (
+                      <em className="italic">{children}</em>
+                    ),
+                    ul: ({ children }) => (
+                      <ul className="list-disc pl-4">{children}</ul>
+                    ),
+                    ol: ({ children }) => (
+                      <ol className="list-decimal pl-4">{children}</ol>
+                    ),
+                    li: ({ children }) => (
+                      <li className="text-gray-700">{children}</li>
+                    ),
+                  }}
+                >
+                  {featured.content.slice(0, 200)}
+                </ReactMarkdown>
+              </div>
               <Link
                 href={`/news/${featured.slug}`}
                 className="group text-right inline-flex items-center bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition-colors w-fit"
@@ -139,10 +166,7 @@ export default function NewsSection() {
               key={blog.slug}
               date={formatDate(blog.createdAt)}
               title={blog.title}
-              description={parseBodyContentToText(featured.content).slice(
-                0,
-                200
-              )}
+              description={blog.content.slice(0, 200)}
               imageUrl={blog.thumbnail}
               slug={blog.slug}
             />

@@ -8,7 +8,6 @@ import { ArrowRight } from 'lucide-react';
 
 import { Blog } from '@/types/news';
 import { formatDate } from '@/lib/date-utils';
-import { parseBodyContentToText } from '@/lib/text-utils';
 import useMobile from '@/hooks/useMobile';
 import { Button } from '@/components/ui/button';
 import { NewsCard } from '@/components/news-card';
@@ -110,10 +109,7 @@ export function NewsSection() {
           lg:overflow-x-visible lg:grid lg:grid-cols-3"
         >
           {latestBlogs?.map((news, index) => {
-            const mainContentText = parseBodyContentToText(news.content).slice(
-              0,
-              200
-            );
+            const mainContentText = news.content.slice(0, 200);
 
             const Wrapper = isMobile ? 'div' : motion.div;
 

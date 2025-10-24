@@ -1,5 +1,8 @@
 import Image from 'next/image';
 import Link from 'next/link';
+import ReactMarkdown from 'react-markdown';
+import rehypeRaw from 'rehype-raw';
+import remarkGfm from 'remark-gfm';
 
 interface NewsCardProps {
   slug: string;
@@ -38,9 +41,32 @@ export function BlogCard({
         <h3 className="text-2xl font-bold text-gray-900 mb-2 line-clamp-2 min-h-[4rem]">
           {title}
         </h3>
-        <p className="text-gray-600 mb-4 line-clamp-3 min-h-[4.5rem]">
-          {description}
-        </p>
+        <div className="text-gray-600 mb-4 line-clamp-3 min-h-[4.5rem] prose prose-sm max-w-none">
+          <ReactMarkdown
+            remarkPlugins={[remarkGfm]}
+            rehypePlugins={[rehypeRaw]}
+            components={{
+              p: ({ children }) => (
+                <p className="text-gray-600 mb-2">{children}</p>
+              ),
+              strong: ({ children }) => (
+                <strong className="font-semibold">{children}</strong>
+              ),
+              em: ({ children }) => <em className="italic">{children}</em>,
+              ul: ({ children }) => (
+                <ul className="list-disc pl-4 text-sm">{children}</ul>
+              ),
+              ol: ({ children }) => (
+                <ol className="list-decimal pl-4 text-sm">{children}</ol>
+              ),
+              li: ({ children }) => (
+                <li className="text-gray-600">{children}</li>
+              ),
+            }}
+          >
+            {description}
+          </ReactMarkdown>
+        </div>
       </div>
     </Link>
   );

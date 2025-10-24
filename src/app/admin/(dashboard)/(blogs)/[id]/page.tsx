@@ -4,7 +4,7 @@ import React, { useEffect, useState } from 'react';
 import dynamic from 'next/dynamic';
 import Image from 'next/image';
 import { useParams, useRouter } from 'next/navigation';
-import { ROUTES } from '@/constants/routes';
+import { API_ROUTES, ROUTES } from '@/constants/routes';
 
 const MDEditor = dynamic(() => import('@uiw/react-md-editor'), { ssr: false });
 
@@ -28,7 +28,7 @@ const Page = () => {
     const fetchBlog = async () => {
       if (!id) return;
       try {
-        const res = await fetch(`/api/blogs/${id}`);
+        const res = await fetch(API_ROUTES.GET_BLOGS_ID(id));
         if (!res.ok) throw new Error('Failed to fetch blog');
         const blog = await res.json();
         setTitle(blog.title);
@@ -62,7 +62,7 @@ const Page = () => {
         formData.append('currentThumbnailUrl', currentThumbnailUrl);
       }
 
-      const res = await fetch(`/api/blogs/${id}`, {
+      const res = await fetch(API_ROUTES.GET_BLOGS_ID(id as string), {
         method: 'PUT',
         body: formData,
       });

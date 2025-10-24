@@ -3,7 +3,7 @@
 import { useEffect, useState } from 'react';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
-import { ROUTES } from '@/constants/routes';
+import { API_ROUTES, ROUTES } from '@/constants/routes';
 
 import { Button } from '@/components/ui/button';
 import {
@@ -34,7 +34,7 @@ type BlogAPIResponse = {
 };
 
 const fetchBlogs = async (): Promise<Blog[]> => {
-  const res = await fetch('/api/blogs');
+  const res = await fetch(API_ROUTES.GET_BLOGS);
   if (!res.ok) return [];
 
   const data: BlogAPIResponse[] = await res.json();
@@ -68,7 +68,7 @@ const BlogListPage = () => {
     if (!confirm('Are you sure you want to delete this blog?')) return;
 
     try {
-      const response = await fetch(`/api/blogs/${id}`, {
+      const response = await fetch(API_ROUTES.GET_BLOGS_ID(id), {
         method: 'DELETE',
       });
 

@@ -1,27 +1,12 @@
 import { NextResponse } from 'next/server';
 import slugify from 'slugify';
 
-import { bucket, db } from '@/app/firebase/admin';
+import { getAllBlogs, saveBlog, saveImage } from '@/lib/blog-storage';
 
 export async function GET() {
   try {
-    const blogsRef = db.ref('blogs');
-    const snapshot = await blogsRef.once('value');
-    const blogsObject = snapshot.val(); // This will be the object with slugs as keys
-
-    const blogsArray = [];
-    if (blogsObject) {
-      // Iterate over the keys (slugs) of the blogsObject
-      for (const slug in blogsObject) {
-        if (Object.prototype.hasOwnProperty.call(blogsObject, slug)) {
-          // Add each blog object to the array
-          blogsArray.push(blogsObject[slug]);
-        }
-      }
-    }
-
-    // Return the array of blogs
-    return NextResponse.json(blogsArray, { status: 200 });
+    const blogs = await getAllBlogs();
+    return NextResponse.json(blogs, { status: 200 });
   } catch (error) {
     console.error('Error fetching blogs:', error);
     return NextResponse.json(
@@ -48,8 +33,9 @@ export async function POST(request: Request) {
     const slug = slugify(title, { lower: true, strict: true });
 
     // Check for existing blog with same slug
-    const existing = await db.ref(`blogs/${slug}`).once('value');
-    if (existing.exists()) {
+    const existingBlogs = await getAllBlogs();
+    const existing = existingBlogs.find((blog) => blog.slug === slug);
+    if (existing) {
       return NextResponse.json(
         { error: 'A blog with this title already exists' },
         { status: 409 }
@@ -57,34 +43,23 @@ export async function POST(request: Request) {
     }
 
     let thumbnailUrl = '';
-    if (thumbnail) {
-      const buffer = Buffer.from(await thumbnail.arrayBuffer());
-      const fileName = `complai-blogs/${slug}-${Date.now()}-${thumbnail.name}`;
-      const file = bucket.file(fileName);
-
-      await file.save(buffer, {
-        contentType: thumbnail.type,
-        public: true,
-        metadata: {
-          cacheControl: 'public, max-age=31536000',
-        },
-      });
-
-      thumbnailUrl = `https://storage.googleapis.com/${bucket.name}/${fileName}`;
+    if (thumbnail && thumbnail.size > 0) {
+      thumbnailUrl = await saveImage(thumbnail, slug);
     }
 
-    const blogRef = db.ref(`blogs/${slug}`);
-    await blogRef.set({
+    const newBlog = await saveBlog({
       title,
       content,
       slug,
       thumbnail: thumbnailUrl,
-      createdAt: Date.now(),
-      updatedAt: Date.now(),
     });
 
     return NextResponse.json(
-      { slug, thumbnailUrl, message: 'Blog created successfully' },
+      {
+        slug: newBlog.slug,
+        thumbnailUrl: newBlog.thumbnail,
+        message: 'Blog created successfully',
+      },
       { status: 201 }
     );
   } catch (error) {
