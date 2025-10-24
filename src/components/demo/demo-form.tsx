@@ -1,14 +1,14 @@
 'use client';
 
-import { motion, Variants } from 'framer-motion';
-import Image from 'next/image';
 import { FormEvent, useState } from 'react';
+import Image from 'next/image';
+import { API_ROUTES } from '@/constants/routes';
+import { motion, Variants } from 'framer-motion';
 
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 
-import { API_ROUTES } from '@/constants/routes';
 import SuccessSubmissionModal from '../modals/SuccessModal';
 
 // Animation variants

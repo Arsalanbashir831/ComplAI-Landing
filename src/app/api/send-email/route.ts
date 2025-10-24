@@ -6,10 +6,25 @@ const resend = new Resend(process.env.RESEND_API_KEY);
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json();
-    const { full_name, email, company_name, role, phone_no, message, form_type = 'demo' } = body;
+    const {
+      full_name,
+      email,
+      company_name,
+      role,
+      phone_no,
+      message,
+      form_type = 'demo',
+    } = body;
 
     // Validate required fields
-    if (!full_name || !email || !company_name || !role || !phone_no || !message) {
+    if (
+      !full_name ||
+      !email ||
+      !company_name ||
+      !role ||
+      !phone_no ||
+      !message
+    ) {
       return NextResponse.json(
         { error: 'All fields are required' },
         { status: 400 }
@@ -96,14 +111,13 @@ export async function POST(request: NextRequest) {
     });
 
     return NextResponse.json(
-      { 
+      {
         message: 'Email sent successfully',
         teamEmailId: teamEmailResult.data?.id,
-        userEmailId: userEmailResult.data?.id
+        userEmailId: userEmailResult.data?.id,
       },
       { status: 200 }
     );
-
   } catch (error) {
     console.error('Error sending email:', error);
     return NextResponse.json(
