@@ -1,10 +1,10 @@
 'use client';
 
-import { useEffect, useState } from 'react';
-import Image from 'next/image';
-import Link from 'next/link';
 import { BlogListResponse, getAllBlogs } from '@/services/blog-api';
 import { ArrowRight } from 'lucide-react';
+import Image from 'next/image';
+import Link from 'next/link';
+import { useEffect, useState } from 'react';
 import ReactMarkdown from 'react-markdown';
 import readingTime from 'reading-time';
 import rehypeRaw from 'rehype-raw';
@@ -96,10 +96,11 @@ export default function NewsSection() {
                 fill
                 className="object-cover rounded-lg"
                 unoptimized
+                loading='lazy'
               />
             </div>
             <div className="flex flex-col justify-between w-full md:w-1/2 space-y-4 h-96 py-4">
-              <div className="flex items-center gap-2 text-sm text-gray-400 py-1.5 bg-[#E2ECFF] w-max rounded-full">
+              <div className="flex items-center gap-2 text-sm text-gray-400 py-1.5 px-2 bg-[#E2ECFF] w-max rounded-full">
                 <span className="bg-blue-600 text-white px-2 py-1 rounded-full">
                   Latest
                 </span>
@@ -152,21 +153,23 @@ export default function NewsSection() {
       )}
 
       {/* Recent */}
-      <div className="mb-8">
-        <h2 className="text-4xl font-bold mb-6 text-blue-700">Recent News</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {recent.map((blog) => (
-            <BlogCard
-              key={blog.slug}
-              date={formatDate(blog.createdAt)}
-              title={blog.title}
-              description={blog.content.slice(0, 200)}
-              imageUrl={`${process.env.NEXT_PUBLIC_BACKEND_URL}${blog.thumbnail}`}
-              slug={blog.slug}
-            />
-          ))}
+      {recent.length > 1 && (
+        <div className="mb-8">
+          <h2 className="text-4xl font-bold mb-6 text-blue-700">Recent News</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {recent.map((blog) => (
+              <BlogCard
+                key={blog.slug}
+                date={formatDate(blog.createdAt)}
+                title={blog.title}
+                description={blog.content.slice(0, 200)}
+                imageUrl={`${process.env.NEXT_PUBLIC_BACKEND_URL}${blog.thumbnail}`}
+                slug={blog.slug}
+              />
+            ))}
+          </div>
         </div>
-      </div>
+      )}
 
       {/* Load More */}
       <div className="flex justify-center mt-8">
