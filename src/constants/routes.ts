@@ -21,6 +21,7 @@ export const ROUTES = {
     DASHBOARD: '/admin',
     AUTH: '/admin/auth',
     BLOGS: '/admin?blogs',
+    EARLY_ACCESS: '/admin/early-access',
   },
 } as const;
 

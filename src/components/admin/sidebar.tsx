@@ -1,11 +1,11 @@
 // src/components/admin/Sidebar.tsx
 'use client';
 
+import { ROUTES } from '@/constants/routes';
+import { BookOpen, Users } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { ROUTES } from '@/constants/routes';
-import { BookOpen } from 'lucide-react';
 
 import LogoutButton from './logout-button';
 
@@ -24,11 +24,10 @@ const NavLink: React.FC<NavLinkProps> = ({
 }) => (
   <Link
     href={href}
-    className={`flex items-center gap-3 rounded-lg px-3 py-2 transition-colors ${
-      isActive
-        ? 'bg-gray-800 text-white'
-        : 'text-gray-400 hover:text-white hover:bg-gray-700'
-    }`}
+    className={`flex items-center gap-3 rounded-lg px-3 py-2 transition-colors ${isActive
+      ? 'bg-gray-800 text-white'
+      : 'text-gray-400 hover:text-white hover:bg-gray-700'
+      }`}
   >
     <Icon className="h-5 w-5" />
     <span className="text-sm font-medium">{label}</span>
@@ -40,6 +39,7 @@ export function Sidebar() {
 
   const navItems = [
     { href: ROUTES.ADMIN.BLOGS, icon: BookOpen, label: 'Blogs' },
+    { href: ROUTES.ADMIN.EARLY_ACCESS, icon: Users, label: 'Early Access' },
   ];
 
   return (
@@ -63,11 +63,14 @@ export function Sidebar() {
       <nav className="flex-1 overflow-auto py-4 px-4 space-y-1">
         {navItems.map((item) => {
           const isBlogsLink = item.href === ROUTES.ADMIN.BLOGS;
+          const isEarlyAccessLink = item.href === ROUTES.ADMIN.EARLY_ACCESS;
           const isActive =
             (isBlogsLink &&
               (currentPath === ROUTES.ADMIN.DASHBOARD ||
-                currentPath.startsWith(item.href))) ||
-            (!isBlogsLink && currentPath.startsWith(item.href));
+                currentPath.startsWith('/admin?blogs'))) ||
+            (isEarlyAccessLink &&
+              (currentPath === ROUTES.ADMIN.DASHBOARD ||
+                currentPath.startsWith('/admin/early-access')));
 
           return (
             <NavLink

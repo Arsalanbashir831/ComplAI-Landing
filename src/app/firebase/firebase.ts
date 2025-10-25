@@ -1,5 +1,6 @@
 import { getApp, getApps, initializeApp } from 'firebase/app';
 import { Auth, getAuth } from 'firebase/auth';
+import { getDatabase } from 'firebase/database';
 
 let firebaseApp;
 if (!getApps().length) {
@@ -18,3 +19,4 @@ if (!getApps().length) {
 }
 
 export const auth: Auth = getAuth(firebaseApp);
+export const database = getDatabase(firebaseApp);
