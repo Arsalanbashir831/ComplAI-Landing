@@ -1,10 +1,10 @@
 'use client';
 
-import { useEffect, useState } from 'react';
-import Image from 'next/image';
-import Link from 'next/link';
 import { BlogListResponse, getAllBlogs } from '@/services/blog-api';
 import { ArrowRight } from 'lucide-react';
+import Image from 'next/image';
+import Link from 'next/link';
+import { useEffect, useState } from 'react';
 import ReactMarkdown from 'react-markdown';
 import readingTime from 'reading-time';
 import rehypeRaw from 'rehype-raw';
@@ -152,21 +152,23 @@ export default function NewsSection() {
       )}
 
       {/* Recent */}
-      <div className="mb-8">
-        <h2 className="text-4xl font-bold mb-6 text-blue-700">Recent News</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {recent.map((blog) => (
-            <BlogCard
-              key={blog.slug}
-              date={formatDate(blog.createdAt)}
-              title={blog.title}
-              description={blog.content.slice(0, 200)}
-              imageUrl={`${process.env.NEXT_PUBLIC_BACKEND_URL}${blog.thumbnail}`}
-              slug={blog.slug}
-            />
-          ))}
+      {recent.length > 0 && (
+        <div className="mb-8">
+          <h2 className="text-4xl font-bold mb-6 text-blue-700">Recent News</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {recent.map((blog) => (
+              <BlogCard
+                key={blog.slug}
+                date={formatDate(blog.createdAt)}
+                title={blog.title}
+                description={blog.content.slice(0, 200)}
+                imageUrl={`${process.env.NEXT_PUBLIC_BACKEND_URL}${blog.thumbnail}`}
+                slug={blog.slug}
+              />
+            ))}
+          </div>
         </div>
-      </div>
+      )}
 
       {/* Load More */}
       <div className="flex justify-center mt-8">
