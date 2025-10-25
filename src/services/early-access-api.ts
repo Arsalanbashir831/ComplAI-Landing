@@ -2,7 +2,8 @@
  * Early Access API service for Firebase Realtime Database
  */
 
-import { ref, get } from 'firebase/database';
+import { get, ref } from 'firebase/database';
+
 import { database } from '@/app/firebase/firebase';
 
 export interface EarlyAccessRequest {
@@ -30,7 +31,7 @@ export async function getAllEarlyAccessRequests(): Promise<EarlyAccessListRespon
   try {
     const earlyAccessRef = ref(database, 'compl-ai-early-access-form');
     const snapshot = await get(earlyAccessRef);
-    
+
     if (!snapshot.exists()) {
       return { requests: [], totalCount: 0 };
     }
@@ -71,11 +72,13 @@ export async function getAllEarlyAccessRequests(): Promise<EarlyAccessListRespon
 /**
  * Get a single early access request by ID
  */
-export async function getEarlyAccessRequestById(id: string): Promise<EarlyAccessRequest | null> {
+export async function getEarlyAccessRequestById(
+  id: string
+): Promise<EarlyAccessRequest | null> {
   try {
     const requestRef = ref(database, `compl-ai-early-access-form/${id}`);
     const snapshot = await get(requestRef);
-    
+
     if (!snapshot.exists()) {
       return null;
     }
@@ -103,23 +106,25 @@ export async function getEarlyAccessRequestById(id: string): Promise<EarlyAccess
  * Update early access request status
  */
 export async function updateEarlyAccessRequestStatus(
-  id: string, 
+  id: string,
   status: 'pending' | 'approved' | 'rejected',
   notes?: string
 ): Promise<void> {
   try {
-   const updates: Record<string, unknown> = {
+    const updates: Record<string, unknown> = {
       status,
       updatedAt: Date.now(),
     };
-    
+
     if (notes) {
       updates.notes = notes;
     }
 
     // Note: This would require Firebase Admin SDK on the server side
     // For now, we'll throw an error indicating server-side implementation needed
-    throw new Error('Status updates require server-side implementation with Firebase Admin SDK');
+    throw new Error(
+      'Status updates require server-side implementation with Firebase Admin SDK'
+    );
   } catch (error) {
     console.error('Error updating early access request:', error);
     throw new Error('Failed to update early access request');

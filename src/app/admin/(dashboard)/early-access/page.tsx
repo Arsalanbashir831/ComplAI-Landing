@@ -1,10 +1,19 @@
 'use client';
 
-import { EarlyAccessRequest, getAllEarlyAccessRequests } from '@/services/early-access-api';
 import { useEffect, useState } from 'react';
+import {
+  EarlyAccessRequest,
+  getAllEarlyAccessRequests,
+} from '@/services/early-access-api';
 
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from '@/components/ui/card';
 import {
   Table,
   TableBody,
@@ -52,7 +61,7 @@ const EarlyAccessRequestsPage = () => {
 
   console.log('Early Access Requests:', {
     totalRequests: requests.length,
-    requests: requests.map(r => ({
+    requests: requests.map((r) => ({
       id: r.id,
       email: r.email,
       name: r.name,
@@ -61,8 +70,8 @@ const EarlyAccessRequestsPage = () => {
       createdAt: new Date(r.createdAt).toISOString(),
       hasMessage: !!(r.message && r.message.trim()),
       hasPhone: !!(r.phone && r.phone.trim()),
-      hasCompany: !!(r.company && r.company.trim())
-    }))
+      hasCompany: !!(r.company && r.company.trim()),
+    })),
   });
 
   const handleRefresh = async () => {
@@ -124,14 +133,20 @@ const EarlyAccessRequestsPage = () => {
                   {requests.map((request) => (
                     <TableRow key={request.id}>
                       <TableCell className="font-medium">
-                        {request.name && request.name.trim() ? request.name : 'N/A'}
+                        {request.name && request.name.trim()
+                          ? request.name
+                          : 'N/A'}
                       </TableCell>
                       <TableCell>{request.email}</TableCell>
                       <TableCell>
-                        {request.company && request.company.trim() ? request.company : 'N/A'}
+                        {request.company && request.company.trim()
+                          ? request.company
+                          : 'N/A'}
                       </TableCell>
                       <TableCell>
-                        {request.phone && request.phone.trim() ? request.phone : 'N/A'}
+                        {request.phone && request.phone.trim()
+                          ? request.phone
+                          : 'N/A'}
                       </TableCell>
                       <TableCell>{formatDate(request.createdAt)}</TableCell>
                     </TableRow>
