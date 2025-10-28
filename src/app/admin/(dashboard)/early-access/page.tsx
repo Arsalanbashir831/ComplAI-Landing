@@ -1,10 +1,10 @@
 'use client';
 
+import { useEffect, useState } from 'react';
 import {
   EarlyAccessRequest,
   getAllEarlyAccessRequests,
 } from '@/services/early-access-api';
-import { useEffect, useState } from 'react';
 
 import { Button } from '@/components/ui/button';
 import {
@@ -146,7 +146,8 @@ const EarlyAccessRequestsPage = () => {
                           : 'N/A'}
                       </TableCell>
                       <TableCell>
-                        {request.companyPosition && request.companyPosition.trim()
+                        {request.companyPosition &&
+                        request.companyPosition.trim()
                           ? request.companyPosition
                           : 'N/A'}
                       </TableCell>
