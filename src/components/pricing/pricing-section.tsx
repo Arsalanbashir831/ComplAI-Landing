@@ -1,10 +1,10 @@
 'use client';
 
+import { ROUTES } from '@/constants/routes';
 import { motion } from 'framer-motion';
 
-import { PricingCards } from '@/components/pricing/new-pricing-cards';
-import { ROUTES } from '@/constants/routes';
 import { PricingPlan } from '@/types/pricing';
+import { PricingCards } from '@/components/pricing/new-pricing-cards';
 
 const pricingPlans: PricingPlan[] = [
   {
