@@ -1,6 +1,5 @@
 export const HOME_META_DATA = {
-  title:
-    'Compl-AI | AI-Powered Compliance Assistant for Law Firms & Enterprises',
+  title: 'Compl-AI - AI-powered compliance for SRA-regulated law firms',
   description:
     'Compl-AI is your intelligent, in-house compliance partner. Automate regulatory tasks, reduce risks, and stay ahead of compliance standards with AI-driven tools.',
   keywords: [

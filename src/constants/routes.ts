@@ -15,8 +15,8 @@ export const ROUTES = {
   PRIVACY_POLICY: '/privacy-policy',
   COOKIE_POLICY: '/cookie-policy',
   USER_AGREEMENT_POLICY: '/user-agreement',
-  SIGN_IN: 'https://compl-ai-frontend.vercel.app/auth',
-  REGISTER: 'https://compl-ai-frontend.vercel.app/auth/sign-up',
+  SIGN_IN: 'https://app.compl-ai.co.uk/auth',
+  REGISTER: 'https://app.compl-ai.co.uk/auth/sign-up',
   ADMIN: {
     DASHBOARD: '/admin',
     AUTH: '/admin/auth',

@@ -12,11 +12,11 @@ import { PricingBanner } from '@/components/pricing/pricing-banner';
 import SolutionsSection from '@/components/solutions-section';
 
 export const metadata: Metadata = {
-  title: 'Compl-AI | Instant Compliance Insights for Your Team',
+  title: 'Compl-AI - AI-powered compliance for SRA-regulated law firms',
   description:
     'Compl-AI provides instant compliance insights and solutions exactly when your team needs them. Save time, lower costs, and stay ahead with ease.',
   openGraph: {
-    title: 'Compl-AI | Instant Compliance Insights',
+    title: 'Compl-AI - AI-powered compliance for SRA-regulated law firms',
     description: 'Save time, reduce costs, and stay compliant with Compl-AI.',
     url: 'https://compl-ai.co.uk.com/',
     siteName: 'Compl-AI',
