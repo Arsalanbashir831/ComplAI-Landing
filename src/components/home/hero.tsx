@@ -20,7 +20,7 @@ const subtitle =
 const buttons = {
   primary: {
     text: 'Start Free Trial',
-    href: ROUTES.SIGN_IN,
+    href: ROUTES.REGISTER,
   },
 };
 

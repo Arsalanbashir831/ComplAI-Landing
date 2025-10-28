@@ -1,5 +1,6 @@
 'use client';
 
+import { ROUTES } from '@/constants/routes';
 import { motion } from 'framer-motion';
 
 import { PricingPlan } from '@/types/pricing';
@@ -12,7 +13,7 @@ const pricingPlans: PricingPlan[] = [
     price: '',
     description: '',
     buttonText: 'Start Free Trial',
-    btn_redirection: `${process.env.NEXT_PUBLIC_APPLICATION_URL}`,
+    btn_redirection: `${ROUTES.REGISTER}`,
     badge: 'Starter',
     secondaryButtonText: 'Top-up Now',
     featuresHeader: 'Top-Up & Go Details:',
