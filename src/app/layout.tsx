@@ -41,7 +41,7 @@ export default function RootLayout({
             `,
           }}
         />
-        
+
         {/* Preload LCP hero image */}
         <link
           rel="preload"
@@ -49,7 +49,7 @@ export default function RootLayout({
           href="/images/homehero.png"
           fetchPriority="high"
         />
-        
+
         {/* Preconnect to external origins */}
         <link
           rel="preconnect"

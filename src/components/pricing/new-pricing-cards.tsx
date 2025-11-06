@@ -215,7 +215,9 @@ export function PricingCard({ plan }: PricingCardProps) {
               {plan.footerHeading && (
                 <p className="text-sm font-semibold">{plan.footerHeading}</p>
               )}
-              {plan.footerText && <p className="text-sm">{plan.footerText}</p>}{' '}
+              {plan.footerText && (
+                <p className="text-sm">{plan.footerText}</p>
+              )}{' '}
             </div>
           </CardFooter>
         )}

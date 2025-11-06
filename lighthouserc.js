@@ -14,7 +14,7 @@ module.exports = {
         'largest-contentful-paint': ['error', { maxNumericValue: 2500 }], // 2.5s threshold
         'first-contentful-paint': ['error', { maxNumericValue: 1800 }],
         'speed-index': ['error', { maxNumericValue: 3400 }],
-        'interactive': ['error', { maxNumericValue: 3800 }],
+        interactive: ['error', { maxNumericValue: 3800 }],
         'total-blocking-time': ['error', { maxNumericValue: 200 }],
         'cumulative-layout-shift': ['error', { maxNumericValue: 0.1 }],
       },
@@ -24,4 +24,3 @@ module.exports = {
     },
   },
 };
-
