@@ -1,10 +1,10 @@
 'use client';
 
-import { useEffect, useState } from 'react';
-import Image from 'next/image';
 import { ROUTES } from '@/constants/routes';
 import { AnimatePresence, motion, Variants } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
+import Image from 'next/image';
+import { useEffect, useState } from 'react';
 
 import { CTAButton } from '@/components/cta-button';
 
@@ -121,11 +121,12 @@ export function Hero() {
               alt={images[visibleIndex].alt}
               width={800}
               height={800}
-              priority={visibleIndex === 0}
+              priority
               fetchPriority="high"
               sizes="(max-width: 768px) 100vw, 800px"
-              quality={85}
+              quality={90}
               className="block w-full h-auto"
+              style={{ width: '100%', height: 'auto' }}
             />
           </motion.div>
         </AnimatePresence>

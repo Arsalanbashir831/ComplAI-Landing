@@ -50,7 +50,7 @@ const itemVariants: Variants = {
   hidden: { opacity: 0, y: 30 },
   visible: {
     opacity: 1,
-    y: [30, -5, 0],
+    y: 0,
     transition: {
       y: { type: 'spring', stiffness: 80, damping: 12, mass: 0.5 },
       opacity: { duration: 0.3, ease: 'easeInOut' },

@@ -21,7 +21,7 @@ const itemVariants: Variants = {
   hidden: { opacity: 0, y: 50 },
   visible: {
     opacity: 1,
-    y: [50, -10, 0],
+    y: 0,
     transition: {
       y: {
         type: 'spring',

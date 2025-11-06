@@ -64,9 +64,9 @@ export default function NewsDetail({
         {children}
       </a>
     ),
-    img: ({ src, alt }: { src?: string; alt?: string }) => (
+    img: ({ src, alt }: { src?: string | Blob; alt?: string }) => (
       <Image
-        src={src || ''}
+        src={typeof src === 'string' ? src : ''}
         alt={alt || 'image'}
         width={800}
         height={600}

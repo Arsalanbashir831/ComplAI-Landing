@@ -26,6 +26,30 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
+        {/* LCP measurement script - run first to capture real LCP */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              new PerformanceObserver((list)=>{
+                for(const e of list.getEntries()){
+                  window.__lcp=e;
+                  if(typeof console!=='undefined'){
+                    console.log('[LCP]',e.element?.tagName,e.startTime+'ms',e.url||e.element?.innerText?.slice(0,50));
+                  }
+                }
+              }).observe({type:'largest-contentful-paint',buffered:true});
+            `,
+          }}
+        />
+        
+        {/* Preload LCP hero image */}
+        <link
+          rel="preload"
+          as="image"
+          href="/images/homehero.png"
+          fetchPriority="high"
+        />
+        
         {/* Preconnect to external origins */}
         <link
           rel="preconnect"

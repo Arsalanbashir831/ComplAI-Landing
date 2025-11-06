@@ -29,7 +29,7 @@ const itemVariants: Variants = {
   hidden: { opacity: 0, y: 40 },
   visible: {
     opacity: 1,
-    y: [40, -8, 0],
+    y: 0,
     transition: {
       y: { type: 'spring', stiffness: 45, damping: 14, mass: 0.7 },
       opacity: { duration: 0.5, ease: 'easeInOut' },

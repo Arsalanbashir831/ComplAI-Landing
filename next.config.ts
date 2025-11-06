@@ -34,7 +34,7 @@ const nextConfig: NextConfig = {
         pathname: '/**',
       },
     ],
-    minimumCacheTTL: 60,
+    minimumCacheTTL: 3600, // 1 hour cache
     dangerouslyAllowSVG: true,
     contentDispositionType: 'attachment',
     contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
@@ -47,6 +47,9 @@ const nextConfig: NextConfig = {
   poweredByHeader: false,
   compress: true,
 
+  // Production optimizations
+  productionBrowserSourceMaps: false,
+
   // Increase timeouts to prevent timeout errors
   experimental: {
     serverActions: {
@@ -57,6 +60,15 @@ const nextConfig: NextConfig = {
       'framer-motion',
       '@radix-ui/react-dialog',
       '@radix-ui/react-accordion',
+      '@radix-ui/react-avatar',
+      '@radix-ui/react-label',
+      '@radix-ui/react-popover',
+      '@radix-ui/react-select',
+      '@radix-ui/react-separator',
+      '@radix-ui/react-slot',
+      '@radix-ui/react-tabs',
+      '@radix-ui/react-tooltip',
+      'date-fns',
     ],
   },
 };
