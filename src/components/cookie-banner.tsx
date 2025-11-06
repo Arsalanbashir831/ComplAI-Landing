@@ -1,8 +1,8 @@
 'use client';
 
-import { AnimatePresence, motion } from 'framer-motion';
-import Link from 'next/link';
 import { useEffect, useState } from 'react';
+import Link from 'next/link';
+import { AnimatePresence, motion } from 'framer-motion';
 
 const COOKIE_CONSENT_KEY = 'complai-cookie-consent';
 
@@ -108,4 +108,3 @@ export function CookieBanner() {
     </AnimatePresence>
   );
 }
-

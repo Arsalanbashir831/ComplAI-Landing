@@ -1,5 +1,5 @@
-import { HOME_META_DATA } from '@/constants/meta-data';
 import type { Metadata } from 'next';
+import { HOME_META_DATA } from '@/constants/meta-data';
 
 import { CookieBanner } from '@/components/cookie-banner';
 import { Footer } from '@/components/footer';
