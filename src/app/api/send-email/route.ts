@@ -67,17 +67,17 @@ export async function POST(request: NextRequest) {
     `;
 
     // Send email to your team with timeout protection
-    const teamEmailResult = await Promise.race([
+    const teamEmailResult = (await Promise.race([
       resend.emails.send({
         from: process.env.FROM_EMAIL!,
         to: [process.env.TO_EMAIL!],
         subject: `New ${form_type === 'demo' ? 'Demo' : 'General'} Enquiry from ${full_name}`,
         html: emailContent,
       }),
-      new Promise((_, reject) => 
+      new Promise((_, reject) =>
         setTimeout(() => reject(new Error('Team email timeout')), 25000)
-      )
-    ]) as Awaited<ReturnType<typeof resend.emails.send>>;
+      ),
+    ])) as Awaited<ReturnType<typeof resend.emails.send>>;
 
     // Send confirmation email to the user
     const userConfirmationContent = `
@@ -112,17 +112,17 @@ export async function POST(request: NextRequest) {
       </div>
     `;
 
-    const userEmailResult = await Promise.race([
+    const userEmailResult = (await Promise.race([
       resend.emails.send({
         from: process.env.FROM_EMAIL!,
         to: [email],
         subject: `Thank you for your ${form_type === 'demo' ? 'demo request' : 'general enquiry'} - ComplAI`,
         html: userConfirmationContent,
       }),
-      new Promise((_, reject) => 
+      new Promise((_, reject) =>
         setTimeout(() => reject(new Error('User email timeout')), 25000)
-      )
-    ]) as Awaited<ReturnType<typeof resend.emails.send>>;
+      ),
+    ])) as Awaited<ReturnType<typeof resend.emails.send>>;
 
     return NextResponse.json(
       {
@@ -134,17 +134,20 @@ export async function POST(request: NextRequest) {
     );
   } catch (error) {
     console.error('Error sending email:', error);
-    
+
     // Check if it's a timeout error
-    const errorMessage = error instanceof Error ? error.message : 'Unknown error';
-    const isTimeout = errorMessage.includes('timeout') || errorMessage.includes('TIMEOUT');
-    
+    const errorMessage =
+      error instanceof Error ? error.message : 'Unknown error';
+    const isTimeout =
+      errorMessage.includes('timeout') || errorMessage.includes('TIMEOUT');
+
     return NextResponse.json(
-      { 
-        error: isTimeout 
-          ? 'Request timed out. Please try again or contact support.' 
+      {
+        error: isTimeout
+          ? 'Request timed out. Please try again or contact support.'
           : 'Failed to send email. Please try again.',
-        details: process.env.NODE_ENV === 'development' ? errorMessage : undefined
+        details:
+          process.env.NODE_ENV === 'development' ? errorMessage : undefined,
       },
       { status: isTimeout ? 504 : 500 }
     );

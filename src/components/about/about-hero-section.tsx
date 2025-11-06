@@ -32,7 +32,7 @@ export default function AboutHeroSection() {
   const isMobile = useMobile();
   const showMobileLayout = isMobile === true;
   const showDesktopLayout = isMobile === false;
-  
+
   return (
     <>
       <div className="absolute left-0 top-0 bottom-0 right-0 bg-gradient-to-b from-[#70a2ff36] to-[#43619900]" />

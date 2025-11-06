@@ -1,11 +1,11 @@
 'use client';
 
-import { ROUTES } from '@/constants/routes';
-import Link from 'next/link';
 import { useEffect, useState } from 'react';
+import Link from 'next/link';
+import { ROUTES } from '@/constants/routes';
 
-import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
+import { Button } from '@/components/ui/button';
 
 import { Logo } from './logo';
 import { MobileSideNav } from './mobile-side-nav';
@@ -32,8 +32,9 @@ export function Header() {
     <header
       className={cn(
         'fixed top-0 z-50 w-full bg-transparent px-8',
-        mounted && hasScrolled &&
-        'bg-white/95 backdrop-blur supports-[backdrop-filter]:bg-white/60'
+        mounted &&
+          hasScrolled &&
+          'bg-white/95 backdrop-blur supports-[backdrop-filter]:bg-white/60'
       )}
       suppressHydrationWarning
     >

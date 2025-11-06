@@ -27,11 +27,26 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <head>
         {/* Preconnect to external origins */}
-        <link rel="preconnect" href="https://hebbkx1anhila5yf.public.blob.vercel-storage.com" crossOrigin="anonymous" />
-        <link rel="preconnect" href="https://api.compl-ai.co.uk" crossOrigin="anonymous" />
-        <link rel="preconnect" href="https://storage.googleapis.com" crossOrigin="anonymous" />
+        <link
+          rel="preconnect"
+          href="https://hebbkx1anhila5yf.public.blob.vercel-storage.com"
+          crossOrigin="anonymous"
+        />
+        <link
+          rel="preconnect"
+          href="https://api.compl-ai.co.uk"
+          crossOrigin="anonymous"
+        />
+        <link
+          rel="preconnect"
+          href="https://storage.googleapis.com"
+          crossOrigin="anonymous"
+        />
         {/* DNS prefetch as fallback */}
-        <link rel="dns-prefetch" href="https://hebbkx1anhila5yf.public.blob.vercel-storage.com" />
+        <link
+          rel="dns-prefetch"
+          href="https://hebbkx1anhila5yf.public.blob.vercel-storage.com"
+        />
         <link rel="dns-prefetch" href="https://api.compl-ai.co.uk" />
         <link rel="dns-prefetch" href="https://storage.googleapis.com" />
       </head>

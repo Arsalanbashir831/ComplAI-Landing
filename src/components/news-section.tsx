@@ -1,15 +1,15 @@
 'use client';
 
+import { useEffect, useRef, useState } from 'react';
+import Link from 'next/link';
 import { Blog, getAllBlogs } from '@/services/blog-api';
 import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
-import Link from 'next/link';
-import { useEffect, useRef, useState } from 'react';
 
-import { NewsCard } from '@/components/news-card';
-import { Button } from '@/components/ui/button';
-import useMobile from '@/hooks/useMobile';
 import { formatDate } from '@/lib/date-utils';
+import useMobile from '@/hooks/useMobile';
+import { Button } from '@/components/ui/button';
+import { NewsCard } from '@/components/news-card';
 
 export function NewsSection() {
   const isMobile = useMobile();
@@ -146,8 +146,9 @@ export function NewsSection() {
               onClick={() => scrollToCard(index)}
               aria-label={`Go to news article ${index + 1}`}
               aria-current={activeIndex === index ? 'true' : 'false'}
-              className={`w-3 h-3 rounded-full ${activeIndex === index ? 'bg-blue-600' : 'bg-gray-400'
-                }`}
+              className={`w-3 h-3 rounded-full ${
+                activeIndex === index ? 'bg-blue-600' : 'bg-gray-400'
+              }`}
             />
           ))}
         </div>

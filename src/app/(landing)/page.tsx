@@ -1,17 +1,40 @@
-import { HomeFAQs } from '@/constants/faqs';
+import { Suspense } from 'react';
 import { Metadata } from 'next';
 import dynamic from 'next/dynamic';
-import { Suspense } from 'react';
+import { HomeFAQs } from '@/constants/faqs';
 
 import { Hero } from '@/components/home/hero';
 
 // Lazy load below-the-fold components
-const SolutionsSection = dynamic(() => import('@/components/solutions-section'), { ssr: true });
-const SecurityFeatures = dynamic(() => import('@/components/_common/security-features').then(mod => ({ default: mod.SecurityFeatures })), { ssr: true });
-const PricingBanner = dynamic(() => import('@/components/pricing/pricing-banner').then(mod => ({ default: mod.PricingBanner })), { ssr: true });
+const SolutionsSection = dynamic(
+  () => import('@/components/solutions-section'),
+  { ssr: true }
+);
+const SecurityFeatures = dynamic(
+  () =>
+    import('@/components/_common/security-features').then((mod) => ({
+      default: mod.SecurityFeatures,
+    })),
+  { ssr: true }
+);
+const PricingBanner = dynamic(
+  () =>
+    import('@/components/pricing/pricing-banner').then((mod) => ({
+      default: mod.PricingBanner,
+    })),
+  { ssr: true }
+);
 const FAQSection = dynamic(() => import('@/components/faq'), { ssr: true });
-const CTASection = dynamic(() => import('@/components/cta-section'), { ssr: true });
-const NewsSection = dynamic(() => import('@/components/news-section').then(mod => ({ default: mod.NewsSection })), { ssr: true });
+const CTASection = dynamic(() => import('@/components/cta-section'), {
+  ssr: true,
+});
+const NewsSection = dynamic(
+  () =>
+    import('@/components/news-section').then((mod) => ({
+      default: mod.NewsSection,
+    })),
+  { ssr: true }
+);
 
 export const metadata: Metadata = {
   title: 'Compl-AI - AI-powered compliance for SRA-regulated law firms',

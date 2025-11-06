@@ -52,7 +52,15 @@ function ValueCard({ title, description, icon, className }: ValueCardProps) {
       >
         <Card className="h-full overflow-hidden bg-white border-2 border-primary transition-all duration-300 flex flex-col items-center justify-center rounded-3xl">
           <CardContent className="p-6 flex flex-col items-center justify-center">
-            {icon && <Image src={icon} width={52} height={52} alt={title} loading="lazy" />}
+            {icon && (
+              <Image
+                src={icon}
+                width={52}
+                height={52}
+                alt={title}
+                loading="lazy"
+              />
+            )}
             <h3 className="text-xl md:text-2xl font-semibold text-[#000] mt-4">
               {title}
             </h3>

@@ -2,7 +2,7 @@ import { MetadataRoute } from 'next';
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = 'https://compl-ai.co.uk';
-  
+
   // Static routes
   const routes = [
     '',
@@ -25,4 +25,3 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   return routes;
 }
-
