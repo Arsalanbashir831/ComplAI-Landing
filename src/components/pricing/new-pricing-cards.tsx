@@ -146,9 +146,7 @@ export function PricingCard({ plan }: PricingCardProps) {
                 <p className="text-[#000000] font-semibold">Or</p>
                 <Separator className="basis-1/2 bg-[#9D9D9D]" />
               </div>
-              <Link
-                href={`${plan.btn_redirection}?subscription=topup`}
-              >
+              <Link href={`${plan.btn_redirection}?subscription=topup`}>
                 <Button className="w-full mt-2 bg-primary text-white hover:bg-blue-600 text-xl">
                   {plan.secondaryButtonText}
                 </Button>
@@ -215,9 +213,7 @@ export function PricingCard({ plan }: PricingCardProps) {
               {plan.footerHeading && (
                 <p className="text-sm font-semibold">{plan.footerHeading}</p>
               )}
-              {plan.footerText && (
-                <p className="text-sm">{plan.footerText}</p>
-              )}{' '}
+              {plan.footerText && <p className="text-sm">{plan.footerText}</p>}{' '}
             </div>
           </CardFooter>
         )}
