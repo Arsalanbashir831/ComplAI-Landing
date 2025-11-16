@@ -84,7 +84,7 @@ export default function WhyResolveSection() {
           Why Your Firm Needs Companion?
         </h2>
         <p className="text-2xl ">
-          Focus on your real work — let Companion handle the complaints.
+          Focus on your real work — let Companion handle the compliance.
         </p>
       </div>
 

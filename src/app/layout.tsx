@@ -1,3 +1,4 @@
+import { GoogleAnalytics } from '@next/third-parties/google';
 import { Geist, Geist_Mono } from 'next/font/google';
 
 import './globals.css';
@@ -66,6 +67,9 @@ export default function RootLayout({
           href="https://storage.googleapis.com"
           crossOrigin="anonymous"
         />
+        {/* Google Analytics preconnect */}
+        <link rel="preconnect" href="https://www.googletagmanager.com" />
+        <link rel="preconnect" href="https://www.google-analytics.com" />
         {/* DNS prefetch as fallback */}
         <link
           rel="dns-prefetch"
@@ -79,6 +83,7 @@ export default function RootLayout({
         suppressHydrationWarning
       >
         {children}
+        <GoogleAnalytics gaId="G-6HYG0FJT6F" />
       </body>
     </html>
   );

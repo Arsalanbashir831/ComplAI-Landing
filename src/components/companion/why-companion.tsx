@@ -78,7 +78,7 @@ export default function WhyCompanionSection() {
           viewport={{ once: true }}
           className="text-xl md:text-2xl "
         >
-          Focus on your real work — let Companion handle the complaints.
+          Focus on your real work — let Companion handle the compliance.
         </motion.p>
       </div>
 
