@@ -71,6 +71,7 @@ export async function POST(request: NextRequest) {
       resend.emails.send({
         from: `Compl-AI <${process.env.FROM_EMAIL!}>`,
         to: [process.env.TO_EMAIL!],
+        cc: [process.env.FROM_EMAIL!], // CC to support@compl-ai.co.uk
         subject: `New ${form_type === 'demo' ? 'Demo' : 'General'} Enquiry from ${full_name}`,
         html: emailContent,
         replyTo: email, // Allow team to reply directly to the user
@@ -108,7 +109,7 @@ export async function POST(request: NextRequest) {
         </div>
         
         <div style="margin-top: 20px; text-align: center; color: #64748b; font-size: 14px;">
-          <p>Best regards,<br>The ComplAI Team</p>
+          <p>Best regards,<br>The Compl-AI</p>
         </div>
       </div>
     `;
@@ -117,6 +118,7 @@ export async function POST(request: NextRequest) {
       resend.emails.send({
         from: `Compl-AI <${process.env.FROM_EMAIL!}>`,
         to: [email],
+        cc: [process.env.FROM_EMAIL!], // CC to support@compl-ai.co.uk
         subject: `Thank you for your ${form_type === 'demo' ? 'demo request' : 'general enquiry'} - ComplAI`,
         html: userConfirmationContent,
       }),
