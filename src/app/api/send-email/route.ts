@@ -39,7 +39,7 @@ export async function POST(request: NextRequest) {
     const emailContent = `
       <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
         <div style="text-align: center; margin-bottom: 30px;">
-          <img src="${process.env.NEXT_PUBLIC_LANDING_URL}/logos/complai.png" alt="ComplAI Logo" style="height: 40px; width: auto;" />
+          <img src="${process.env.NEXT_PUBLIC_LANDING_URL}/logos/compl-ai.png" alt="ComplAI Logo" style="height: 40px; width: auto;" />
         </div>
         
         <h2 style="color: #2563eb; border-bottom: 2px solid #2563eb; padding-bottom: 10px;">
@@ -69,10 +69,11 @@ export async function POST(request: NextRequest) {
     // Send email to your team with timeout protection
     const teamEmailResult = (await Promise.race([
       resend.emails.send({
-        from: process.env.FROM_EMAIL!,
+        from: `Compl-AI <${process.env.FROM_EMAIL!}>`,
         to: [process.env.TO_EMAIL!],
         subject: `New ${form_type === 'demo' ? 'Demo' : 'General'} Enquiry from ${full_name}`,
         html: emailContent,
+        replyTo: email, // Allow team to reply directly to the user
       }),
       new Promise((_, reject) =>
         setTimeout(() => reject(new Error('Team email timeout')), 25000)
@@ -83,7 +84,7 @@ export async function POST(request: NextRequest) {
     const userConfirmationContent = `
       <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
         <div style="text-align: center; margin-bottom: 30px;">
-          <img src="${process.env.NEXT_PUBLIC_LANDING_URL}/logos/complai.png" alt="ComplAI Logo" style="height: 50px; width: auto; margin-bottom: 20px;" />
+          <img src="${process.env.NEXT_PUBLIC_LANDING_URL}/logos/compl-ai.png" alt="ComplAI Logo" style="height: 50px; width: auto; margin-bottom: 20px;" />
           <h1 style="color: #2563eb; margin-bottom: 10px;">Thank You for Your Interest!</h1>
           <p style="color: #64748b; font-size: 16px;">We've received your ${form_type === 'demo' ? 'demo request' : 'general enquiry'} and will get back to you soon.</p>
         </div>
@@ -114,7 +115,7 @@ export async function POST(request: NextRequest) {
 
     const userEmailResult = (await Promise.race([
       resend.emails.send({
-        from: process.env.FROM_EMAIL!,
+        from: `Compl-AI <${process.env.FROM_EMAIL!}>`,
         to: [email],
         subject: `Thank you for your ${form_type === 'demo' ? 'demo request' : 'general enquiry'} - ComplAI`,
         html: userConfirmationContent,
