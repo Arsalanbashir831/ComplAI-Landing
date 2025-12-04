@@ -9,7 +9,7 @@ import { ArrowRight } from 'lucide-react';
 import { CTAButton } from '@/components/cta-button';
 
 const title = {
-  start: 'AI-driven',
+  start: 'AI Powered',
   middle: ' compliance for ',
   highlight: 'SRA',
   end: ' regulated law firms',
